@@ -1,21 +1,19 @@
-import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
 
-i18n
-  .use(initReactI18next)
-  .init({
-    lng: 'en', // default language
-    fallbackLng: 'en', // fallback language
+i18n.use(initReactI18next).init({
+    lng: "en", // default language
+    fallbackLng: "en", // fallback language
     interpolation: {
-      escapeValue: false, // react already safes from xss
+        escapeValue: false, // react already safes from xss
     },
     resources: {
-      en: {
-        translation: {
-          // your translations
+        en: {
+            translation: {
+                // your translations
+            },
         },
-      },
     },
-  });
+});
 
-  export default i18n;
+export default i18n;
