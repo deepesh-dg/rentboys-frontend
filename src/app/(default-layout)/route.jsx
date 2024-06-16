@@ -14,9 +14,9 @@ const DefaultRoutes = [
                 path: "/",
                 element: <Home />,
             },
-            ...ProtectedRoutes
+            ...ProtectedRoutes,
         ],
-    }
+    },
 ];
 
 export default DefaultRoutes;

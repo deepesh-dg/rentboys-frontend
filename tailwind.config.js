@@ -35,7 +35,9 @@ export default {
             },
         },
         zIndex: (function getZIndex() {
-            return Object.fromEntries(Array.from({ length: 100 }, (_, i) => [i, i.toString()]));
+            return Object.fromEntries(
+                Array.from({ length: 100 }, (_, i) => [i, i.toString()])
+            );
         })(),
         extend: {
             // Extend colors
@@ -61,27 +63,21 @@ export default {
     plugins: [
         require("@tailwindcss/container-queries"),
         plugin(function extractColorsVars({ addBase, theme }) {
-            function extractColorVars(
-                colorObj,
-                colorGroup = ""
-            ) {
-                return Object.keys(colorObj).reduce(
-                    (vars, colorKey) => {
-                        const value = colorObj[colorKey];
-                        const cssVariable =
-                            colorKey === "DEFAULT"
-                                ? `--color${colorGroup}`
-                                : `--color${colorGroup}-${colorKey}`;
+            function extractColorVars(colorObj, colorGroup = "") {
+                return Object.keys(colorObj).reduce((vars, colorKey) => {
+                    const value = colorObj[colorKey];
+                    const cssVariable =
+                        colorKey === "DEFAULT"
+                            ? `--color${colorGroup}`
+                            : `--color${colorGroup}-${colorKey}`;
 
-                        const newVars =
-                            typeof value === "string"
-                                ? { [cssVariable]: value }
-                                : extractColorVars(value, `-${colorKey}`);
+                    const newVars =
+                        typeof value === "string"
+                            ? { [cssVariable]: value }
+                            : extractColorVars(value, `-${colorKey}`);
 
-                        return { ...vars, ...newVars };
-                    },
-                    {}
-                );
+                    return { ...vars, ...newVars };
+                }, {});
             }
 
             addBase({
