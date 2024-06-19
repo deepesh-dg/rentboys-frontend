@@ -3,7 +3,7 @@ const Button = ({ label, onClick, className }) => {
         <button
             type="button"
             onClick={onClick}
-            className={`text-md ms-2 rounded-lg px-[16px] py-[5px] font-medium text-white md:font-medium ${className}`}
+            className={`text-md rounded-lg text-white ${className}`}
         >
             {label}
         </button>
@@ -11,3 +11,4 @@ const Button = ({ label, onClick, className }) => {
 };
 
 export default Button;
+
