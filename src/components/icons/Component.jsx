@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { ReactSVG } from "react-svg";
 import classNames from "classnames";
