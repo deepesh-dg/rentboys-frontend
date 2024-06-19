@@ -8,8 +8,9 @@ const initiaState = {
 };
 
 export const loginThunk = createAsyncThunk(
-    "auth/register",
+    "auth/login",
     async (data, thunkApi) => {
+        const http = new HTTP();
         const res = await http.post("/login", data);
 
         if (res.status) return res.data;
@@ -32,7 +33,7 @@ export const authSlice = createSlice({
     reducers: {},
     extraReducers: builder => {
         builder.addCase(loginThunk.fulfilled, (state, action) => {
-            if (action.payload) return;
+            if (!action.payload) return;
 
             state.isAuthenticated = true;
             state.token = action.payload.token;

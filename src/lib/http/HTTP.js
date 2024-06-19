@@ -2,14 +2,14 @@ import axios from "axios";
 
 export default class HTTP {
     /** @type {import('axios').AxiosInstance} */
-    #http;
+    _http;
 
     /**
      * @param {string} baseURL
      */
     constructor(baseURL = import.meta.env.VITE_API_URL) {
         this.baseURL = baseURL;
-        this.#http = axios.create({
+        this._http = axios.create({
             baseURL: this.baseURL,
         });
     }
@@ -40,7 +40,7 @@ export default class HTTP {
         };
 
         try {
-            const response = await this.#http.get(path, config);
+            const response = await this._http.get(path, config);
 
             if (!response.data.status) throw response.data;
 
@@ -89,7 +89,7 @@ export default class HTTP {
         };
 
         try {
-            const response = await this.#http.post(path, data, config);
+            const response = await this._http.post(path, data, config);
 
             if (!response.data.status) throw response.data;
 
@@ -138,7 +138,7 @@ export default class HTTP {
         };
 
         try {
-            const response = await this.#http.put(path, data, config);
+            const response = await this._http.put(path, data, config);
 
             if (!response.data.status) throw response.data;
 
@@ -185,7 +185,7 @@ export default class HTTP {
         };
 
         try {
-            const response = await this.#http.delete(path, config);
+            const response = await this._http.delete(path, config);
 
             if (!response.data.status) throw response.data;
 
