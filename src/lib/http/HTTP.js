@@ -12,6 +12,10 @@ export default class HTTP {
         this._http = axios.create({
             baseURL: this.baseURL,
         });
+        this._http.interceptors.request.use(request => {
+            request.headers.set("token", import.meta.env.VITE_API_TOKEN);
+            return request;
+        });
     }
 
     /**
