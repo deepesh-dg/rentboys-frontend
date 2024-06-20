@@ -3,9 +3,11 @@ import DefaultRoutes from "./(default-layout)/route";
 import RootLayout from "./layout";
 import NotFound from "./not-found";
 import ErrorPage from "./error";
+import Consent from "./consent";
+
 
 /**
- * @type {import('react-router-dom').RouteObject[]}
+ * @type {import('react-router-dom').RouteObject[]} 
  */
 const RootRoute = [
     // Public Routes
@@ -20,7 +22,10 @@ const RootRoute = [
             ...AuthRoutes,
         ],
     },
-
+    {
+        path: "/consent",
+        element: <Consent />,
+    },
     {
         path: "*",
         element: <NotFound />,

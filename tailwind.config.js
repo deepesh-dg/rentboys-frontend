@@ -42,10 +42,20 @@ export default {
         extend: {
             // Extend colors
             colors: {
-                red: "#ff0000",
                 dark: "#191919",
+                red: {
+                    50: "#ff0000",
+                    100: "#9C0404",
+                },
+                gray: {
+                    50: "#353535",
+                    100: "#1F1F1F",
+                    200: "#A5A5A5", //text color
+                }
             },
-
+            fontFamily: {
+                'fira-sans': ['"Fira Sans Condensed"'],
+            },
             aftrelay: {
                 content: "",
                 position: "absolute",
