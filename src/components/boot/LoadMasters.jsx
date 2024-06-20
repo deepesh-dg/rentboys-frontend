@@ -1,5 +1,5 @@
 import React from "react";
-import { useMasters } from "@/store/hooks/masters";
+import { useMasters } from "@/store";
 
 export default function LoadMasters() {
     const { load } = useMasters();
