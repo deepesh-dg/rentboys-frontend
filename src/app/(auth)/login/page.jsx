@@ -7,11 +7,7 @@ import Input from "@/components/common/Input/Input";
 export default function Login() {
     return (
         <div
-            className="z-1 flex w-full max-w-xl flex-col items-center rounded-2xl border border-dark bg-black/80 px-4 py-12 text-white md:px-16"
-            style={{
-                boxShadow: "0px 4px 50.6px 0px #D8000040",
-            }}
-        >
+            className="z-1 flex w-full max-w-xl flex-col items-center rounded-2xl border border-dark bg-black/80 px-4 py-12 text-white md:px-16 shadow-sm">
             <h1 className="relative font-fira-sans text-2xl font-normal text-white before:absolute before:-bottom-2 before:left-5 before:w-6 before:border-2 before:border-red-50 after:absolute after:-bottom-2 after:right-5 after:w-6 after:border-2 after:border-red-50">
                 Login
             </h1>

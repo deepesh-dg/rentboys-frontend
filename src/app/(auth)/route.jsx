@@ -7,7 +7,9 @@ const OTPVerification = lazy(() => import("./otp-verification/page"));
 const User = lazy(() => import("./user/page"));
 const Location = lazy(() => import("./location/page"));
 const MemberPlan = lazy(() => import("./membership-plan/page"));
-
+const ForgetPassword = lazy(() => import("./forget-password/page"));
+const ResetPassword = lazy(() => import("./reset-password/page"));
+const UploadId = lazy(() => import("./uploadId/page"));
 
 
 /**
@@ -41,6 +43,18 @@ const AuthRoutes = [
             {
                 path: "/membership-plan",
                 element: <MemberPlan />,
+            },
+            {
+                path: "/forget-password",
+                element: <ForgetPassword />,
+            },
+            {
+                path: "/reset-password",
+                element: <ResetPassword />,
+            },
+            {
+                path: "/uploadid",
+                element: <UploadId />,
             },
         ],
     },
