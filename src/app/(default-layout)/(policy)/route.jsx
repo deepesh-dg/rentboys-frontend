@@ -21,16 +21,20 @@ const PoliciesRoutes = [
             {
                 path: "cookie-policy",
                 element: <CookiePolicy />,
-            }, {
+            },
+            {
                 path: "/DMCA-notice",
                 element: <DMCANotice />,
-            }, {
+            },
+            {
                 path: "legal",
                 element: <Legal />,
-            }, {
+            },
+            {
                 path: "privacy-policy",
                 element: <PrivacyPolicy />,
-            }, {
+            },
+            {
                 path: "terms-of-service",
                 element: <TermsOfService />,
             },

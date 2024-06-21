@@ -51,6 +51,7 @@ export default {
                     50: "#353535",
                     100: "#1F1F1F",
                     200: "#A5A5A5", //text color
+                    300: "#303030", //border color
                 }
             },
             fontFamily: {
