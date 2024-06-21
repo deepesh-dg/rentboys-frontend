@@ -7,10 +7,10 @@ const OTPVerification = lazy(() => import("./otp-verification/page"));
 const User = lazy(() => import("./user/page"));
 const Location = lazy(() => import("./location/page"));
 const MemberPlan = lazy(() => import("./membership-plan/page"));
-const ForgetPassword = lazy(() => import("./forget-password/page"));
+const ForgetPassword = lazy(() => import("./forgot-password/page"));
 const ResetPassword = lazy(() => import("./reset-password/page"));
 const UploadId = lazy(() => import("./uploadId/page"));
-
+const PhoneNoUpdate = lazy(() => import("./update-phone-number/page"));
 
 /**
  * @type {import('react-router-dom').RouteObject[]}
@@ -45,7 +45,7 @@ const AuthRoutes = [
                 element: <MemberPlan />,
             },
             {
-                path: "/forget-password",
+                path: "/forgot-password",
                 element: <ForgetPassword />,
             },
             {
@@ -55,6 +55,10 @@ const AuthRoutes = [
             {
                 path: "/uploadid",
                 element: <UploadId />,
+            },
+            {
+                path: "/update-phone-number",
+                element: <PhoneNoUpdate />,
             },
         ],
     },

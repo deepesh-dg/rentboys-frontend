@@ -6,17 +6,10 @@ import { PasswordIcon } from "@/components/icons/outline";
 const page = () => {
     return (
         <div
-            className="z-1 flex w-full max-w-xl flex-col gap-y-6 items-center rounded-2xl border border-dark bg-black/80 px-4 py-12 text-white md:px-16"
-            style={{
-                boxShadow: "0px 4px 50.6px 0px #D8000040",
-            }}>
-            <h1 className='font-fira-sans text-white font-normal text-2xl'>Reset Password</h1>
-            <div className='flex flex-col items-center'>
-                <p className='text-gray-200 text-center'>
-                    Enter the email address associated with the Rentboys
-                </p>
-                <span className='w-20 h-1 my-2 inline-block bg-red-50'></span>
-            </div>
+            className="z-1 flex w-full max-w-xl flex-col gap-y-6 items-center rounded-2xl border border-dark bg-black/80 px-4 py-12 text-white md:px-16 shadow-sm">
+            <h1 class="mb-2 relative font-fira-sans text-2xl font-normal text-white text-center before:content-[''] before:absolute before:-bottom-2 before:left-1/2 before:w-6 before:border-2 before:border-red-50 before:transform before:-translate-x-full after:content-[''] after:absolute after:-bottom-2 after:right-1/2 after:w-6 after:border-2 after:border-red-50 after:transform after:translate-x-full">
+                Reset Password
+            </h1>
             <Input
                 icon={PasswordIcon}
                 type="password"
