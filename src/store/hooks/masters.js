@@ -7,7 +7,7 @@ import { loadMastersThunk } from "../slices/masters.slice";
  */
 export function useMasters(selector) {
     const state = useSelector(state =>
-        selector ? selector(state.auth) : state.auth
+        selector ? selector(state.masters) : state.masters
     );
 
     const dispatch = useDispatch();
