@@ -1,6 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { HTTP } from "@/lib";
+import api from "@/services";
 
+/**
+ * @type {{isAuthenticated: boolean, token?: string | null, user: *}}
+ */
 const initiaState = {
     isAuthenticated: false,
     token: null,
@@ -10,8 +13,7 @@ const initiaState = {
 export const loginThunk = createAsyncThunk(
     "auth/login",
     async (data, thunkApi) => {
-        const http = new HTTP();
-        const res = await http.post("/login", data);
+        const res = await api.auth.login(data.username, data.password);
 
         if (res.status) return res.data;
     }
@@ -20,8 +22,7 @@ export const loginThunk = createAsyncThunk(
 export const registerThunk = createAsyncThunk(
     "auth/register",
     async (data, thunkApi) => {
-        const http = new HTTP();
-        const res = await http.post("/register", data);
+        const res = await api.auth.register(data);
 
         if (res.status) return res.data;
     }

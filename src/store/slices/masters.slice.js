@@ -1,13 +1,21 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { HTTP } from "@/lib";
+import api from "@/services";
 
+/**
+ * @type {{masters: {
+ *  gender: {id: number, value: string, type: string, description: string}[],
+ *  hair: {id: number, value: string, type: string, description: string}[],
+ * }}}
+ */
 const initialState = {
-    masters: {},
+    masters: {
+        gender: [],
+        hair: [],
+    },
 };
 
 export const loadMastersThunk = createAsyncThunk("masters/load", async () => {
-    const http = new HTTP();
-    const response = await http.get("/masters");
+    const response = await api.common.getMasters();
 
     if (response.status) return response.data;
 });
