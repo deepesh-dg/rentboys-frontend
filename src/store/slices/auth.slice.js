@@ -4,7 +4,7 @@ import AuthService from "@/services/auth.service";
 /**
  * @type {{isAuthenticated: boolean, token?: string | null, user: *}}
  */
-const initiaState = {
+export const initialState = {
     isAuthenticated: false,
     token: null,
     user: null,
@@ -32,7 +32,7 @@ export const registerThunk = createAsyncThunk(
 
 export const authSlice = createSlice({
     name: "auth",
-    initialState: initiaState,
+    initialState,
     reducers: {},
     extraReducers: builder => {
         builder.addCase(loginThunk.fulfilled, (state, action) => {

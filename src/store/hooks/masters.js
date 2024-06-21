@@ -1,18 +1,15 @@
 import { useSelector, useDispatch } from "react-redux";
-import { loadMastersThunk } from "../slices/masters.slice";
+import { loadMastersThunk, initialState } from "../slices/masters.slice";
 
-/**
- * @param {(state) => *} [selector]
- * @returns {*}
- */
-export function useMasters(selector) {
-    const state = useSelector(state =>
-        selector ? selector(state.masters) : state.masters
-    );
+export function useMasters() {
+    /** @type {typeof initialState} */
+    const state = useSelector(state => state.masters);
 
     const dispatch = useDispatch();
 
-    const load = () => dispatch(loadMastersThunk());
+    const load = () => {
+        dispatch(loadMastersThunk());
+    };
 
     return { ...state, load };
 }

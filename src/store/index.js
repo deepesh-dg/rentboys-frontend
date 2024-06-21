@@ -1,5 +1,10 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { authReducer, mastersReducer, loginScreenStepsReducer } from "./slices";
+import {
+    authReducer,
+    mastersReducer,
+    loginScreenStepsReducer,
+    signupScreenStepsReducer,
+} from "./slices";
 import {
     persistReducer,
     persistStore,
@@ -24,6 +29,7 @@ const reducers = combineReducers({
     auth: authPersistedReducer,
     masters: mastersReducer,
     loginScreenSteps: loginScreenStepsReducer,
+    signupScreenSteps: signupScreenStepsReducer,
 });
 
 const store = configureStore({

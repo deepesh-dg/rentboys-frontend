@@ -1,10 +1,11 @@
+import { useAuth } from "@/store";
 import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
 
 export default function ProtectedLayout() {
-    let auth = true;
+    const { isAuthenticated } = useAuth();
 
-    return auth ? (
+    return isAuthenticated ? (
         <div>
             ProtectedLayout
             <Outlet />

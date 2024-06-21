@@ -8,5 +8,4 @@ export const LoginScreenSteps = Object.freeze({
 export const SignupScreenSteps = Object.freeze({
     SIGNUP: "SIGNUP",
     CONFIRM_EMAIL: "CONFIRM_EMAIL",
-    CONFIRM_PASSWORD: "CONFIRM_PASSWORD",
 });

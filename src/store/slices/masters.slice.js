@@ -7,7 +7,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
  *  hair: {id: number, value: string, type: string, description: string}[],
  * }}}
  */
-const initialState = {
+export const initialState = {
     masters: {
         gender: [],
         hair: [],

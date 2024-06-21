@@ -7,7 +7,7 @@ import { createSlice } from "@reduxjs/toolkit";
  *  screen: typeof LoginScreenSteps[keyof typeof LoginScreenSteps]
  * }}
  */
-const initialState = {
+export const initialState = {
     screen: LoginScreenSteps.LOGIN,
 };
 
