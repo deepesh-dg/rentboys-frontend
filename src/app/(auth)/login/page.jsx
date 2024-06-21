@@ -1,5 +1,4 @@
 import React from "react";
-import BG_IMG from "@/assets/img/login-bg.png";
 import Button from "@/components/Button";
 import { Link } from "react-router-dom";
 import { MailIcon, PasswordIcon } from "@/components/icons/outline";
