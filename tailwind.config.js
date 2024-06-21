@@ -56,6 +56,9 @@ export default {
             fontFamily: {
                 'fira-sans': ['"Fira Sans Condensed"'],
             },
+            boxShadow: {
+                sm: '0px 4px 50.6px 0px #D8000040',
+            },
             aftrelay: {
                 content: "",
                 position: "absolute",
