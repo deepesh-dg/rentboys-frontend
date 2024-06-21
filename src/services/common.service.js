@@ -21,6 +21,14 @@ export default class CommonService extends HTTP {
         return this.get("/policies/legal");
     }
 
+    getIdProofPageContent() {
+        return this.get("/page-content/id-proof");
+    }
+
+    getCreateProfilePageContent() {
+        return this.get("/page-content/create-profile");
+    }
+
     getMasters() {
         return this.get("/masters");
     }
