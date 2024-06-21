@@ -1,5 +1,5 @@
+import CommonService from "@/services/common.service";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import api from "@/services";
 
 /**
  * @type {{masters: {
@@ -15,7 +15,8 @@ const initialState = {
 };
 
 export const loadMastersThunk = createAsyncThunk("masters/load", async () => {
-    const response = await api.common.getMasters();
+    const common = new CommonService();
+    const response = await common.getMasters();
 
     if (response.status) return response.data;
 });

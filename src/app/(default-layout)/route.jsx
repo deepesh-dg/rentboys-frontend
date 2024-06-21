@@ -1,8 +1,8 @@
 import DefaultLayout from "./layout";
 import Home from "./page";
-// import About from "./policy/page";
 
 import ProtectedRoutes from "./(protected)/route";
+import PoliciesRoutes from "./(policy)/route";
 /**
  * @type {import('react-router-dom').RouteObject[]}
  */
@@ -15,10 +15,7 @@ const DefaultRoutes = [
                 path: "/",
                 element: <Home />,
             },
-            // {
-            //     path: "/about",
-            //     element: <About />,
-            // },
+            ...PoliciesRoutes,
             ...ProtectedRoutes,
         ],
     },

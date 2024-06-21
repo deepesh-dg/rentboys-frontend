@@ -1,5 +1,5 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { authReducer, mastersReducer } from "./slices";
+import { authReducer, mastersReducer, loginScreenStepsReducer } from "./slices";
 import {
     persistReducer,
     persistStore,
@@ -23,6 +23,7 @@ const authPersistedReducer = persistReducer(authPersistConfig, authReducer);
 const reducers = combineReducers({
     auth: authPersistedReducer,
     masters: mastersReducer,
+    loginScreenSteps: loginScreenStepsReducer,
 });
 
 const store = configureStore({

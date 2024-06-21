@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import api from "@/services";
+import AuthService from "@/services/auth.service";
 
 /**
  * @type {{isAuthenticated: boolean, token?: string | null, user: *}}
@@ -13,7 +13,8 @@ const initiaState = {
 export const loginThunk = createAsyncThunk(
     "auth/login",
     async (data, thunkApi) => {
-        const res = await api.auth.login(data.username, data.password);
+        const auth = new AuthService();
+        const res = await auth.login(data.username, data.password);
 
         if (res.status) return res.data;
     }
@@ -22,7 +23,8 @@ export const loginThunk = createAsyncThunk(
 export const registerThunk = createAsyncThunk(
     "auth/register",
     async (data, thunkApi) => {
-        const res = await api.auth.register(data);
+        const auth = new AuthService();
+        const res = await auth.register(data);
 
         if (res.status) return res.data;
     }
