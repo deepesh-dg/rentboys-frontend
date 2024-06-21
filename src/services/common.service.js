@@ -6,15 +6,15 @@ export default class CommonService extends HTTP {
     }
 
     getPrivacyPolicy() {
-        return this.get("/policies/privacy-policy");
+        return this.get("/policies/privecy-policy");
     }
 
-    getCookiePolicy() {
-        return this.get("/policies/cookie-policy");
+    getCookiesPolicy() {
+        return this.get("/policies/cookies-policy");
     }
 
-    getDMCANotice() {
-        return this.get("/policies/dmca-notice");
+    getDMCANotes() {
+        return this.get("/policies/dmca-notes");
     }
 
     getLegal() {
