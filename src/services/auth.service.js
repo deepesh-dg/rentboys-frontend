@@ -12,15 +12,6 @@ export default class AuthService extends HTTP {
 
     /**
      *
-     * @param {string} username
-     * @param {string} password
-     */
-    register(username, password) {
-        return this.post("/register", { username, password });
-    }
-
-    /**
-     *
      * @param {string} email
      */
     forgotPassword(email) {
@@ -59,64 +50,41 @@ export default class AuthService extends HTTP {
 
     /**
      *
-     * @param {string} phone_code
-     * @param {string | number} phone_number
+     * @param {{email: string; username: string; password: string; terms_conditions: "0" | "1"}} data
      */
-    phoneVerifyOtpSend(phone_code, phone_number) {
-        return this.post("/phone-verify/otp-send", {
-            phone_code,
-            phone_number,
-        });
+    signup(data) {
+        return this.post("/signup", data);
     }
 
-    /**
-     *
-     * @param {string} phone_code
-     * @param {string | number} phone_number
-     */
-    phoneVerifyOtpResend(phone_code, phone_number) {
-        return this.post("/phone-verify/otp-resend", {
-            phone_code,
-            phone_number,
-        });
+    emailVerifyOtpSend(data) {
+        return this.post("/email-verify/otp-send", data);
     }
 
-    /**
-     *
-     * @param {string} phone_code
-     * @param {string | number} phone_number
-     * @param {string} otp
-     */
-    phoneVerifyOtpMatch(phone_code, phone_number, otp) {
-        return this.post("/phone-verify/otp-match", {
-            phone_code,
-            phone_number,
-            otp,
-        });
+    emailVerifyOtpResend(data) {
+        return this.post("/email-verify/otp-resend", data);
     }
 
-    /**
-     *
-     * @param {string} email
-     */
-    emailVerifyOtpSend(email) {
-        return this.post("/email-verify/otp-send", { email });
+    emailVerifyOtpMatch(data) {
+        return this.post("/email-verify/otp-match", data);
     }
 
-    /**
-     *
-     * @param {string} email
-     */
-    emailVerifyOtpResend(email) {
-        return this.post("/email-verify/otp-resend", { email });
+    selectUserType(data) {
+        return this.post("/signup/user-type", data);
     }
 
-    /**
-     *
-     * @param {string} email
-     * @param {string | number} otp
-     */
-    emailVerifyOtpMatch(email, otp) {
-        return this.post("/email-verify/otp-match", { email, otp });
+    selectLocation(data) {
+        return this.post("/signup/location", data);
+    }
+
+    phoneVerifyOtpSend(data) {
+        return this.post("/phone-verify/otp-send", data);
+    }
+
+    phoneVerifyOtpResend(data) {
+        return this.post("/phone-verify/otp-resend", data);
+    }
+
+    phoneVerifyOtpMatch(data) {
+        return this.post("/phone-verify/otp-match", data);
     }
 }

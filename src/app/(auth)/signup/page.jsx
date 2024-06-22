@@ -1,6 +1,3 @@
-import SignupScreens from "@/components/auth-screens/signup-screens";
-import React from "react";
+import SignupScreens from "@/components/auth-screens/signup";
 
-export default function Page() {
-    return <SignupScreens />;
-}
+export default SignupScreens;

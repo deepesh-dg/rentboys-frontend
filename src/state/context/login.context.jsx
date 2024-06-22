@@ -20,7 +20,7 @@ const LoginContext = createContext({
     /** @type {{ [K in keyof typeof initialData]: string } & { form: string } } */
     formIds: {},
     loader: false,
-    /** @type {(updater: (prev: boolean) => prev) => void} */
+    /** @type {(updater: (prev: boolean) => boolean) => void} */
     setLoader: updater => {},
     /** @type {(updater: (prevState: typeof initialData) => void) => void} */
     setData: updater => {},

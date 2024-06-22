@@ -36,7 +36,7 @@ export default function useForm(initialValue) {
 
             try {
                 setFormErrors(() => InitialErrorsValue);
-                validate(formData);
+                if (validate) validate(formData);
 
                 setLoader(() => true);
                 return await submit(formData);

@@ -8,7 +8,7 @@ export const LoginScreenSteps = Object.freeze({
 export const SignupScreenSteps = Object.freeze({
     SIGNUP: "SIGNUP",
     VERIFY_EMAIL: "VERIFY_EMAIL",
-    CHOOES_USER_TYPE: "CHOOSE_USER_TYPE",
+    CHOOSE_USER_TYPE: "CHOOSE_USER_TYPE",
     SELECT_LOCATION: "SELECT_LOCATION",
 
     // ONLY FOR ADVERTISER TYPE USER
@@ -22,4 +22,13 @@ export const SignupScreenSteps = Object.freeze({
     // COMMON
     MEMBERSSIP_PLAN_CTA: "MEMBERSIP_PLAN_CTA",
     SELECT_MEMBERSIP_PLAN: "SELECT_MEMBERSIP_PLAN",
+});
+
+export const UserType = Object.freeze({
+    ADVERTISER: "advertiser",
+    CLIENT: "client",
+});
+
+export const FileUploadTypes = Object.freeze({
+    USER_DOC: "user-doc",
 });
