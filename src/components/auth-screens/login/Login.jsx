@@ -3,81 +3,48 @@ import Button from "../../Button";
 import { Link } from "react-router-dom";
 import { MailIcon, PasswordIcon } from "../../icons/outline";
 import Input from "../../common/Input/Input";
-import { useAuth, useLoginScreenSteps } from "@/state";
+import { useLoginScreenSteps } from "@/state";
 import { LoginScreenSteps } from "@/constants";
-import { useForm } from "@/hooks";
-import api from "@/services";
+import { useLogin } from "@/state/context";
 
 export default function Login() {
     const { setScreen } = useLoginScreenSteps();
-    const { loader, formData, setFormData, formIds, formErrors, handleSubmit } =
-        useForm({
-            username: "",
-            password: "",
-            rememberMe: false,
-        });
-    const { login } = useAuth();
-
-    /** @type {(data: typeof formData) => void} */
-    const validate = data => {
-        const errors = {};
-        if (!data.username) {
-            errors.username = ["Email is required"];
-        }
-        if (!data.password) {
-            errors.password = ["Password is required"];
-        }
-
-        if (Object.keys(errors).length > 0) {
-            throw { errors };
-        }
-    };
-
-    /** @type {(data: typeof formData) => Promise<any>} */
-    const submit = async data => {
-        const response = await api.auth.login(data.username, data.password);
-
-        if (!response.status) {
-            throw response;
-        }
-
-        login(data);
-    };
+    const { data, errors, formIds, loader, login, setData } = useLogin();
 
     return (
         <form
-            onSubmit={handleSubmit(submit, validate)}
+            onSubmit={login}
             className="z-1 flex w-full max-w-xl flex-col items-center rounded-2xl border border-dark bg-black/80 px-4 py-12 text-white shadow-sm md:px-16"
         >
             <h1 className="relative font-fira-sans text-2xl font-normal text-white before:absolute before:-bottom-2 before:left-5 before:w-6 before:border-2 before:border-red-50 after:absolute after:-bottom-2 after:right-5 after:w-6 after:border-2 after:border-red-50">
                 Login
             </h1>
-            {formErrors.form && (
-                <div className="text-center text-red-50">{formErrors.form}</div>
+            {errors.form && (
+                <div className="text-center text-red-50">{errors.form}</div>
             )}
             <div className="flex w-full flex-col gap-y-4 py-10">
                 <Input
                     id={formIds.username}
-                    value={formData.username}
-                    error={formErrors.username}
+                    value={data.username}
+                    error={errors.username}
                     icon={MailIcon}
                     type="email"
                     placeholder="example@email.com"
                     onChange={e =>
-                        setFormData(prev => {
+                        setData(prev => {
                             prev.username = e.target.value;
                         })
                     }
                 />
                 <Input
                     id={formIds.password}
-                    value={formData.password}
-                    error={formErrors.password}
+                    value={data.password}
+                    error={errors.password}
                     icon={PasswordIcon}
                     type="password"
                     placeholder="Password"
                     onChange={e =>
-                        setFormData(prev => {
+                        setData(prev => {
                             prev.password = e.target.value;
                         })
                     }
@@ -90,12 +57,11 @@ export default function Login() {
                         <input
                             id={formIds.rememberMe}
                             type="checkbox"
-                            checked={formData.rememberMe}
+                            checked={data.rememberMe}
                             onChange={e =>
-                                setFormData(prev => ({
-                                    ...prev,
-                                    rememberMe: e.target.checked,
-                                }))
+                                setData(prev => {
+                                    prev.rememberMe = e.target.checked;
+                                })
                             }
                         />
                         <span>Remember me</span>

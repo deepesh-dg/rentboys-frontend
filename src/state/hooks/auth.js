@@ -1,5 +1,9 @@
 import { useSelector, useDispatch } from "react-redux";
-import { loginThunk, registerThunk, initialState } from "../slices/auth.slice";
+import {
+    login as _login,
+    logout as _logout,
+    initialState,
+} from "../slices/auth.slice";
 
 export function useAuth() {
     /** @type {typeof initialState} */
@@ -8,12 +12,12 @@ export function useAuth() {
     const dispatch = useDispatch();
 
     const login = data => {
-        dispatch(loginThunk(data));
+        dispatch(_login(data));
     };
 
-    const register = data => {
-        dispatch(registerThunk(data));
+    const logout = data => {
+        dispatch(_logout(data));
     };
 
-    return { ...state, login, register };
+    return { ...state, login, logout };
 }

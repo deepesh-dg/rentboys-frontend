@@ -8,36 +8,29 @@ import InputOTP from "../common/Input/InputOTP";
  * default is 30000
  * @param {{
  *     onClickResend: () => Promise<void>;
- *     onSubmit: (data: {otp: string | number}) => Promise<void>;
- *     formMessage: string;
+ *     onSubmit: (e: any) => Promise<void>;
  *     timeout: number;
- * }} props
+ *     formMessage: string;
+ *     formError: string;
+ *     error: string;
+ *     loader: boolean;
+ *     value: string;
+ *     onChange: (value: string) => void;
  * }} param0
  * @returns
  */
-const OTP = ({ onClickResend, onSubmit, timeout = 30000, formMessage }) => {
+const OTP = ({
+    onClickResend,
+    onSubmit,
+    timeout = 30000,
+    formMessage,
+    formError,
+    error,
+    loader,
+    value,
+    onChange,
+}) => {
     const [timeRemaining, setTimeRemaining] = useState(timeout);
-    const {
-        loader,
-        formData,
-        setFormData,
-        formErrors,
-        handleSubmit,
-        setLoader,
-    } = useForm({
-        otp: "",
-    });
-
-    const validate = data => {
-        const errors = {};
-        if (!data.otp) {
-            errors.otp = ["OTP is required"];
-        }
-
-        if (Object.keys(errors).length > 0) {
-            throw { errors };
-        }
-    };
 
     React.useEffect(() => {
         if (timeRemaining <= 0) return;
@@ -56,7 +49,7 @@ const OTP = ({ onClickResend, onSubmit, timeout = 30000, formMessage }) => {
 
     return (
         <form
-            onSubmit={handleSubmit(onSubmit, validate)}
+            onSubmit={onSubmit}
             className="z-1 flex w-full max-w-xl flex-col items-center gap-y-6 rounded-2xl border border-dark bg-black/80 px-4 py-12 text-white md:px-16"
             style={{
                 boxShadow: "0px 4px 50.6px 0px #D8000040",
@@ -76,21 +69,13 @@ const OTP = ({ onClickResend, onSubmit, timeout = 30000, formMessage }) => {
             {formMessage && (
                 <div className="text-center text-green-600">{formMessage}</div>
             )}
-            {(formErrors.otp || formErrors.form) && (
-                <div className="text-red-50">
-                    {formErrors.otp || formErrors.form}
-                </div>
+            {(error || formError) && (
+                <div className="text-red-50">{error || formError}</div>
             )}
-            <InputOTP
-                value={formData.otp}
-                onChange={v =>
-                    setFormData(prev => {
-                        prev.otp = v;
-                    })
-                }
-            />
+            <InputOTP value={value} onChange={onChange} />
             <Button
                 label="Send"
+                type="submit"
                 className="w-full bg-red-100 px-20 py-4 text-xl font-bold uppercase hover:bg-red-50"
             />
             <div>
@@ -102,9 +87,7 @@ const OTP = ({ onClickResend, onSubmit, timeout = 30000, formMessage }) => {
                     onClick={async () => {
                         if (timeRemaining <= 0) {
                             if (onClickResend) {
-                                setLoader(() => true);
                                 await onClickResend();
-                                setLoader(() => false);
                             }
                             setTimeRemaining(() => timeout);
                         }

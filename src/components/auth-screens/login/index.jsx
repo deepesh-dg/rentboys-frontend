@@ -5,9 +5,11 @@ import Login from "./Login";
 import ForgotPassword from "./ForgotPassword";
 import OTP from "./OTP";
 import ResetPassword from "./ResetPassword";
+import { LoginProvider, useLogin } from "@/state/context";
 
 export default function LoginScreens() {
     const { screen, setScreen } = useLoginScreenSteps();
+    const { resetForm } = useLogin();
 
     useEffect(
         () => () => {
@@ -16,16 +18,24 @@ export default function LoginScreens() {
         []
     );
 
-    switch (screen) {
-        case LoginScreenSteps.LOGIN:
-            return <Login />;
-        case LoginScreenSteps.FORGOT_PASSWORD:
-            return <ForgotPassword />;
-        case LoginScreenSteps.FORGOT_PASSWORD_OTP:
-            return <OTP />;
-        case LoginScreenSteps.RESET_PASSWORD:
-            return <ResetPassword />;
-        default:
-            return null;
-    }
+    useEffect(() => resetForm, [screen, resetForm]);
+
+    return (
+        <LoginProvider>
+            {(() => {
+                switch (screen) {
+                    case LoginScreenSteps.LOGIN:
+                        return <Login />;
+                    case LoginScreenSteps.FORGOT_PASSWORD:
+                        return <ForgotPassword />;
+                    case LoginScreenSteps.FORGOT_PASSWORD_OTP:
+                        return <OTP />;
+                    case LoginScreenSteps.RESET_PASSWORD:
+                        return <ResetPassword />;
+                    default:
+                        return null;
+                }
+            })()}
+        </LoginProvider>
+    );
 }

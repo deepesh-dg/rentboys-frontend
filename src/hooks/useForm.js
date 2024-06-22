@@ -32,14 +32,14 @@ export default function useForm(initialValue) {
      */
     const handleSubmit = (submit, validate) => {
         return async e => {
-            e.preventDefault();
+            e?.preventDefault();
 
             try {
                 setFormErrors(() => InitialErrorsValue);
                 validate(formData);
 
                 setLoader(() => true);
-                await submit(formData);
+                return await submit(formData);
             } catch (error) {
                 setFormErrors(prev => {
                     if (error?.errors) {
