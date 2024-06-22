@@ -18,6 +18,16 @@ export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [openSubMenus, setOpenSubMenus] = useState({});
     const sidebarRef = useRef(null);
+    const [searchQuery, setSearchQuery] = useState('');
+
+    const handleOnChange = (e) => {
+        setSearchQuery(e.target.value);
+    };
+
+    const handleSearch = () => {
+        console.log('Search Query:', searchQuery);
+    };
+
     const toggleSubMenu = (index) => {
         setOpenSubMenus((prevState) => ({
             ...prevState,
@@ -61,9 +71,13 @@ export default function Header() {
                             <Icons src={LogoIcon} className="w-44" />
                         </Link>
                     </div>
-                    <SearchInput />
+                    <SearchInput
+                        searchQuery={searchQuery}
+                        handleOnChange={handleOnChange}
+                        handleSearch={handleSearch}
+                    />
                     <div className={`flex w-full items-center md:w-auto`}>
-                        <ul className="flex w-full items-center justify-between font-medium py-4 text-white md:flex-row">
+                        <ul className="flex w-full items-center justify-between font-medium py-4 gap-x-5 text-white md:flex-row">
                             {navMenu.map((item, index) => (
                                 <li key={index}>
                                     <Link
@@ -76,14 +90,14 @@ export default function Header() {
                             ))}
                         </ul>
                         <div className="xl:block hidden">
-                            <div className="flex gap-x-5 ml-2">
-                                <Icons src={BellIcon} className="w-5" />
-                                <Icons src={MessageIcon} className="w-5" />
+                            <div className="flex items-center gap-x-6 ml-5">
+                                <Icons src={BellIcon} className="w-6" />
+                                <Icons src={MessageIcon} className="w-6" />
                                 <div className="flex items-end gap-x-2">
-                                    <div className="w-6 h-6 flex justify-center items-center border-2 border-white rounded-full">
-                                        <Icons src={UserRoundedIcon} className="mx-auto w-4" />
+                                    <div className="w-8 h-8 overflow-hidden flex justify-center items-center border-2 border-white rounded-full">
+                                        <Icons src={UserRoundedIcon} className="mx-auto w-5" />
                                     </div>
-                                    <Icons src={ArrowDownIcon} className="mx-auto w-4" />
+                                    <Icons src={ArrowDownIcon} className="mx-auto w-5" />
                                 </div>
                             </div>
                         </div>
@@ -94,7 +108,7 @@ export default function Header() {
             {/* Sidebar */}
             <div
                 ref={sidebarRef}
-                className={`fixed z-50 top-0 left-0 h-screen max-h-screen overflow-y-auto w-64 bg-gray-100 transition-transform transform ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'
+                className={`fixed z-60 top-0 left-0 h-screen max-h-screen overflow-y-auto w-64 bg-gray-100 transition-transform transform ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'
                     }`}
             >
                 <div className="mx-4 pt-12">
@@ -119,7 +133,7 @@ export default function Header() {
                     <div className="flex flex-col text-white py-6">
                         {navLinks.map((link, index) => (
                             <div key={index}>
-                                <div className="flex justify-between items-center border-b border-gray-50 p-4">
+                                <div className={`flex justify-between items-center p-4 ${index !== navLinks.length - 1 ? "border-b border-gray-50" : ""}`}>
                                     <div className="flex items-center gap-x-2">
                                         <Icons src={link.icon} className="w-6" />
                                         {link.hasArrow ? (
