@@ -1,5 +1,5 @@
 import React from "react";
-import { useMasters } from "@/store";
+import { useMasters } from "@/state";
 
 export default function LoadMasters() {
     const { load } = useMasters();

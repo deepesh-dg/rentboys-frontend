@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../../Button";
 import { MailIcon } from "../../icons/outline";
 import Input from "../../common/Input/Input";
-import { useLoginScreenSteps } from "@/store";
+import { useLoginScreenSteps } from "@/state";
 import { useForm } from "@/hooks";
 import { LoginScreenSteps } from "@/constants";
 import api from "@/services";

@@ -1,5 +1,5 @@
 import { LoginScreenSteps } from "@/constants";
-import { useLoginScreenSteps } from "@/store";
+import { useLoginScreenSteps } from "@/state";
 import React, { useEffect } from "react";
 import Login from "./Login";
 import ForgotPassword from "./ForgotPassword";

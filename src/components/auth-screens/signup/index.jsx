@@ -1,5 +1,5 @@
 import { SignupScreenSteps } from "@/constants";
-import { useSignupScreenSteps } from "@/store";
+import { useSignupScreenSteps } from "@/state";
 import React, { useEffect } from "react";
 import Signup from "./Signup";
 import VerifyEmail from "./VerifyEmail";

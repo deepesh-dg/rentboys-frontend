@@ -1,5 +1,5 @@
 import HTTP from "./HTTP";
-import store from "@/store";
+import store from "@/state";
 
 export default class HTTPWithAuth extends HTTP {
     constructor(baseURL) {

@@ -3,7 +3,7 @@ import Button from "../../Button";
 import { Link } from "react-router-dom";
 import { MailIcon, PasswordIcon } from "../../icons/outline";
 import Input from "../../common/Input/Input";
-import { useAuth, useLoginScreenSteps } from "@/store";
+import { useAuth, useLoginScreenSteps } from "@/state";
 import { LoginScreenSteps } from "@/constants";
 import { useForm } from "@/hooks";
 import api from "@/services";
