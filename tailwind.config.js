@@ -51,13 +51,13 @@ export default {
                     50: "#353535",
                     100: "#1F1F1F",
                     200: "#A5A5A5", //text color
-                }
+                },
             },
             fontFamily: {
-                'fira-sans': ['"Fira Sans Condensed"'],
+                "fira-sans": ['"Fira Sans Condensed"'],
             },
             boxShadow: {
-                sm: '0px 4px 50.6px 0px #D8000040',
+                sm: "0px 4px 50.6px 0px #D8000040",
             },
             aftrelay: {
                 content: "",
@@ -70,6 +70,15 @@ export default {
                 background:
                     "linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%)",
                 transition: "all 0.4s ease",
+            },
+            keyframes: {
+                "caret-blink": {
+                    "0%,70%,100%": { opacity: "1" },
+                    "20%,50%": { opacity: "0" },
+                },
+            },
+            animation: {
+                "caret-blink": "caret-blink 1.25s ease-out infinite",
             },
         },
     },

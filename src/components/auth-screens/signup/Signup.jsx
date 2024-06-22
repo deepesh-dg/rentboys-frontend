@@ -1,8 +1,8 @@
 import React from "react";
-import Button from "@/components/Button";
+import Button from "../../Button";
 import { Link } from "react-router-dom";
-import { MailIcon, UserIcon, PasswordIcon } from "@/components/icons/outline";
-import Input from "@/components/common/Input/Input";
+import { MailIcon, UserIcon, PasswordIcon } from "../../icons/outline";
+import Input from "../../common/Input/Input";
 
 const Signup = () => {
     return (

@@ -1,10 +1,10 @@
 import React from "react";
-import Button from "@/components/Button";
+import Button from "../../Button";
 import { Link } from "react-router-dom";
-import { PasswordIcon } from "@/components/icons/outline";
-import Input from "@/components/common/Input/Input";
+import { PasswordIcon } from "../../icons/outline";
+import Input from "../../common/Input/Input";
 
-const OTP = () => {
+const VerifyEmail = () => {
     return (
         <div
             className="z-1 flex w-full max-w-xl flex-col items-center gap-y-6 rounded-2xl border border-dark bg-black/80 px-4 py-12 text-white md:px-16"
@@ -40,4 +40,4 @@ const OTP = () => {
     );
 };
 
-export default OTP;
+export default VerifyEmail;

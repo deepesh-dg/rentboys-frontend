@@ -1,9 +1,10 @@
-const Button = ({ label, onClick, className }) => {
+const Button = ({ label, onClick, className, ...props }) => {
     return (
         <button
             type="button"
             onClick={onClick}
             className={`text-md rounded-lg text-white ${className}`}
+            {...props}
         >
             {label}
         </button>
@@ -11,4 +12,3 @@ const Button = ({ label, onClick, className }) => {
 };
 
 export default Button;
-
