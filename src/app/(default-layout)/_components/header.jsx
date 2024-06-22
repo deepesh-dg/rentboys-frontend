@@ -1,163 +1,163 @@
+import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import { ArrowDownIcon, BellIcon, HamburgerMenuIcon, LogoIcon, MessageIcon, UserRoundedIcon } from "@/components/icons/outline";
+import Icons from "@/components/icons/Component";
+import SearchInput from "@/components/common/Input/SearchInput";
 import Button from "@/components/Button";
-import Image from "@/components/Image";
-import LogoImg from "@/assets/img/logo.png";
-import { useState } from "react";
+import { navLinks } from '@/utils/navLinks';
+import { UserIcon } from "@/components/icons/solid";
+
+const navMenu = [
+    { text: 'Home', href: '/' },
+    { text: 'Search', href: '/search' },
+    { text: 'Live Cams', href: '/live-cams' },
+    { text: 'Videos', href: '/videos' },
+];
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [openSubMenus, setOpenSubMenus] = useState({});
+    const sidebarRef = useRef(null);
+    const toggleSubMenu = (index) => {
+        setOpenSubMenus((prevState) => ({
+            ...prevState,
+            [index]: !prevState[index],
+        }));
+    };
+
+    const handleToggleMenu = () => {
+        setIsMenuOpen((prev) => !prev);
+    };
+
+    const handleClickOutside = (event) => {
+        if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+            setIsMenuOpen(false);
+        }
+    };
+
+    useEffect(() => {
+        if (isMenuOpen) {
+            document.body.style.overflow = 'hidden';
+            document.addEventListener('mousedown', handleClickOutside);
+        } else {
+            document.body.style.overflow = 'auto';
+            document.removeEventListener('mousedown', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isMenuOpen]);
 
     return (
-        <nav className="container bg-dark">
-            <div className="flex flex-wrap items-center justify-between py-10">
-                <a
-                    href="https://flowbite.com/"
-                    className="flex items-center space-x-3 rtl:space-x-reverse"
-                >
-                    <Image src={LogoImg} className="w-10" />
-                </a>
-                {/* Hamburger menu */}
-                <div className="flex items-center md:order-1">
-                    <button
-                        type="button"
-                        data-collapse-toggle="navbar-search"
-                        aria-controls="navbar-search"
-                        aria-expanded={isMenuOpen}
-                        onClick={() => setIsMenuOpen(prev => !prev)}
-                        className="me-1 rounded-lg p-2.5 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 md:hidden dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
-                    >
-                        <svg
-                            className="h-5 w-5"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 20 20"
-                        >
-                            <path
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M1 1h15M1 7h15M1 13h15"
-                            />
-                        </svg>
-                        <span className="sr-only text-white">Toggle menu</span>
-                    </button>
-                </div>
-                <div className="relative hidden flex-1 items-center md:order-1 md:mx-[30px] lg:block lg-only:hidden">
-                    <div className="hidde relative md:block">
-                        <div className="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
-                            <svg
-                                className="h-4 w-4 text-gray-500 dark:text-gray-400"
-                                aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 20 20"
-                            >
-                                <path
-                                    stroke="currentColor"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                                />
-                            </svg>
+        <>
+            <nav className="container bg-dark py-10">
+                <div className="flex flex-col md:flex-row gap-y-6 gap-x-2 md:gap-x-6 md:items-center justify-between">
+                    <div className="flex items-center gap-x-3">
+                        <div className="md:hidden w-10 h-10 p-2 rounded-full border-2 border-gray-50 flex justify-center items-center" onClick={handleToggleMenu}>
+                            <Icons src={HamburgerMenuIcon} className="w-8" />
                         </div>
-                        <div className="flex">
-                            <input
-                                type="search"
-                                id="search-navbar"
-                                className="block rounded-bl-lg rounded-tl-lg border border-gray-50 bg-gray-100 p-2 ps-10 text-sm text-white outline-none placeholder:text-white"
-                                placeholder="Search in all locations"
-                            />
-                            <button className="text-md rounded-br-lg rounded-tr-lg bg-red-50 px-[16px] py-[5px] font-medium text-white md:font-medium">
-                                Search
-                            </button>
+                        <Link to="https://flowbite.com/" className="">
+                            <Icons src={LogoIcon} className="w-44" />
+                        </Link>
+                    </div>
+                    <SearchInput />
+                    <div className={`flex w-full items-center md:w-auto`}>
+                        <ul className="flex w-full items-center justify-between font-medium py-4 text-white md:flex-row">
+                            {navMenu.map((item, index) => (
+                                <li key={index}>
+                                    <Link
+                                        to={item.href}
+                                        className="text-md whitespace-nowrap text-white/70 relative block py-0 px-2 hover:before:scale-x-100 before:absolute before:left-0 before:bottom-[-6px] before:w-full before:h-[2px] before:bg-red-50 before:transform before:scale-x-0 before:content-[''] before:transition-transform before:duration-[0.5s] before:ease-[ease] active:before:transform active:before:scale-x-"
+                                    >
+                                        {item.text}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                        <div className="xl:block hidden">
+                            <div className="flex gap-x-5 ml-2">
+                                <Icons src={BellIcon} className="w-5" />
+                                <Icons src={MessageIcon} className="w-5" />
+                                <div className="flex items-end gap-x-2">
+                                    <div className="w-6 h-6 flex justify-center items-center border-2 border-white rounded-full">
+                                        <Icons src={UserRoundedIcon} className="mx-auto w-4" />
+                                    </div>
+                                    <Icons src={ArrowDownIcon} className="mx-auto w-4" />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                {/* Menus */}
-                <div
-                    className={`order-2 flex w-full flex-col items-center md:w-auto md:flex-row ${isMenuOpen ? "hidden" : "block"}`}
-                    id="navbar-search"
-                >
-                    <ul className="me-[25px] mt-4 flex w-full flex-col items-center gap-x-10 gap-y-4 p-4 font-medium text-white md:mt-0 md:flex-row md:border-0 md:p-0 md-only:hidden">
-                        <li>
-                            <a
-                                href="#"
-                                className="text-md text-color-[rgb(255 255 255 / 70%)] active headerMenu px-4md:px-[25px] relative block py-0 opacity-70"
-                                aria-current="page"
-                            >
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#"
-                                className="text-md text-color-[rgb(255 255 255 / 70%)] headerMenu px-3px-[25px] relative block py-0 opacity-70"
-                            >
-                                Search
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#"
-                                className="text-md text-color-[rgb(255 255 255 / 70%)] headerMenu px-3px-[25px] relative block py-0 opacity-70"
-                            >
-                                Live Cams
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#"
-                                className="text-md text-color-[rgb(255 255 255 / 70%)] headerMenu px-3px-[25px] relative block py-0 opacity-70"
-                            >
-                                Videos
-                            </a>
-                        </li>
-                    </ul>
-                    <div className="flex w-full justify-center space-x-3 md:order-3 md:w-auto md:space-x-0 rtl:space-x-reverse">
+            </nav>
+
+            {/* Sidebar */}
+            <div
+                ref={sidebarRef}
+                className={`fixed z-50 top-0 left-0 h-screen max-h-screen overflow-y-auto w-64 bg-gray-100 transition-transform transform ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'
+                    }`}
+            >
+                <div className="mx-4 pt-12">
+                    <div className="flex gap-x-2 items-center">
+                        <div className="w-16 h-16 rounded-full border border-red-50 flex justify-center items-center bg-black">
+                            <Icons src={UserIcon} className="w-8" />
+                        </div>
+                        <p className="text-white">GuestUser4214</p>
+                    </div>
+                    <div className="flex justify-between items-center mt-4">
                         <Button
                             label="Login"
-                            className={
-                                "me-2 rounded-[10px] border border-red-50 bg-transparent px-4 py-1 font-medium text-white md:font-medium"
-                            }
-                            onClick={() => console.log("onlcik")}
+                            variant="colored"
+                            size="sm"
                         />
                         <Button
-                            label="Register"
-                            className={
-                                "!bg-red-50 px-4 py-1 font-medium md:font-medium"
-                            }
-                            onClick={() => console.log("onlcik")}
+                            label="Sign up"
+                            variant="outlined"
+                            size="sm"
                         />
                     </div>
-                    <div className="relative mt-3 block w-full md:hidden">
-                        <div className="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
-                            <svg
-                                className="h-4 w-4 text-gray-500 dark:text-gray-400"
-                                aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 20 20"
-                            >
-                                <path
-                                    stroke="currentColor"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                                />
-                            </svg>
-                        </div>
-                        <input
-                            type="search"
-                            id="search-navbar"
-                            className="block w-full rounded-lg border border-gray-50 bg-gray-100 p-2 ps-10 text-sm text-white outline-none"
-                            placeholder="Search in all locations"
-                        />
+                    <div className="flex flex-col text-white py-6">
+                        {navLinks.map((link, index) => (
+                            <div key={index}>
+                                <div className="flex justify-between items-center border-b border-gray-50 p-4">
+                                    <div className="flex items-center gap-x-2">
+                                        <Icons src={link.icon} className="w-6" />
+                                        {link.hasArrow ? (
+                                            <span
+                                                onClick={() => toggleSubMenu(index)}
+                                                className="cursor-pointer"
+                                            >
+                                                {link.name}
+                                            </span>
+                                        ) : (
+                                            <Link to={link.route}>{link.name}</Link>
+                                        )}
+                                    </div>
+                                    {link.hasArrow && (
+                                        <span onClick={() => toggleSubMenu(index)} className="cursor-pointer">
+                                            <Icons src={ArrowDownIcon} className="w-4" />
+                                        </span>
+                                    )}
+                                </div>
+                                {link.subMenu.length > 0 && openSubMenus[index] && (
+                                    <div className="px-12 py-2 border-b border-gray-50">
+                                        <ul className="[&>li]:mt-2 ">
+                                            {link.subMenu.map((subLink, subIndex) => (
+                                                <li key={subIndex}>
+                                                    <Link to={`${link.route}/${subLink.toLowerCase().replace(/ /g, '-')}`}>{subLink}</Link>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                )}
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
-        </nav>
+        </>
     );
 }
+
+
+

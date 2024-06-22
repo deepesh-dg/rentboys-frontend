@@ -1,40 +1,43 @@
-import React from "react";
-import Button from "@/components/Button";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Form from '../components/Form';
 import { MailIcon, PasswordIcon } from "@/components/icons/outline";
 import Input from "@/components/common/Input/Input";
+import Button from '@/components/Button';
 
 export default function Login() {
+
+    const handleSubmit = () => {
+        // handle form submission
+    };
+
     return (
-        <div
-            className="z-1 flex w-full max-w-xl flex-col items-center rounded-2xl border border-dark bg-black/80 px-4 py-12 text-white md:px-16 shadow-sm">
-            <h1 className="relative font-fira-sans text-2xl font-normal text-white before:absolute before:-bottom-2 before:left-5 before:w-6 before:border-2 before:border-red-50 after:absolute after:-bottom-2 after:right-5 after:w-6 after:border-2 after:border-red-50">
-                Login
-            </h1>
-            <div className="flex w-full flex-col gap-y-4 py-10">
-                <Input
-                    icon={MailIcon}
-                    type="email"
-                    placeholder="example@email.com"
-                />
-                <Input
-                    icon={PasswordIcon}
-                    type="password"
-                    placeholder="Password"
-                />
-                <div className="flex justify-between text-sm">
-                    <div className="flex items-center gap-x-2">
-                        <input type="checkbox" />
-                        <span>Remember me</span>
-                    </div>
-                    <p>Forgot Password?</p>
+        <Form
+            title="Login"
+            maxWidth="xl"
+        >
+            <Input
+                icon={MailIcon}
+                type="email"
+                placeholder="example@email.com"
+            />
+            <Input
+                icon={PasswordIcon}
+                type="password"
+                placeholder="Password"
+            />
+            <div className="flex justify-between text-sm w-full">
+                <div className="flex items-center gap-x-2">
+                    <input type="checkbox" />
+                    <span>Remember me</span>
                 </div>
-                <Button
-                    label="Login"
-                    className="bg-red-100 px-20 py-4 text-xl font-bold uppercase hover:bg-red-50"
-                />
+                <p>Forgot Password?</p>
             </div>
-            <p className="text-center text-xs text-white">
+            <Button
+                label="Login"
+            // onClick={() => console.log("onClick")}
+            />
+            <p className="text-center text-sm text-white">
                 Don't have an account?&nbsp;
                 <Link to="/signup">
                     <span className="font-bold text-red-50 underline">
@@ -42,6 +45,7 @@ export default function Login() {
                     </span>
                 </Link>
             </p>
-        </div>
+        </Form>
     );
-}
+};
+

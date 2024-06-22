@@ -1,15 +1,20 @@
-import React from 'react'
+import React from 'react';
+import Form from '../components/Form';
 import MemberImg from "@/assets/img/member-user.png"
-import Button from '@/components/Button'
+import Button from '@/components/Button';
 
-const page = () => {
+export default function Page() {
+
+    const handleSubmit = () => {
+        // handle form submission
+    };
+
     return (
-        <div
-            className="z-1 w-full max-w-sm md:max-w-2xl rounded-2xl border border-dark bg-black/80 py-10 md:p-4 text-white"
-            style={{
-                boxShadow: "0px 4px 50.6px 0px #D8000040",
-            }}>
-            <div className='flex flex-col md:flex-row md-down:items-center gap-4'>
+        <Form
+            maxWidth="2xl"
+            className="!gap-y-0 !px-4 !py-4"
+        >
+            <div className='flex flex-col md:flex-row md-down:items-center gap-4 w-full'>
                 <img src={MemberImg} alt="member_user" />
                 <div className='flex flex-col gap-4 justify-between'>
                     <div>
@@ -24,8 +29,7 @@ const page = () => {
                     </div>
                 </div>
             </div>
-        </div>
-    )
-}
+        </Form>
+    );
+};
 
-export default page
