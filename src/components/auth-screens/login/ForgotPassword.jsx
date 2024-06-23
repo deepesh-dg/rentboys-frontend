@@ -5,31 +5,24 @@ import Input from "../../common/Input/Input";
 import { useLoginScreenSteps } from "@/state";
 import { useLogin } from "@/state/context";
 import { LoginScreenSteps } from "@/constants";
+import Form from "../Form";
 
 const ForgotPassword = () => {
     const { setScreen } = useLoginScreenSteps();
     const { data, errors, formIds, forgotPassword, setData } = useLogin();
 
     return (
-        <form
+        <Form
             onSubmit={async e => {
-                const status = await forgotPassword(e);
+                // const status = await forgotPassword(e);
+                const status = true;
                 if (status) setScreen(LoginScreenSteps.FORGOT_PASSWORD_OTP);
             }}
-            className="z-1 flex w-full max-w-xl flex-col items-center gap-y-6 rounded-2xl border border-dark bg-black/80 px-4 py-12 text-white shadow-sm md:px-16"
+            title="Forgot Password"
+            description="Enter the email address associated with your RentBoys profile and we'll send you a link to recover your access."
+            maxWidth="xl"
+            error={errors.form}
         >
-            <h1 className="font-fira-sans text-2xl font-normal text-white">
-                Forget Password
-            </h1>
-            {errors.form && (
-                <div className="text-center text-red-50">{errors.form}</div>
-            )}
-            <div className="flex flex-col items-center">
-                <p className="text-center text-gray-200">
-                    Enter the email address associated with the Rentboys
-                </p>
-                <span className="my-2 inline-block h-1 w-20 bg-red-50"></span>
-            </div>
             <Input
                 icon={MailIcon}
                 type="email"
@@ -48,7 +41,7 @@ const ForgotPassword = () => {
                 type="submit"
                 className="w-full bg-red-100 px-20 py-4 text-xl font-bold uppercase hover:bg-red-50"
             />
-        </form>
+        </Form>
     );
 };
 
