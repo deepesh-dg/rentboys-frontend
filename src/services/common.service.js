@@ -1,4 +1,6 @@
 import { HTTP } from "@/lib";
+import axios from "axios";
+import { FileUploadTypes } from "@/constants";
 
 export default class CommonService extends HTTP {
     getTermsAndConditions() {
@@ -37,12 +39,44 @@ export default class CommonService extends HTTP {
      *
      * @param {string} query
      */
-    getGeoLocations(query) {
-        return this.get(`https://nominatim.openstreetmap.org/search`, {
-            params: {
-                q: query,
-                format: "json",
-            },
-        });
+    async getGeoLocations(query) {
+        try {
+            const response = await axios.get(
+                "https://nominatim.openstreetmap.org/search",
+                {
+                    params: {
+                        q: query,
+                        format: "json",
+                        addressdetails: 1,
+                    },
+                }
+            );
+
+            return {
+                status: true,
+                data: response.data,
+                statusCode: response.status,
+            };
+        } catch (error) {
+            return {
+                status: false,
+                message: error.message,
+                statusCode: error.response?.status,
+            };
+        }
+    }
+
+    /**
+     *
+     * @param {typeof FileUploadTypes[keyof typeof FileUploadTypes]} type
+     * @param {File} file
+     */
+    uploadFile(type, file) {
+        const formData = new FormData();
+
+        formData.append("type", type);
+        formData.append("file", file);
+
+        return this.post(`/file-upload`, formData);
     }
 }

@@ -9,17 +9,16 @@ import { useSignupScreenSteps } from "@/state";
 
 export default function UploadId() {
     const { setScreen } = useSignupScreenSteps();
-    const handleSubmit = () => {
-        // handle form submission
-    };
 
     return (
-        <Form title="Upload ID" maxWidth="4xl" className="!gap-y-4">
-            <p className="text-base font-normal">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
+        <Form
+            title="Upload ID"
+            maxWidth="4xl"
+            description="Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s
-            </p>
+                text ever since the 1500s"
+            className="!gap-y-4"
+        >
             <div className="flex w-full flex-col gap-x-4 md:flex-row md-down:gap-y-4">
                 <div className="w-full border border-gray-300 bg-black md:w-2/5">
                     <div className="flex h-full w-full items-center justify-center">

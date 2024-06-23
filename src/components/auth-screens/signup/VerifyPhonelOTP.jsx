@@ -1,26 +1,22 @@
 import React from "react";
-import { useSignupScreenSteps } from "@/state";
 import { useSignup } from "@/state/context";
-import { SignupScreenSteps } from "@/constants";
 import OTP from "../OTP";
 
-const VerifyEmailOTP = () => {
-    const { setScreen } = useSignupScreenSteps();
+const VerifyPhonelOTP = () => {
     const {
         data,
         errors,
         setData,
         loader,
-        emailVerifyOtpMatch,
-        emailVerifyResendOtp,
+        phoneVerifyOtpMatch,
+        phoneVerifyResendOtp,
     } = useSignup();
 
     return (
         <OTP
-            onClickResend={emailVerifyResendOtp}
+            onClickResend={phoneVerifyResendOtp}
             onSubmit={async e => {
-                const status = emailVerifyOtpMatch(e);
-                if (status) setScreen(SignupScreenSteps.CHOOSE_USER_TYPE);
+                await phoneVerifyOtpMatch(e);
             }}
             formError={errors.form}
             error={errors.otp}
@@ -35,4 +31,4 @@ const VerifyEmailOTP = () => {
     );
 };
 
-export default VerifyEmailOTP;
+export default VerifyPhonelOTP;

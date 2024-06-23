@@ -1,8 +1,9 @@
 import { useForm } from "@/hooks";
 import api from "@/services";
 import { createContext, useCallback, useContext, useRef } from "react";
-import { UserType } from "@/constants";
+import { FileUploadTypes, UserType } from "@/constants";
 import { useAuth } from "../hooks";
+import { useNavigate } from "react-router-dom";
 
 const initialData = {
     email: "",
@@ -17,12 +18,15 @@ const initialData = {
     longitude: 0,
     latitude: 0,
     location: "",
+    country: "",
     state: "",
     city: "",
     postal_code: "",
     landmark: "",
-    upload_path: "",
-    perview_path: "",
+    /** @type {File | null} */
+    id_proof: null,
+    id_proof_path: "",
+    id_proof_preview: "",
     phone_code: "+91",
     phone_number: "",
 };
@@ -46,6 +50,7 @@ const SignupContext = createContext({
     emailVerifyOtpMatch: async e => {},
     selectUserType: async e => {},
     selectLocation: async e => {},
+    uploadId: async e => {},
     phoneVerify: async e => {},
     phoneVerifyResendOtp: async () => {},
     phoneVerifyOtpMatch: async e => {},
@@ -72,6 +77,7 @@ export function SignupProvider({ children }) {
     const initialFormErrors = useRef(formErrors);
 
     const { login } = useAuth();
+    const navigate = useNavigate();
 
     const signup = handleSubmit(
         async data => {
@@ -145,7 +151,26 @@ export function SignupProvider({ children }) {
 
         if (data.user_type === UserType.CLIENT) {
             login(response.data);
+            navigate("/memership-plan");
         }
+
+        return true;
+    });
+
+    const uploadId = handleSubmit(async data => {
+        const response = await api.common.uploadFile(
+            FileUploadTypes.USER_DOC,
+            data.id_proof
+        );
+
+        if (!response.status) {
+            throw response;
+        }
+
+        setData(prev => {
+            prev.id_proof_path = response.data.upload_path;
+            prev.id_proof_preview = response.data.perview_path;
+        });
 
         return true;
     });
@@ -179,6 +204,7 @@ export function SignupProvider({ children }) {
             throw response;
         }
 
+        navigate("/create-profile");
         login(response.data);
 
         return true;
@@ -204,6 +230,7 @@ export function SignupProvider({ children }) {
                 emailVerifyOtpMatch,
                 selectUserType,
                 selectLocation,
+                uploadId,
                 phoneVerify,
                 phoneVerifyResendOtp,
                 phoneVerifyOtpMatch,
