@@ -1,5 +1,5 @@
 import ProtectedLayout from "./layout";
-import Profile from "./profile/page";
+import UserDashboard from "./dashboard/page";
 
 /**
  * @type {import('react-router-dom').RouteObject[]}
@@ -10,11 +10,12 @@ const ProtectedRoutes = [
         element: <ProtectedLayout />,
         children: [
             {
-                path: "/profile",
-                element: <Profile />,
+                path: "/dashboard",
+                element: <UserDashboard />,
             },
         ],
     },
+
 ];
 
 export default ProtectedRoutes;
