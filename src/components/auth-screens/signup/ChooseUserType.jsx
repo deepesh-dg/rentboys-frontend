@@ -5,22 +5,21 @@ import Button from "@/components/Button";
 import { useSignup } from "@/state/context";
 import { useSignupScreenSteps } from "@/state";
 import { SignupScreenSteps, UserType } from "@/constants";
+import Form from "../Form";
 
 const ChooseUserType = () => {
     const { setScreen } = useSignupScreenSteps();
     const { data, loader, selectUserType, setData } = useSignup();
 
     return (
-        <form
+        <Form
             onSubmit={async e => {
                 // const status = await selectUserType(e);
                 const status = true;
                 if (status) setScreen(SignupScreenSteps.SELECT_LOCATION);
             }}
-            className="z-1 flex w-full max-w-4xl flex-col items-center rounded-2xl border border-dark bg-black/80 px-4 py-12 text-white md:px-16"
-            style={{
-                boxShadow: "0px 4px 50.6px 0px #D8000040",
-            }}
+            title="Choose User Type"
+            maxWidth="4xl"
         >
             <div className="flex w-full flex-col items-center gap-y-6">
                 <h1 className="relative font-fira-sans text-2xl font-normal text-white before:absolute before:-bottom-2 before:left-14 before:w-10 before:border-2 before:border-red-50 after:absolute after:-bottom-2 after:right-14 after:w-10 after:border-2 after:border-red-50">
@@ -86,7 +85,7 @@ const ChooseUserType = () => {
                     />
                 </div>
             </div>
-        </form>
+        </Form>
     );
 };
 

@@ -2,7 +2,9 @@ import React from 'react'
 
 const page = () => {
     return (
-        <div>DMCA page</div>
+        <div className='py-4 w-full space-y-4'>
+            <h2 className='text-xl text-red-50 font-medium pb-1 border-b border-gray-50'>DMCA page</h2>
+        </div>
     )
 }
 

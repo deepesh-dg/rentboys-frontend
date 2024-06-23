@@ -44,14 +44,15 @@ export default {
             colors: {
                 dark: "#191919",
                 red: {
-                    50: "#ff0000",
-                    100: "#9C0404",
+                    50: "#ff0000", // light red
+                    100: "#9C0404", // dark red
                 },
                 gray: {
-                    50: "#353535",
-                    100: "#1F1F1F",
+                    50: "#353535", //border
+                    100: "#1F1F1F", //background
                     200: "#A5A5A5", //text color
-                },
+                    300: "#303030", //border color
+                }
             },
             fontFamily: {
                 "fira-sans": ['"Fira Sans Condensed"'],

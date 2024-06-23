@@ -8,8 +8,13 @@ import UserDpIcon from "@/assets/icons/outline/userDp.svg"
 import ClosecircleIcon from "@/assets/icons/outline/closecircle.svg"
 import TickcircleIcon from "@/assets/icons/outline/tickcircle.svg"
 import ArrowDownIcon from "@/assets/icons/outline/arrowdown.svg"
+import BellIcon from "@/assets/icons/outline/bell.svg"
+import MessageIcon from "@/assets/icons/outline/message.svg"
+import UserRoundedIcon from "@/assets/icons/outline/userRounded.svg"
+import LogoIcon from "@/assets/icons/outline/logo.svg"
+import HamburgerMenuIcon from "@/assets/icons/outline/hamburger.svg"
+import SearchIcon from "@/assets/icons/outline/search.svg"
 
 
 
-
-export { MailIcon, UserIcon, PasswordIcon, EyeIcon, LocationIcon, CameraIcon, UserDpIcon, ClosecircleIcon, TickcircleIcon, ArrowDownIcon }
+export { MailIcon, UserIcon, PasswordIcon, EyeIcon, LocationIcon, CameraIcon, UserDpIcon, ClosecircleIcon, TickcircleIcon, ArrowDownIcon, BellIcon, MessageIcon, UserRoundedIcon, LogoIcon, HamburgerMenuIcon, SearchIcon }

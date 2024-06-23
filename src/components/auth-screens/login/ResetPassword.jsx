@@ -5,31 +5,21 @@ import { PasswordIcon } from "../../icons/outline";
 import { useLoginScreenSteps } from "@/state";
 import { useLogin } from "@/state/context";
 import { LoginScreenSteps } from "@/constants";
+import Form from "../Form";
 
 const ResetPassword = () => {
     const { setScreen } = useLoginScreenSteps();
     const { data, errors, formIds, resetPassword, setData } = useLogin();
 
     return (
-        <form
+        <Form
             onSubmit={async e => {
                 const status = await resetPassword(e);
                 if (status) setScreen(LoginScreenSteps.LOGIN);
             }}
-            className="z-1 flex w-full max-w-xl flex-col items-center gap-y-6 rounded-2xl border border-dark bg-black/80 px-4 py-12 text-white md:px-16"
-            style={{
-                boxShadow: "0px 4px 50.6px 0px #D8000040",
-            }}
+            title="Reset Password"
+            maxWidth="xl"
         >
-            <h1 className="font-fira-sans text-2xl font-normal text-white">
-                Reset Password
-            </h1>
-            <div className="flex flex-col items-center">
-                <p className="text-center text-gray-200">
-                    Enter the email address associated with the Rentboys
-                </p>
-                <span className="my-2 inline-block h-1 w-20 bg-red-50"></span>
-            </div>
             <Input
                 icon={PasswordIcon}
                 type="password"
@@ -61,7 +51,7 @@ const ResetPassword = () => {
                 type="submit"
                 className="w-full bg-red-100 px-20 py-4 text-xl font-bold uppercase hover:bg-red-50"
             />
-        </form>
+        </Form>
     );
 };
 

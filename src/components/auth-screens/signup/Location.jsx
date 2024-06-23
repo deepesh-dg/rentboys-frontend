@@ -5,23 +5,22 @@ import Button from "@/components/Button";
 import { useSignupScreenSteps } from "@/state";
 import { useSignup } from "@/state/context";
 import { SignupScreenSteps, UserType } from "@/constants";
+import Form from "../Form";
 
 const Location = () => {
     const { setScreen } = useSignupScreenSteps();
     const { data, errors, loader, selectLocation, setData } = useSignup();
 
     return (
-        <form
+        <Form
             onSubmit={async e => {
                 // const status = await selectLocation(e);
                 const status = true;
                 if (status && data.user_type === UserType.ADVERTISER)
                     setScreen(SignupScreenSteps.UPLOAD_ID);
             }}
-            className="z-1 flex w-full max-w-xl flex-col items-center rounded-2xl border border-dark bg-black/80 px-4 py-12 text-white md:px-16"
-            style={{
-                boxShadow: "0px 4px 50.6px 0px #D8000040",
-            }}
+            title="Location"
+            maxWidth="xl"
         >
             <h1 className="relative font-fira-sans text-2xl font-normal text-white before:absolute before:-bottom-2 before:left-5 before:w-6 before:border-2 before:border-red-50 after:absolute after:-bottom-2 after:right-5 after:w-6 after:border-2 after:border-red-50">
                 Location
@@ -46,7 +45,7 @@ const Location = () => {
                     className="bg-red-100 py-4 text-xl font-bold uppercase hover:bg-red-50"
                 />
             </div>
-        </form>
+        </Form>
     );
 };
 

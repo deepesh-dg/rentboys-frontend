@@ -1,20 +1,18 @@
-import React from "react";
-import { useRouter } from "@/hooks/router";
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
-const NavHeading = ({ children }) => {
-    const { pathname } = useRouter();
+function NavHeading({ name, href }) {
+    const location = useLocation();
+    const isActive = location.pathname === href;
 
-    const extraPathname = pathname
-        .replace("/profile/settings", "")
-        .replace("/profile/settings/", "");
-
-    const matchHref = props.href
-        .replace("/profile/settings", "")
-        .replace("/profile/settings/", "");
-
-    const active = extraPathname === matchHref;
-
-    return <div>{children.name}</div>;
-};
+    return (
+        <Link to={href} key={href}>
+            <li className={`px-4 ${isActive ? 'text-red-50 border-l-2 border-red-50' : ''}`}>
+                {name}
+            </li>
+        </Link>
+    );
+}
 
 export default NavHeading;
+
