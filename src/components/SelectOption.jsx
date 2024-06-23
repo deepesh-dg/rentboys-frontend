@@ -3,6 +3,7 @@ import { useState } from "react";
 const SelectOption = ({ options }) => {
     const [selectedOption, setSelectedOption] = useState(null);
 
+    console.log(selectedOption);
     const handleOptionClick = option => {
         setSelectedOption(option);
     };

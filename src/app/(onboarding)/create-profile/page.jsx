@@ -53,14 +53,14 @@ export default function Profile() {
                             onClick={handlePrevClick}
                             disabled={currentStep === 0}
                         />
-                        {currentStep >= 2 ? null : (
-                            <Button
-                                label="Next"
-                                variant="text"
-                                size="xs"
-                                onClick={handleNextClick}
-                            />
-                        )}
+                        {/* {currentStep >= 2 ? null : ( */}
+                        <Button
+                            label="Next"
+                            variant="text"
+                            size="xs"
+                            onClick={handleNextClick}
+                        />
+                        {/* )} */}
                     </div>
                 </div>
             </div>

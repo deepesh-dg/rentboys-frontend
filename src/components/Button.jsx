@@ -1,10 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Button = ({
     label,
     onClick,
     variant = "default",
     size = "md",
+    href,
+    target,
     className = "",
     ...rest
 }) => {
@@ -21,18 +24,32 @@ const Button = ({
         "md": "px-20 py-4 text-xl uppercase",
     };
 
-    const buttonClass = `rounded-lg text-white font-bold ${variants[variant]} ${sizes[size]} ${className}`;
+    const buttonClass = `flex justify-center rounded-lg text-white font-bold ${variants[variant]} ${sizes[size]} ${className}`;
 
-    return (
-        <button
-            type="button"
-            onClick={onClick}
-            className={buttonClass.trim()}
-            {...rest}
-        >
-            {label}
-        </button>
-    );
+    if (href) {
+        return (
+            <Link to={href} target={target === "_blank" ? "_blank" : undefined}
+                className={buttonClass.trim()}
+                {...rest}>
+                <button
+                    type="button"
+                    onClick={onClick}>
+                    {label}
+                </button>
+            </Link>
+        );
+    } else {
+        return (
+            <button
+                type="button"
+                onClick={onClick}
+                className={buttonClass.trim()}
+                {...rest}
+            >
+                {label}
+            </button>
+        );
+    }
 };
 
 export default Button;
