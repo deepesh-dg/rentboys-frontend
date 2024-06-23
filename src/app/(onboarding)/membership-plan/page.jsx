@@ -3,11 +3,7 @@ import Form from "../../../components/auth-screens/Form";
 import MemberImg from "@/assets/img/member-user.png";
 import Button from "@/components/Button";
 
-export default function Page() {
-    const handleSubmit = () => {
-        // handle form submission
-    };
-
+export default function MembershipPlan() {
     return (
         <Form maxWidth="2xl" className="!gap-y-0 !px-4 !py-4">
             <div className="flex w-full flex-col gap-4 md:flex-row md-down:items-center">

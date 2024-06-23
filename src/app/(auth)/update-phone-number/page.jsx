@@ -18,7 +18,7 @@ export default function Page() {
                     placeholder="Enter your phone no."
                 />
                 <p className="mt-2 text-base font-normal">
-                    Lorem Ipsum is simply dummy text of the printing and
+                    Lorem Ipsum is simply dummy text of the printing and
                     typesetting industry.
                 </p>
             </div>

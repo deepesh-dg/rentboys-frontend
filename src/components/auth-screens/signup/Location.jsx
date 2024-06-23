@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Input from "@/components/common/Input/Input";
 import { LocationIcon } from "@/components/icons/outline";
 import Button from "@/components/Button";
@@ -11,6 +11,8 @@ const Location = () => {
     const { setScreen } = useSignupScreenSteps();
     const { data, errors, loader, selectLocation, setData } = useSignup();
 
+    useEffect(() => {}, []);
+
     return (
         <Form
             onSubmit={async e => {
@@ -22,9 +24,6 @@ const Location = () => {
             title="Location"
             maxWidth="xl"
         >
-            <h1 className="relative font-fira-sans text-2xl font-normal text-white before:absolute before:-bottom-2 before:left-5 before:w-6 before:border-2 before:border-red-50 after:absolute after:-bottom-2 after:right-5 after:w-6 after:border-2 after:border-red-50">
-                Location
-            </h1>
             <div className="flex w-full flex-col gap-y-4 py-10">
                 <Input
                     icon={LocationIcon}

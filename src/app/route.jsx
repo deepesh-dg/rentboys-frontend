@@ -4,6 +4,7 @@ import RootLayout from "./layout";
 import NotFound from "./not-found";
 import ErrorPage from "./error";
 import Consent from "./consent";
+import OnboardingRoutes from "./(onboarding)/route";
 
 /**
  * @type {import('react-router-dom').RouteObject[]}
@@ -19,6 +20,9 @@ const RootRoute = [
 
             // Login, Signup Routes
             ...AuthRoutes,
+
+            // Onboarding Routes
+            ...OnboardingRoutes,
         ],
     },
     {

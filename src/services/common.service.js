@@ -32,4 +32,17 @@ export default class CommonService extends HTTP {
     getMasters() {
         return this.get("/masters");
     }
+
+    /**
+     *
+     * @param {string} query
+     */
+    getGeoLocations(query) {
+        return this.get(`https://nominatim.openstreetmap.org/search`, {
+            params: {
+                q: query,
+                format: "json",
+            },
+        });
+    }
 }
