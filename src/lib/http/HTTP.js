@@ -57,7 +57,7 @@ export default class HTTP {
             result.statusCode = error.response?.status ?? 500;
             result.status = false;
             result.data = null;
-            result.message = error.message;
+            result.message = error?.response?.data?.message || error?.message;
             result.body = error.response?.data ?? "";
             result.errors = error.response?.data?.errors ?? null;
         }
@@ -106,7 +106,7 @@ export default class HTTP {
             result.statusCode = error.response?.status ?? 500;
             result.status = false;
             result.data = null;
-            result.message = error.message;
+            result.message = error?.response?.data?.message || error?.message;
             result.body = error.response?.data ?? "";
             result.errors = error.response?.data?.errors ?? null;
         }
@@ -155,7 +155,7 @@ export default class HTTP {
             result.statusCode = error.response?.status ?? 500;
             result.status = false;
             result.data = null;
-            result.message = error.message;
+            result.message = error?.response?.data?.message || error?.message;
             result.body = error.response?.data ?? "";
             result.errors = error.response?.data?.errors ?? null;
         }
@@ -202,7 +202,7 @@ export default class HTTP {
             result.statusCode = error.response?.status ?? 500;
             result.status = false;
             result.data = null;
-            result.message = error.message;
+            result.message = error?.response?.data?.message || error?.message;
             result.body = error.response?.data ?? "";
             result.errors = error.response?.data?.errors ?? null;
         }

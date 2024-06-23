@@ -1,6 +1,6 @@
 import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
-import { useAuth } from "@/store";
+import { useAuth } from "@/state";
 import BG_IMG from "@/assets/img/login-bg.png";
 
 export default function AuthLayout() {

@@ -13,7 +13,7 @@ export default class CommonService extends HTTP {
         return this.get("/policies/cookies-policy");
     }
 
-    getDMCANotes() {
+    getDMCANotice() {
         return this.get("/policies/dmca-notes");
     }
 

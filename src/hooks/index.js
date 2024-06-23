@@ -1,3 +1,4 @@
 import useState from "./useState";
+import useForm from "./useForm";
 
-export { useState };
+export { useState, useForm };

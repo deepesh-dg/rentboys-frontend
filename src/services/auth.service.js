@@ -5,7 +5,6 @@ export default class AuthService extends HTTP {
      *
      * @param {string} username
      * @param {string} password
-     * @returns {Promise<>}
      */
     login(username, password) {
         return this.post("/login", { username, password });
@@ -13,18 +12,7 @@ export default class AuthService extends HTTP {
 
     /**
      *
-     * @param {string} username
-     * @param {string} password
-     * @returns {Promise<>}
-     */
-    register(username, password) {
-        return this.post("/register", { username, password });
-    }
-
-    /**
-     *
      * @param {string} email
-     * @returns {Promise<>}
      */
     forgotPassword(email) {
         return this.post("/forgot-password/otp-send", { email });
@@ -33,7 +21,6 @@ export default class AuthService extends HTTP {
     /**
      *
      * @param {string} email
-     * @returns {Promise<>}
      */
     forgotPasswordOtpResend(email) {
         return this.post("/forgot-password/otp-resend", { email });
@@ -43,7 +30,6 @@ export default class AuthService extends HTTP {
      *
      * @param {string} email
      * @param {string | number} otp
-     * @returns {Promise<>}
      */
     forgotPasswordOtpMatch(email, otp) {
         return this.post("/forgot-password/otp-match", { email, otp });
@@ -54,7 +40,6 @@ export default class AuthService extends HTTP {
      * @param {string} token
      * @param {string} password
      * @param {string} confirm_password
-     * @returns {Promise<>}
      */
     resetPassword(token, password, confirm_password) {
         return this.post(`/reset-password/${token}`, {
@@ -65,70 +50,41 @@ export default class AuthService extends HTTP {
 
     /**
      *
-     * @param {string} phone_code
-     * @param {string | number} phone_number
-     * @returns {Promise<>}
+     * @param {{email: string; username: string; password: string; terms_conditions: "0" | "1"}} data
      */
-    phoneVerifyOtpSend(phone_code, phone_number) {
-        return this.post("/phone-verify/otp-send", {
-            phone_code,
-            phone_number,
-        });
+    signup(data) {
+        return this.post("/signup", data);
     }
 
-    /**
-     *
-     * @param {string} phone_code
-     * @param {string | number} phone_number
-     * @returns {Promise<>}
-     */
-    phoneVerifyOtpResend(phone_code, phone_number) {
-        return this.post("/phone-verify/otp-resend", {
-            phone_code,
-            phone_number,
-        });
+    emailVerifyOtpSend(data) {
+        return this.post("/email-verify/otp-send", data);
     }
 
-    /**
-     *
-     * @param {string} phone_code
-     * @param {string | number} phone_number
-     * @param {string} otp
-     * @returns {Promise<>}
-     */
-    phoneVerifyOtpMatch(phone_code, phone_number, otp) {
-        return this.post("/phone-verify/otp-match", {
-            phone_code,
-            phone_number,
-            otp,
-        });
+    emailVerifyOtpResend(data) {
+        return this.post("/email-verify/otp-resend", data);
     }
 
-    /**
-     *
-     * @param {string} email
-     * @returns {Promise<>}
-     */
-    emailVerifyOtpSend(email) {
-        return this.post("/email-verify/otp-send", { email });
+    emailVerifyOtpMatch(data) {
+        return this.post("/email-verify/otp-match", data);
     }
 
-    /**
-     *
-     * @param {string} email
-     * @returns {Promise<>}
-     */
-    emailVerifyOtpResend(email) {
-        return this.post("/email-verify/otp-resend", { email });
+    selectUserType(data) {
+        return this.post("/signup/user-type", data);
     }
 
-    /**
-     *
-     * @param {string} email
-     * @param {string | number} otp
-     * @returns {Promise<>}
-     */
-    emailVerifyOtpMatch(email, otp) {
-        return this.post("/email-verify/otp-match", { email, otp });
+    selectLocation(data) {
+        return this.post("/signup/location", data);
+    }
+
+    phoneVerifyOtpSend(data) {
+        return this.post("/phone-verify/otp-send", data);
+    }
+
+    phoneVerifyOtpResend(data) {
+        return this.post("/phone-verify/otp-resend", data);
+    }
+
+    phoneVerifyOtpMatch(data) {
+        return this.post("/phone-verify/otp-match", data);
     }
 }
