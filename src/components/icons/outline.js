@@ -14,7 +14,9 @@ import UserRoundedIcon from "@/assets/icons/outline/userRounded.svg"
 import LogoIcon from "@/assets/icons/outline/logo.svg"
 import HamburgerMenuIcon from "@/assets/icons/outline/hamburger.svg"
 import SearchIcon from "@/assets/icons/outline/search.svg"
+import CameraDpIcon from "@/assets/icons/outline/camera-dp.svg"
 
 
 
-export { MailIcon, UserIcon, PasswordIcon, EyeIcon, LocationIcon, CameraIcon, UserDpIcon, ClosecircleIcon, TickcircleIcon, ArrowDownIcon, BellIcon, MessageIcon, UserRoundedIcon, LogoIcon, HamburgerMenuIcon, SearchIcon }
+
+export { MailIcon, UserIcon, PasswordIcon, EyeIcon, LocationIcon, CameraIcon, UserDpIcon, ClosecircleIcon, TickcircleIcon, ArrowDownIcon, BellIcon, MessageIcon, UserRoundedIcon, LogoIcon, HamburgerMenuIcon, SearchIcon, CameraDpIcon }

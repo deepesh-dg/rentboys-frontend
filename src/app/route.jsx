@@ -4,6 +4,7 @@ import RootLayout from "./layout";
 import NotFound from "./not-found";
 import ErrorPage from "./error";
 import Consent from "./consent";
+import CreateProfile from "./create-profile/page"
 
 
 /**
@@ -25,6 +26,10 @@ const RootRoute = [
     {
         path: "/consent",
         element: <Consent />,
+    },
+    {
+        path: "/create-profile",
+        element: <CreateProfile />,
     },
     {
         path: "*",

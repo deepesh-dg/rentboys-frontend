@@ -10,8 +10,10 @@ import NotificationIcon from "@/assets/icons/solid/notification.svg"
 import SettingIcon from "@/assets/icons/solid/setting.svg"
 import UserSettingIcon from "@/assets/icons/solid/user-setting.svg"
 import BulbIcon from "@/assets/icons/solid/bulb.svg"
+import UserUploadDpIcon from "@/assets/icons/solid/user-uploaddp.svg"
 
 
 
 
-export { Men1Icon, Men2Icon, Men3Icon, FakeDocument, UserIcon, DashboardIcon, HeartIcon, LogoutIcon, NotificationIcon, SettingIcon, UserSettingIcon, BulbIcon }
+
+export { Men1Icon, Men2Icon, Men3Icon, FakeDocument, UserIcon, DashboardIcon, HeartIcon, LogoutIcon, NotificationIcon, SettingIcon, UserSettingIcon, BulbIcon, UserUploadDpIcon }
