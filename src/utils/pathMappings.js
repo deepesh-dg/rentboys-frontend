@@ -1,7 +1,7 @@
 export const pathToNameMapping = {
-    "contact": "Contact Us",
+    contact: "Contact Us",
     "terms-of-service": "Terms of Service",
-    "legal": "Legal",
+    legal: "Legal",
     "privacy-policy": "Privacy Policy",
     "cookie-policy": "Cookie Policy",
     "DMCA-notice": "DMCA Notice",

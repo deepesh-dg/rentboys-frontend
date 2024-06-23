@@ -14,7 +14,7 @@ const Textarea = ({
             placeholder={placeholder}
             onChange={e => onChange(e.target.value)}
             rows={rows}
-            className={`placeholder:text-white focus:ring-1 focus:ring-red-50 outline-none ${className}`}
+            className={`outline-none placeholder:text-white focus:ring-1 focus:ring-red-50 ${className}`}
             {...rest}
         />
     );

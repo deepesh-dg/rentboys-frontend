@@ -6,9 +6,8 @@ import ErrorPage from "./error";
 import Consent from "./consent";
 import CreateProfile from "./create-profile/page"
 
-
 /**
- * @type {import('react-router-dom').RouteObject[]} 
+ * @type {import('react-router-dom').RouteObject[]}
  */
 const RootRoute = [
     // Public Routes

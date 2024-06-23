@@ -14,13 +14,19 @@ export default function PolicyLayout() {
 
     return (
         <>
-            <div className="container text-white">
+            <div className="container flex-grow text-white">
                 <div className="flex items-start gap-4 md-down:flex-wrap">
-                    <div className="w-full shrink-0 md:max-w-[210px] py-4 bg-gray-100 rounded-md">
-                        <h2 className="text-xl font-medium uppercase pb-1 mx-4 border-b border-gray-50 tracking-widest">About</h2>
-                        <ul className="text-base mt-3 space-y-2 flex flex-col [&>li]:px-4">
-                            {navItems.map((item) => (
-                                <NavHeading key={item.href} name={item.name} href={item.href} />
+                    <div className="w-full shrink-0 rounded-md bg-gray-100 py-4 md:max-w-[210px]">
+                        <h2 className="mx-4 border-b border-gray-50 pb-1 text-xl font-medium uppercase tracking-widest">
+                            About
+                        </h2>
+                        <ul className="mt-3 flex flex-col space-y-2 text-base [&>li]:px-4">
+                            {navItems.map(item => (
+                                <NavHeading
+                                    key={item.href}
+                                    name={item.name}
+                                    href={item.href}
+                                />
                             ))}
                         </ul>
                     </div>
