@@ -4,7 +4,7 @@ import RootLayout from "./layout";
 import NotFound from "./not-found";
 import ErrorPage from "./error";
 import Consent from "./consent";
-import CreateProfile from "./create-profile/page"
+import OnboardingRoutes from "./(onboarding)/route";
 
 /**
  * @type {import('react-router-dom').RouteObject[]}
@@ -20,15 +20,14 @@ const RootRoute = [
 
             // Login, Signup Routes
             ...AuthRoutes,
+
+            // Onboarding Routes
+            ...OnboardingRoutes,
         ],
     },
     {
         path: "/consent",
         element: <Consent />,
-    },
-    {
-        path: "/create-profile",
-        element: <CreateProfile />,
     },
     {
         path: "*",
