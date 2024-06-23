@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
 
 function NavHeading({ name, href }) {
     const location = useLocation();
@@ -7,7 +7,9 @@ function NavHeading({ name, href }) {
 
     return (
         <Link to={href} key={href}>
-            <li className={`px-4 ${isActive ? 'text-red-50 border-l-2 border-red-50' : ''}`}>
+            <li
+                className={`px-4 ${isActive ? "border-l-2 border-red-50 text-red-50" : ""}`}
+            >
                 {name}
             </li>
         </Link>
@@ -15,4 +17,3 @@ function NavHeading({ name, href }) {
 }
 
 export default NavHeading;
-

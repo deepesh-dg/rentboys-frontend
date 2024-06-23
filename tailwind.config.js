@@ -52,7 +52,7 @@ export default {
                     100: "#1F1F1F", //background
                     200: "#A5A5A5", //text color
                     300: "#303030", //border color
-                }
+                },
             },
             fontFamily: {
                 "fira-sans": ['"Fira Sans Condensed"'],

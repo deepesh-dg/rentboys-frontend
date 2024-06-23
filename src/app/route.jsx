@@ -5,9 +5,8 @@ import NotFound from "./not-found";
 import ErrorPage from "./error";
 import Consent from "./consent";
 
-
 /**
- * @type {import('react-router-dom').RouteObject[]} 
+ * @type {import('react-router-dom').RouteObject[]}
  */
 const RootRoute = [
     // Public Routes
