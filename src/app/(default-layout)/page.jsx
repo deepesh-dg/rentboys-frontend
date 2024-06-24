@@ -6,12 +6,13 @@ import specialAdd1 from "@/assets/img/specialAds1.jpg";
 import specialAdd2 from "@/assets/img/specialAds2.jpg";
 import specialAdd3 from "@/assets/img/specialAds3.jpg";
 
+
 export default function Home() {
     return (
         <section className="main-section">
             <div className="featuredEscorts my-[20px]">
                 <div className="container m-auto">
-                    <div className="flex flex-row gap-1">
+                    <div className="xl:flex flex-row gap-1">
                         <div className="md:basis-4/4 lg:basis-3/4">
                             <div className="featuredEscortsList">
                                 <div className="mb-[20px]">
@@ -20,8 +21,8 @@ export default function Home() {
                                         me
                                     </h1>
                                 </div>
-                                <div className="flex flex-row">
-                                    <div className="maleEscortsList grid grid-cols-4 gap-0 lg:basis-3/4">
+                                <div className="xl:flex flex-row">
+                                    <div className="maleEscortsList grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-0 lg:basis-3/4">
                                         <a
                                             href="#"
                                             className="relative h-[242px] overflow-hidden"
@@ -239,7 +240,7 @@ export default function Home() {
                                             </div>
                                         </a>
                                     </div>
-                                    <div className="maleEscortsList2 grid grid-cols-1 lg:basis-1/4">
+                                    <div className="maleEscortsList2 md:grid grid-cols-1 lg:basis-1/4 hidden">
                                         <a
                                             href="#"
                                             className="relative h-[482px] overflow-hidden"
@@ -308,8 +309,8 @@ export default function Home() {
                             Recent Posts
                         </h1>
                     </div>
-                    <div className="mt-[35px] flex flex-row gap-1">
-                        <div className="basis-3/12">
+                    <div className="mt-[35px] md:flex flex-row gap-1">
+                        <div className="md:basis-3/12">
                             <a
                                 href="#"
                                 className="blurImg videoBtn relative block h-full overflow-hidden border border-[#5F5F5F]"
@@ -342,7 +343,7 @@ export default function Home() {
                                 </div>
                             </a>
                         </div>
-                        <div className="basis-6/12">
+                        <div className="md:basis-6/12">
                             <div className="recentAddedList">
                                 <div className="grid grid-cols-2">
                                     <a
@@ -469,7 +470,7 @@ export default function Home() {
                                 </div>
                             </div>
                         </div>
-                        <div className="basis-3/12">
+                        <div className="md:basis-3/12">
                             <a
                                 href="#"
                                 className="RecentAdsBanner relative h-full overflow-hidden"
@@ -490,10 +491,10 @@ export default function Home() {
                             Last Visited Profiles
                         </h1>
                     </div>
-                    <div className="mt-[35px] flex flex-row gap-1">
+                    <div className="mt-[35px] md:flex flex-row gap-1">
                         <div className="basis-9/12">
                             <div className="lastVisitedList">
-                                <div className="grid grid-cols-4">
+                                <div className="grid grid-cols-2 md:grid-cols-4">
                                     <a
                                         href="#"
                                         className="blurImg relative h-[168px] overflow-hidden border border-[#5F5F5F]"
@@ -571,7 +572,7 @@ export default function Home() {
                                     </h1>
                                 </div>
                                 <div className="liveViewList">
-                                    <div className="liveCam grid grid-cols-4">
+                                    <div className="liveCam grid grid-cols-2 md:grid-cols-4">
                                         <a
                                             href="#"
                                             className="relative h-[168px] overflow-hidden border border-[#5F5F5F]"
@@ -696,7 +697,7 @@ export default function Home() {
                                 </div>
                             </div>
                         </div>
-                        <div className="basis-3/12">
+                        <div className="hidden md:block basis-3/12">
                             <a href="#" className="RecentAdsBanner">
                                 <Image
                                     src={Modelimage}
@@ -714,7 +715,7 @@ export default function Home() {
                             RentBoys Special Ads
                         </h1>
                     </div>
-                    <div className="mt-[35px] flex flex-row gap-4">
+                    <div className="mt-[35px] flex flex-col md:flex-row gap-4">
                         <div className="basis-4/12">
                             <a
                                 href="#"

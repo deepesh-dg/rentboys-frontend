@@ -1,5 +1,5 @@
 import ProtectedLayout from "./layout";
-import Profile from "./profile/page";
+import DashboardRoutes from "./dashboard/route";
 
 /**
  * @type {import('react-router-dom').RouteObject[]}
@@ -10,8 +10,8 @@ const ProtectedRoutes = [
         element: <ProtectedLayout />,
         children: [
             {
-                path: "/profile",
-                element: <Profile />,
+                path: "/dashboard",
+                children: DashboardRoutes,
             },
         ],
     },

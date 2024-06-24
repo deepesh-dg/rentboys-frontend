@@ -1,5 +1,6 @@
 import MembershipPlan from "./membership-plan/page";
 import OnboardingLayout from "./layout";
+import CreateProfile from "./create-profile/page";
 
 /**
  * @type {import('react-router-dom').RouteObject[]}
@@ -10,8 +11,12 @@ const OnboardingRoutes = [
         element: <OnboardingLayout />,
         children: [
             {
-                path: "/membership-plan",
+                path: "membership-plan",
                 element: <MembershipPlan />,
+            },
+            {
+                path: "create-profile",
+                element: <CreateProfile />,
             },
         ],
     },

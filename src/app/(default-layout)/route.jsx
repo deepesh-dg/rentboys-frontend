@@ -15,6 +15,7 @@ const DefaultRoutes = [
                 path: "/",
                 element: <Home />,
             },
+
             ...PoliciesRoutes,
             ...ProtectedRoutes,
         ],

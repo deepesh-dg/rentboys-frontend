@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import {
     ArrowDownIcon,
     BellIcon,
@@ -77,7 +77,7 @@ export default function Header() {
                         >
                             <Icons src={HamburgerMenuIcon} className="w-8" />
                         </div>
-                        <Link to="https://flowbite.com/" className="">
+                        <Link to="/">
                             <Icons src={LogoIcon} className="w-44" />
                         </Link>
                     </div>
@@ -121,12 +121,11 @@ export default function Header() {
                 </div>
             </nav>
 
-            {/* Sidebar */}
+            {/* Mobile Sidebar */}
             <div
                 ref={sidebarRef}
-                className={`fixed left-0 top-0 z-60 h-screen max-h-screen w-64 transform overflow-y-auto bg-gray-100 transition-transform ${
-                    isMenuOpen ? "translate-x-0" : "-translate-x-full"
-                }`}
+                className={`fixed left-0 top-0 z-60 h-screen max-h-screen w-64 transform overflow-y-auto bg-gray-100 transition-transform ${isMenuOpen ? "translate-x-0" : "-translate-x-full"
+                    }`}
             >
                 <div className="mx-4 pt-12">
                     <div className="flex items-center gap-x-2">
@@ -136,8 +135,8 @@ export default function Header() {
                         <p className="text-white">GuestUser4214</p>
                     </div>
                     <div className="mt-4 flex items-center justify-between">
-                        <Button label="Login" variant="colored" size="sm" />
-                        <Button label="Sign up" variant="outlined" size="sm" />
+                        <Button href="/login" label="Login" variant="colored" size="sm" />
+                        <Button href="signup" label="Sign up" variant="outlined" size="sm" />
                     </div>
                     <div className="flex flex-col py-6 text-white">
                         {navLinks.map((link, index) => (
