@@ -9,6 +9,7 @@ import Form from "../Form";
 import api from "@/services";
 import { useState } from "@/hooks";
 import { useNavigate } from "react-router-dom";
+import classNames from "@/lib/classNames";
 
 const Location = () => {
     const { setScreen } = useSignupScreenSteps();
@@ -74,33 +75,34 @@ const Location = () => {
                         }}
                         error={errors.location}
                     />
-                    {showSuggestions && (
-                        <ul className="absolute inset-x-0 top-full max-h-28 overflow-auto border border-solid border-white/20">
-                            {locationSuggestions[data.location]?.map(item => (
-                                <li
-                                    key={item.place_id}
-                                    className="bg-black text-sm text-red-50"
+                    <ul
+                        className={classNames(
+                            "absolute inset-x-0 top-full max-h-28 overflow-auto border border-solid border-white/20",
+                            showSuggestions ? "block" : "hidden hover:block"
+                        )}
+                    >
+                        {locationSuggestions[data.location]?.map(item => (
+                            <li
+                                key={item.place_id}
+                                className="bg-black text-sm text-red-50"
+                            >
+                                <button
+                                    onClick={() => {
+                                        setData(prev => {
+                                            prev.location = item.display_name;
+                                            prev.longitude = item.lon;
+                                            prev.latitude = item.lat;
+                                            prev.state = item.address.state;
+                                            prev.country = item.address.country;
+                                        });
+                                    }}
+                                    className="w-full px-4 py-2 text-left hover:bg-white/10"
                                 >
-                                    <button
-                                        onClick={() => {
-                                            setData(prev => {
-                                                prev.location =
-                                                    item.display_name;
-                                                prev.longitude = item.lon;
-                                                prev.latitude = item.lat;
-                                                prev.state = item.address.state;
-                                                prev.country =
-                                                    item.address.country;
-                                            });
-                                        }}
-                                        className="w-full px-4 py-2 text-left hover:bg-white/10"
-                                    >
-                                        {item.display_name}
-                                    </button>
-                                </li>
-                            ))}
-                        </ul>
-                    )}
+                                    {item.display_name}
+                                </button>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
                 <Button
                     label="Next"

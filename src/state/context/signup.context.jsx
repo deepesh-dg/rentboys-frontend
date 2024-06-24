@@ -188,9 +188,9 @@ export function SignupProvider({ children }) {
         return true;
     });
 
-    const phoneVerifyResendOtp = handleSubmit(async () => {
+    const phoneVerifyResendOtp = handleSubmit(async (data) => {
         setLoader(() => true);
-        const response = await api.auth.phoneVerifyOtpResend();
+        const response = await api.auth.phoneVerifyOtpResend(data);
         setLoader(() => false);
 
         if (!response.status) {
