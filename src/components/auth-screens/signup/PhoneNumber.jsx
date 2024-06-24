@@ -13,8 +13,8 @@ export default function PhoneNumber() {
 
     return (
         <Form
-            onSubmit={e => {
-                const status = phoneVerify();
+            onSubmit={async e => {
+                const status = await phoneVerify();
                 if (status) setScreen(SignupScreenSteps.VERIFY_PHONE);
             }}
             title="Phone no."

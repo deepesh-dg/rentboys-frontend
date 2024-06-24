@@ -14,7 +14,7 @@ const ChooseUserType = () => {
     return (
         <Form
             onSubmit={async e => {
-                const status = selectUserType(e);
+                const status = await selectUserType(e);
                 if (status) setScreen(SignupScreenSteps.SELECT_LOCATION);
             }}
             title="Choose User Type"

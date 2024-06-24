@@ -19,7 +19,7 @@ const VerifyEmailOTP = () => {
         <OTP
             onClickResend={emailVerifyResendOtp}
             onSubmit={async e => {
-                const status = emailVerifyOtpMatch(e);
+                const status = await emailVerifyOtpMatch(e);
                 if (status) setScreen(SignupScreenSteps.CHOOSE_USER_TYPE);
             }}
             formError={errors.form}

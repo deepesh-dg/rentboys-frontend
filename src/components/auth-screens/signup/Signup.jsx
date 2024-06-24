@@ -15,7 +15,7 @@ const Signup = () => {
     return (
         <Form
             onSubmit={async e => {
-                const status = signup(e);
+                const status = await signup(e);
                 if (status) setScreen(SignupScreenSteps.VERIFY_EMAIL);
             }}
             error={errors.form}

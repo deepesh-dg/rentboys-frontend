@@ -12,8 +12,7 @@ export default function OTP() {
         <OtpScreen
             onClickResend={resendOtp}
             onSubmit={async e => {
-                // const status = await submitOtp(e);
-                const status = true;
+                const status = await submitOtp(e);
                 if (status) setScreen(LoginScreenSteps.RESET_PASSWORD);
             }}
             formError={errors.form}

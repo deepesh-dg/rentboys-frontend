@@ -40,7 +40,7 @@ const Location = () => {
     return (
         <Form
             onSubmit={async e => {
-                const status = selectLocation(e);
+                const status = await selectLocation(e);
                 if (status && data.user_type === UserType.ADVERTISER)
                     setScreen(SignupScreenSteps.UPLOAD_ID);
             }}

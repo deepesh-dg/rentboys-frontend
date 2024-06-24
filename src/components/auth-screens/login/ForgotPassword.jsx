@@ -14,8 +14,7 @@ const ForgotPassword = () => {
     return (
         <Form
             onSubmit={async e => {
-                // const status = await forgotPassword(e);
-                const status = true;
+                const status = await forgotPassword(e);
                 if (status) setScreen(LoginScreenSteps.FORGOT_PASSWORD_OTP);
             }}
             title="Forgot Password"
