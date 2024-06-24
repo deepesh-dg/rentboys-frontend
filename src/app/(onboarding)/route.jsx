@@ -11,7 +11,7 @@ const OnboardingRoutes = [
         element: <OnboardingLayout />,
         children: [
             {
-                path: "membership-plans",
+                path: "membership-plan",
                 element: <MembershipPlan />,
             },
             {

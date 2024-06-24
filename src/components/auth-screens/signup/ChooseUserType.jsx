@@ -14,17 +14,13 @@ const ChooseUserType = () => {
     return (
         <Form
             onSubmit={async e => {
-                // const status = await selectUserType(e);
-                const status = true;
+                const status = await selectUserType(e);
                 if (status) setScreen(SignupScreenSteps.SELECT_LOCATION);
             }}
             title="Choose User Type"
             maxWidth="4xl"
         >
             <div className="flex w-full flex-col items-center gap-y-6">
-                <h1 className="relative font-fira-sans text-2xl font-normal text-white before:absolute before:-bottom-2 before:left-14 before:w-10 before:border-2 before:border-red-50 after:absolute after:-bottom-2 after:right-14 after:w-10 after:border-2 after:border-red-50">
-                    Choose User Type
-                </h1>
                 {/* <span className='w-20 h-1 my-2 inline-block bg-red-50'></span> */}
                 <div className="flex w-full justify-between gap-x-4">
                     <button

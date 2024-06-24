@@ -125,6 +125,8 @@ export function LoginProvider({ children }) {
                 throw response;
             }
 
+            console.log({ response });
+
             return true;
         },
         data => {

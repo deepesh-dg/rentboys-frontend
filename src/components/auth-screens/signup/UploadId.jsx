@@ -3,61 +3,111 @@ import Form from "../Form";
 import Icons from "../../icons/Component";
 import Button from "../../Button";
 import { CameraIcon } from "../../icons/outline";
-import { FakeDocument } from "../../icons/solid";
-import { SignupScreenSteps } from "@/constants";
+import { SignupScreenSteps, acceptedImageTypes } from "@/constants";
 import { useSignupScreenSteps } from "@/state";
+import { useQuery } from "react-query";
+import api from "@/services";
+import Image from "@/components/Image";
+import parse from "html-react-parser";
+import { useSignup } from "@/state/context";
+import { useBlobUrl } from "@/hooks";
 
 export default function UploadId() {
     const { setScreen } = useSignupScreenSteps();
-    const handleSubmit = () => {
-        // handle form submission
-    };
+    const {
+        data: formData,
+        errors: formErrors,
+        formIds,
+        loader,
+        setData,
+        uploadId,
+    } = useSignup();
+    const {
+        data: { status, data } = {},
+        error,
+        isLoading,
+    } = useQuery("upload-id-page-content", () =>
+        api.common.getIdProofPageContent()
+    );
+
+    const blobUrl = useBlobUrl(formData.id_proof);
+
+    if (error || status === false) throw new Error(error?.message || "Error");
 
     return (
-        <Form title="Upload ID" maxWidth="4xl" className="!gap-y-4">
-            <p className="text-base font-normal">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s
-            </p>
-            <div className="flex w-full flex-col gap-x-4 md:flex-row md-down:gap-y-4">
-                <div className="w-full border border-gray-300 bg-black md:w-2/5">
-                    <div className="flex h-full w-full items-center justify-center">
-                        <div className="flex flex-col items-center justify-center gap-y-4 md-down:min-h-60">
-                            <Icons src={CameraIcon} className="mx-auto w-16" />
-                            <h2 className="text-xl md:text-2xl">
-                                Upload Your Id
-                            </h2>
+        <Form
+            onSubmit={async e => {
+                const status = await uploadId(e);
+
+                if (status) setScreen(SignupScreenSteps.PHONE_NUMBER);
+            }}
+            title={data?.title}
+            maxWidth="4xl"
+            description={data?.short_description}
+            className="!gap-y-4"
+            error={formErrors.id_proof || formErrors.form}
+        >
+            {isLoading ? null : (
+                <div className="flex w-full flex-col gap-x-4 md:flex-row md-down:gap-y-4">
+                    <div className="w-full border border-gray-300 bg-black md:w-2/5">
+                        <div className="flex h-full w-full items-center justify-center">
+                            <label
+                                htmlFor={formIds.id_proof}
+                                className="flex cursor-pointer flex-col items-center justify-center gap-y-4 md-down:min-h-60"
+                            >
+                                <input
+                                    type="file"
+                                    id={formIds.id_proof}
+                                    className="hidden"
+                                    accept={acceptedImageTypes.join(",")}
+                                    onChange={e => {
+                                        const file = e.target.files[0];
+                                        if (file) {
+                                            setData(prev => {
+                                                prev.id_proof = file;
+                                            });
+                                        }
+                                    }}
+                                />
+                                {blobUrl ? (
+                                    <Image src={blobUrl} />
+                                ) : (
+                                    <>
+                                        <Icons
+                                            src={CameraIcon}
+                                            className="mx-auto w-16"
+                                        />
+                                        <h2 className="text-xl md:text-2xl">
+                                            Upload Your Id
+                                        </h2>
+                                    </>
+                                )}
+                            </label>
                         </div>
                     </div>
+                    <div className="w-full space-y-4 md:w-3/5">
+                        <div className="reset text-white">
+                            {parse(data?.description || "")}
+                        </div>
+                        <Image src={data?.image} className="w-full" />
+                        <Button
+                            label={formData.id_proof ? "Upload" : "Skip"}
+                            type={formData.id_proof ? "submit" : "button"}
+                            disabled={loader}
+                            onClick={
+                                formData.id_proof
+                                    ? undefined
+                                    : () => {
+                                          setScreen(
+                                              SignupScreenSteps.PHONE_NUMBER
+                                          );
+                                      }
+                            }
+                            className="w-full bg-red-100 px-20 py-4 text-xl font-bold uppercase hover:bg-red-50"
+                        />
+                    </div>
                 </div>
-                <div className="w-full space-y-4 md:w-3/5">
-                    <p>
-                        Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry.
-                    </p>
-                    <ul className="list-disc [&>li]:ml-4">
-                        <li>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit.
-                        </li>
-                        <li>
-                            Nullam auctor diam et velit tempus, a porta diam
-                            convallis.
-                        </li>
-                        <li>Etiam mollis ex vel mauris viverra fringilla.</li>
-                    </ul>
-                    <Icons src={FakeDocument} className="w-full" />
-                    <Button
-                        label="Skip"
-                        type="button"
-                        onClick={() => {
-                            setScreen(SignupScreenSteps.PHONE_NUMBER);
-                        }}
-                        className="w-full bg-red-100 px-20 py-4 text-xl font-bold uppercase hover:bg-red-50"
-                    />
-                </div>
-            </div>
+            )}
         </Form>
     );
 }

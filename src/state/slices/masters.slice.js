@@ -2,15 +2,45 @@ import CommonService from "@/services/common.service";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 /**
+ * @typedef {Object} MasterData
+ * @property {number} id
+ * @property {string} value
+ * @property {string} type
+ * @property {string} description
+ */
+
+/**
  * @type {{masters: {
- *  gender: {id: number, value: string, type: string, description: string}[],
- *  hair: {id: number, value: string, type: string, description: string}[],
+ *   gender: MasterData[],
+ *  hair: MasterData[],
+ *  body_hair: MasterData[],
+ *  foreskin: MasterData[],
+ *  safe: MasterData[],
+ *  position: MasterData[],
+ *  eyes_color: MasterData[],
+ *  piercings: MasterData[],
+ *  race: MasterData[],
+ *  style: MasterData[],
+ *  zodiac: MasterData[],
+ *  smooking: MasterData[],
+ *  body: MasterData[],
  * }}}
  */
 export const initialState = {
     masters: {
         gender: [],
         hair: [],
+        body_hair: [],
+        foreskin: [],
+        safe: [],
+        position: [],
+        eyes_color: [],
+        piercings: [],
+        race: [],
+        style: [],
+        zodiac: [],
+        smooking: [],
+        body: [],
     },
 };
 

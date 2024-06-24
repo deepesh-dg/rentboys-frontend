@@ -3,6 +3,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Define a class that applies the reset styles */
+@layer components {
+    .reset {
+        all: initial;
+        * {
+            all: revert;
+        }
+    }
+}
+
 @media (min-width: 1536px) {
     .container {
         max-width: 1354px !important;
