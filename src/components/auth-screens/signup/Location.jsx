@@ -14,6 +14,7 @@ const Location = () => {
     const { data, errors, loader, selectLocation, setData } = useSignup();
 
     const [locationSuggestions, setLocationSuggestions] = useState({});
+    const [showSuggestions, setShowSuggestions] = useState(false);
 
     useEffect(() => {
         if (
@@ -59,32 +60,41 @@ const Location = () => {
                                 prev.location = e.target.value;
                             })
                         }
+                        onFocus={() => {
+                            setShowSuggestions(() => true);
+                        }}
+                        onBlur={() => {
+                            setShowSuggestions(() => false);
+                        }}
                         error={errors.location}
-                        className="peer"
                     />
-                    <ul className="absolute inset-x-0 top-full block max-h-28 overflow-auto border border-solid border-white/20 peer-focus:block">
-                        {locationSuggestions[data.location]?.map(item => (
-                            <li
-                                key={item.place_id}
-                                className="bg-black text-sm text-red-50"
-                            >
-                                <button
-                                    onClick={() => {
-                                        setData(prev => {
-                                            prev.location = item.display_name;
-                                            prev.longitude = item.lon;
-                                            prev.latitude = item.lat;
-                                            prev.state = item.address.state;
-                                            prev.country = item.address.country;
-                                        });
-                                    }}
-                                    className="w-full px-4 py-2 text-left hover:bg-white/10"
+                    {showSuggestions && (
+                        <ul className="absolute inset-x-0 top-full max-h-28 overflow-auto border border-solid border-white/20">
+                            {locationSuggestions[data.location]?.map(item => (
+                                <li
+                                    key={item.place_id}
+                                    className="bg-black text-sm text-red-50"
                                 >
-                                    {item.display_name}
-                                </button>
-                            </li>
-                        ))}
-                    </ul>
+                                    <button
+                                        onClick={() => {
+                                            setData(prev => {
+                                                prev.location =
+                                                    item.display_name;
+                                                prev.longitude = item.lon;
+                                                prev.latitude = item.lat;
+                                                prev.state = item.address.state;
+                                                prev.country =
+                                                    item.address.country;
+                                            });
+                                        }}
+                                        className="w-full px-4 py-2 text-left hover:bg-white/10"
+                                    >
+                                        {item.display_name}
+                                    </button>
+                                </li>
+                            ))}
+                        </ul>
+                    )}
                 </div>
                 <Button
                     label="Next"

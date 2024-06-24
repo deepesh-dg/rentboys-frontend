@@ -27,6 +27,7 @@ const LoginContext = createContext({
     /** @type {(updater: (prevState: { [K in keyof typeof initialData]: string } & { form: string } ) => void) => void} */
     setError: updater => {},
     resetForm: () => {},
+    resetPasswordField: () => {},
     login: async e => {},
     forgotPassword: async e => {},
     resendOtp: async () => {},
@@ -125,7 +126,9 @@ export function LoginProvider({ children }) {
                 throw response;
             }
 
-            console.log({ response });
+            setFormData(prev => {
+                prev.token = response.data.validate_string;
+            });
 
             return true;
         },
@@ -178,6 +181,13 @@ export function LoginProvider({ children }) {
         setFormErrors(() => initialFormErrors.current);
     }, []);
 
+    const resetPasswordField = useCallback(() => {
+        setFormData(prev => {
+            prev.password = initialData.password;
+            prev.confirm_password = initialData.confirm_password;
+        });
+    }, []);
+
     return (
         <LoginContext.Provider
             value={{
@@ -194,6 +204,7 @@ export function LoginProvider({ children }) {
                 resetPassword,
                 forgotPassword,
                 resetForm,
+                resetPasswordField,
             }}
         >
             {children}

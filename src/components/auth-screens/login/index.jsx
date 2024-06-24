@@ -9,7 +9,7 @@ import { LoginProvider, useLogin } from "@/state/context";
 
 export default function LoginScreens() {
     const { screen, setScreen } = useLoginScreenSteps();
-    const { resetForm } = useLogin();
+    const { resetForm, resetPasswordField } = useLogin();
 
     useEffect(
         () => () => {
@@ -19,6 +19,7 @@ export default function LoginScreens() {
     );
 
     useEffect(() => resetForm, [resetForm]);
+    useEffect(() => resetPasswordField, [screen, resetForm]);
 
     return (
         <LoginProvider>
