@@ -32,3 +32,10 @@ export const UserType = Object.freeze({
 export const FileUploadTypes = Object.freeze({
     USER_DOC: "user-doc",
 });
+
+export const acceptedImageTypes = Object.freeze([
+    "image/jpeg",
+    "image/jpg",
+    "image/png",
+    "image/webp",
+]);

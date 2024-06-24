@@ -167,7 +167,7 @@ export function SignupProvider({ children }) {
             throw response;
         }
 
-        setData(prev => {
+        setFormData(prev => {
             prev.id_proof_path = response.data.upload_path;
             prev.id_proof_preview = response.data.perview_path;
         });
