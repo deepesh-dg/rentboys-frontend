@@ -45,6 +45,7 @@ const SignupContext = createContext({
     /** @type {(updater: (prevState: { [K in keyof typeof initialData]: string } & { form: string } ) => void) => void} */
     setError: updater => {},
     resetForm: () => {},
+    resetPasswordField: () => {},
     signup: async e => {},
     emailVerifyResendOtp: async () => {},
     emailVerifyOtpMatch: async e => {},
@@ -77,7 +78,6 @@ export function SignupProvider({ children }) {
     const initialFormErrors = useRef(formErrors);
 
     const { login } = useAuth();
-    const navigate = useNavigate();
 
     const signup = handleSubmit(
         async data => {
@@ -129,6 +129,10 @@ export function SignupProvider({ children }) {
             throw response;
         }
 
+        setFormData(prev => {
+            prev.otp = initialData.otp;
+        });
+
         return true;
     });
 
@@ -151,7 +155,6 @@ export function SignupProvider({ children }) {
 
         if (data.user_type === UserType.CLIENT) {
             login(response.data);
-            navigate("/memership-plan");
         }
 
         return true;
@@ -204,7 +207,6 @@ export function SignupProvider({ children }) {
             throw response;
         }
 
-        navigate("/create-profile");
         login(response.data);
 
         return true;
@@ -213,6 +215,13 @@ export function SignupProvider({ children }) {
     const resetForm = useCallback(() => {
         setFormData(() => initialData);
         setFormErrors(() => initialFormErrors.current);
+    }, []);
+
+    const resetPasswordField = useCallback(() => {
+        setFormData(prev => {
+            prev.password = initialData.password;
+            prev.confirm_password = initialData.confirm_password;
+        });
     }, []);
 
     return (
@@ -235,6 +244,7 @@ export function SignupProvider({ children }) {
                 phoneVerifyResendOtp,
                 phoneVerifyOtpMatch,
                 resetForm,
+                resetPasswordField,
             }}
         >
             {children}

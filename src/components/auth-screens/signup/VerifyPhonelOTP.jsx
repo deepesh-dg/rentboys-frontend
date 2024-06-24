@@ -1,6 +1,7 @@
 import React from "react";
 import { useSignup } from "@/state/context";
 import OTP from "../OTP";
+import { useNavigate } from "react-router-dom";
 
 const VerifyPhonelOTP = () => {
     const {
@@ -12,11 +13,14 @@ const VerifyPhonelOTP = () => {
         phoneVerifyResendOtp,
     } = useSignup();
 
+    const navigate = useNavigate();
+
     return (
         <OTP
             onClickResend={phoneVerifyResendOtp}
             onSubmit={async e => {
                 await phoneVerifyOtpMatch(e);
+                navigate("/create-profile");
             }}
             formError={errors.form}
             error={errors.otp}

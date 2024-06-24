@@ -8,6 +8,7 @@ import { SignupScreenSteps, UserType } from "@/constants";
 import Form from "../Form";
 import api from "@/services";
 import { useState } from "@/hooks";
+import { useNavigate } from "react-router-dom";
 
 const Location = () => {
     const { setScreen } = useSignupScreenSteps();
@@ -15,6 +16,8 @@ const Location = () => {
 
     const [locationSuggestions, setLocationSuggestions] = useState({});
     const [showSuggestions, setShowSuggestions] = useState(false);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (
@@ -42,8 +45,11 @@ const Location = () => {
         <Form
             onSubmit={async e => {
                 const status = await selectLocation(e);
-                if (status && data.user_type === UserType.ADVERTISER)
-                    setScreen(SignupScreenSteps.UPLOAD_ID);
+                if (status) {
+                    if (data.user_type === UserType.ADVERTISER)
+                        setScreen(SignupScreenSteps.UPLOAD_ID);
+                    else navigate("/membership-plan");
+                }
             }}
             title="Location"
             maxWidth="xl"

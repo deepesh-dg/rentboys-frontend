@@ -12,7 +12,7 @@ import VerifyPhonelOTP from "./VerifyPhonelOTP";
 
 export default function SignupScreens() {
     const { screen, setScreen } = useSignupScreenSteps();
-    const { resetForm } = useSignup();
+    const { resetForm, resetPasswordField } = useSignup();
 
     useEffect(
         () => () => {
@@ -22,6 +22,7 @@ export default function SignupScreens() {
     );
 
     useEffect(() => resetForm, [resetForm]);
+    useEffect(() => resetPasswordField, [screen, resetPasswordField]);
 
     return (
         <SignupProvider>

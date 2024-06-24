@@ -19,7 +19,7 @@ export default function LoginScreens() {
     );
 
     useEffect(() => resetForm, [resetForm]);
-    useEffect(() => resetPasswordField, [screen, resetForm]);
+    useEffect(() => resetPasswordField, [screen, resetPasswordField]);
 
     return (
         <LoginProvider>
