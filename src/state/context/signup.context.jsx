@@ -3,7 +3,6 @@ import api from "@/services";
 import { createContext, useCallback, useContext, useRef } from "react";
 import { FileUploadTypes, UserType } from "@/constants";
 import { useAuth } from "../hooks";
-import { useNavigate } from "react-router-dom";
 
 const initialData = {
     email: "",
@@ -188,7 +187,7 @@ export function SignupProvider({ children }) {
         return true;
     });
 
-    const phoneVerifyResendOtp = handleSubmit(async (data) => {
+    const phoneVerifyResendOtp = handleSubmit(async data => {
         setLoader(() => true);
         const response = await api.auth.phoneVerifyOtpResend(data);
         setLoader(() => false);
