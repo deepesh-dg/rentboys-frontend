@@ -67,3 +67,45 @@ body {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#a6000000', GradientType=0);
     transition: all 0.4s ease;
 }
+
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 1px solid red;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+    background-color: transparent;
+}
+
+input[type="checkbox"]:checked::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input[type="checkbox"]:checked::after {
+    content: "✔";
+    color: red;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

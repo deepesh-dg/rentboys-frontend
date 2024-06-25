@@ -1,17 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../../Button";
 import { Link } from "react-router-dom";
-import { MailIcon, PasswordIcon } from "../../icons/outline";
+import { EyeClosedIcon, MailIcon, PasswordIcon } from "../../icons/outline";
 import Input from "../../common/Input/Input";
 import { useLoginScreenSteps } from "@/state";
 import { LoginScreenSteps } from "@/constants";
 import { useLogin } from "@/state/context";
 import Form from "../Form";
+import Icons from "@/components/icons/Component";
+// import CheckboxInput from "@/components/common/Input/CheckboxInput";
 
 export default function Login() {
+    // const [checked, setChecked] = useState(false);
     const { setScreen } = useLoginScreenSteps();
     const { data, errors, formIds, loader, login, setData } = useLogin();
+    const [viewPwd, setViewPwd] = useState(false);
 
+    const togglePasswordVisibility = () => {
+        setViewPwd(prev => !prev);
+    };
     return (
         <Form onSubmit={login} error={errors.form} maxWidth="xl" title="Login">
             <div className="flex w-full flex-col gap-y-4">
@@ -28,19 +35,25 @@ export default function Login() {
                         })
                     }
                 />
-                <Input
-                    id={formIds.password}
-                    value={data.password}
-                    error={errors.password}
-                    icon={PasswordIcon}
-                    type="password"
-                    placeholder="Password"
-                    onChange={e =>
-                        setData(prev => {
-                            prev.password = e.target.value;
-                        })
-                    }
-                />
+                <div className="relative">
+                    <Input
+                        id={formIds.password}
+                        value={data.password}
+                        error={errors.password}
+                        icon={PasswordIcon}
+                        type={viewPwd ? "text" : "password"}
+                        placeholder="Password"
+                        onChange={e =>
+                            setData(prev => {
+                                prev.password = e.target.value;
+                            })
+                        }
+                    />
+                    <button type="reset" className="absolute right-4 top-[50%] translate-y-[-50%]"
+                        onClick={togglePasswordVisibility}>
+                        <Icons src={viewPwd ? MailIcon : EyeClosedIcon} className="w-5" />
+                    </button>
+                </div>
                 <div className="flex justify-between text-sm">
                     <label
                         className="flex items-center gap-x-2"

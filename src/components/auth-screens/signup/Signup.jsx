@@ -1,17 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../../Button";
 import { Link } from "react-router-dom";
-import { MailIcon, UserIcon, PasswordIcon } from "../../icons/outline";
+import { MailIcon, UserIcon, PasswordIcon, EyeClosedIcon } from "../../icons/outline";
 import Input from "../../common/Input/Input";
 import { useSignup } from "@/state/context";
 import { useSignupScreenSteps } from "@/state";
 import { SignupScreenSteps } from "@/constants";
 import Form from "../Form";
+import Icons from "@/components/icons/Component";
+
 
 const Signup = () => {
     const { setScreen } = useSignupScreenSteps();
     const { data, errors, loader, formIds, setData, signup } = useSignup();
+    const [viewPwd, setViewPwd] = useState(false);
 
+    const togglePasswordVisibility = () => {
+        setViewPwd(prev => !prev);
+    };
     return (
         <Form
             onSubmit={async e => {
@@ -49,19 +55,25 @@ const Signup = () => {
                         })
                     }
                 />
-                <Input
-                    icon={PasswordIcon}
-                    type="password"
-                    placeholder="Password"
-                    id={formIds.password}
-                    error={errors.password}
-                    value={data.password}
-                    onChange={e =>
-                        setData(prev => {
-                            prev.password = e.target.value;
-                        })
-                    }
-                />
+                <div className="relative">
+                    <Input
+                        icon={PasswordIcon}
+                        type={viewPwd ? "text" : "password"}
+                        placeholder="Password"
+                        id={formIds.password}
+                        error={errors.password}
+                        value={data.password}
+                        onChange={e =>
+                            setData(prev => {
+                                prev.password = e.target.value;
+                            })
+                        }
+                    />
+                    <button type="reset" className="absolute right-4 top-[50%] translate-y-[-50%]"
+                        onClick={togglePasswordVisibility}>
+                        <Icons src={viewPwd ? MailIcon : EyeClosedIcon} className="w-5" />
+                    </button>
+                </div>
                 <label
                     className="flex items-center gap-x-2"
                     htmlFor={formIds.terms_conditions}
