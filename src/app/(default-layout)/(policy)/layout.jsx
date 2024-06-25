@@ -9,12 +9,12 @@ export default function PolicyLayout() {
         { name: "Legal", href: "/legal" },
         { name: "Privacy Policy", href: "/privacy-policy" },
         { name: "Cookie Policy", href: "/cookie-policy" },
-        { name: "DMCA Notice", href: "/DMCA-notice" },
+        { name: "DMCA Notice", href: "/dmca-notice" },
     ];
 
     return (
         <>
-            <div className="container flex-grow text-white">
+            <div className="container text-white h-screen">
                 <div className="flex items-start gap-4 md-down:flex-wrap">
                     <div className="w-full shrink-0 rounded-md bg-gray-100 py-4 md:max-w-[210px]">
                         <h2 className="mx-4 border-b border-gray-50 pb-1 text-xl font-medium uppercase tracking-widest">

@@ -6,7 +6,7 @@ const Input = ({
     type,
     placeholder,
     value,
-    onchange,
+    onChange,
     className,
     error,
     ...props
@@ -18,7 +18,7 @@ const Input = ({
                     type={type}
                     placeholder={placeholder}
                     value={value}
-                    onChange={onchange}
+                    onChange={onChange}
                     {...props}
                     className={`text-md w-full border border-[#303030] bg-black py-4 text-white outline-none placeholder:text-white focus:ring-1 focus:ring-red-50 ${icon ? "pl-12" : "pl-4"} ${className}`}
                 />
@@ -28,22 +28,9 @@ const Input = ({
                     </div>
                 ) : null}
             </div>
-            {error && <div className="text-red-50">{error}</div>}
+            {error && <div className="text-red-50 p-1">{error}</div>}
         </div>
     );
 };
 
 export default Input;
-<Input
-    id={formIds.password}
-    value={data.password}
-    error={errors.password}
-    icon={PasswordIcon}
-    type="password"
-    placeholder="Password"
-    onChange={e =>
-        setData(prev => {
-            prev.password = e.target.value;
-        })
-    }
-/>

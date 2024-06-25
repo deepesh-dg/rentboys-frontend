@@ -20,11 +20,11 @@ const Button = ({
 
     const sizes = {
         "xs": "px-0 py-2 text-lg font-bold",
-        "sm": "px-4 py-2 text-sm font-medium w-full mx-2",
+        "sm": "px-4 py-2 text-sm font-medium w-full",
         "md": "px-20 py-4 text-xl uppercase",
     };
 
-    const buttonClass = `flex justify-center rounded-lg text-white font-bold ${variants[variant]} ${sizes[size]} ${className}`;
+    const buttonClass = `flex whitespace-nowrap justify-center rounded-lg text-white font-bold ${variants[variant]} ${sizes[size]} ${className}`;
 
     if (href) {
         return (

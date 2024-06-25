@@ -69,7 +69,7 @@ const Signup = () => {
                             })
                         }
                     />
-                    <button type="reset" className="absolute right-4 top-[50%] translate-y-[-50%]"
+                    <button type="reset" className="absolute right-4 top-8 translate-y-[-50%]"
                         onClick={togglePasswordVisibility}>
                         <Icons src={viewPwd ? MailIcon : EyeClosedIcon} className="w-5" />
                     </button>
@@ -90,7 +90,7 @@ const Signup = () => {
                             })
                         }
                     />
-                    <span className="text-sm font-thin">Accept T&C</span>
+                    <span className="text-sm font-thin">Accept <Link to="/terms-of-service" target="_blank"><span>T&C</span> </Link></span>
                     {errors.terms_conditions && (
                         <div className="text-red-50">
                             {errors.terms_conditions}
@@ -112,7 +112,7 @@ const Signup = () => {
                     </span>
                 </Link>
             </p>
-        </Form>
+        </Form >
     );
 };
 

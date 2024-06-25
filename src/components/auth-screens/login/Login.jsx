@@ -49,7 +49,7 @@ export default function Login() {
                             })
                         }
                     />
-                    <button type="reset" className="absolute right-4 top-[50%] translate-y-[-50%]"
+                    <button type="reset" className="absolute right-4 top-8 translate-y-[-50%]"
                         onClick={togglePasswordVisibility}>
                         <Icons src={viewPwd ? MailIcon : EyeClosedIcon} className="w-5" />
                     </button>

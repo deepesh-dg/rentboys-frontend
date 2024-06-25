@@ -78,7 +78,7 @@ export default function DashboardLayout() {
                         ))}
                     </div>
                 </div>
-                <div className="col-span-5 border">
+                <div className="col-span-5">
                     <Outlet />
                 </div>
             </div>
