@@ -27,6 +27,8 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
  * }}}
  */
 export const initialState = {
+    fetched: false,
+    loading: false,
     masters: {
         gender: [],
         hair: [],
@@ -44,19 +46,32 @@ export const initialState = {
     },
 };
 
-export const loadMastersThunk = createAsyncThunk("masters/load", async () => {
-    const common = new CommonService();
-    const response = await common.getMasters();
+export const loadMastersThunk = createAsyncThunk(
+    "masters/load",
+    async (_, { getState, rejectWithValue }) => {
+        const state = getState();
+        if (state.masters.fetched) return state.masters.masters;
+        const common = new CommonService();
+        const response = await common.getMasters();
 
-    if (response.status) return response.data;
-});
+        if (response.status) return response.data;
+    }
+);
 
 export const mastersSlice = createSlice({
     name: "masters",
     initialState,
     extraReducers: builder => {
         builder.addCase(loadMastersThunk.fulfilled, (state, action) => {
+            state.fetched = true;
+            state.loading = false;
             state.masters = action.payload;
+        });
+        builder.addCase(loadMastersThunk.pending, state => {
+            state.loading = true;
+        });
+        builder.addCase(loadMastersThunk.rejected, state => {
+            state.loading = false;
         });
     },
 });

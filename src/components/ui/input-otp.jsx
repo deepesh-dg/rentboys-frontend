@@ -1,6 +1,6 @@
 import * as React from "react";
 import { OTPInput, OTPInputContext } from "input-otp";
-import classNames from "@/lib/classNames";
+import { classNames } from "@/lib";
 
 const InputOTP = React.forwardRef(
     ({ className, containerClassName, ...props }, ref) => (

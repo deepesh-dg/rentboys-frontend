@@ -1,21 +1,20 @@
 import React from "react";
-import Button from "../../Button";
-import Input from "../../common/Input/Input";
-import { PasswordIcon } from "../../icons/outline";
-import { useLoginScreenSteps } from "@/state";
+import Button from "@/components/Button";
+import Input from "@/components/common/Input/Input";
+import { PasswordIcon } from "@/components/icons/outline";
 import { useLogin } from "@/state/context";
-import { LoginScreenSteps } from "@/constants";
-import Form from "../Form";
+import Form from "@/components/auth-screens/Form";
+import { useNavigate } from "react-router-dom";
 
 const ResetPassword = () => {
-    const { setScreen } = useLoginScreenSteps();
     const { data, errors, formIds, resetPassword, setData } = useLogin();
+    const navigate = useNavigate();
 
     return (
         <Form
             onSubmit={async e => {
                 const status = await resetPassword(e);
-                if (status) setScreen(LoginScreenSteps.LOGIN);
+                if (status) navigate("/login");
             }}
             title="Reset Password"
             maxWidth="xl"

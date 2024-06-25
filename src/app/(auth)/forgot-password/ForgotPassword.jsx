@@ -1,21 +1,18 @@
 import React from "react";
-import Button from "../../Button";
-import { MailIcon } from "../../icons/outline";
-import Input from "../../common/Input/Input";
-import { useLoginScreenSteps } from "@/state";
+import Button from "@/components/Button";
+import { MailIcon } from "@/components/icons/outline";
+import Input from "@/components/common/Input/Input";
 import { useLogin } from "@/state/context";
-import { LoginScreenSteps } from "@/constants";
-import Form from "../Form";
+import Form from "@/components/auth-screens/Form";
 
-const ForgotPassword = () => {
-    const { setScreen } = useLoginScreenSteps();
+const ForgotPassword = ({ setScreen }) => {
     const { data, errors, formIds, forgotPassword, setData } = useLogin();
 
     return (
         <Form
             onSubmit={async e => {
                 const status = await forgotPassword(e);
-                if (status) setScreen(LoginScreenSteps.FORGOT_PASSWORD_OTP);
+                if (status) setScreen("otp");
             }}
             title="Forgot Password"
             description="Enter the email address associated with your RentBoys profile and we'll send you a link to recover your access."
