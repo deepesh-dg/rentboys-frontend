@@ -85,46 +85,48 @@ const Signup = () => {
                         />
                     </button>
                 </div>
-                <label
-                    className="flex items-center gap-x-2 pl-2"
-                    htmlFor={formIds.terms_conditions}
-                >
-                    <input
-                        type="checkbox"
-                        id={formIds.terms_conditions}
-                        checked={data.terms_conditions === "1"}
-                        onChange={e =>
-                            setData(prev => {
-                                prev.terms_conditions = e.target.checked
-                                    ? "1"
-                                    : "0";
-                            })
-                        }
-                    />
-                    <span className="">
-                        Accept&nbsp;
-                        <Link
-                            to="/terms-of-service"
-                            target="_blank"
-                            className="text-red-50"
-                        >
-                            <span>T&C</span>&nbsp;
-                        </Link>
-                        &nbsp;and&nbsp;
-                        <Link
-                            to="/privacy-policy"
-                            target="_blank"
-                            className="text-red-50"
-                        >
-                            <span>privacy policy</span>&nbsp;
-                        </Link>
-                    </span>
+                <div className="block">
+                    <label
+                        className="flex items-center gap-x-2 pl-2"
+                        htmlFor={formIds.terms_conditions}
+                    >
+                        <input
+                            type="checkbox"
+                            id={formIds.terms_conditions}
+                            checked={data.terms_conditions === "1"}
+                            onChange={e =>
+                                setData(prev => {
+                                    prev.terms_conditions = e.target.checked
+                                        ? "1"
+                                        : "0";
+                                })
+                            }
+                        />
+                        <span className="">
+                            Accept&nbsp;
+                            <Link
+                                to="/terms-of-service"
+                                target="_blank"
+                                className="text-red-50"
+                            >
+                                <span>T&C</span>&nbsp;
+                            </Link>
+                            &nbsp;and&nbsp;
+                            <Link
+                                to="/privacy-policy"
+                                target="_blank"
+                                className="text-red-50"
+                            >
+                                <span>privacy policy</span>&nbsp;
+                            </Link>
+                        </span>
+                    </label>
                     {errors.terms_conditions && (
                         <div className="text-red-50">
                             {errors.terms_conditions}
                         </div>
                     )}
-                </label>
+                </div>
                 <Button
                     label="Sign Up"
                     type="submit"
