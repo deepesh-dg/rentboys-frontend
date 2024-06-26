@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import Input from '@/components/common/Input/Input';
-import MuiDropdown from '@/components/MuiDropdown';
+import React, { useState } from "react";
+import Input from "@/components/common/Input/Input";
+import MuiDropdown from "@/components/MuiDropdown";
 
 const Step3 = () => {
     const [selectedValue, setSelectedValue] = useState("");
 
-    const handleChange = (event) => {
+    const handleChange = event => {
         setSelectedValue(event.target.value);
     };
 
@@ -17,56 +17,56 @@ const Step3 = () => {
 
     return (
         <div className="container flex-grow">
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-6'>
+            <div className="grid grid-cols-1 gap-x-4 gap-y-6 md:grid-cols-2 lg:grid-cols-4">
                 <MuiDropdown
                     options={options}
                     value={selectedValue}
                     onChange={handleChange}
                     label="Body"
-                    className="text-white bg-black outline-none border-none"
+                    className="border-none bg-black text-white outline-none"
                 />
                 <MuiDropdown
                     options={options}
                     value={selectedValue}
                     onChange={handleChange}
                     label="Race"
-                    className="text-white bg-black outline-none border-none"
+                    className="border-none bg-black text-white outline-none"
                 />
                 <MuiDropdown
                     options={options}
                     value={selectedValue}
                     onChange={handleChange}
                     label="Tattoos"
-                    className="text-white bg-black outline-none border-none"
+                    className="border-none bg-black text-white outline-none"
                 />
                 <MuiDropdown
                     options={options}
                     value={selectedValue}
                     onChange={handleChange}
                     label="Piercing"
-                    className="text-white bg-black outline-none border-none"
+                    className="border-none bg-black text-white outline-none"
                 />
                 <MuiDropdown
                     options={options}
                     value={selectedValue}
                     onChange={handleChange}
                     label="Smoking"
-                    className="text-white bg-black outline-none border-none"
+                    className="border-none bg-black text-white outline-none"
                 />
-
-
             </div>
-            <h2 className='text-xl font-bold text-white mt-6'>Services Offering</h2>
-            <div className='grid gap-4 md:grid-cols-3 pb-6'>
-                <div className='space-y-2'>
+            <h2 className="mt-6 text-xl font-bold text-white">
+                Services Offering
+            </h2>
+            <div className="grid gap-4 pb-6 md:grid-cols-3">
+                <div className="space-y-2">
                     <p>On Call</p>
                     <Input placeholder="price" />
                 </div>
-                <div className='space-y-2'>
+                <div className="space-y-2">
                     <p>Off Call</p>
                     <Input placeholder="price" />
                 </div>
-                <div className='space-y-2'>
+                <div className="space-y-2">
                     <p>Overnight</p>
                     <Input placeholder="price" />
                 </div>

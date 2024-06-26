@@ -61,7 +61,8 @@ export default {
                 sm: "0px 4px 50.6px 0px #D8000040",
             },
             backgroundImage: {
-                'custom-gradient': 'linear-gradient(90deg, rgba(255, 0, 0, 1) 0%, rgba(25, 25, 25, 1) 98%, rgba(0, 212, 255, 0) 503%)',
+                "custom-gradient":
+                    "linear-gradient(90deg, rgba(255, 0, 0, 1) 0%, rgba(25, 25, 25, 1) 98%, rgba(0, 212, 255, 0) 503%)",
             },
             aftrelay: {
                 content: "",

@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import Button from "../../Button";
 import { Link } from "react-router-dom";
-import { MailIcon, UserIcon, PasswordIcon, EyeClosedIcon, EyeOpenIcon } from "../../icons/outline";
+import {
+    MailIcon,
+    UserIcon,
+    PasswordIcon,
+    EyeClosedIcon,
+    EyeOpenIcon,
+} from "../../icons/outline";
 import Input from "../../common/Input/Input";
 import { useSignup } from "@/state/context";
 import { useSignupScreenSteps } from "@/state";
 import { SignupScreenSteps } from "@/constants";
 import Form from "../Form";
 import Icons from "@/components/icons/Component";
-
 
 const Signup = () => {
     const { setScreen } = useSignupScreenSteps();
@@ -69,13 +74,19 @@ const Signup = () => {
                             })
                         }
                     />
-                    <button type="reset" className="absolute right-4 top-7 translate-y-[-50%]"
-                        onClick={togglePasswordVisibility}>
-                        <Icons src={viewPwd ? EyeOpenIcon : EyeClosedIcon} className="w-5" />
+                    <button
+                        type="reset"
+                        className="absolute right-4 top-7 translate-y-[-50%]"
+                        onClick={togglePasswordVisibility}
+                    >
+                        <Icons
+                            src={viewPwd ? EyeOpenIcon : EyeClosedIcon}
+                            className="w-5"
+                        />
                     </button>
                 </div>
                 <label
-                    className="flex items-center gap-x-2"
+                    className="flex items-center gap-x-2 pl-2"
                     htmlFor={formIds.terms_conditions}
                 >
                     <input
@@ -90,7 +101,24 @@ const Signup = () => {
                             })
                         }
                     />
-                    <span className="text-sm font-thin">Accept <Link to="/terms-of-service" target="_blank"><span>T&C</span> </Link></span>
+                    <span className="">
+                        Accept&nbsp;
+                        <Link
+                            to="/terms-of-service"
+                            target="_blank"
+                            className="text-red-50"
+                        >
+                            <span>T&C</span>&nbsp;
+                        </Link>
+                        &nbsp;and&nbsp;
+                        <Link
+                            to="/privacy-policy"
+                            target="_blank"
+                            className="text-red-50"
+                        >
+                            <span>privacy policy</span>&nbsp;
+                        </Link>
+                    </span>
                     {errors.terms_conditions && (
                         <div className="text-red-50">
                             {errors.terms_conditions}
@@ -112,7 +140,7 @@ const Signup = () => {
                     </span>
                 </Link>
             </p>
-        </Form >
+        </Form>
     );
 };
 

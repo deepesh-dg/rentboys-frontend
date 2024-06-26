@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import Textarea from '@/components/TextArea';
-import MuiDropdown from '@/components/MuiDropdown';
+import React, { useState } from "react";
+import Textarea from "@/components/TextArea";
+import MuiDropdown from "@/components/MuiDropdown";
 // import CustomDropDown from "@/components/CustomDropdown"
-import Input from '@/components/common/Input/Input';
+import Input from "@/components/common/Input/Input";
 
 const Step2 = () => {
     const [selectedValue, setSelectedValue] = useState("");
 
-    const handleChange = (event) => {
+    const handleChange = event => {
         setSelectedValue(event.target.value);
     };
 
@@ -21,23 +21,18 @@ const Step2 = () => {
     //     setSelectedValue(event.target.value);
     // };
 
-
     const option = ["Option 1", "Option 2", "Option 3", "Option 4"];
 
     return (
         <div className="container flex-grow py-6 text-white">
-            <Textarea
-                rows={4}
-                placeholder="Description*"
-                className="p-4 "
-            />
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-6 mt-6'>
+            <Textarea rows={4} placeholder="Description*" className="p-4" />
+            <div className="mt-6 grid grid-cols-1 gap-x-4 gap-y-6 md:grid-cols-2 lg:grid-cols-4">
                 <MuiDropdown
                     options={options}
                     value={selectedValue}
                     onChange={handleChange}
                     label="Age"
-                    className="text-white bg-black outline-none border-none"
+                    className="border-none bg-black text-white outline-none"
                 />
                 <Input type="number" placeholder="Height" />
                 <Input type="number" placeholder="Weight" />
@@ -48,59 +43,57 @@ const Step2 = () => {
                     value={selectedValue}
                     onChange={handleChange}
                     label="Sexual Orientation"
-                    className="text-white bg-black outline-none border-none"
+                    className="border-none bg-black text-white outline-none"
                 />
                 <MuiDropdown
                     options={options}
                     value={selectedValue}
                     onChange={handleChange}
                     label="Position"
-                    className="text-white bg-black outline-none border-none"
+                    className="border-none bg-black text-white outline-none"
                 />
                 <MuiDropdown
                     options={options}
                     value={selectedValue}
                     onChange={handleChange}
                     label="Foreskin"
-                    className="text-white bg-black outline-none border-none"
+                    className="border-none bg-black text-white outline-none"
                 />
                 <MuiDropdown
                     options={options}
                     value={selectedValue}
                     onChange={handleChange}
                     label="Safe/BB"
-                    className="text-white bg-black outline-none border-none"
+                    className="border-none bg-black text-white outline-none"
                 />
                 <MuiDropdown
                     options={options}
                     value={selectedValue}
                     onChange={handleChange}
                     label="Body Hair"
-                    className="text-white bg-black outline-none border-none"
+                    className="border-none bg-black text-white outline-none"
                 />
                 <MuiDropdown
                     options={options}
                     value={selectedValue}
                     onChange={handleChange}
                     label="Hair Color"
-                    className="text-white bg-black outline-none border-none"
+                    className="border-none bg-black text-white outline-none"
                 />
                 <MuiDropdown
                     options={options}
                     value={selectedValue}
                     onChange={handleChange}
                     label="Eyes Color"
-                    className="text-white bg-black outline-none border-none"
+                    className="border-none bg-black text-white outline-none"
                 />
                 <MuiDropdown
                     options={options}
                     value={selectedValue}
                     onChange={handleChange}
                     label="Style"
-                    className="text-white bg-black outline-none border-none"
+                    className="border-none bg-black text-white outline-none"
                 />
-
-
             </div>
 
             {/* <CustomDropDown
@@ -108,7 +101,6 @@ const Step2 = () => {
                     options={options}
                     onChange={handleDropdownChange}
                 /> */}
-
         </div>
     );
 };

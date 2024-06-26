@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import Button from "@/components/Button";
 import { Link } from "react-router-dom";
-import { MailIcon, PasswordIcon, EyeClosedIcon, EyeOpenIcon } from "@/components/icons/outline";
+import {
+    MailIcon,
+    PasswordIcon,
+    EyeClosedIcon,
+    EyeOpenIcon,
+} from "@/components/icons/outline";
 import Input from "@/components/common/Input/Input";
 import { useLogin } from "@/state/context";
 import Form from "@/components/auth-screens/Form";
 import Icons from "@/components/icons/Component";
-
-
 
 export default function Login() {
     const { data, errors, formIds, loader, login, setData } = useLogin();
@@ -47,12 +50,18 @@ export default function Login() {
                             })
                         }
                     />
-                    <button type="reset" className="absolute right-4 top-7 translate-y-[-50%]"
-                        onClick={togglePasswordVisibility}>
-                        <Icons src={viewPwd ? EyeOpenIcon : EyeClosedIcon} className="w-5" />
+                    <button
+                        type="reset"
+                        className="absolute right-4 top-7 translate-y-[-50%]"
+                        onClick={togglePasswordVisibility}
+                    >
+                        <Icons
+                            src={viewPwd ? EyeOpenIcon : EyeClosedIcon}
+                            className="w-5"
+                        />
                     </button>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="flex justify-between pl-2 text-sm">
                     <label
                         className="flex items-center gap-x-2"
                         htmlFor={formIds.rememberMe}

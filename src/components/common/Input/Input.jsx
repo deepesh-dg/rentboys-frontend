@@ -20,7 +20,7 @@ const Input = ({
                     value={value}
                     onChange={onChange}
                     {...props}
-                    className={`text-md w-full border border-[#303030] bg-black py-4 text-white outline-none placeholder:text-white focus:ring-1 focus:ring-red-50 ${icon ? "pl-12" : "pl-4"} ${className}`}
+                    className={`text-md w-full border border-[#303030] bg-black py-4 text-white outline-none placeholder:text-white focus:ring-1 focus:ring-red-50 ${icon ? "pl-12" : "pl-4"} ${className} border border-solid border-gray-800/70`}
                 />
                 {icon && icon ? (
                     <div className="absolute left-4 top-[50%] translate-y-[-50%]">
@@ -28,7 +28,7 @@ const Input = ({
                     </div>
                 ) : null}
             </div>
-            {error && <div className="text-red-50 p-1">{error}</div>}
+            {error && <div className="p-1 text-red-50">{error}</div>}
         </div>
     );
 };

@@ -29,7 +29,6 @@ export default function Header() {
     const [searchQuery, setSearchQuery] = useState("");
     const { isAuthenticated } = useAuth();
 
-
     const handleOnChange = e => {
         setSearchQuery(e.target.value);
     };
@@ -103,11 +102,14 @@ export default function Header() {
                             ))}
                         </ul>
                         <div className="hidden md:block">
-                            {isAuthenticated ?
+                            {isAuthenticated ? (
                                 <div className="hidden xl:block">
                                     <div className="ml-5 flex items-center gap-x-6">
                                         <Icons src={BellIcon} className="w-6" />
-                                        <Icons src={MessageIcon} className="w-6" />
+                                        <Icons
+                                            src={MessageIcon}
+                                            className="w-6"
+                                        />
                                         <div className="flex items-end gap-x-2">
                                             <div className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full border-2 border-white">
                                                 <Icons
@@ -121,12 +123,23 @@ export default function Header() {
                                             />
                                         </div>
                                     </div>
-                                </div> :
-                                <div className="flex items-center justify-between gap-x-4 ms-4">
-                                    <Button href="/login" label="Login" variant="outlined" size="sm" />
-                                    <Button href="/signup" label="Sign up" variant="colored" size="sm" />
                                 </div>
-                            }
+                            ) : (
+                                <div className="ms-4 flex items-center justify-between gap-x-4">
+                                    <Button
+                                        href="/login"
+                                        label="Login"
+                                        variant="outlined"
+                                        size="sm"
+                                    />
+                                    <Button
+                                        href="/signup"
+                                        label="Sign up"
+                                        variant="colored"
+                                        size="sm"
+                                    />
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>
@@ -135,8 +148,9 @@ export default function Header() {
             {/* Mobile Sidebar */}
             <div
                 ref={sidebarRef}
-                className={`fixed left-0 top-0 z-60 h-screen max-h-screen w-64 transform overflow-y-auto bg-gray-100 transition-transform ${isMenuOpen ? "translate-x-0" : "-translate-x-full"
-                    }`}
+                className={`fixed left-0 top-0 z-60 h-screen max-h-screen w-64 transform overflow-y-auto bg-gray-100 transition-transform ${
+                    isMenuOpen ? "translate-x-0" : "-translate-x-full"
+                }`}
             >
                 <div className="mx-4 pt-12">
                     <div className="flex items-center gap-x-2">
@@ -145,9 +159,19 @@ export default function Header() {
                         </div>
                         <p className="text-white">GuestUser4214</p>
                     </div>
-                    <div className="mt-4 flex gap-x-4 items-center justify-between">
-                        <Button href="/login" label="Login" variant="colored" size="sm" />
-                        <Button href="/signup" label="Sign up" variant="outlined" size="sm" />
+                    <div className="mt-4 flex items-center justify-between gap-x-4">
+                        <Button
+                            href="/login"
+                            label="Login"
+                            variant="colored"
+                            size="sm"
+                        />
+                        <Button
+                            href="/signup"
+                            label="Sign up"
+                            variant="outlined"
+                            size="sm"
+                        />
                     </div>
                     <div className="flex flex-col py-6 text-white">
                         {navLinks.map((link, index) => (

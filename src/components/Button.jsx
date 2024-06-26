@@ -78,29 +78,24 @@ const Button = ({
     };
 
     const sizes = {
-        "xs": "px-0 py-2 text-lg font-bold",
-        "sm": "px-4 py-2 text-sm font-medium w-full",
-        "md": "px-20 py-4 text-xl uppercase",
+        xs: "px-0 py-2 text-lg font-bold",
+        sm: "px-4 py-2 text-sm font-medium w-full",
+        md: "px-20 py-4 text-xl uppercase",
     };
 
     const buttonClass = `flex whitespace-nowrap justify-center rounded-lg text-white font-bold ${variants[variant]} ${sizes[size]} ${className}`;
 
-    const content = loading ? (
-        <div className="loader">Loading...</div>
-    ) : (
-        label
-    );
+    const content = loading ? <div className="loader">Loading...</div> : label;
 
     if (href) {
         return (
-            <Link to={href} target={target === "_blank" ? "_blank" : undefined}
+            <Link
+                to={href}
+                target={target === "_blank" ? "_blank" : undefined}
                 className={buttonClass.trim()}
-                {...rest}>
-                <button
-                    type="button"
-                    onClick={onClick}
-                    disabled={loading}
-                >
+                {...rest}
+            >
+                <button type="button" onClick={onClick} disabled={loading}>
                     {content}
                 </button>
             </Link>

@@ -7,7 +7,7 @@ const Dropdown = ({ value, options, className, onChange, ...rest }) => {
         setSelectedValue(value);
     }, [value]);
 
-    const handleSelect = (event) => {
+    const handleSelect = event => {
         setSelectedValue(event.target.value);
         if (onChange) {
             onChange(event);
@@ -19,18 +19,22 @@ const Dropdown = ({ value, options, className, onChange, ...rest }) => {
             <select
                 value={selectedValue}
                 onChange={handleSelect}
-                className={`block appearance-none w-full px-4 py-4 rounded-lg bg-black text-white border-none outline-none ${className}`}
+                className={`block w-full appearance-none rounded-lg border-none bg-black px-4 py-4 text-white outline-none ${className}`}
                 {...rest}
             >
-                {options.map((option) => (
-                    <option key={option.id} value={option.value} className="hover:bg-red-500">
+                {options.map(option => (
+                    <option
+                        key={option.id}
+                        value={option.value}
+                        className="hover:bg-red-500"
+                    >
                         {option.label}
                     </option>
                 ))}
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-2 flex items-center px-2">
                 <svg
-                    className="w-5 h-5 text-red-500"
+                    className="h-5 w-5 text-red-500"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
