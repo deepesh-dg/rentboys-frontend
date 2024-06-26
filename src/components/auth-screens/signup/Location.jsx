@@ -9,7 +9,7 @@ import Form from "../Form";
 import api from "@/services";
 import { useState } from "@/hooks";
 import { useNavigate } from "react-router-dom";
-import classNames from "@/lib/classNames";
+import { classNames } from "@/lib";
 
 const Location = () => {
     const { setScreen } = useSignupScreenSteps();

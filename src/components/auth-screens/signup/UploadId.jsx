@@ -26,8 +26,12 @@ export default function UploadId() {
         data: { status, data } = {},
         error,
         isLoading,
-    } = useQuery("upload-id-page-content", () =>
-        api.common.getIdProofPageContent()
+    } = useQuery(
+        "upload-id-page-content",
+        () => api.common.getIdProofPageContent(),
+        {
+            staleTime: Infinity,
+        }
     );
 
     const blobUrl = useBlobUrl(formData.id_proof);

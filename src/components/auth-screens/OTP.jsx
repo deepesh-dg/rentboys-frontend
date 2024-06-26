@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../Button";
-import { useForm, useState } from "@/hooks";
+import { useState } from "@/hooks";
 import InputOTP from "../common/Input/InputOTP";
 import Form from "./Form";
 

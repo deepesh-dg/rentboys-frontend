@@ -1,11 +1,8 @@
 import React from "react";
-import OtpScreen from "../OTP";
+import OtpScreen from "@/components/auth-screens/OTP";
 import { useLogin } from "@/state/context";
-import { LoginScreenSteps } from "@/constants";
-import { useLoginScreenSteps } from "@/state";
 
-export default function OTP() {
-    const { setScreen } = useLoginScreenSteps();
+export default function OTP({ setScreen }) {
     const { resendOtp, submitOtp, data, errors, setData, loader } = useLogin();
 
     return (
@@ -13,7 +10,7 @@ export default function OTP() {
             onClickResend={resendOtp}
             onSubmit={async e => {
                 const status = await submitOtp(e);
-                if (status) setScreen(LoginScreenSteps.RESET_PASSWORD);
+                if (status) setScreen("reset_password");
             }}
             formError={errors.form}
             error={errors.otp}

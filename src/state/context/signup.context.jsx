@@ -80,7 +80,12 @@ export function SignupProvider({ children }) {
 
     const signup = handleSubmit(
         async data => {
-            const response = await api.auth.signup(data);
+            const response = await api.auth.signup({
+                email: data.email,
+                username: data.username,
+                password: data.password,
+                terms_conditions: data.terms_conditions,
+            });
 
             if (!response.status) {
                 throw response;
@@ -111,7 +116,9 @@ export function SignupProvider({ children }) {
 
     const emailVerifyResendOtp = handleSubmit(async data => {
         setLoader(() => true);
-        const response = await api.auth.emailVerifyOtpResend(data);
+        const response = await api.auth.emailVerifyOtpResend({
+            email: data.email,
+        });
         setLoader(() => false);
 
         if (!response.status) {
@@ -121,22 +128,47 @@ export function SignupProvider({ children }) {
         return true;
     });
 
-    const emailVerifyOtpMatch = handleSubmit(async data => {
-        const response = await api.auth.emailVerifyOtpMatch(data);
+    const emailVerifyOtpMatch = handleSubmit(
+        async data => {
+            const response = await api.auth.emailVerifyOtpMatch({
+                email: data.email,
+                otp: data.otp,
+            });
 
-        if (!response.status) {
-            throw response;
+            if (!response.status) {
+                throw response;
+            }
+
+            setFormData(prev => {
+                prev.otp = initialData.otp;
+            });
+
+            return true;
+        },
+        async data => {
+            const errors = {};
+            if (!data.otp) {
+                errors.otp = ["OTP is required"];
+            }
+
+            if (data.otp.length < 4) {
+                errors.otp = ["OTP is invalid"];
+            }
+
+            if (Object.keys(errors).length > 0) {
+                throw { errors };
+            }
         }
-
-        setFormData(prev => {
-            prev.otp = initialData.otp;
-        });
-
-        return true;
-    });
+    );
 
     const selectUserType = handleSubmit(async data => {
-        const response = await api.auth.selectUserType(data);
+        const response = await api.auth.selectUserType({
+            email: data.email,
+            username: data.username,
+            password: data.password,
+            terms_conditions: data.terms_conditions,
+            user_type: data.user_type,
+        });
 
         if (!response.status) {
             throw response;
@@ -146,7 +178,21 @@ export function SignupProvider({ children }) {
     });
 
     const selectLocation = handleSubmit(async data => {
-        const response = await api.auth.selectLocation(data);
+        const response = await api.auth.selectLocation({
+            email: data.email,
+            username: data.username,
+            password: data.password,
+            terms_conditions: data.terms_conditions,
+            user_type: data.user_type,
+            longitude: data.longitude,
+            latitude: data.latitude,
+            location: data.location,
+            country: data.country,
+            state: data.state,
+            city: data.city,
+            postal_code: data.postal_code,
+            landmark: data.landmark,
+        });
 
         if (!response.status) {
             throw response;
@@ -178,7 +224,11 @@ export function SignupProvider({ children }) {
     });
 
     const phoneVerify = handleSubmit(async data => {
-        const response = await api.auth.phoneVerifyOtpSend(data);
+        const response = await api.auth.phoneVerifyOtpSend({
+            email: data.email,
+            phone_code: data.phone_code,
+            phone_number: data.phone_number,
+        });
 
         if (!response.status) {
             throw response;
@@ -189,7 +239,10 @@ export function SignupProvider({ children }) {
 
     const phoneVerifyResendOtp = handleSubmit(async data => {
         setLoader(() => true);
-        const response = await api.auth.phoneVerifyOtpResend(data);
+        const response = await api.auth.phoneVerifyOtpResend({
+            phone_code: data.phone_code,
+            phone_number: data.phone_number,
+        });
         setLoader(() => false);
 
         if (!response.status) {
@@ -200,7 +253,24 @@ export function SignupProvider({ children }) {
     });
 
     const phoneVerifyOtpMatch = handleSubmit(async data => {
-        const response = await api.auth.phoneVerifyOtpMatch(data);
+        const response = await api.auth.phoneVerifyOtpMatch({
+            email: data.email,
+            username: data.username,
+            password: data.password,
+            terms_conditions: data.terms_conditions,
+            user_type: data.user_type,
+            longitude: data.longitude,
+            latitude: data.latitude,
+            location: data.location,
+            country: data.country,
+            state: data.state,
+            city: data.city,
+            postal_code: data.postal_code,
+            landmark: data.landmark,
+            phone_code: data.phone_code,
+            phone_number: data.phone_number,
+            otp: data.otp,
+        });
 
         if (!response.status) {
             throw response;
