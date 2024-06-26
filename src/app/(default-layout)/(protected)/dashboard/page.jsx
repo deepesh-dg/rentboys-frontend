@@ -16,8 +16,8 @@ export default function Dashboard() {
     return (
         <div className="container text-white">
             <div className="col-span-6 grid grid-cols-6 gap-4 items-start">
-                <div className="col-span-4 grid grid-cols-4 gap-x-4">
-                    <div className="col-span-2 bg-gray-50 p-4 rounded-xl">
+                <div className="col-span-6 xl:col-span-4 grid grid-cols-4 gap-4">
+                    <div className="col-span-4 md:col-span-2 bg-gray-50 p-4 rounded-xl">
                         <div className="flex items-start gap-x-1">
                             <Icons icon={LocationIcon} className="w-8 mt-1" />
                             <div className="font-medium">
@@ -26,7 +26,7 @@ export default function Dashboard() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-span-2 bg-gray-50 p-4 rounded-xl">
+                    <div className="col-span-4 md:col-span-2 bg-gray-50 p-4 rounded-xl">
                         <div className="flex items-start gap-x-1">
                             <Icons icon={LocationIcon} className="w-8 mt-1" />
                             <div className="font-medium">
@@ -79,7 +79,7 @@ export default function Dashboard() {
                         </div>
                     </div>
                 </div>
-                <div className="col-span-2 text-white">
+                <div className="col-span-6 xl:col-span-2 text-white">
                     <h2 className="relative mb-4 font-medium after:absolute after:h-0.5 after:w-full after:-bottom-2 after:left-0 after:bg-custom-gradient">
                         Account Overview
                     </h2>

@@ -16,13 +16,13 @@ export default function DashboardLayout() {
     };
     return (
         <div className="container">
-            <div className="grid grid-cols-6">
-                <div className="col-span-1">
+            <div className="grid grid-cols-6 gap-y-6">
+                <div className="col-span-6 md:col-span-1 bg-gray-50 rounded-xl">
                     <div className="flex flex-col py-6 text-white">
                         {navLinks.map((link, index) => (
                             <div key={index}>
                                 <div
-                                    className={`flex items-center justify-between p-4 ${index !== navLinks.length - 1 ? "border-b border-gray-50" : ""}`}
+                                    className={`flex items-center justify-between p-4 ${index !== navLinks.length - 1 ? "border-b border-gray-200/10" : ""}`}
                                 >
                                     <div className="flex items-center gap-x-2">
                                         <Icons
@@ -78,7 +78,7 @@ export default function DashboardLayout() {
                         ))}
                     </div>
                 </div>
-                <div className="col-span-5">
+                <div className="col-span-6 md:col-span-5">
                     <Outlet />
                 </div>
             </div>
