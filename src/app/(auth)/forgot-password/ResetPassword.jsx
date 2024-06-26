@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "@/components/Button";
 import Input from "@/components/common/Input/Input";
-import { PasswordIcon, EyeClosedIcon } from "@/components/icons/outline";
+import { PasswordIcon, EyeClosedIcon, EyeOpenIcon } from "@/components/icons/outline";
 import { useLogin } from "@/state/context";
 import Form from "@/components/auth-screens/Form";
 import { useNavigate } from "react-router-dom";
@@ -42,7 +42,7 @@ const ResetPassword = () => {
                 />
                 <button type="reset" className="absolute right-4 top-7 translate-y-[-50%]"
                     onClick={handleShowPassword}>
-                    <Icons src={viewPwd ? PasswordIcon : EyeClosedIcon} className="w-5" />
+                    <Icons src={viewPwd ? EyeOpenIcon : EyeClosedIcon} className="w-5" />
                 </button>
             </div>
             <div className="relative w-full">
@@ -61,7 +61,7 @@ const ResetPassword = () => {
                 />
                 <button type="reset" className="absolute right-4 top-7 translate-y-[-50%]"
                     onClick={() => setViewConfirmPwd(!viewConfirmPwd)}>
-                    <Icons src={viewConfirmPwd ? PasswordIcon : EyeClosedIcon} className="w-5" />
+                    <Icons src={viewConfirmPwd ? EyeOpenIcon : EyeClosedIcon} className="w-5" />
                 </button>
             </div>
             <Button

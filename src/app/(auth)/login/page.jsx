@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "@/components/Button";
 import { Link } from "react-router-dom";
-import { MailIcon, PasswordIcon, EyeClosedIcon } from "@/components/icons/outline";
+import { MailIcon, PasswordIcon, EyeClosedIcon, EyeOpenIcon } from "@/components/icons/outline";
 import Input from "@/components/common/Input/Input";
 import { useLogin } from "@/state/context";
 import Form from "@/components/auth-screens/Form";
@@ -49,7 +49,7 @@ export default function Login() {
                     />
                     <button type="reset" className="absolute right-4 top-7 translate-y-[-50%]"
                         onClick={togglePasswordVisibility}>
-                        <Icons src={viewPwd ? MailIcon : EyeClosedIcon} className="w-5" />
+                        <Icons src={viewPwd ? EyeOpenIcon : EyeClosedIcon} className="w-5" />
                     </button>
                 </div>
                 <div className="flex justify-between text-sm">

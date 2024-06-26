@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "../../Button";
 import { Link } from "react-router-dom";
-import { MailIcon, UserIcon, PasswordIcon, EyeClosedIcon } from "../../icons/outline";
+import { MailIcon, UserIcon, PasswordIcon, EyeClosedIcon, EyeOpenIcon } from "../../icons/outline";
 import Input from "../../common/Input/Input";
 import { useSignup } from "@/state/context";
 import { useSignupScreenSteps } from "@/state";
@@ -71,7 +71,7 @@ const Signup = () => {
                     />
                     <button type="reset" className="absolute right-4 top-7 translate-y-[-50%]"
                         onClick={togglePasswordVisibility}>
-                        <Icons src={viewPwd ? MailIcon : EyeClosedIcon} className="w-5" />
+                        <Icons src={viewPwd ? EyeOpenIcon : EyeClosedIcon} className="w-5" />
                     </button>
                 </div>
                 <label
