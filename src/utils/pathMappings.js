@@ -4,5 +4,5 @@ export const pathToNameMapping = {
     legal: "Legal",
     "privacy-policy": "Privacy Policy",
     "cookie-policy": "Cookie Policy",
-    "DMCA-notice": "DMCA Notice",
+    "dmca-notice": "DMCA Notice",
 };

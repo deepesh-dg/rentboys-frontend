@@ -12,7 +12,6 @@ const Page = () => {
             <h2 className="border-b border-gray-50 pb-1 text-xl font-medium text-red-50">
                 {title}
             </h2>
-            {/* <h2 className='text-xl text-red-50 font-medium pb-1 border-b border-gray-50'>Cookie Policy</h2> */}
         </div>
     );
 };

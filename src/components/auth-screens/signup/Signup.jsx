@@ -1,17 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../../Button";
 import { Link } from "react-router-dom";
-import { MailIcon, UserIcon, PasswordIcon } from "../../icons/outline";
+import { MailIcon, UserIcon, PasswordIcon, EyeClosedIcon, EyeOpenIcon } from "../../icons/outline";
 import Input from "../../common/Input/Input";
 import { useSignup } from "@/state/context";
 import { useSignupScreenSteps } from "@/state";
 import { SignupScreenSteps } from "@/constants";
 import Form from "../Form";
+import Icons from "@/components/icons/Component";
+
 
 const Signup = () => {
     const { setScreen } = useSignupScreenSteps();
     const { data, errors, loader, formIds, setData, signup } = useSignup();
+    const [viewPwd, setViewPwd] = useState(false);
 
+    const togglePasswordVisibility = () => {
+        setViewPwd(prev => !prev);
+    };
     return (
         <Form
             onSubmit={async e => {
@@ -49,19 +55,25 @@ const Signup = () => {
                         })
                     }
                 />
-                <Input
-                    icon={PasswordIcon}
-                    type="password"
-                    placeholder="Password"
-                    id={formIds.password}
-                    error={errors.password}
-                    value={data.password}
-                    onChange={e =>
-                        setData(prev => {
-                            prev.password = e.target.value;
-                        })
-                    }
-                />
+                <div className="relative">
+                    <Input
+                        icon={PasswordIcon}
+                        type={viewPwd ? "text" : "password"}
+                        placeholder="Password"
+                        id={formIds.password}
+                        error={errors.password}
+                        value={data.password}
+                        onChange={e =>
+                            setData(prev => {
+                                prev.password = e.target.value;
+                            })
+                        }
+                    />
+                    <button type="reset" className="absolute right-4 top-7 translate-y-[-50%]"
+                        onClick={togglePasswordVisibility}>
+                        <Icons src={viewPwd ? EyeOpenIcon : EyeClosedIcon} className="w-5" />
+                    </button>
+                </div>
                 <label
                     className="flex items-center gap-x-2"
                     htmlFor={formIds.terms_conditions}
@@ -78,7 +90,7 @@ const Signup = () => {
                             })
                         }
                     />
-                    <span className="text-sm font-thin">Accept T&C</span>
+                    <span className="text-sm font-thin">Accept <Link to="/terms-of-service" target="_blank"><span>T&C</span> </Link></span>
                     {errors.terms_conditions && (
                         <div className="text-red-50">
                             {errors.terms_conditions}
@@ -100,7 +112,7 @@ const Signup = () => {
                     </span>
                 </Link>
             </p>
-        </Form>
+        </Form >
     );
 };
 

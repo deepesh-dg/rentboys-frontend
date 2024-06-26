@@ -15,6 +15,12 @@ import LogoIcon from "@/assets/icons/outline/logo.svg"
 import HamburgerMenuIcon from "@/assets/icons/outline/hamburger.svg"
 import SearchIcon from "@/assets/icons/outline/search.svg"
 import CameraDpIcon from "@/assets/icons/outline/camera-dp.svg"
+import EyeClosedIcon from "@/assets/icons/outline/eyeclose.svg"
+import EyeOpenIcon from "@/assets/icons/outline/eyeOpen.svg"
 
 
-export { MailIcon, UserIcon, PasswordIcon, EyeIcon, LocationIcon, CameraIcon, UserDpIcon, ClosecircleIcon, TickcircleIcon, ArrowDownIcon, BellIcon, MessageIcon, UserRoundedIcon, LogoIcon, HamburgerMenuIcon, SearchIcon, CameraDpIcon }
+
+
+
+
+export { MailIcon, UserIcon, PasswordIcon, EyeIcon, LocationIcon, CameraIcon, UserDpIcon, ClosecircleIcon, TickcircleIcon, ArrowDownIcon, BellIcon, MessageIcon, UserRoundedIcon, LogoIcon, HamburgerMenuIcon, SearchIcon, CameraDpIcon, EyeClosedIcon, EyeOpenIcon }

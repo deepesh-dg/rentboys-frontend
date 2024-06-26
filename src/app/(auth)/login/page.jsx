@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "@/components/Button";
 import { Link } from "react-router-dom";
-import { MailIcon, PasswordIcon } from "@/components/icons/outline";
+import { MailIcon, PasswordIcon, EyeClosedIcon, EyeOpenIcon } from "@/components/icons/outline";
 import Input from "@/components/common/Input/Input";
 import { useLogin } from "@/state/context";
 import Form from "@/components/auth-screens/Form";
+import Icons from "@/components/icons/Component";
+
+
 
 export default function Login() {
     const { data, errors, formIds, loader, login, setData } = useLogin();
+    const [viewPwd, setViewPwd] = useState(false);
+
+    const togglePasswordVisibility = () => {
+        setViewPwd(prev => !prev);
+    };
 
     return (
         <Form onSubmit={login} error={errors.form} maxWidth="xl" title="Login">
@@ -25,19 +33,25 @@ export default function Login() {
                         })
                     }
                 />
-                <Input
-                    id={formIds.password}
-                    value={data.password}
-                    error={errors.password}
-                    icon={PasswordIcon}
-                    type="password"
-                    placeholder="Password"
-                    onChange={e =>
-                        setData(prev => {
-                            prev.password = e.target.value;
-                        })
-                    }
-                />
+                <div className="relative">
+                    <Input
+                        id={formIds.password}
+                        value={data.password}
+                        error={errors.password}
+                        icon={PasswordIcon}
+                        type={viewPwd ? "text" : "password"}
+                        placeholder="Password"
+                        onChange={e =>
+                            setData(prev => {
+                                prev.password = e.target.value;
+                            })
+                        }
+                    />
+                    <button type="reset" className="absolute right-4 top-7 translate-y-[-50%]"
+                        onClick={togglePasswordVisibility}>
+                        <Icons src={viewPwd ? EyeOpenIcon : EyeClosedIcon} className="w-5" />
+                    </button>
+                </div>
                 <div className="flex justify-between text-sm">
                     <label
                         className="flex items-center gap-x-2"

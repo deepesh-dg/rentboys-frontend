@@ -20,7 +20,7 @@ export default function Footer() {
                     <Link to="cookie-policy" className="text-lg hover:text-red-50 text-white">
                         Cookie Policy
                     </Link>
-                    <Link to="DMCA-notice" className="text-lg hover:text-red-50 text-white">
+                    <Link to="dmca-notice" className="text-lg hover:text-red-50 text-white">
                         DMCA Notice
                     </Link>
                 </div>

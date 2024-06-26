@@ -9,9 +9,9 @@ export default function AuthLayout() {
     return isAuthenticated ? (
         <Navigate to="/" />
     ) : (
-        <div className="relative flex min-h-screen w-full flex-col items-center justify-center bg-cover bg-center bg-no-repeat py-20 backdrop-blur-sm">
+        <div className="relative flex min-h-screen w-full flex-col items-center justify-center py-20 backdrop-blur-sm">
             <div
-                className="absolute inset-0 h-full w-full blur-sm"
+                className="absolute inset-0 h-full w-full blur-sm bg-cover bg-no-repeat"
                 style={{
                     backgroundImage: `url(${BG_IMG})`,
                 }}

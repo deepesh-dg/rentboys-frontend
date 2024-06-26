@@ -1,7 +1,7 @@
 import PolicyLayout from "./layout";
 import ContactUs from "./contact-us/page";
 import CookiePolicy from "./cookie-policy/page";
-import DMCANotice from "./DMCA-notice/page";
+import DMCANotice from "./dmca-notice/page";
 import Legal from "./legal/page";
 import PrivacyPolicy from "./privacy-policy/page";
 import TermsOfService from "./terms-of-service/page";
@@ -23,7 +23,7 @@ const PoliciesRoutes = [
                 element: <CookiePolicy />,
             },
             {
-                path: "/DMCA-notice",
+                path: "/dmca-notice",
                 element: <DMCANotice />,
             },
             {

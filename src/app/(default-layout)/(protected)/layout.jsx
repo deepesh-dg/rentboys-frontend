@@ -7,7 +7,6 @@ export default function ProtectedLayout() {
 
     return isAuthenticated ? (
         <div>
-            ProtectedLayout
             <Outlet />
         </div>
     ) : (
