@@ -33,19 +33,6 @@ export default function Login() {
                         })
                     }
                 />
-                {/* <Input
-                    id={formIds.password}
-                    value={data.password}
-                    error={errors.password}
-                    icon={PasswordIcon}
-                    type="password"
-                    placeholder="Password"
-                    onChange={e =>
-                        setData(prev => {
-                            prev.password = e.target.value;
-                        })
-                    }
-                /> */}
                 <div className="relative">
                     <Input
                         id={formIds.password}

@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "@/components/Button";
 import Input from "@/components/common/Input/Input";
-import { PasswordIcon } from "@/components/icons/outline";
+import { PasswordIcon, EyeClosedIcon } from "@/components/icons/outline";
 import { useLogin } from "@/state/context";
 import Form from "@/components/auth-screens/Form";
 import { useNavigate } from "react-router-dom";
+import Icons from "@/components/icons/Component";
 
 const ResetPassword = () => {
     const { data, errors, formIds, resetPassword, setData } = useLogin();
     const navigate = useNavigate();
+    const [viewPwd, setViewPwd] = useState(false);
+    const [viewConfirmPwd, setViewConfirmPwd] = useState(false);
+
+    const handleShowPassword = () => {
+        setViewPwd(prev => !prev);
+    };
 
     return (
         <Form
@@ -19,32 +26,44 @@ const ResetPassword = () => {
             title="Reset Password"
             maxWidth="xl"
         >
-            <Input
-                icon={PasswordIcon}
-                type="password"
-                placeholder="New Password"
-                value={data.password}
-                onChange={e =>
-                    setData(prev => {
-                        prev.password = e.target.value;
-                    })
-                }
-                error={errors.password}
-                id={formIds.password}
-            />
-            <Input
-                icon={PasswordIcon}
-                type="password"
-                placeholder="Confirm Password"
-                value={data.confirm_password}
-                onChange={e =>
-                    setData(prev => {
-                        prev.confirm_password = e.target.value;
-                    })
-                }
-                error={errors.confirm_password}
-                id={formIds.confirm_password}
-            />
+            <div className="relative w-full">
+                <Input
+                    icon={PasswordIcon}
+                    type={viewPwd ? "text" : "password"}
+                    placeholder="New Password"
+                    id={formIds.password}
+                    error={errors.password}
+                    value={data.password}
+                    onChange={e =>
+                        setData(prev => {
+                            prev.password = e.target.value;
+                        })
+                    }
+                />
+                <button type="reset" className="absolute right-4 top-7 translate-y-[-50%]"
+                    onClick={handleShowPassword}>
+                    <Icons src={viewPwd ? PasswordIcon : EyeClosedIcon} className="w-5" />
+                </button>
+            </div>
+            <div className="relative w-full">
+                <Input
+                    icon={PasswordIcon}
+                    type={viewConfirmPwd ? "text" : "password"}
+                    placeholder="Confirm Password"
+                    id={formIds.confirm_password}
+                    error={errors.confirm_password}
+                    value={data.confirm_password}
+                    onChange={e =>
+                        setData(prev => {
+                            prev.confirm_password = e.target.value;
+                        })
+                    }
+                />
+                <button type="reset" className="absolute right-4 top-7 translate-y-[-50%]"
+                    onClick={() => setViewConfirmPwd(!viewConfirmPwd)}>
+                    <Icons src={viewConfirmPwd ? PasswordIcon : EyeClosedIcon} className="w-5" />
+                </button>
+            </div>
             <Button
                 label="Submit"
                 type="submit"
