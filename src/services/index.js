@@ -1,11 +1,11 @@
 import AuthService from "./auth.service";
-import AuthWithTokenService from "./authWithToken.service";
 import CommonService from "./common.service";
+import ProfileService from "./profile.service";
 
 const api = {
     auth: new AuthService(),
-    authWithToken: new AuthWithTokenService(),
     common: new CommonService(),
+    profile: new ProfileService(),
 };
 
 export default api;

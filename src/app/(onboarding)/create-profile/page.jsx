@@ -3,9 +3,23 @@ import Button from "@/components/Button";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
+import { useQuery } from "react-query";
+import api from "@/services";
+import { ReactQueryKeys } from "@/constants";
 
 export default function Profile() {
     const [currentStep, setCurrentStep] = useState(0);
+    const {
+        data: { status, data } = {},
+        error,
+        isLoading,
+    } = useQuery(
+        ReactQueryKeys.CREATE_PROFILE_PAGE_CONTENT,
+        () => api.common.getCreateProfilePageContent(),
+        {
+            staleTime: Infinity,
+        }
+    );
 
     const handleNextClick = () => {
         setCurrentStep(prevStep => prevStep + 1);
@@ -28,21 +42,27 @@ export default function Profile() {
         }
     };
 
+    if (error || status === false) throw new Error(error?.message || "Error");
+
     return (
         <div className="flex min-h-screen flex-col bg-gray-100 text-white">
-            <div className="relative mb-10 py-6">
-                <h1 className="relative text-center text-3xl font-medium after:absolute after:-bottom-5 after:left-0 after:h-1 after:w-full after:bg-custom-gradient">
-                    Create Your Profile
-                </h1>
-            </div>
-            {renderStep()}
+            {!isLoading && (
+                <>
+                    <div className="relative mb-10 py-6">
+                        <h1 className="relative text-center text-3xl font-medium after:absolute after:-bottom-5 after:left-0 after:h-1 after:w-full after:bg-custom-gradient">
+                            {data?.title}
+                        </h1>
+                    </div>
+                    {renderStep()}
+                </>
+            )}
             <div className="bg-red-100 py-2">
                 <div className="container flex justify-between">
                     <Button
                         label="Skip"
                         variant="text"
                         size="xs"
-                        // onClick={handleSkip}
+                        href="/dashboard"
                     />
                     <div className="flex gap-x-10">
                         {currentStep > 0 && (

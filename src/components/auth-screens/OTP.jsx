@@ -63,8 +63,12 @@ const OTP = ({
                 className="w-full bg-red-100 px-20 py-4 text-xl font-bold uppercase hover:bg-red-50"
             />
             <div>
-                {minutes > 9 ? minutes : `0${minutes}`}:
-                {seconds > 9 ? seconds : `0${seconds}`}
+                {minutes > 0 || seconds > 0 ? (
+                    <>
+                        {minutes > 9 ? minutes : `0${minutes}`}:
+                        {seconds > 9 ? seconds : `0${seconds}`}
+                    </>
+                ) : null}
                 &nbsp;
                 <button
                     type="button"

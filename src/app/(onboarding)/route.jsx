@@ -1,25 +1,20 @@
-import MembershipPlan from "./membership-plan/page";
-import OnboardingLayout from "./layout";
-import CreateProfile from "./create-profile/page";
+import { lazy } from "react";
+
+const MembershipPlan = lazy(() => import("./membership-plan/page"));
+const CreateProfile = lazy(() => import("./create-profile/page"));
 
 /**
  * @type {import('react-router-dom').RouteObject[]}
  */
-const OnboardingRoutes = [
+const onboardingRoutes = [
     {
-        path: "/",
-        element: <OnboardingLayout />,
-        children: [
-            {
-                path: "membership-plan",
-                element: <MembershipPlan />,
-            },
-            {
-                path: "create-profile",
-                element: <CreateProfile />,
-            },
-        ],
+        path: "membership-plan",
+        element: <MembershipPlan />,
+    },
+    {
+        path: "create-profile",
+        element: <CreateProfile />,
     },
 ];
 
-export default OnboardingRoutes;
+export default onboardingRoutes;

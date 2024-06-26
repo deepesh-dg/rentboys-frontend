@@ -3,7 +3,11 @@ import Form from "../Form";
 import Icons from "../../icons/Component";
 import Button from "../../Button";
 import { CameraIcon } from "../../icons/outline";
-import { SignupScreenSteps, acceptedImageTypes } from "@/constants";
+import {
+    ReactQueryKeys,
+    SignupScreenSteps,
+    acceptedImageTypes,
+} from "@/constants";
 import { useSignupScreenSteps } from "@/state";
 import { useQuery } from "react-query";
 import api from "@/services";
@@ -27,7 +31,7 @@ export default function UploadId() {
         error,
         isLoading,
     } = useQuery(
-        "upload-id-page-content",
+        ReactQueryKeys.UPLOAD_ID_PAGE_CONTENT,
         () => api.common.getIdProofPageContent(),
         {
             staleTime: Infinity,

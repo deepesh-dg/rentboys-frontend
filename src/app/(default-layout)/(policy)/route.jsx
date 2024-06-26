@@ -1,15 +1,17 @@
-import PolicyLayout from "./layout";
-import ContactUs from "./contact-us/page";
-import CookiePolicy from "./cookie-policy/page";
-import DMCANotice from "./DMCA-notice/page";
-import Legal from "./legal/page";
-import PrivacyPolicy from "./privacy-policy/page";
-import TermsOfService from "./terms-of-service/page";
+import { lazy } from "react";
+
+const PolicyLayout = lazy(() => import("./layout"));
+const TermsOfService = lazy(() => import("./terms-of-service/page"));
+const PrivacyPolicy = lazy(() => import("./privacy-policy/page"));
+const CookiePolicy = lazy(() => import("./cookie-policy/page"));
+const DMCANotice = lazy(() => import("./DMCA-notice/page"));
+const Legal = lazy(() => import("./legal/page"));
+const ContactUs = lazy(() => import("./contact-us/page"));
 
 /**
  * @type {import('react-router-dom').RouteObject[]}
  */
-const PoliciesRoutes = [
+const policiesRoutes = [
     {
         path: "/",
         element: <PolicyLayout />,
@@ -42,4 +44,4 @@ const PoliciesRoutes = [
     },
 ];
 
-export default PoliciesRoutes;
+export default policiesRoutes;
