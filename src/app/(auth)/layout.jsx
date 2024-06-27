@@ -10,10 +10,14 @@ export default function AuthLayout() {
 
     useGlobalLoader(loader || signupLoader);
 
-    useEffect(() => {
-        resetForm();
-        signupResetForm();
-    }, [resetForm, signupResetForm]);
+    useEffect(
+        () => () => {
+            console.log("unmount");
+            resetForm();
+            signupResetForm();
+        },
+        []
+    );
 
     return (
         <div className="relative flex min-h-screen w-full flex-col items-center justify-center py-20 backdrop-blur-sm">
