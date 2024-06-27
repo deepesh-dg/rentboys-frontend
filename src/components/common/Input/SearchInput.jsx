@@ -18,11 +18,11 @@ const SearchInput = ({ searchQuery, handleOnChange, handleSearch }) => {
                     value={searchQuery}
                     onChange={handleOnChange}
                     onKeyDown={handleKeyDown}
-                    className="text-md focus:ring-1focus:ring-red-50 w-full border border-gray-50 bg-gray-100 py-2 pl-10 text-white outline-none placeholder:text-white"
+                    className="text-base focus:ring-1focus:ring-red-50 w-full border border-gray-50 bg-gray-100 py-2 pl-10 text-white outline-none placeholder:text-white placeholder:text-base rounded-tl-md rounded-bl-md"
                 />
             </div>
             <button
-                className="text-md w-28 rounded-br-lg rounded-tr-lg bg-red-50 font-medium text-white md:font-medium"
+                className="text-md w-28 rounded-br-md rounded-tr-md bg-red-50 font-medium text-white md:font-medium"
                 onClick={handleSearch}
             >
                 Search

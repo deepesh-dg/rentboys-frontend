@@ -94,7 +94,7 @@ export default function Header() {
                                 <li key={index}>
                                     <Link
                                         to={item.href}
-                                        className="text-md active:before:scale-x- relative block whitespace-nowrap px-2 py-0 text-white/70 before:absolute before:bottom-[-6px] before:left-0 before:h-[2px] before:w-full before:scale-x-0 before:transform before:bg-red-50 before:transition-transform before:duration-[0.5s] before:ease-[ease] before:content-[''] hover:before:scale-x-100 active:before:transform"
+                                        className="text-base font-bold active:before:scale-x- relative block whitespace-nowrap px-2 py-0 text-white/70 before:absolute before:bottom-[-6px] before:left-0 before:h-[2px] before:w-full before:scale-x-0 before:transform before:bg-red-50 before:transition-transform before:duration-[0.5s] before:ease-[ease] before:content-[''] hover:before:scale-x-100 active:before:transform"
                                     >
                                         {item.text}
                                     </Link>
@@ -134,7 +134,7 @@ export default function Header() {
                                     />
                                     <Button
                                         href="/signup"
-                                        label="Sign up"
+                                        label="Sign Up"
                                         variant="colored"
                                         size="sm"
                                     />
@@ -148,9 +148,8 @@ export default function Header() {
             {/* Mobile Sidebar */}
             <div
                 ref={sidebarRef}
-                className={`fixed left-0 top-0 z-60 h-screen max-h-screen w-64 transform overflow-y-auto bg-gray-100 transition-transform ${
-                    isMenuOpen ? "translate-x-0" : "-translate-x-full"
-                }`}
+                className={`fixed left-0 top-0 z-60 h-screen max-h-screen w-64 transform overflow-y-auto bg-gray-100 transition-transform ${isMenuOpen ? "translate-x-0" : "-translate-x-full"
+                    }`}
             >
                 <div className="mx-4 pt-12">
                     <div className="flex items-center gap-x-2">

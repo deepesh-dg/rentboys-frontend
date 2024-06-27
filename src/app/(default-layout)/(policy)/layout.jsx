@@ -17,7 +17,7 @@ export default function PolicyLayout() {
             <div className="container text-white">
                 <div className="flex items-start gap-4 md-down:flex-wrap">
                     <div className="w-full shrink-0 rounded-md bg-gray-100 py-4 md:max-w-[210px]">
-                        <h2 className="mx-4 border-b border-gray-50 pb-1 text-xl font-medium uppercase tracking-widest">
+                        <h2 className="mx-4 border-b border-gray-50 pb-1 text-xl font-bold uppercase tracking-widest">
                             About
                         </h2>
                         <ul className="mt-3 flex flex-col space-y-2 text-base [&>li]:px-4">

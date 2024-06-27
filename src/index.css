@@ -37,7 +37,7 @@
 * {
     scrollbar-color: var(--color-red-50) var(--color-dark);
     scrollbar-width: thin;
-    border: none;
+    /* border: none; */
 }
 
 @media (min-width: 1536px) {
