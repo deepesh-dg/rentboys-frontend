@@ -1,6 +1,12 @@
 import { useForm } from "@/hooks";
 import api from "@/services";
-import { createContext, useCallback, useContext, useRef } from "react";
+import {
+    createContext,
+    useCallback,
+    useContext,
+    useEffect,
+    useRef,
+} from "react";
 import { useAuth } from "../hooks";
 
 const initialData = {
@@ -51,11 +57,18 @@ export function LoginProvider({ children }) {
         setFormErrors,
         setLoader,
         handleSubmit,
-    } = useForm(initialData);
+    } = useForm(
+        JSON.parse(sessionStorage.getItem("login-form-data") || "null") ||
+            initialData
+    );
 
     const initialFormErrors = useRef(formErrors);
 
-    const { login: authLogin, logout: authLogout } = useAuth();
+    useEffect(() => {
+        sessionStorage.setItem("login-form-data", JSON.stringify(formData));
+    }, [formData]);
+
+    const { login: authLogin } = useAuth();
 
     const login = handleSubmit(
         async data => {
