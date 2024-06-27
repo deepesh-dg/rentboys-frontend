@@ -13,7 +13,7 @@ import { classNames } from "@/lib";
 
 const Location = () => {
     const { setScreen } = useSignupScreenSteps();
-    const { data, errors, loader, selectLocation, setData } = useSignup();
+    const { data, errors, selectLocation, setData } = useSignup();
 
     const [locationSuggestions, setLocationSuggestions] = useState({});
     const [showSuggestions, setShowSuggestions] = useState(false);
@@ -107,7 +107,6 @@ const Location = () => {
                 <Button
                     label="Next"
                     type="submit"
-                    disabled={loader}
                     className="bg-red-100 py-4 text-xl font-bold uppercase hover:bg-red-50"
                 />
             </div>

@@ -6,14 +6,8 @@ import OTP from "../OTP";
 
 const VerifyEmailOTP = () => {
     const { setScreen } = useSignupScreenSteps();
-    const {
-        data,
-        errors,
-        setData,
-        loader,
-        emailVerifyOtpMatch,
-        emailVerifyResendOtp,
-    } = useSignup();
+    const { data, errors, setData, emailVerifyOtpMatch, emailVerifyResendOtp } =
+        useSignup();
 
     return (
         <OTP
@@ -30,7 +24,6 @@ const VerifyEmailOTP = () => {
                     prev.otp = v;
                 })
             }
-            loader={loader}
         />
     );
 };

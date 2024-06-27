@@ -13,7 +13,7 @@ import Form from "@/components/auth-screens/Form";
 import Icons from "@/components/icons/Component";
 
 export default function Login() {
-    const { data, errors, formIds, loader, login, setData } = useLogin();
+    const { data, errors, formIds, login, setData } = useLogin();
     const [viewPwd, setViewPwd] = useState(false);
 
     const togglePasswordVisibility = () => {
@@ -82,7 +82,6 @@ export default function Login() {
                 </div>
                 <Button
                     label="Login"
-                    disabled={loader}
                     type="submit"
                     className="bg-red-100 px-20 py-4 text-xl font-bold uppercase hover:bg-red-50"
                 />

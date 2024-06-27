@@ -8,7 +8,7 @@ import { useSignupScreenSteps } from "@/state";
 import { SignupScreenSteps } from "@/constants";
 
 export default function PhoneNumber() {
-    const { data, errors, loader, formIds, phoneVerify, setData } = useSignup();
+    const { data, errors, formIds, phoneVerify, setData } = useSignup();
     const { setScreen } = useSignupScreenSteps();
 
     return (

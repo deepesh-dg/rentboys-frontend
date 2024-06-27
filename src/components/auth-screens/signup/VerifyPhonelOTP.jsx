@@ -4,14 +4,8 @@ import OTP from "../OTP";
 import { useNavigate } from "react-router-dom";
 
 const VerifyPhonelOTP = () => {
-    const {
-        data,
-        errors,
-        setData,
-        loader,
-        phoneVerifyOtpMatch,
-        phoneVerifyResendOtp,
-    } = useSignup();
+    const { data, errors, setData, phoneVerifyOtpMatch, phoneVerifyResendOtp } =
+        useSignup();
 
     const navigate = useNavigate();
 
@@ -30,7 +24,6 @@ const VerifyPhonelOTP = () => {
                     prev.otp = v;
                 })
             }
-            loader={loader}
         />
     );
 };

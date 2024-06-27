@@ -17,11 +17,22 @@ export const UserType = Object.freeze({
 
 export const FileUploadTypes = Object.freeze({
     USER_DOC: "user-doc",
+    USER_PROFILE: "user-profile",
 });
 
 export const acceptedImageTypes = Object.freeze([
     "image/jpeg",
     "image/jpg",
     "image/png",
-    "image/webp",
 ]);
+
+export const acceptedFileTypes = Object.freeze([
+    ...acceptedImageTypes,
+    "application/pdf",
+]);
+
+export const ReactQueryKeys = Object.freeze({
+    CREATE_PROFILE_PAGE_CONTENT: "create-profile-page-content",
+    UPLOAD_ID_PAGE_CONTENT: "upload-id-page-content",
+    MASTERS: "masters-data",
+});

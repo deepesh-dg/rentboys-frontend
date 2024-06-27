@@ -1,28 +1,26 @@
 import { Outlet } from "react-router-dom";
 import { Suspense } from "react";
-import CustomLoader from "../lib/loader";
-import { Provider } from "react-redux";
-import store from "@/state";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor } from "../state";
 import { QueryClient, QueryClientProvider } from "react-query";
+import GlobalLoader from "@/components/GlobalLoader";
+import { useGlobalLoader } from "@/hooks";
 
 const queryClient = new QueryClient();
 
 export default function RootLayout() {
     return (
-        <Suspense fallback={<CustomLoader />}>
+        <Suspense fallback={<GlobalLoader force />}>
             <QueryClientProvider client={queryClient}>
-                <Provider store={store}>
-                    <PersistGate
-                        loading={<CustomLoader />}
-                        persistor={persistor}
-                    >
-                        <div className="bg-dark">
-                            <Outlet />
-                        </div>
-                    </PersistGate>
-                </Provider>
+                <PersistGate
+                    loading={<GlobalLoader force />}
+                    persistor={persistor}
+                >
+                    <div className="bg-dark">
+                        <Outlet />
+                    </div>
+                    <GlobalLoader />
+                </PersistGate>
             </QueryClientProvider>
         </Suspense>
     );

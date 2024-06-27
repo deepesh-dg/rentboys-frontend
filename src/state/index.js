@@ -1,6 +1,7 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import {
     authReducer,
+    loaderReducer,
     mastersReducer,
     signupScreenStepsReducer,
 } from "./slices";
@@ -28,6 +29,7 @@ const reducers = combineReducers({
     auth: authPersistedReducer,
     masters: mastersReducer,
     signupScreenSteps: signupScreenStepsReducer,
+    loader: loaderReducer,
 });
 
 const store = configureStore({

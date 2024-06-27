@@ -1,8 +1,8 @@
-import { HTTP } from "@/lib";
+import { HTTPWithAuth } from "@/lib";
 import axios from "axios";
 import { FileUploadTypes } from "@/constants";
 
-export default class CommonService extends HTTP {
+export default class CommonService extends HTTPWithAuth {
     getTermsAndConditions() {
         return this.get("/policies/terms-conditions");
     }

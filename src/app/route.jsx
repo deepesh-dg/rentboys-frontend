@@ -1,10 +1,15 @@
-import AuthRoutes from "./(auth)/route";
+import authRoutes from "./(auth)/route";
 import DefaultRoutes from "./(default-layout)/route";
 import RootLayout from "./layout";
-import NotFound from "./not-found";
 import ErrorPage from "./error";
 import Consent from "./consent";
-import OnboardingRoutes from "./(onboarding)/route";
+import onboardingRoutes from "./(onboarding)/route";
+import { AuthRoutes, ProtectedRoutes } from "@/hoc";
+import { lazy } from "react";
+import { Provider } from "react-redux";
+import store from "@/state";
+
+const NotFound = lazy(() => import("./not-found"));
 
 /**
  * @type {import('react-router-dom').RouteObject[]}
@@ -13,16 +18,28 @@ const RootRoute = [
     // Public Routes
     {
         path: "/",
-        element: <RootLayout />,
+        element: (
+            <Provider store={store}>
+                <RootLayout />
+            </Provider>
+        ),
         errorElement: <ErrorPage />,
         children: [
             ...DefaultRoutes,
 
             // Login, Signup Routes
-            ...AuthRoutes,
+            {
+                path: "",
+                element: <AuthRoutes />,
+                children: authRoutes,
+            },
 
             // Onboarding Routes
-            ...OnboardingRoutes,
+            {
+                path: "",
+                element: <ProtectedRoutes redirectTo="/signup" />,
+                children: onboardingRoutes,
+            },
         ],
     },
     {

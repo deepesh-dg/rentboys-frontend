@@ -3,7 +3,11 @@ import Form from "../Form";
 import Icons from "../../icons/Component";
 import Button from "../../Button";
 import { CameraIcon } from "../../icons/outline";
-import { SignupScreenSteps, acceptedImageTypes } from "@/constants";
+import {
+    ReactQueryKeys,
+    SignupScreenSteps,
+    acceptedFileTypes,
+} from "@/constants";
 import { useSignupScreenSteps } from "@/state";
 import { useQuery } from "react-query";
 import api from "@/services";
@@ -18,7 +22,6 @@ export default function UploadId() {
         data: formData,
         errors: formErrors,
         formIds,
-        loader,
         setData,
         uploadId,
     } = useSignup();
@@ -27,7 +30,7 @@ export default function UploadId() {
         error,
         isLoading,
     } = useQuery(
-        "upload-id-page-content",
+        ReactQueryKeys.UPLOAD_ID_PAGE_CONTENT,
         () => api.common.getIdProofPageContent(),
         {
             staleTime: Infinity,
@@ -63,7 +66,7 @@ export default function UploadId() {
                                     type="file"
                                     id={formIds.id_proof}
                                     className="hidden"
-                                    accept={acceptedImageTypes.join(",")}
+                                    accept={acceptedFileTypes.join(",")}
                                     onChange={e => {
                                         const file = e.target.files[0];
                                         if (file) {
@@ -97,7 +100,6 @@ export default function UploadId() {
                         <Button
                             label={formData.id_proof ? "Upload" : "Skip"}
                             type={formData.id_proof ? "submit" : "button"}
-                            disabled={loader}
                             onClick={
                                 formData.id_proof
                                     ? undefined

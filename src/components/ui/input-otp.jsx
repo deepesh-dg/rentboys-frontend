@@ -19,7 +19,7 @@ const InputOTP = React.forwardRef(
 const InputOTPGroup = React.forwardRef(({ className, ...props }, ref) => (
     <div
         ref={ref}
-        className={classNames("flex items-center", className)}
+        className={classNames("relative z-1 flex items-center", className)}
         {...props}
     />
 ));
@@ -32,8 +32,8 @@ const InputOTPSlot = React.forwardRef(({ index, className, ...props }, ref) => {
         <div
             ref={ref}
             className={classNames(
-                "border-input relative flex h-16 w-16 items-center justify-center border-y border-r text-sm transition-all first:border-l",
-                isActive && "border-red-50",
+                "border-input relative flex h-16 w-16 items-center justify-center border-y border-r border-solid text-sm transition-all first:border-l",
+                isActive ? "border-red-50" : "border-gray-800/70",
                 className
             )}
             {...props}

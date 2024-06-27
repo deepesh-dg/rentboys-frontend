@@ -1,10 +1,12 @@
-import DashboardLayout from "./layout";
-import Dashboard from "./page";
+import { lazy } from "react";
+
+const DashboardLayout = lazy(() => import("./layout"));
+const Dashboard = lazy(() => import("./page"));
 
 /**
  * @type {import('react-router-dom').RouteObject[]}
  */
-const DashboardRoutes = [
+const dashboardRoutes = [
     {
         path: "",
         element: <DashboardLayout />,
@@ -17,4 +19,4 @@ const DashboardRoutes = [
     },
 ];
 
-export default DashboardRoutes;
+export default dashboardRoutes;

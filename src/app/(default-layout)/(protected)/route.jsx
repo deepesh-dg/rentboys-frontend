@@ -1,20 +1,15 @@
-import ProtectedLayout from "./layout";
-import DashboardRoutes from "./dashboard/route";
+import { Outlet } from "react-router-dom";
+import dashboardRoutes from "./dashboard/route";
 
 /**
  * @type {import('react-router-dom').RouteObject[]}
  */
-const ProtectedRoutes = [
+const protectedRoutes = [
     {
-        path: "/",
-        element: <ProtectedLayout />,
-        children: [
-            {
-                path: "/dashboard",
-                children: DashboardRoutes,
-            },
-        ],
+        path: "dashboard",
+        element: <Outlet />,
+        children: dashboardRoutes,
     },
 ];
 
-export default ProtectedRoutes;
+export default protectedRoutes;

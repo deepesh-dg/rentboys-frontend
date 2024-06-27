@@ -1,6 +1,6 @@
-import { HTTP } from "@/lib";
+import { HTTPWithAuth } from "@/lib";
 
-export default class AuthService extends HTTP {
+export default class AuthService extends HTTPWithAuth {
     /**
      *
      * @param {string} username
@@ -86,5 +86,17 @@ export default class AuthService extends HTTP {
 
     phoneVerifyOtpMatch(data) {
         return this.post("/phone-verify/otp-match", data);
+    }
+
+    changePassword(old_password, new_password, confirm_password) {
+        return this.post("/change-password", {
+            old_password,
+            new_password,
+            confirm_password,
+        });
+    }
+
+    deleteAccount() {
+        return this.get("/delete-account");
     }
 }

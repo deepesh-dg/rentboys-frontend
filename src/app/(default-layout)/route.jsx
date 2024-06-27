@@ -1,25 +1,32 @@
 import DefaultLayout from "./layout";
 import Home from "./page";
 
-import ProtectedRoutes from "./(protected)/route";
-import PoliciesRoutes from "./(policy)/route";
+import protectedRoutes from "./(protected)/route";
+import policiesRoutes from "./(policy)/route";
+import { ProtectedRoutes } from "@/hoc";
+
 /**
  * @type {import('react-router-dom').RouteObject[]}
  */
-const DefaultRoutes = [
+const defaultRoutes = [
     {
-        path: "/",
+        path: "",
         element: <DefaultLayout />,
         children: [
             {
-                path: "/",
+                path: "",
                 element: <Home />,
             },
 
-            ...PoliciesRoutes,
-            ...ProtectedRoutes,
+            ...policiesRoutes,
+
+            {
+                path: "",
+                element: <ProtectedRoutes />,
+                children: protectedRoutes,
+            },
         ],
     },
 ];
 
-export default DefaultRoutes;
+export default defaultRoutes;
