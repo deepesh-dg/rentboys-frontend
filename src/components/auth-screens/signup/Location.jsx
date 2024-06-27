@@ -7,20 +7,18 @@ import { useSignup } from "@/state/context";
 import { SignupScreenSteps, UserType } from "@/constants";
 import Form from "../Form";
 import api from "@/services";
-import { useGlobalLoader, useState } from "@/hooks";
+import { useState } from "@/hooks";
 import { useNavigate } from "react-router-dom";
 import { classNames } from "@/lib";
 
 const Location = () => {
     const { setScreen } = useSignupScreenSteps();
-    const { data, errors, loader, selectLocation, setData } = useSignup();
+    const { data, errors, selectLocation, setData } = useSignup();
 
     const [locationSuggestions, setLocationSuggestions] = useState({});
     const [showSuggestions, setShowSuggestions] = useState(false);
 
     const navigate = useNavigate();
-
-    useGlobalLoader(loader);
 
     useEffect(() => {
         if (
@@ -109,7 +107,6 @@ const Location = () => {
                 <Button
                     label="Next"
                     type="submit"
-                    disabled={loader}
                     className="bg-red-100 py-4 text-xl font-bold uppercase hover:bg-red-50"
                 />
             </div>

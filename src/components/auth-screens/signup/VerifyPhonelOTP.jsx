@@ -2,19 +2,10 @@ import React from "react";
 import { useSignup } from "@/state/context";
 import OTP from "../OTP";
 import { useNavigate } from "react-router-dom";
-import { useGlobalLoader } from "@/hooks";
 
 const VerifyPhonelOTP = () => {
-    const {
-        data,
-        errors,
-        setData,
-        loader,
-        phoneVerifyOtpMatch,
-        phoneVerifyResendOtp,
-    } = useSignup();
-
-    useGlobalLoader(loader);
+    const { data, errors, setData, phoneVerifyOtpMatch, phoneVerifyResendOtp } =
+        useSignup();
 
     const navigate = useNavigate();
 
@@ -33,7 +24,6 @@ const VerifyPhonelOTP = () => {
                     prev.otp = v;
                 })
             }
-            loader={loader}
         />
     );
 };

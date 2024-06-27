@@ -10,16 +10,12 @@ import { useLogin } from "@/state/context";
 import Form from "@/components/auth-screens/Form";
 import { useNavigate } from "react-router-dom";
 import Icons from "@/components/icons/Component";
-import { useGlobalLoader } from "@/hooks";
 
 const ResetPassword = () => {
-    const { data, errors, formIds, resetPassword, setData, loader } =
-        useLogin();
+    const { data, errors, formIds, resetPassword, setData } = useLogin();
     const navigate = useNavigate();
     const [viewPwd, setViewPwd] = useState(false);
     const [viewConfirmPwd, setViewConfirmPwd] = useState(false);
-
-    useGlobalLoader(loader);
 
     const handleShowPassword = () => {
         setViewPwd(prev => !prev);

@@ -6,13 +6,10 @@ import { useSignup } from "@/state/context";
 import { useSignupScreenSteps } from "@/state";
 import { SignupScreenSteps, UserType } from "@/constants";
 import Form from "../Form";
-import { useGlobalLoader } from "@/hooks";
 
 const ChooseUserType = () => {
     const { setScreen } = useSignupScreenSteps();
-    const { data, loader, selectUserType, setData } = useSignup();
-
-    useGlobalLoader(loader);
+    const { data, selectUserType, setData } = useSignup();
 
     return (
         <Form
@@ -78,7 +75,6 @@ const ChooseUserType = () => {
                 <div>
                     <Button
                         label="Continue"
-                        disabled={loader}
                         type="submit"
                         className="mt-4 bg-red-100 px-20 py-4 text-xl font-bold uppercase hover:bg-red-50"
                     />

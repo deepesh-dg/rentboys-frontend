@@ -11,10 +11,8 @@ import Form from "./Form";
  *     onClickResend: () => Promise<void>;
  *     onSubmit: (e: any) => Promise<void>;
  *     timeout: number;
- *     formMessage: string;
  *     formError: string;
  *     error: string;
- *     loader: boolean;
  *     value: string;
  *     onChange: (value: string) => void;
  * }} param0
@@ -24,10 +22,8 @@ const OTP = ({
     onClickResend,
     onSubmit,
     timeout = 30000,
-    formMessage,
     formError,
     error,
-    loader,
     value,
     onChange,
 }) => {

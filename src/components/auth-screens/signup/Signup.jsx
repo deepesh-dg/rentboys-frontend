@@ -14,14 +14,11 @@ import { useSignupScreenSteps } from "@/state";
 import { SignupScreenSteps } from "@/constants";
 import Form from "../Form";
 import Icons from "@/components/icons/Component";
-import { useGlobalLoader } from "@/hooks";
 
 const Signup = () => {
     const { setScreen } = useSignupScreenSteps();
-    const { data, errors, loader, formIds, setData, signup } = useSignup();
+    const { data, errors, formIds, setData, signup } = useSignup();
     const [viewPwd, setViewPwd] = useState(false);
-
-    useGlobalLoader(loader);
 
     const togglePasswordVisibility = () => {
         setViewPwd(prev => !prev);
@@ -133,7 +130,6 @@ const Signup = () => {
                 <Button
                     label="Sign Up"
                     type="submit"
-                    disabled={loader}
                     className="bg-red-100 py-4 hover:bg-red-50"
                 />
             </div>

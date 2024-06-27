@@ -1,6 +1,6 @@
+import { LoginProvider, SignupProvider } from "@/state/context";
 import { lazy } from "react";
 
-const LoginLayout = lazy(() => import("./login/layout"));
 const AuthLayout = lazy(() => import("./layout"));
 const Login = lazy(() => import("./login/page"));
 const Signup = lazy(() => import("./signup/page"));
@@ -12,17 +12,17 @@ const ForgotPassword = lazy(() => import("./forgot-password/page"));
 const authRoutes = [
     {
         path: "",
-        element: <AuthLayout />,
+        element: (
+            <LoginProvider>
+                <SignupProvider>
+                    <AuthLayout />
+                </SignupProvider>
+            </LoginProvider>
+        ),
         children: [
             {
                 path: "login",
-                element: <LoginLayout />,
-                children: [
-                    {
-                        path: "",
-                        element: <Login />,
-                    },
-                ],
+                element: <Login />,
             },
             {
                 path: "signup",

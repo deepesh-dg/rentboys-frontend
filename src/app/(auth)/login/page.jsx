@@ -11,13 +11,10 @@ import Input from "@/components/common/Input/Input";
 import { useLogin } from "@/state/context";
 import Form from "@/components/auth-screens/Form";
 import Icons from "@/components/icons/Component";
-import { useGlobalLoader } from "@/hooks";
 
 export default function Login() {
-    const { data, errors, formIds, loader, login, setData } = useLogin();
+    const { data, errors, formIds, login, setData } = useLogin();
     const [viewPwd, setViewPwd] = useState(false);
-
-    useGlobalLoader(loader);
 
     const togglePasswordVisibility = () => {
         setViewPwd(prev => !prev);
@@ -85,7 +82,6 @@ export default function Login() {
                 </div>
                 <Button
                     label="Login"
-                    disabled={loader}
                     type="submit"
                     className="bg-red-100 px-20 py-4 text-xl font-bold uppercase hover:bg-red-50"
                 />

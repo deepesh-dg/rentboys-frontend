@@ -14,7 +14,7 @@ import api from "@/services";
 import Image from "@/components/Image";
 import parse from "html-react-parser";
 import { useSignup } from "@/state/context";
-import { useBlobUrl, useGlobalLoader } from "@/hooks";
+import { useBlobUrl } from "@/hooks";
 
 export default function UploadId() {
     const { setScreen } = useSignupScreenSteps();
@@ -22,7 +22,6 @@ export default function UploadId() {
         data: formData,
         errors: formErrors,
         formIds,
-        loader,
         setData,
         uploadId,
     } = useSignup();
@@ -37,8 +36,6 @@ export default function UploadId() {
             staleTime: Infinity,
         }
     );
-
-    useGlobalLoader(loader);
 
     const blobUrl = useBlobUrl(formData.id_proof);
 
@@ -103,7 +100,6 @@ export default function UploadId() {
                         <Button
                             label={formData.id_proof ? "Upload" : "Skip"}
                             type={formData.id_proof ? "submit" : "button"}
-                            disabled={loader}
                             onClick={
                                 formData.id_proof
                                     ? undefined
