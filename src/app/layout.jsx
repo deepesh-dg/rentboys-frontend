@@ -4,7 +4,6 @@ import { PersistGate } from "redux-persist/integration/react";
 import { persistor } from "../state";
 import { QueryClient, QueryClientProvider } from "react-query";
 import GlobalLoader from "@/components/GlobalLoader";
-import { useGlobalLoader } from "@/hooks";
 
 const queryClient = new QueryClient();
 

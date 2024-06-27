@@ -5,7 +5,7 @@ import { UserUploadDpIcon } from "@/components/icons/solid";
 import { useQuery } from "react-query";
 import api from "@/services";
 import parse from "html-react-parser";
-import { useBlobUrl } from "@/hooks";
+import { useBlobUrl, useGlobalLoader } from "@/hooks";
 import {
     FileUploadTypes,
     ReactQueryKeys,
@@ -36,7 +36,11 @@ const Step1 = () => {
         }
     };
 
+    useGlobalLoader(isLoading);
+
     if (error || status === false) throw new Error(error?.message || "Error");
+
+    if (isLoading) return null;
 
     return (
         <div className="container flex-grow">

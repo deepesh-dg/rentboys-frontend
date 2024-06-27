@@ -6,6 +6,7 @@ import Step3 from "./Step3";
 import { useQuery } from "react-query";
 import api from "@/services";
 import { ReactQueryKeys } from "@/constants";
+import { useGlobalLoader } from "@/hooks";
 
 export default function Profile() {
     const [currentStep, setCurrentStep] = useState(0);
@@ -42,7 +43,11 @@ export default function Profile() {
         }
     };
 
+    useGlobalLoader(isLoading);
+
     if (error || status === false) throw new Error(error?.message || "Error");
+
+    if (isLoading) return null;
 
     return (
         <div className="flex min-h-screen flex-col bg-gray-100 text-white">
