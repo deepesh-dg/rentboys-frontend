@@ -70,7 +70,7 @@ export default function Header() {
 
     return (
         <>
-            <nav className="container bg-dark py-10">
+            <nav className="px-4 bg-dark py-10">
                 <div className="flex flex-col justify-between gap-x-2 gap-y-6 md:flex-row md:items-center md:gap-x-6">
                     <div className="flex items-center gap-x-3">
                         <div

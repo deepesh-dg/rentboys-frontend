@@ -24,7 +24,7 @@ const Step2 = () => {
     const option = ["Option 1", "Option 2", "Option 3", "Option 4"];
 
     return (
-        <div className="container flex-grow py-6 text-white">
+        <div className="px-2 flex-grow py-6 text-white">
             <Textarea rows={4} placeholder="Description*" className="p-4" />
             <div className="mt-6 grid grid-cols-1 gap-x-4 gap-y-6 md:grid-cols-2 lg:grid-cols-4">
                 <MuiDropdown

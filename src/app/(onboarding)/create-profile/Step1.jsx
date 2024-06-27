@@ -39,7 +39,7 @@ const Step1 = () => {
     if (error || status === false) throw new Error(error?.message || "Error");
 
     return (
-        <div className="container flex-grow">
+        <div className="px-4 flex-grow">
             {!isLoading && (
                 <div className="flex flex-col items-start justify-start gap-x-10 gap-y-5 md:flex-row">
                     <div className="flex min-h-80 w-full items-center justify-center border border-gray-300 bg-black md:w-1/4">
@@ -79,12 +79,12 @@ const Step1 = () => {
                                     file
                                         ? submit
                                         : () => {
-                                              document
-                                                  .getElementById(
-                                                      "profile-photo"
-                                                  )
-                                                  ?.click();
-                                          }
+                                            document
+                                                .getElementById(
+                                                    "profile-photo"
+                                                )
+                                                ?.click();
+                                        }
                                 }
                             />
                         </div>

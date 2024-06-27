@@ -10,9 +10,9 @@ const consent = () => {
         <div className="bg-dark text-white">
             <div
                 className="container min-h-screen bg-cover bg-center"
-                // style={{
-                //     backgroundImage: `url(${BackgroundImg})`
-                // }}
+            // style={{
+            //     backgroundImage: `url(${BackgroundImg})`
+            // }}
             >
                 <h2 className="py-8 text-center text-5xl font-normal uppercase">
                     Rent&nbsp;<span className="text-red">Boys</span>

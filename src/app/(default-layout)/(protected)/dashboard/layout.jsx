@@ -15,7 +15,7 @@ export default function DashboardLayout() {
         }));
     };
     return (
-        <div className="container">
+        <div className="px-4">
             <div className="grid grid-cols-6 gap-y-6">
                 <div className="col-span-6 rounded-xl bg-gray-50 md:col-span-1">
                     <div className="flex flex-col py-6 text-white">

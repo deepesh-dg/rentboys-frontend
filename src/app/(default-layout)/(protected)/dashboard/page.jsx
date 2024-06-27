@@ -6,9 +6,9 @@ import { ArrowRightIcon } from "@/components/icons/outline";
 
 export default function Dashboard() {
     return (
-        <div className="container text-white px-0 md:pl-4">
+        <div className="text-white md:pl-4">
             <div className="col-span-6 grid grid-cols-6 items-start gap-4">
-                <div className="col-span-6 grid grid-cols-4 gap-4 xl:col-span-4 space-y-2">
+                <div className="col-span-6 grid grid-cols-4 gap-4 xl:col-span-4 space-y-2 md:space-y-0">
                     <div className="col-span-4 rounded-xl bg-gray-50 p-4 md:col-span-2">
                         <div className="flex items-start gap-x-1">
                             <Icons icon={LocationIcon} className="mt-1 w-8" />

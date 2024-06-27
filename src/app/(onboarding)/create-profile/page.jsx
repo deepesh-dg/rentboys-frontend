@@ -57,7 +57,7 @@ export default function Profile() {
                 </>
             )}
             <div className="bg-red-100 py-2">
-                <div className="container flex justify-between">
+                <div className="px-4 flex justify-between">
                     <Button
                         label="Skip"
                         variant="text"
