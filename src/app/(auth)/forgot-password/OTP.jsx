@@ -1,9 +1,12 @@
 import React from "react";
 import OtpScreen from "@/components/auth-screens/OTP";
 import { useLogin } from "@/state/context";
+import { useGlobalLoader } from "@/hooks";
 
 export default function OTP({ setScreen }) {
     const { resendOtp, submitOtp, data, errors, setData, loader } = useLogin();
+
+    useGlobalLoader(loader);
 
     return (
         <OtpScreen

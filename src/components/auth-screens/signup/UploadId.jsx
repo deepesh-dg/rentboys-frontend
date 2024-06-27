@@ -6,7 +6,7 @@ import { CameraIcon } from "../../icons/outline";
 import {
     ReactQueryKeys,
     SignupScreenSteps,
-    acceptedImageTypes,
+    acceptedFileTypes,
 } from "@/constants";
 import { useSignupScreenSteps } from "@/state";
 import { useQuery } from "react-query";
@@ -14,7 +14,7 @@ import api from "@/services";
 import Image from "@/components/Image";
 import parse from "html-react-parser";
 import { useSignup } from "@/state/context";
-import { useBlobUrl } from "@/hooks";
+import { useBlobUrl, useGlobalLoader } from "@/hooks";
 
 export default function UploadId() {
     const { setScreen } = useSignupScreenSteps();
@@ -37,6 +37,8 @@ export default function UploadId() {
             staleTime: Infinity,
         }
     );
+
+    useGlobalLoader(loader);
 
     const blobUrl = useBlobUrl(formData.id_proof);
 
@@ -67,7 +69,7 @@ export default function UploadId() {
                                     type="file"
                                     id={formIds.id_proof}
                                     className="hidden"
-                                    accept={acceptedImageTypes.join(",")}
+                                    accept={acceptedFileTypes.join(",")}
                                     onChange={e => {
                                         const file = e.target.files[0];
                                         if (file) {

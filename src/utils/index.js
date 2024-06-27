@@ -36,3 +36,11 @@ export async function getBlobUrl(file) {
 
     return blobUrl;
 }
+
+export function getUniqueId() {
+    const timestamp = new Date().getTime();
+    const random = Math.floor(Math.random() * 1000000); // Adjust the range as needed
+    const uniqueId = timestamp * 1000000 + random; // Combine timestamp and random number
+
+    return uniqueId;
+}

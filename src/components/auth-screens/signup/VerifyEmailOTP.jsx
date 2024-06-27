@@ -3,6 +3,7 @@ import { useSignupScreenSteps } from "@/state";
 import { useSignup } from "@/state/context";
 import { SignupScreenSteps } from "@/constants";
 import OTP from "../OTP";
+import { useGlobalLoader } from "@/hooks";
 
 const VerifyEmailOTP = () => {
     const { setScreen } = useSignupScreenSteps();
@@ -14,6 +15,8 @@ const VerifyEmailOTP = () => {
         emailVerifyOtpMatch,
         emailVerifyResendOtp,
     } = useSignup();
+
+    useGlobalLoader(loader);
 
     return (
         <OTP

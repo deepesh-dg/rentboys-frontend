@@ -7,7 +7,7 @@ import { useSignup } from "@/state/context";
 import { SignupScreenSteps, UserType } from "@/constants";
 import Form from "../Form";
 import api from "@/services";
-import { useState } from "@/hooks";
+import { useGlobalLoader, useState } from "@/hooks";
 import { useNavigate } from "react-router-dom";
 import { classNames } from "@/lib";
 
@@ -19,6 +19,8 @@ const Location = () => {
     const [showSuggestions, setShowSuggestions] = useState(false);
 
     const navigate = useNavigate();
+
+    useGlobalLoader(loader);
 
     useEffect(() => {
         if (

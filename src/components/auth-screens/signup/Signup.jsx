@@ -14,11 +14,14 @@ import { useSignupScreenSteps } from "@/state";
 import { SignupScreenSteps } from "@/constants";
 import Form from "../Form";
 import Icons from "@/components/icons/Component";
+import { useGlobalLoader } from "@/hooks";
 
 const Signup = () => {
     const { setScreen } = useSignupScreenSteps();
     const { data, errors, loader, formIds, setData, signup } = useSignup();
     const [viewPwd, setViewPwd] = useState(false);
+
+    useGlobalLoader(loader);
 
     const togglePasswordVisibility = () => {
         setViewPwd(prev => !prev);

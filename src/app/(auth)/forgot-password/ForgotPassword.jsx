@@ -4,9 +4,13 @@ import { MailIcon } from "@/components/icons/outline";
 import Input from "@/components/common/Input/Input";
 import { useLogin } from "@/state/context";
 import Form from "@/components/auth-screens/Form";
+import { useGlobalLoader } from "@/hooks";
 
 const ForgotPassword = ({ setScreen }) => {
-    const { data, errors, formIds, forgotPassword, setData } = useLogin();
+    const { data, errors, formIds, loader, forgotPassword, setData } =
+        useLogin();
+
+    useGlobalLoader(loader);
 
     return (
         <Form

@@ -2,6 +2,7 @@ import React from "react";
 import { useSignup } from "@/state/context";
 import OTP from "../OTP";
 import { useNavigate } from "react-router-dom";
+import { useGlobalLoader } from "@/hooks";
 
 const VerifyPhonelOTP = () => {
     const {
@@ -12,6 +13,8 @@ const VerifyPhonelOTP = () => {
         phoneVerifyOtpMatch,
         phoneVerifyResendOtp,
     } = useSignup();
+
+    useGlobalLoader(loader);
 
     const navigate = useNavigate();
 

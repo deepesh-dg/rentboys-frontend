@@ -24,7 +24,11 @@ export const acceptedImageTypes = Object.freeze([
     "image/jpeg",
     "image/jpg",
     "image/png",
-    "image/webp",
+]);
+
+export const acceptedFileTypes = Object.freeze([
+    ...acceptedImageTypes,
+    "application/pdf",
 ]);
 
 export const ReactQueryKeys = Object.freeze({

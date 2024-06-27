@@ -6,10 +6,13 @@ import { useSignup } from "@/state/context";
 import { useSignupScreenSteps } from "@/state";
 import { SignupScreenSteps, UserType } from "@/constants";
 import Form from "../Form";
+import { useGlobalLoader } from "@/hooks";
 
 const ChooseUserType = () => {
     const { setScreen } = useSignupScreenSteps();
     const { data, loader, selectUserType, setData } = useSignup();
+
+    useGlobalLoader(loader);
 
     return (
         <Form

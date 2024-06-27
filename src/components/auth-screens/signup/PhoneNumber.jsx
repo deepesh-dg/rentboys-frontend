@@ -6,10 +6,13 @@ import Button from "@/components/Button";
 import { useSignup } from "@/state/context";
 import { useSignupScreenSteps } from "@/state";
 import { SignupScreenSteps } from "@/constants";
+import { useGlobalLoader } from "@/hooks";
 
 export default function PhoneNumber() {
     const { data, errors, loader, formIds, phoneVerify, setData } = useSignup();
     const { setScreen } = useSignupScreenSteps();
+
+    useGlobalLoader(loader);
 
     return (
         <Form

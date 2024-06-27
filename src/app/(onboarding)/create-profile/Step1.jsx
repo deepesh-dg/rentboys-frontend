@@ -6,7 +6,11 @@ import { useQuery } from "react-query";
 import api from "@/services";
 import parse from "html-react-parser";
 import { useBlobUrl } from "@/hooks";
-import { ReactQueryKeys, acceptedImageTypes } from "@/constants";
+import {
+    FileUploadTypes,
+    ReactQueryKeys,
+    acceptedImageTypes,
+} from "@/constants";
 import Image from "@/components/Image";
 
 const Step1 = () => {
@@ -26,9 +30,9 @@ const Step1 = () => {
 
     const blobUrl = useBlobUrl(file);
 
-    const submit = () => {
+    const submit = async () => {
         if (file) {
-            api.common.uploadProfilePicture(file);
+            api.common.uploadFile(FileUploadTypes.USER_PROFILE, file);
         }
     };
 
@@ -67,22 +71,22 @@ const Step1 = () => {
                                     />
                                 )}
                             </label>
-                            {file ? (
-                                <Button
-                                    label="Upload Your Id"
-                                    variant="colored"
-                                    size="sm"
-                                    onClick={submit}
-                                />
-                            ) : (
-                                <label htmlFor="profile-photo">
-                                    <Button
-                                        label="Select Your Id"
-                                        variant="colored"
-                                        size="sm"
-                                    />
-                                </label>
-                            )}
+                            <Button
+                                label={`${file ? "Upload" : "Select"} Your Id`}
+                                variant="colored"
+                                size="sm"
+                                onClick={
+                                    file
+                                        ? submit
+                                        : () => {
+                                              document
+                                                  .getElementById(
+                                                      "profile-photo"
+                                                  )
+                                                  ?.click();
+                                          }
+                                }
+                            />
                         </div>
                     </div>
                     <div className="w-full space-y-6 md:w-3/4">

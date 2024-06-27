@@ -6,6 +6,8 @@ import Consent from "./consent";
 import onboardingRoutes from "./(onboarding)/route";
 import { AuthRoutes, ProtectedRoutes } from "@/hoc";
 import { lazy } from "react";
+import { Provider } from "react-redux";
+import store from "@/state";
 
 const NotFound = lazy(() => import("./not-found"));
 
@@ -16,7 +18,11 @@ const RootRoute = [
     // Public Routes
     {
         path: "/",
-        element: <RootLayout />,
+        element: (
+            <Provider store={store}>
+                <RootLayout />
+            </Provider>
+        ),
         errorElement: <ErrorPage />,
         children: [
             ...DefaultRoutes,
