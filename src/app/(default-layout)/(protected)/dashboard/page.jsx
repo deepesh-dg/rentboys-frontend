@@ -129,7 +129,7 @@ export default function Dashboard() {
                                         ra************42@g...
                                     </td>
                                 </tr>
-                                <div className="mt-6 h-2 border border-gray-200"></div>
+                                <div className="mt-6 border border-gray-200"></div>
 
                                 <tr className="mt-10">
                                     <td className="whitespace-nowrap text-gray-200">

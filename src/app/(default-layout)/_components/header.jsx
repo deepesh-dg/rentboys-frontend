@@ -137,7 +137,7 @@ export default function Header() {
                                             </div>
                                             <Icons
                                                 src={ArrowDownIcon}
-                                                className="mx-auto w-5"
+                                                className="mx-auto w-5 text-white"
                                             />
                                         </button>
                                         {isProfileOpen && (
@@ -184,9 +184,8 @@ export default function Header() {
             {/* Mobile Sidebar */}
             <nav
                 ref={sidebarRef}
-                className={`fixed left-0 top-0 z-60 h-screen max-h-screen w-64 transform overflow-y-auto bg-gray-100 transition-transform ${
-                    isMenuOpen ? "translate-x-0" : "-translate-x-full"
-                }`}
+                className={`fixed left-0 top-0 z-60 h-screen max-h-screen w-64 transform overflow-y-auto bg-gray-100 transition-transform ${isMenuOpen ? "translate-x-0" : "-translate-x-full"
+                    }`}
             >
                 <div className="mx-4 pt-12">
                     <div className="flex items-center gap-x-2">

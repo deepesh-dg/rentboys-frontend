@@ -35,6 +35,7 @@ export default function MembershipPlan() {
                                     theme="white"
                                     variant="text"
                                     className="w-full rounded-xl text-base font-bold text-white"
+                                    href="/dashboard"
                                 />
                                 <Button
                                     themes="red"
