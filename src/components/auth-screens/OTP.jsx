@@ -11,6 +11,7 @@ import Form from "./Form";
  *     onClickResend: () => Promise<void>;
  *     onSubmit: (e: any) => Promise<void>;
  *     timeout: number;
+ *     description?: string;
  *     formError: string;
  *     error: string;
  *     value: string;
@@ -23,6 +24,7 @@ const OTP = ({
     onSubmit,
     timeout = 30000,
     formError,
+    description = "We have sent a One-Time Password (OTP) to your registered email address. Please check your inbox (and spam folder, just in case!) for the email containing the OTP.",
     error,
     value,
     onChange,
@@ -48,7 +50,7 @@ const OTP = ({
         <Form
             onSubmit={onSubmit}
             title="OTP Verification"
-            description="We have sent a One-Time Password (OTP) to your registered email address. Please check your inbox (and spam folder, just in case!) for the email containing the OTP."
+            description={description}
             maxWidth="xl"
             error={error || formError}
         >
@@ -58,7 +60,7 @@ const OTP = ({
                 type="submit"
                 size="md"
                 theme="red"
-                className="uppercase font-bold rounded-xl text-xl w-full mt-1"
+                className="mt-1 w-full rounded-xl text-xl font-bold uppercase"
             />
             <div>
                 {minutes > 0 || seconds > 0 ? (
@@ -68,7 +70,6 @@ const OTP = ({
                     </>
                 ) : null}
                 &nbsp;
-
                 <button
                     type="button"
                     onClick={async () => {
@@ -81,8 +82,9 @@ const OTP = ({
                     }}
                 >
                     <span
-                        className={`text-base font-bold ${canResend ? "text-red-50 underline" : ""
-                            }`}
+                        className={`text-base font-bold ${
+                            canResend ? "text-red-50 underline" : ""
+                        }`}
                     >
                         Resend OTP
                     </span>

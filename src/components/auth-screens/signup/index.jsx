@@ -12,6 +12,7 @@ import VerifyPhonelOTP from "./VerifyPhonelOTP";
 
 export default function SignupScreens() {
     const { screen, setScreen } = useSignupScreenSteps();
+    const { resetForm } = useSignup();
 
     useEffect(
         () => () => {
@@ -20,9 +21,11 @@ export default function SignupScreens() {
         []
     );
 
+    useEffect(() => resetForm, []);
+
     switch (screen) {
         case SignupScreenSteps.SIGNUP:
-            return <Signup />;
+            return <PhoneNumber />;
         case SignupScreenSteps.VERIFY_EMAIL:
             return <VerifyEmailOTP />;
         case SignupScreenSteps.CHOOSE_USER_TYPE:

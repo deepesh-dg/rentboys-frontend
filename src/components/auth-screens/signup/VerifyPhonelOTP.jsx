@@ -11,6 +11,7 @@ const VerifyPhonelOTP = () => {
 
     return (
         <OTP
+            description="Please enter the OTP sent to your registered phone number."
             onClickResend={phoneVerifyResendOtp}
             onSubmit={async e => {
                 const status = await phoneVerifyOtpMatch(e);
