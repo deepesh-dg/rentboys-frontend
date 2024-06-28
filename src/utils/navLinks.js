@@ -44,7 +44,7 @@ export const navLinks = [
         name: "Account Settings",
         icon: SettingIcon,
         route: "/account-settings",
-        subMenu: [],
+        subMenu: ["Contact Us", "Terms of Service", "Legal", "Privacy Policy"],
         hasArrow: true,
     },
     { name: "Logout", icon: LogoutIcon, route: "/logout", subMenu: [] },
