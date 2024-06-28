@@ -1,19 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Icons from "@/components/icons/Component";
 import Button from "@/components/Button";
 import { UserUploadDpIcon } from "@/components/icons/solid";
 import { useQuery } from "react-query";
 import api from "@/services";
 import parse from "html-react-parser";
-import { useBlobUrl } from "@/hooks";
+import { useBlobUrl, useGlobalLoader } from "@/hooks";
 import {
     FileUploadTypes,
     ReactQueryKeys,
     acceptedImageTypes,
 } from "@/constants";
-import Image from "@/components/Image";
+import Avatar from "@/components/Avatar";
+import { useProfile } from "@/state/context";
 
-const Step1 = () => {
+const Step1 = ({
+    addOnSkip,
+    addOnNext,
+    removeOnSkip,
+    removeOnNext,
+    setCurrentStep,
+}) => {
     const {
         data: { status, data } = {},
         error,
@@ -26,20 +33,28 @@ const Step1 = () => {
         }
     );
 
-    const [file, setFile] = React.useState(null);
+    const { data: formData, setData, uploadProfilePicture } = useProfile();
 
-    const blobUrl = useBlobUrl(file);
+    const blobUrl = useBlobUrl(formData.profile_file);
 
-    const submit = async () => {
-        if (file) {
-            api.common.uploadFile(FileUploadTypes.USER_PROFILE, file);
-        }
-    };
+    useGlobalLoader(isLoading);
+
+    useEffect(() => {
+        const i = addOnSkip(() => setCurrentStep(prev => prev + 1));
+        const j = addOnNext(uploadProfilePicture);
+
+        return () => {
+            removeOnSkip(i);
+            removeOnNext(j);
+        };
+    }, [uploadProfilePicture]);
 
     if (error || status === false) throw new Error(error?.message || "Error");
 
+    if (isLoading) return null;
+
     return (
-        <div className="px-4 flex-grow">
+        <div className="flex-grow px-4">
             {!isLoading && (
                 <div className="flex flex-col items-start justify-start gap-x-10 gap-y-5 md:flex-row">
                     <div className="flex min-h-80 w-full items-center justify-center border border-gray-300 bg-black md:w-1/4">
@@ -56,13 +71,15 @@ const Step1 = () => {
                                     onChange={e => {
                                         const file = e.target.files[0];
                                         if (file) {
-                                            setFile(file);
+                                            setData(prev => {
+                                                prev.profile_file = file;
+                                            });
                                         }
                                     }}
                                 />
                                 {blobUrl ? (
-                                    <div className="mx-auto h-40 w-40 overflow-hidden rounded-full">
-                                        <Image src={blobUrl} />
+                                    <div className="w-40">
+                                        <Avatar src={blobUrl} />
                                     </div>
                                 ) : (
                                     <Icons
@@ -72,20 +89,14 @@ const Step1 = () => {
                                 )}
                             </label>
                             <Button
-                                label={`${file ? "Upload" : "Select"} Your Id`}
+                                label={`${formData.profile_file ? "Change" : "Select"} Your Id`}
                                 variant="colored"
                                 size="sm"
-                                onClick={
-                                    file
-                                        ? submit
-                                        : () => {
-                                            document
-                                                .getElementById(
-                                                    "profile-photo"
-                                                )
-                                                ?.click();
-                                        }
-                                }
+                                onClick={() => {
+                                    document
+                                        .getElementById("profile-photo")
+                                        ?.click();
+                                }}
                             />
                         </div>
                     </div>

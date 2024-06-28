@@ -1,6 +1,12 @@
 import { useForm } from "@/hooks";
 import api from "@/services";
-import { createContext, useCallback, useContext, useRef } from "react";
+import {
+    createContext,
+    useCallback,
+    useContext,
+    useEffect,
+    useRef,
+} from "react";
 import { FileUploadTypes, UserType } from "@/constants";
 import { useAuth } from "../hooks";
 
@@ -72,9 +78,16 @@ export function SignupProvider({ children }) {
         setFormErrors,
         setLoader,
         handleSubmit,
-    } = useForm(initialData);
+    } = useForm(
+        JSON.parse(sessionStorage.getItem("signup-form-data") || "null") ||
+            initialData
+    );
 
     const initialFormErrors = useRef(formErrors);
+
+    useEffect(() => {
+        sessionStorage.setItem("signup-form-data", JSON.stringify(formData));
+    }, [formData]);
 
     const { login } = useAuth();
 

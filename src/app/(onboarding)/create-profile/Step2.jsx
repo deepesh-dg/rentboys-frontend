@@ -38,7 +38,7 @@ const Step2 = () => {
                 <Input type="number" placeholder="Weight" />
                 <Input type="number" placeholder="Cock Size" />
 
-                <MuiDropdown
+                {/* <MuiDropdown
                     options={options}
                     value={selectedValue}
                     onChange={handleChange}
@@ -93,7 +93,7 @@ const Step2 = () => {
                     onChange={handleChange}
                     label="Style"
                     className="border-none bg-black text-white outline-none"
-                />
+                /> */}
             </div>
 
             {/* <CustomDropDown

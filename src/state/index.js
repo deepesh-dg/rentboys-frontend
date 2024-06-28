@@ -16,19 +16,30 @@ import {
     REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import session from "redux-persist/lib/storage/session";
 
-const authPersistConfig = {
-    key: "auth",
-    storage,
-    version: "0.0.1",
-};
+const authPersistedReducer = persistReducer(
+    {
+        key: "auth",
+        storage,
+        version: "0.0.1",
+    },
+    authReducer
+);
 
-const authPersistedReducer = persistReducer(authPersistConfig, authReducer);
+const signupScreenStepsPersistedReducer = persistReducer(
+    {
+        key: "signup-screen-steps",
+        storage: session,
+        version: "0.0.1",
+    },
+    signupScreenStepsReducer
+);
 
 const reducers = combineReducers({
     auth: authPersistedReducer,
     masters: mastersReducer,
-    signupScreenSteps: signupScreenStepsReducer,
+    signupScreenSteps: signupScreenStepsPersistedReducer,
     loader: loaderReducer,
 });
 

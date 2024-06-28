@@ -1,8 +1,11 @@
+import { FileUploadTypes } from "@/constants";
 import { useForm } from "@/hooks";
 import api from "@/services";
 import { createContext, useCallback, useContext, useRef } from "react";
 
 const initialData = {
+    /** @type {File | null} */
+    profile_file: null,
     profile: "",
     profile_preview: "",
     about: "",
@@ -81,6 +84,26 @@ export function ProfileProvider({ children }) {
 
     const initialFormErrors = useRef(formErrors);
 
+    const uploadProfilePicture = handleSubmit(async data => {
+        if (data.profile_file) {
+            const response = await api.common.uploadFile(
+                FileUploadTypes.USER_PROFILE,
+                data.profile_file
+            );
+
+            if (!response.status) throw response.message;
+
+            setFormData(prev => {
+                prev.profile = response.data.upload_path;
+                prev.profile_preview = response.data.preview_path;
+            });
+        }
+    });
+
+    const updateProfile = handleSubmit(async data => {
+        // const response = await api.profile.update
+    });
+
     const resetForm = useCallback(() => {
         setFormData(() => initialData);
         setFormErrors(() => initialFormErrors.current);
@@ -97,6 +120,8 @@ export function ProfileProvider({ children }) {
                 loader,
                 setLoader,
                 resetForm,
+                uploadProfilePicture,
+                updateProfile,
             }}
         >
             {children}
