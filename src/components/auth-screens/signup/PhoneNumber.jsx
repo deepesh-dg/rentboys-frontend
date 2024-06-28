@@ -58,7 +58,6 @@ export default function PhoneNumber() {
                         placeholder="Enter your phone no."
                         id={formIds.phone_number}
                         value={data.phone_number}
-                        error={errors.phone_number}
                         onChange={e => {
                             setData(prev => {
                                 prev.phone_number = e.target.value;
@@ -66,6 +65,11 @@ export default function PhoneNumber() {
                         }}
                     />
                 </div>
+                {errors.phone_number && (
+                    <p className="mt-1 text-base font-normal text-red-50">
+                        {errors.phone_number}
+                    </p>
+                )}
                 <p className="mt-2 text-base font-normal">
                     Lorem Ipsum is simply dummy text of the printing and
                     typesetting industry.

@@ -141,7 +141,7 @@ export default function Header() {
                                             />
                                         </button>
                                         {isProfileOpen && (
-                                            <div className="absolute right-0 top-[calc(100%_+_8px)] min-w-40 overflow-hidden rounded-xl border bg-black">
+                                            <div className="absolute right-0 top-[calc(100%_+_8px)] z-50 min-w-40 overflow-hidden rounded-xl border bg-black">
                                                 <Link
                                                     to="/dashboard"
                                                     className="block px-4 py-2 text-white hover:bg-red-50"
@@ -184,8 +184,9 @@ export default function Header() {
             {/* Mobile Sidebar */}
             <nav
                 ref={sidebarRef}
-                className={`fixed left-0 top-0 z-60 h-screen max-h-screen w-64 transform overflow-y-auto bg-gray-100 transition-transform ${isMenuOpen ? "translate-x-0" : "-translate-x-full"
-                    }`}
+                className={`fixed left-0 top-0 z-60 h-screen max-h-screen w-64 transform overflow-y-auto bg-gray-100 transition-transform ${
+                    isMenuOpen ? "translate-x-0" : "-translate-x-full"
+                }`}
             >
                 <div className="mx-4 pt-12">
                     <div className="flex items-center gap-x-2">

@@ -112,7 +112,7 @@ const Signup = () => {
                             </Link>
                             &nbsp;and&nbsp;
                             <Link to="/privacy-policy" className="text-red-50">
-                                <span>privacy policy</span>&nbsp;
+                                <span>Privacy Policy</span>&nbsp;
                             </Link>
                         </span>
                     </label>
