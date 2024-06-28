@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
     ArrowDownIcon,
     BellIcon,
@@ -16,13 +16,16 @@ import { UserIcon } from "@/components/icons/solid";
 
 const navMenu = [
     { text: "Home", href: "/" },
-    { text: "Search", href: "/" },
-    { text: "Live Cams", href: "/" },
-    { text: "Videos", href: "/" },
+    { text: "Search", href: "/search" },
+    { text: "Live Cams", href: "/live-cams" },
+    { text: "Videos", href: "/videos" },
 ];
 import { useAuth } from "@/state";
 
 export default function Header() {
+    const location = useLocation();
+    const { pathname } = location;
+
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [openSubMenus, setOpenSubMenus] = useState({});
     const sidebarRef = useRef(null);
@@ -94,7 +97,7 @@ export default function Header() {
                                 <li key={index}>
                                     <Link
                                         to={item.href}
-                                        className="text-base font-bold active:before:scale-x- relative block whitespace-nowrap px-2 py-0 text-white/70 before:absolute before:bottom-[-6px] before:left-0 before:h-[2px] before:w-full before:scale-x-0 before:transform before:bg-red-50 before:transition-transform before:duration-[0.5s] before:ease-[ease] before:content-[''] hover:before:scale-x-100 active:before:transform"
+                                        className={`text-base font-bold relative block whitespace-nowrap px-2 py-0 ${pathname === item.href ? "text-white before:scale-x-100" : "text-white/70 before:scale-x-0 hover:before:scale-x-100"} before:absolute before:bottom-[-6px] before:left-0 before:h-[2px] before:w-full before:bg-red-50 before:transition-transform before:duration-[0.5s] before:ease-[ease] before:content-['']`}
                                     >
                                         {item.text}
                                     </Link>
@@ -143,13 +146,14 @@ export default function Header() {
                         </div>
                     </div>
                 </div>
-            </nav>
+            </nav >
 
             {/* Mobile Sidebar */}
-            <div
+            <nav div
                 ref={sidebarRef}
                 className={`fixed left-0 top-0 z-60 h-screen max-h-screen w-64 transform overflow-y-auto bg-gray-100 transition-transform ${isMenuOpen ? "translate-x-0" : "-translate-x-full"
-                    }`}
+                    }`
+                }
             >
                 <div className="mx-4 pt-12">
                     <div className="flex items-center gap-x-2">
@@ -158,81 +162,86 @@ export default function Header() {
                         </div>
                         <p className="text-white">GuestUser4214</p>
                     </div>
-                    <div className="mt-4 flex items-center justify-between gap-x-4">
-                        <Button
-                            href="/login"
-                            label="Login"
-                            variant="colored"
-                            size="sm"
-                        />
-                        <Button
-                            href="/signup"
-                            label="Sign up"
-                            variant="outlined"
-                            size="sm"
-                        />
-                    </div>
-                    <div className="flex flex-col py-6 text-white">
-                        {navLinks.map((link, index) => (
-                            <div key={index}>
-                                <div
-                                    className={`flex items-center justify-between p-4 ${index !== navLinks.length - 1 ? "border-b border-gray-50" : ""}`}
-                                >
-                                    <div className="flex items-center gap-x-2">
-                                        <Icons
-                                            src={link.icon}
-                                            className="w-6"
-                                        />
-                                        {link.hasArrow ? (
-                                            <span
-                                                onClick={() =>
-                                                    toggleSubMenu(index)
-                                                }
-                                                className="cursor-pointer"
-                                            >
-                                                {link.name}
-                                            </span>
-                                        ) : (
-                                            <Link to={link.route}>
-                                                {link.name}
-                                            </Link>
-                                        )}
-                                    </div>
-                                    {link.hasArrow && (
-                                        <span
-                                            onClick={() => toggleSubMenu(index)}
-                                            className="cursor-pointer"
+                    {
+                        isAuthenticated ? (
+                            <div className="flex flex-col py-6 text-white">
+                                {navLinks.map((link, index) => (
+                                    <div key={index}>
+                                        <div
+                                            className={`flex items-center justify-between p-4 ${index !== navLinks.length - 1 ? "border-b border-gray-50" : ""}`}
                                         >
-                                            <Icons
-                                                src={ArrowDownIcon}
-                                                className="w-4"
-                                            />
-                                        </span>
-                                    )}
-                                </div>
-                                {link.subMenu.length > 0 &&
-                                    openSubMenus[index] && (
-                                        <div className="border-b border-gray-50 px-12 py-2">
-                                            <ul className="[&>li]:mt-2">
-                                                {link.subMenu.map(
-                                                    (subLink, subIndex) => (
-                                                        <li key={subIndex}>
-                                                            <Link
-                                                                to={`${link.route}/${subLink.toLowerCase().replace(/ /g, "-")}`}
-                                                            >
-                                                                {subLink}
-                                                            </Link>
-                                                        </li>
-                                                    )
+                                            <div className="flex items-center gap-x-2">
+                                                <Icons
+                                                    src={link.icon}
+                                                    className="w-6"
+                                                />
+                                                {link.hasArrow ? (
+                                                    <span
+                                                        onClick={() =>
+                                                            toggleSubMenu(index)
+                                                        }
+                                                        className="cursor-pointer"
+                                                    >
+                                                        {link.name}
+                                                    </span>
+                                                ) : (
+                                                    <Link to={link.route}>
+                                                        {link.name}
+                                                    </Link>
                                                 )}
-                                            </ul>
+                                            </div>
+                                            {link.hasArrow && (
+                                                <span
+                                                    onClick={() => toggleSubMenu(index)}
+                                                    className="cursor-pointer"
+                                                >
+                                                    <Icons
+                                                        src={ArrowDownIcon}
+                                                        className="w-4"
+                                                    />
+                                                </span>
+                                            )}
                                         </div>
-                                    )}
+                                        {link.subMenu.length > 0 &&
+                                            openSubMenus[index] && (
+                                                <div className="border-b border-gray-50 px-12 py-2">
+                                                    <ul className="[&>li]:mt-2">
+                                                        {link.subMenu.map(
+                                                            (subLink, subIndex) => (
+                                                                <li key={subIndex}>
+                                                                    <Link
+                                                                        to={`${link.route}/${subLink.toLowerCase().replace(/ /g, "-")}`}
+                                                                    >
+                                                                        {subLink}
+                                                                    </Link>
+                                                                </li>
+                                                            )
+                                                        )}
+                                                    </ul>
+                                                </div>
+                                            )}
+                                    </div>
+                                ))}
                             </div>
-                        ))}
-                    </div>
+                        ) : (
+                            <div className="mt-4 flex items-center justify-between gap-x-4">
+                                <Button
+                                    href="/login"
+                                    label="Login"
+                                    variant="colored"
+                                    size="sm"
+                                />
+                                <Button
+                                    href="/signup"
+                                    label="Sign up"
+                                    variant="outlined"
+                                    size="sm"
+                                />
+                            </div>)
+                    }
+
                 </div>
-            </div>
+            </nav >
         </>
     );
 }

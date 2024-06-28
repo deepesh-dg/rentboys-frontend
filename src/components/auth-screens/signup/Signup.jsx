@@ -117,7 +117,7 @@ const Signup = () => {
                                 target="_blank"
                                 className="text-red-50"
                             >
-                                <span>privacy policy</span>&nbsp;
+                                <span>Privacy Policy</span>&nbsp;
                             </Link>
                         </span>
                     </label>
