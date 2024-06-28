@@ -151,6 +151,10 @@ export function LoginProvider({ children }) {
                 errors.otp = ["OTP is required"];
             }
 
+            if (data.otp.length !== 4) {
+                errors.otp = ["OTP must be 4 digits"];
+            }
+
             if (Object.keys(errors).length > 0) {
                 throw { errors };
             }
