@@ -101,18 +101,21 @@ export default function Profile() {
                         <div className="bg-red-100 py-2">
                             <div className="container flex justify-between">
                                 <Button
-                                    label="Skip"
+                                    children="Skip"
                                     variant="text"
                                     size="xs"
                                     onClick={handleSkipClick}
+                                    className="border-none text-xl font-bold"
+
                                 />
                                 <div className="flex gap-x-10">
                                     {currentStep > 0 && (
                                         <Button
-                                            label="Prev"
+                                            children="Prev"
                                             variant="text"
                                             size="xs"
                                             onClick={handlePrevClick}
+                                            className="border-none text-xl font-bold"
                                         />
                                     )}
                                     <Button
@@ -121,7 +124,7 @@ export default function Profile() {
                                                 ? "/membership-plan"
                                                 : undefined
                                         }
-                                        label="Next"
+                                        children="Next"
                                         variant="text"
                                         size="xs"
                                         onClick={
@@ -129,6 +132,7 @@ export default function Profile() {
                                                 ? undefined
                                                 : handleNextClick
                                         }
+                                        className="border-none text-xl font-bold"
                                     />
                                 </div>
                             </div>

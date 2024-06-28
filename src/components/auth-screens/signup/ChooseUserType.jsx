@@ -71,13 +71,11 @@ const ChooseUserType = () => {
                         <img src={ClientImg} alt="advertiser_img" className="h-full" />
                     </button>
                 </div>
-                <div>
-                    <Button
-                        label="Continue"
-                        type="submit"
-                        className="mt-4 bg-red-100 px-20 py-4 text-xl font-bold uppercase hover:bg-red-50"
-                    />
-                </div>
+                <Button
+                    children="Continue"
+                    type="submit"
+                    className="mt-4 bg-red-100 px-20 py-4 text-xl font-bold hover:bg-red-50 rounded-xl sm-down:w-full w-1/2"
+                />
             </div>
         </Form>
     );

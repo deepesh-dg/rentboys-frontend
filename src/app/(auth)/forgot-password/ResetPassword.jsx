@@ -81,9 +81,11 @@ const ResetPassword = () => {
                 </button>
             </div>
             <Button
-                label="Submit"
+                children="Submit"
                 type="submit"
-                className="w-full bg-red-100 px-20 py-4 text-xl font-bold uppercase hover:bg-red-50"
+                size="md"
+                theme="red"
+                className="uppercase font-bold rounded-xl text-xl w-full"
             />
         </Form>
     );

@@ -101,17 +101,18 @@ export default function UploadId() {
                     </div>
                     <Image src={data?.image} className="w-full" />
                     <Button
-                        label={formData.id_proof ? "Upload" : "Skip"}
+                        children={formData.id_proof ? "Upload" : "Skip"}
                         type={formData.id_proof ? "submit" : "button"}
                         onClick={
                             formData.id_proof
                                 ? undefined
                                 : () => {
-                                      setScreen(SignupScreenSteps.PHONE_NUMBER);
-                                  }
+                                    setScreen(SignupScreenSteps.PHONE_NUMBER);
+                                }
                         }
-                        className="w-full bg-red-100 px-20 py-4 text-xl font-bold uppercase hover:bg-red-50"
+                        className="uppercase font-bold rounded-xl text-xl w-full"
                     />
+
                 </div>
             </div>
         </Form>

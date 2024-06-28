@@ -28,16 +28,18 @@ export default function MembershipPlan() {
                                     you may sellect your membership type below.
                                 </p>
                             </div>
-                            <div className="flex flex-col md:flex-row items-center gap-4 md:justify-between">
+                            <div className="flex flex-col md:flex-row items-center gap-4 justify-between">
                                 <Button
-                                    label="Ill’ do it later"
-                                    variant="outlined"
-                                    className="w-full"
+                                    children="Ill’ do it later"
+                                    theme="white"
+                                    variant="text"
+                                    className="w-full text-base font-bold rounded-xl text-white"
                                 />
                                 <Button
-                                    label="Select Membership"
-                                    className="w-full"
-
+                                    themes="red"
+                                    variant="colored"
+                                    children="Select Membership"
+                                    className="w-full whitespace-nowrap text-base font-bold rounded-xl"
                                 />
                             </div>
                         </div>

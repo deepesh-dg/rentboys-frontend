@@ -20,9 +20,9 @@ export default function AuthLayout() {
     );
 
     return (
-        <div className="relative flex min-h-screen w-full flex-col items-center justify-center py-20 backdrop-blur-sm">
+        <div className="relative flex min-h-screen w-full flex-col items-center justify-center py-20">
             <div
-                className="absolute inset-0 h-full w-full bg-cover bg-no-repeat blur-sm"
+                className="absolute inset-0 h-full w-full bg-cover bg-no-repeat blur-[9px]"
                 style={{
                     backgroundImage: `url(${BG_IMG})`,
                 }}

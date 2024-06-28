@@ -22,7 +22,7 @@ const Form = ({
 
     return (
         <form
-            className={`z-1 flex w-full ${maxWidthClasses[maxWidth]} flex-col items-center gap-y-6 rounded-2xl border border-gray-300 bg-black/80 px-4 py-12 text-white shadow-sm md:px-16 ${className}`}
+            className={`z-1 flex w-full ${maxWidthClasses[maxWidth]} flex-col items-center gap-y-6 rounded-2xl border border-gray-300 bg-black/70 px-4 py-12 text-white shadow-sm md:px-16 ${className}`}
             {...props}
         >
             <div className="flex flex-col items-center">

@@ -26,15 +26,15 @@ const Button = ({
                 default: "bg-white text-black",
                 colored: "bg-white text-black",
                 outlined: "border border-white bg-transparent",
-                text: "border border-white bg-transparent ",
+                text: "border bg-none border-white bg-transparent ",
             },
         },
     };
 
     const sizes = {
-        xs: "px-0 py-2 text-lg",
-        sm: "px-4 py-2 text-md rounded-xl",
-        md: "px-6 py-4 text-base rounded-2xl",
+        xs: "px-0 py-2",
+        sm: "px-4 py-2",
+        md: "px-6 py-4",
     };
 
     const buttonClass = `${themes[theme].variants[variant]} ${sizes[size]} ${className} duration-200`;

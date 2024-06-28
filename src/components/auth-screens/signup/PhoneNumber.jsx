@@ -42,8 +42,9 @@ export default function PhoneNumber() {
             </div>
             <Button
                 type="submit"
-                label="Next"
-                className="w-full bg-red-100 py-4 text-xl font-bold uppercase hover:bg-red-50"
+                children="Next"
+                className="uppercase font-bold rounded-xl text-xl w-full"
+
             />
         </Form>
     );

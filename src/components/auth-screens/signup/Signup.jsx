@@ -128,9 +128,11 @@ const Signup = () => {
                     )}
                 </div>
                 <Button
-                    label="Sign Up"
+                    children="Sign Up"
                     type="submit"
-                    className="bg-red-100 px-20 py-4 text-xl font-bold uppercase hover:bg-red-50"
+                    size="md"
+                    theme="red"
+                    className="uppercase font-bold rounded-xl text-xl"
                 />
             </div>
             <p className="text-center text-xs text-white">

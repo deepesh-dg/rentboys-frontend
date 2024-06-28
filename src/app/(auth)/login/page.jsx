@@ -76,14 +76,16 @@ export default function Login() {
                                 })
                             }
                         />
-                        <span>Remember me</span>
+                        <span>Remember Me</span>
                     </label>
                     <Link to="/forgot-password">Forgot Password?</Link>
                 </div>
                 <Button
-                    label="Login"
+                    children="Login"
                     type="submit"
-                    className="bg-red-100 px-20 py-4 text-xl font-bold uppercase hover:bg-red-50"
+                    size="md"
+                    theme="red"
+                    className="uppercase font-bold rounded-xl text-xl"
                 />
             </div>
             <p className="text-center text-xs text-white">
