@@ -10,9 +10,9 @@ const consent = () => {
         <div className="bg-dark text-white">
             <div
                 className="container min-h-screen bg-cover bg-center"
-            // style={{
-            //     backgroundImage: `url(${BackgroundImg})`
-            // }}
+                // style={{
+                //     backgroundImage: `url(${BackgroundImg})`
+                // }}
             >
                 <h2 className="py-8 text-center text-5xl font-normal uppercase">
                     Rent&nbsp;<span className="text-red">Boys</span>
@@ -31,11 +31,7 @@ const consent = () => {
                         cookies <span className="text-red">here</span>
                     </p>
                     <div className="flex justify-center">
-                        <Button
-                            label="I Agree - Enter RentBoys"
-                            className={"text-bold !bg-[#ff0000]"}
-                            onClick={() => console.log("onlcik")}
-                        />
+                        <Button>I Agree - Enter RentBoys</Button>
                     </div>
                     <p className="text-red text-xs">
                         I disagree - Exit this site

@@ -2,32 +2,42 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Button = ({
-    label,
+    children,
     onClick,
+    theme = "red",
     variant = "default",
     size = "md",
     href,
     target,
     className = "",
-    loading = false,
     ...rest
 }) => {
-    const variants = {
-        default: "bg-red-100 hover:bg-red-50",
-        colored: "bg-red-50 hover:bg-red-100",
-        outlined: "border border-white bg-transparent",
-        text: "border border-red-50 bg-transparent ",
+    const themes = {
+        red: {
+            variants: {
+                default: "bg-red-100 hover:bg-red-50",
+                colored: "bg-red-50 text-white hover:bg-red-100",
+                outlined: "border border-red-50 bg-transparent",
+                text: "border border-red-50 bg-transparent ",
+            },
+        },
+        white: {
+            variants: {
+                default: "bg-white text-black",
+                colored: "bg-white text-black",
+                outlined: "border border-white bg-transparent",
+                text: "border border-white bg-transparent ",
+            },
+        },
     };
 
     const sizes = {
-        xs: "px-0 py-2 text-lg font-bold",
-        sm: "px-4 py-2 text-md font-bold rounded-xl",
-        md: "px-6 py-4 text-base font-bold rounded-2xl",
+        xs: "px-0 py-2 text-lg",
+        sm: "px-4 py-2 text-md rounded-xl",
+        md: "px-6 py-4 text-base rounded-2xl",
     };
 
-    const buttonClass = `flex whitespace-nowrap justify-center text-white font-bold ${variants[variant]} ${sizes[size]} ${className}`;
-
-    const content = loading ? <div className="loader">Loading...</div> : label;
+    const buttonClass = `${themes[theme].variants[variant]} ${sizes[size]} ${className} duration-200`;
 
     if (href) {
         return (
@@ -37,9 +47,7 @@ const Button = ({
                 className={buttonClass.trim()}
                 {...rest}
             >
-                <button type="button" onClick={onClick} disabled={loading}>
-                    {content}
-                </button>
+                {children}
             </Link>
         );
     } else {
@@ -48,10 +56,9 @@ const Button = ({
                 type="button"
                 onClick={onClick}
                 className={buttonClass.trim()}
-                disabled={loading}
                 {...rest}
             >
-                {content}
+                {children}
             </button>
         );
     }
