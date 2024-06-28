@@ -105,6 +105,8 @@ export default function Profile() {
                                     variant="text"
                                     size="xs"
                                     onClick={handleSkipClick}
+                                    className="border-none text-xl font-bold"
+
                                 />
                                 <div className="flex gap-x-10">
                                     {currentStep > 0 && (
@@ -113,6 +115,7 @@ export default function Profile() {
                                             variant="text"
                                             size="xs"
                                             onClick={handlePrevClick}
+                                            className="border-none text-xl font-bold"
                                         />
                                     )}
                                     <Button
@@ -129,6 +132,7 @@ export default function Profile() {
                                                 ? undefined
                                                 : handleNextClick
                                         }
+                                        className="border-none text-xl font-bold"
                                     />
                                 </div>
                             </div>

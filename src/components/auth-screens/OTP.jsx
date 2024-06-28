@@ -56,7 +56,9 @@ const OTP = ({
             <Button
                 children="Send"
                 type="submit"
-                className="w-full bg-red-100 px-20 py-4 text-xl font-bold uppercase hover:bg-red-50"
+                size="md"
+                theme="red"
+                className="uppercase font-bold rounded-xl text-xl w-full mt-1"
             />
             <div>
                 {minutes > 0 || seconds > 0 ? (
@@ -66,6 +68,7 @@ const OTP = ({
                     </>
                 ) : null}
                 &nbsp;
+
                 <button
                     type="button"
                     onClick={async () => {
@@ -78,9 +81,8 @@ const OTP = ({
                     }}
                 >
                     <span
-                        className={`text-base font-bold ${
-                            canResend ? "text-red-50 underline" : ""
-                        }`}
+                        className={`text-base font-bold ${canResend ? "text-red-50 underline" : ""
+                            }`}
                     >
                         Resend OTP
                     </span>

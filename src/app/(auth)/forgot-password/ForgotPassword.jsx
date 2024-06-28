@@ -33,11 +33,12 @@ const ForgotPassword = ({ setScreen }) => {
                 id={formIds.email}
             />
             <Button
+                children="Send"
                 type="submit"
-                className="w-full bg-red-100 px-20 py-4 text-xl font-bold uppercase hover:bg-red-50"
-            >
-                Send
-            </Button>
+                size="md"
+                theme="red"
+                className="uppercase font-bold rounded-xl text-xl w-full"
+            />
         </Form>
     );
 };

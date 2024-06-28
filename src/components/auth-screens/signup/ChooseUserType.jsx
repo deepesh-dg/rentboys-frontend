@@ -79,13 +79,11 @@ const ChooseUserType = () => {
                         />
                     </button>
                 </div>
-                <div>
-                    <Button
-                        children="Continue"
-                        type="submit"
-                        className="mt-4 bg-red-100 px-20 py-4 text-xl font-bold uppercase hover:bg-red-50"
-                    />
-                </div>
+                <Button
+                    children="Continue"
+                    type="submit"
+                    className="mt-4 w-1/2 rounded-xl bg-red-100 px-20 py-4 text-xl font-bold hover:bg-red-50 sm-down:w-full"
+                />
             </div>
         </Form>
     );

@@ -107,11 +107,12 @@ export default function UploadId() {
                             formData.id_proof
                                 ? undefined
                                 : () => {
-                                      setScreen(SignupScreenSteps.PHONE_NUMBER);
-                                  }
+                                    setScreen(SignupScreenSteps.PHONE_NUMBER);
+                                }
                         }
-                        className="w-full bg-red-100 px-20 py-4 text-xl font-bold uppercase hover:bg-red-50"
+                        className="uppercase font-bold rounded-xl text-xl w-full"
                     />
+
                 </div>
             </div>
         </Form>

@@ -125,7 +125,9 @@ const Signup = () => {
                 <Button
                     children="Sign Up"
                     type="submit"
-                    className="bg-red-100 py-4 hover:bg-red-50"
+                    size="md"
+                    theme="red"
+                    className="rounded-xl text-xl font-bold uppercase"
                 />
             </div>
             <p className="text-center text-xs text-white">

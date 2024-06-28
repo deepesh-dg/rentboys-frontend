@@ -107,8 +107,9 @@ const Location = () => {
                 <Button
                     children="Next"
                     type="submit"
-                    className="bg-red-100 py-4 text-xl font-bold uppercase hover:bg-red-50"
+                    className="uppercase font-bold rounded-xl text-xl"
                 />
+
             </div>
         </Form>
     );

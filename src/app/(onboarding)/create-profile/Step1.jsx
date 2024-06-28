@@ -13,6 +13,7 @@ import {
 } from "@/constants";
 import Avatar from "@/components/Avatar";
 import { useProfile } from "@/state/context";
+import { CameraDpIcon, CameraIcon } from "@/components/icons/outline";
 
 const Step1 = ({
     addOnSkip,
@@ -89,14 +90,25 @@ const Step1 = ({
                                 )}
                             </label>
                             <Button
-                                children={`${formData.profile_file ? "Change" : "Select"} Your Id`}
-                                variant="colored"
+                                children={
+                                    <div className="flex items-center gap-x-2">
+                                        <Icons
+                                            src={CameraDpIcon}
+                                            className="w-6"
+                                        />
+                                        Upload DP
+                                        {/* ${formData.profile_file ? "Change" : "Select"} Your Id */}
+                                    </div>
+                                }
+                                type="submit"
                                 size="sm"
+                                theme="red"
                                 onClick={() => {
                                     document
                                         .getElementById("profile-photo")
                                         ?.click();
                                 }}
+                                className="rounded-[10px] text-base font-normal"
                             />
                         </div>
                     </div>

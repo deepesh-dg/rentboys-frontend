@@ -26,6 +26,8 @@ export default function Header() {
     const location = useLocation();
     const { pathname } = location;
 
+    const [isProfileOpen, setIsProfileOpen] = useState(false);
+
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [openSubMenus, setOpenSubMenus] = useState({});
     const sidebarRef = useRef(null);
@@ -72,27 +74,34 @@ export default function Header() {
     }, [isMenuOpen]);
 
     return (
-        <>
-            <nav className="bg-dark px-4 py-10">
-                <div className="flex flex-col justify-between gap-x-2 gap-y-6 md:flex-row md:items-center md:gap-x-6">
-                    <div className="flex items-center gap-x-3">
-                        <div
-                            className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-gray-50 p-2 md:hidden"
-                            onClick={handleToggleMenu}
-                        >
-                            <Icons src={HamburgerMenuIcon} className="w-8" />
+        <div className="px-4">
+            <nav className="bg-dark py-10">
+                <div className="flex flex-col justify-between gap-x-2 gap-y-6 lg:items-center xl:flex-row">
+                    <div className="flex w-full flex-col gap-x-4 gap-y-6 lg:flex-row lg:items-center">
+                        <div className="flex items-center gap-x-3">
+                            <div
+                                className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-gray-50 p-2 xl:hidden"
+                                onClick={handleToggleMenu}
+                            >
+                                <Icons
+                                    src={HamburgerMenuIcon}
+                                    className="w-8"
+                                />
+                            </div>
+                            <Link to="/">
+                                <Icons src={LogoIcon} className="w-44" />
+                            </Link>
                         </div>
-                        <Link to="/">
-                            <Icons src={LogoIcon} className="w-44" />
-                        </Link>
+                        <SearchInput
+                            searchQuery={searchQuery}
+                            handleOnChange={handleOnChange}
+                            handleSearch={handleSearch}
+                        />
                     </div>
-                    <SearchInput
-                        searchQuery={searchQuery}
-                        handleOnChange={handleOnChange}
-                        handleSearch={handleSearch}
-                    />
-                    <div className={`flex w-full items-center md:w-auto`}>
-                        <ul className="flex w-full items-center justify-between gap-x-5 py-4 font-medium text-white md:flex-row">
+                    <div
+                        className={`flex w-full items-center lg:px-6 xl:w-1/2`}
+                    >
+                        <ul className="flex w-full items-center font-medium text-white md:gap-x-20 lg:flex-row xl:gap-x-6 xl:py-4 md-down:justify-between">
                             {navMenu.map((item, index) => (
                                 <li key={index}>
                                     <Link
@@ -104,16 +113,22 @@ export default function Header() {
                                 </li>
                             ))}
                         </ul>
-                        <div className="hidden md:block">
+                        <div className="hidde md:block">
                             {isAuthenticated ? (
-                                <div className="hidden xl:block">
+                                <div className="relative hidden xl:block">
                                     <div className="ml-5 flex items-center gap-x-6">
                                         <Icons src={BellIcon} className="w-6" />
                                         <Icons
                                             src={MessageIcon}
                                             className="w-6"
                                         />
-                                        <div className="flex items-end gap-x-2">
+                                        <button
+                                            type="button"
+                                            className="flex items-end gap-x-2"
+                                            onClick={() =>
+                                                setIsProfileOpen(prev => !prev)
+                                            }
+                                        >
                                             <div className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full border-2 border-white">
                                                 <Icons
                                                     src={UserRoundedIcon}
@@ -124,24 +139,40 @@ export default function Header() {
                                                 src={ArrowDownIcon}
                                                 className="mx-auto w-5"
                                             />
-                                        </div>
+                                        </button>
+                                        {isProfileOpen && (
+                                            <div className="absolute right-0 top-[calc(100%_+_8px)] min-w-40 overflow-hidden rounded-xl border bg-black">
+                                                <Link
+                                                    to="/dashboard"
+                                                    className="block px-4 py-2 text-white hover:bg-red-50"
+                                                >
+                                                    Dashboard
+                                                </Link>
+                                                <Link
+                                                    to="/logout"
+                                                    className="block px-4 py-2 text-white hover:bg-red-50"
+                                                >
+                                                    Logout
+                                                </Link>
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             ) : (
-                                <div className="ms-4 flex items-center justify-between gap-x-4">
+                                <div className="ms-6 hidden items-center justify-between gap-x-4 xl:flex">
                                     <Button
                                         href="/login"
                                         children="Login"
                                         variant="text"
                                         size="sm"
-                                        className="shrink-0 text-white"
+                                        className="shrink-0 rounded-xl px-6 text-base font-bold text-white"
                                     />
                                     <Button
                                         href="/signup"
                                         children="Sign Up"
                                         variant="colored"
                                         size="sm"
-                                        className="shrink-0"
+                                        className="shrink-0 rounded-xl px-6 text-base font-bold"
                                     />
                                 </div>
                             )}
@@ -227,25 +258,27 @@ export default function Header() {
                             ))}
                         </div>
                     ) : (
-                        <div className="mt-4 flex items-center justify-between gap-x-4">
+                        <div className="justify-betwee mt-4 flex items-center gap-x-4">
                             <Button
                                 href="/login"
                                 children="Login"
                                 variant="colored"
                                 size="sm"
-                                className="w-full"
+                                className="shrink-0 rounded-xl px-6 text-base font-medium text-white"
                             />
                             <Button
                                 href="/signup"
                                 children="Sign up"
                                 variant="outlined"
                                 size="sm"
-                                className="w-full"
+                                theme="white"
+                                variants="outlined"
+                                className="shrink-0 rounded-xl border !bg-transparent px-6 text-base font-medium text-white"
                             />
                         </div>
                     )}
                 </div>
             </nav>
-        </>
+        </div>
     );
 }

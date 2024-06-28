@@ -74,7 +74,7 @@ export default function PhoneNumber() {
             <Button
                 type="submit"
                 children="Next"
-                className="w-full bg-red-100 py-4 text-xl font-bold uppercase hover:bg-red-50"
+                className="w-full rounded-xl text-xl font-bold uppercase"
             />
         </Form>
     );
