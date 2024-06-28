@@ -24,14 +24,14 @@ const Step2 = () => {
     const option = ["Option 1", "Option 2", "Option 3", "Option 4"];
 
     return (
-        <div className="px-2 flex-grow py-6 text-white">
+        <div className="flex-grow px-2 py-6 text-white">
             <Textarea rows={4} placeholder="Description*" className="p-4" />
             <div className="mt-6 grid grid-cols-1 gap-x-4 gap-y-6 md:grid-cols-2 lg:grid-cols-4">
                 <MuiDropdown
                     options={options}
                     value={selectedValue}
                     onChange={handleChange}
-                    label="Age"
+                    children="Age"
                     className="border-none bg-black text-white outline-none"
                 />
                 <Input type="number" placeholder="Height" />
@@ -42,56 +42,56 @@ const Step2 = () => {
                     options={options}
                     value={selectedValue}
                     onChange={handleChange}
-                    label="Sexual Orientation"
+                    children="Sexual Orientation"
                     className="border-none bg-black text-white outline-none"
                 />
                 <MuiDropdown
                     options={options}
                     value={selectedValue}
                     onChange={handleChange}
-                    label="Position"
+                    children="Position"
                     className="border-none bg-black text-white outline-none"
                 />
                 <MuiDropdown
                     options={options}
                     value={selectedValue}
                     onChange={handleChange}
-                    label="Foreskin"
+                    children="Foreskin"
                     className="border-none bg-black text-white outline-none"
                 />
                 <MuiDropdown
                     options={options}
                     value={selectedValue}
                     onChange={handleChange}
-                    label="Safe/BB"
+                    children="Safe/BB"
                     className="border-none bg-black text-white outline-none"
                 />
                 <MuiDropdown
                     options={options}
                     value={selectedValue}
                     onChange={handleChange}
-                    label="Body Hair"
+                    children="Body Hair"
                     className="border-none bg-black text-white outline-none"
                 />
                 <MuiDropdown
                     options={options}
                     value={selectedValue}
                     onChange={handleChange}
-                    label="Hair Color"
+                    children="Hair Color"
                     className="border-none bg-black text-white outline-none"
                 />
                 <MuiDropdown
                     options={options}
                     value={selectedValue}
                     onChange={handleChange}
-                    label="Eyes Color"
+                    children="Eyes Color"
                     className="border-none bg-black text-white outline-none"
                 />
                 <MuiDropdown
                     options={options}
                     value={selectedValue}
                     onChange={handleChange}
-                    label="Style"
+                    children="Style"
                     className="border-none bg-black text-white outline-none"
                 /> */}
             </div>

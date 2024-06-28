@@ -101,7 +101,7 @@ export default function Profile() {
                         <div className="bg-red-100 py-2">
                             <div className="container flex justify-between">
                                 <Button
-                                    label="Skip"
+                                    children="Skip"
                                     variant="text"
                                     size="xs"
                                     onClick={handleSkipClick}
@@ -109,7 +109,7 @@ export default function Profile() {
                                 <div className="flex gap-x-10">
                                     {currentStep > 0 && (
                                         <Button
-                                            label="Prev"
+                                            children="Prev"
                                             variant="text"
                                             size="xs"
                                             onClick={handlePrevClick}
@@ -121,7 +121,7 @@ export default function Profile() {
                                                 ? "/membership-plan"
                                                 : undefined
                                         }
-                                        label="Next"
+                                        children="Next"
                                         variant="text"
                                         size="xs"
                                         onClick={

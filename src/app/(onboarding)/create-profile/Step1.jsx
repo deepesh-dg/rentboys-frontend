@@ -89,7 +89,7 @@ const Step1 = ({
                                 )}
                             </label>
                             <Button
-                                label={`${formData.profile_file ? "Change" : "Select"} Your Id`}
+                                children={`${formData.profile_file ? "Change" : "Select"} Your Id`}
                                 variant="colored"
                                 size="sm"
                                 onClick={() => {

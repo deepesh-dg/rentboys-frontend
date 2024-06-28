@@ -21,7 +21,7 @@ const ChooseUserType = () => {
             maxWidth="4xl"
         >
             <div className="flex w-full flex-col items-center gap-y-6">
-                <div className="flex flex-col md:flex-row w-full justify-between gap-x-4 gap-y-6">
+                <div className="flex w-full flex-col justify-between gap-x-4 gap-y-6 md:flex-row">
                     <button
                         type="button"
                         className="relative flex w-full justify-end rounded-2xl bg-red-50 text-left"
@@ -38,13 +38,17 @@ const ChooseUserType = () => {
                             <p className="text-sm font-bold">
                                 You want to promote yourself
                             </p>
-                            <span className="relative mt-8 ml-6 inline-block h-6 w-6 rounded-full border-2 border-white">
+                            <span className="relative ml-6 mt-8 inline-block h-6 w-6 rounded-full border-2 border-white">
                                 {data.user_type === UserType.ADVERTISER && (
                                     <span className="absolute inset-1 inline-block rounded-full bg-white" />
                                 )}
                             </span>
                         </div>
-                        <img src={AdvertiserImg} alt="advertiser_img" className="h-full" />
+                        <img
+                            src={AdvertiserImg}
+                            alt="advertiser_img"
+                            className="h-full"
+                        />
                     </button>
                     <button
                         type="button"
@@ -62,18 +66,22 @@ const ChooseUserType = () => {
                             <p className="text-sm font-bold">
                                 You're looking to hire
                             </p>
-                            <span className="relative mt-8 ml-6 inline-block h-6 w-6 rounded-full border-2 border-white">
+                            <span className="relative ml-6 mt-8 inline-block h-6 w-6 rounded-full border-2 border-white">
                                 {data.user_type === UserType.CLIENT && (
                                     <span className="absolute inset-1 inline-block rounded-full bg-white" />
                                 )}
                             </span>
                         </div>
-                        <img src={ClientImg} alt="advertiser_img" className="h-full" />
+                        <img
+                            src={ClientImg}
+                            alt="advertiser_img"
+                            className="h-full"
+                        />
                     </button>
                 </div>
                 <div>
                     <Button
-                        label="Continue"
+                        children="Continue"
                         type="submit"
                         className="mt-4 bg-red-100 px-20 py-4 text-xl font-bold uppercase hover:bg-red-50"
                     />

@@ -16,41 +16,41 @@ const Step3 = () => {
     ];
 
     return (
-        <div className="px-4 flex-grow">
+        <div className="flex-grow px-4">
             <div className="grid grid-cols-1 gap-x-4 gap-y-6 md:grid-cols-2 lg:grid-cols-4">
                 <MuiDropdown
                     options={options}
                     value={selectedValue}
                     onChange={handleChange}
-                    label="Body"
+                    children="Body"
                     className="border-none bg-black text-white outline-none"
                 />
                 <MuiDropdown
                     options={options}
                     value={selectedValue}
                     onChange={handleChange}
-                    label="Race"
+                    children="Race"
                     className="border-none bg-black text-white outline-none"
                 />
                 <MuiDropdown
                     options={options}
                     value={selectedValue}
                     onChange={handleChange}
-                    label="Tattoos"
+                    children="Tattoos"
                     className="border-none bg-black text-white outline-none"
                 />
                 <MuiDropdown
                     options={options}
                     value={selectedValue}
                     onChange={handleChange}
-                    label="Piercing"
+                    children="Piercing"
                     className="border-none bg-black text-white outline-none"
                 />
                 <MuiDropdown
                     options={options}
                     value={selectedValue}
                     onChange={handleChange}
-                    label="Smoking"
+                    children="Smoking"
                     className="border-none bg-black text-white outline-none"
                 />
             </div>

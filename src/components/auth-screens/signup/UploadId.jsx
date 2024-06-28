@@ -101,7 +101,7 @@ export default function UploadId() {
                     </div>
                     <Image src={data?.image} className="w-full" />
                     <Button
-                        label={formData.id_proof ? "Upload" : "Skip"}
+                        children={formData.id_proof ? "Upload" : "Skip"}
                         type={formData.id_proof ? "submit" : "button"}
                         onClick={
                             formData.id_proof

@@ -54,7 +54,7 @@ const OTP = ({
         >
             <InputOTP value={value} onChange={onChange} />
             <Button
-                label="Send"
+                children="Send"
                 type="submit"
                 className="w-full bg-red-100 px-20 py-4 text-xl font-bold uppercase hover:bg-red-50"
             />

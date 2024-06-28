@@ -56,7 +56,7 @@ export default function MultipleSelect() {
                     id="demo-multiple-name"
                     value={personName}
                     onChange={handleChange}
-                    input={<OutlinedInput label="Name" />}
+                    input={<OutlinedInput children="Name" />}
                     MenuProps={MenuProps}
                     className="!text-white"
                 >

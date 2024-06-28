@@ -106,18 +106,13 @@ const Signup = () => {
                             Accept&nbsp;
                             <Link
                                 to="/terms-of-service"
-                                target="_blank"
                                 className="text-red-50"
                             >
                                 <span>T&C</span>&nbsp;
                             </Link>
                             &nbsp;and&nbsp;
-                            <Link
-                                to="/privacy-policy"
-                                target="_blank"
-                                className="text-red-50"
-                            >
-                                <span>Privacy Policy</span>&nbsp;
+                            <Link to="/privacy-policy" className="text-red-50">
+                                <span>privacy policy</span>&nbsp;
                             </Link>
                         </span>
                     </label>
@@ -128,9 +123,9 @@ const Signup = () => {
                     )}
                 </div>
                 <Button
-                    label="Sign Up"
+                    children="Sign Up"
                     type="submit"
-                    className="bg-red-100 px-20 py-4 text-xl font-bold uppercase hover:bg-red-50"
+                    className="bg-red-100 py-4 hover:bg-red-50"
                 />
             </div>
             <p className="text-center text-xs text-white">

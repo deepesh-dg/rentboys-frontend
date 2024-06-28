@@ -42,7 +42,7 @@ export default function PhoneNumber() {
             </div>
             <Button
                 type="submit"
-                label="Next"
+                children="Next"
                 className="w-full bg-red-100 py-4 text-xl font-bold uppercase hover:bg-red-50"
             />
         </Form>

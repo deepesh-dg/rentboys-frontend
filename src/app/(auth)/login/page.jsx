@@ -81,7 +81,7 @@ export default function Login() {
                     <Link to="/forgot-password">Forgot Password?</Link>
                 </div>
                 <Button
-                    label="Login"
+                    children="Login"
                     type="submit"
                     className="bg-red-100 px-20 py-4 text-xl font-bold uppercase hover:bg-red-50"
                 />

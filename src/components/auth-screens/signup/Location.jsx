@@ -105,7 +105,7 @@ const Location = () => {
                     </ul>
                 </div>
                 <Button
-                    label="Next"
+                    children="Next"
                     type="submit"
                     className="bg-red-100 py-4 text-xl font-bold uppercase hover:bg-red-50"
                 />

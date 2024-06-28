@@ -15,7 +15,7 @@ const ForgotPassword = ({ setScreen }) => {
                 if (status) setScreen("otp");
             }}
             title="Forgot Password"
-            description="Enter the email address associated with your RentBoys profile and we'll send you a link to recover your access."
+            description="Enter the email address associated with your RentBoys profile and we'll send you otp to recover your access."
             maxWidth="xl"
             error={errors.form}
         >

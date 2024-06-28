@@ -230,14 +230,14 @@ export default function Header() {
                         <div className="mt-4 flex items-center justify-between gap-x-4">
                             <Button
                                 href="/login"
-                                label="Login"
+                                children="Login"
                                 variant="colored"
                                 size="sm"
                                 className="w-full"
                             />
                             <Button
                                 href="/signup"
-                                label="Sign up"
+                                children="Sign up"
                                 variant="outlined"
                                 size="sm"
                                 className="w-full"
