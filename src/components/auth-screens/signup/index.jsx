@@ -12,7 +12,6 @@ import VerifyPhonelOTP from "./VerifyPhonelOTP";
 
 export default function SignupScreens() {
     const { screen, setScreen } = useSignupScreenSteps();
-    const { resetPasswordField } = useSignup();
 
     useEffect(
         () => () => {
@@ -20,8 +19,6 @@ export default function SignupScreens() {
         },
         []
     );
-
-    useEffect(() => resetPasswordField, [screen, resetPasswordField]);
 
     switch (screen) {
         case SignupScreenSteps.SIGNUP:
