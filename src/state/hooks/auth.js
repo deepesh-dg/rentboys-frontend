@@ -15,8 +15,8 @@ export function useAuth() {
         dispatch(_login(data));
     };
 
-    const logout = data => {
-        dispatch(_logout(data));
+    const logout = () => {
+        dispatch(_logout());
     };
 
     return { ...state, login, logout };

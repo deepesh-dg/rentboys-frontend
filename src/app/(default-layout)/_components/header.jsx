@@ -30,7 +30,7 @@ export default function Header() {
     const [openSubMenus, setOpenSubMenus] = useState({});
     const sidebarRef = useRef(null);
     const [searchQuery, setSearchQuery] = useState("");
-    const { isAuthenticated } = useAuth();
+    const { isAuthenticated, logout } = useAuth();
 
     const handleOnChange = e => {
         setSearchQuery(e.target.value);
