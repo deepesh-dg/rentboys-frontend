@@ -92,7 +92,11 @@ const Step1 = ({
                             <Button
                                 children={
                                     <div className="flex items-center gap-x-2">
-                                        <Icons src={CameraDpIcon} className="w-6" />Upload DP
+                                        <Icons
+                                            src={CameraDpIcon}
+                                            className="w-6"
+                                        />
+                                        Upload DP
                                         {/* ${formData.profile_file ? "Change" : "Select"} Your Id */}
                                     </div>
                                 }
@@ -104,7 +108,7 @@ const Step1 = ({
                                         .getElementById("profile-photo")
                                         ?.click();
                                 }}
-                                className="text-base font-normal rounded-[10px]"
+                                className="rounded-[10px] text-base font-normal"
                             />
                         </div>
                     </div>

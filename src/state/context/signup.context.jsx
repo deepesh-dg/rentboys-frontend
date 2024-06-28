@@ -165,7 +165,7 @@ export function SignupProvider({ children }) {
             }
 
             if (data.otp.length < 4) {
-                errors.otp = ["OTP is invalid"];
+                errors.otp = ["Please fill the OTP field"];
             }
 
             if (Object.keys(errors).length > 0) {
@@ -265,34 +265,50 @@ export function SignupProvider({ children }) {
         return true;
     });
 
-    const phoneVerifyOtpMatch = handleSubmit(async data => {
-        const response = await api.auth.phoneVerifyOtpMatch({
-            email: data.email,
-            username: data.username,
-            password: data.password,
-            terms_conditions: data.terms_conditions,
-            user_type: data.user_type,
-            longitude: data.longitude,
-            latitude: data.latitude,
-            location: data.location,
-            country: data.country,
-            state: data.state,
-            city: data.city,
-            postal_code: data.postal_code,
-            landmark: data.landmark,
-            phone_code: data.phone_code,
-            phone_number: data.phone_number,
-            otp: data.otp,
-        });
+    const phoneVerifyOtpMatch = handleSubmit(
+        async data => {
+            const response = await api.auth.phoneVerifyOtpMatch({
+                email: data.email,
+                username: data.username,
+                password: data.password,
+                terms_conditions: data.terms_conditions,
+                user_type: data.user_type,
+                longitude: data.longitude,
+                latitude: data.latitude,
+                location: data.location,
+                country: data.country,
+                state: data.state,
+                city: data.city,
+                postal_code: data.postal_code,
+                landmark: data.landmark,
+                phone_code: data.phone_code,
+                phone_number: data.phone_number,
+                otp: data.otp,
+            });
 
-        if (!response.status) {
-            throw response;
+            if (!response.status) {
+                throw response;
+            }
+
+            login(response.data);
+
+            return true;
+        },
+        async data => {
+            const errors = {};
+            if (!data.otp) {
+                errors.otp = ["OTP is required"];
+            }
+
+            if (data.otp.length < 4) {
+                errors.otp = ["Please fill the OTP field"];
+            }
+
+            if (Object.keys(errors).length > 0) {
+                throw { errors };
+            }
         }
-
-        login(response.data);
-
-        return true;
-    });
+    );
 
     const resetForm = useCallback(() => {
         setFormData(() => initialData);

@@ -8,7 +8,6 @@ export default function MembershipPlan() {
     return (
         <>
             <div className="relative flex min-h-screen w-full flex-col items-center justify-center py-20 backdrop-blur-sm">
-
                 <div
                     className="absolute inset-0 h-full w-full bg-cover bg-no-repeat blur-sm"
                     style={{
@@ -20,7 +19,9 @@ export default function MembershipPlan() {
                         <img src={MemberImg} alt="member_user" />
                         <div className="flex flex-col justify-between gap-4">
                             <div>
-                                <h2 className="text-2xl font-bold uppercase">Well Done</h2>
+                                <h2 className="text-2xl font-bold uppercase">
+                                    Well Done
+                                </h2>
                                 <p className="text-base font-semibold">
                                     Your Rentboys client is ready!
                                 </p>
@@ -28,18 +29,18 @@ export default function MembershipPlan() {
                                     you may sellect your membership type below.
                                 </p>
                             </div>
-                            <div className="flex flex-col md:flex-row items-center gap-4 justify-between">
+                            <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
                                 <Button
                                     children="Ill’ do it later"
                                     theme="white"
                                     variant="text"
-                                    className="w-full text-base font-bold rounded-xl text-white"
+                                    className="w-full rounded-xl text-base font-bold text-white"
                                 />
                                 <Button
                                     themes="red"
                                     variant="colored"
                                     children="Select Membership"
-                                    className="w-full whitespace-nowrap text-base font-bold rounded-xl"
+                                    className="w-full whitespace-nowrap rounded-xl text-base font-bold"
                                 />
                             </div>
                         </div>
@@ -47,6 +48,5 @@ export default function MembershipPlan() {
                 </Form>
             </div>
         </>
-
     );
 }

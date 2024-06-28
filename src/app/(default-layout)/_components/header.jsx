@@ -32,7 +32,7 @@ export default function Header() {
     const [openSubMenus, setOpenSubMenus] = useState({});
     const sidebarRef = useRef(null);
     const [searchQuery, setSearchQuery] = useState("");
-    const { isAuthenticated } = useAuth();
+    const { isAuthenticated, logout } = useAuth();
 
     const handleOnChange = e => {
         setSearchQuery(e.target.value);
@@ -262,14 +262,14 @@ export default function Header() {
                             <Button
                                 href="/login"
                                 children="Login"
-                                theme="red"
-                                variants="outlined"
+                                variant="colored"
                                 size="sm"
                                 className="shrink-0 rounded-xl px-6 text-base font-medium text-white"
                             />
                             <Button
                                 href="/signup"
                                 children="Sign up"
+                                variant="outlined"
                                 size="sm"
                                 theme="white"
                                 variants="outlined"

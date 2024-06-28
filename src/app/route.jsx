@@ -5,11 +5,9 @@ import ErrorPage from "./error";
 import Consent from "./consent";
 import onboardingRoutes from "./(onboarding)/route";
 import { AuthRoutes, ProtectedRoutes } from "@/hoc";
-import { lazy } from "react";
 import { Provider } from "react-redux";
 import store from "@/state";
-
-const NotFound = lazy(() => import("./not-found"));
+import { Navigate } from "react-router-dom";
 
 /**
  * @type {import('react-router-dom').RouteObject[]}
@@ -48,7 +46,7 @@ const RootRoute = [
     },
     {
         path: "*",
-        element: <NotFound />,
+        element: <Navigate to="/" />,
     },
 ];
 

@@ -13,7 +13,7 @@ const page = () => {
             <h2 className="border-b border-gray-50 pb-1 text-xl font-bold text-red-50">
                 Contact US
             </h2>
-            <p className="text-lg font-normal pb-2">
+            <p className="pb-2 text-lg font-normal">
                 Having issues, questions or just feeling lost? Contact us and
                 we'll do our best to reach you back as soon as possible!
             </p>
@@ -31,7 +31,7 @@ const page = () => {
                 />
                 <div className="flex justify-end">
                     <Button
-                        label="send"
+                        children="send"
                         size="md"
                         className="w-36 uppercase"
                     />

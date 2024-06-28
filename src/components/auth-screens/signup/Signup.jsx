@@ -106,18 +106,13 @@ const Signup = () => {
                             Accept&nbsp;
                             <Link
                                 to="/terms-of-service"
-                                target="_blank"
                                 className="text-red-50"
                             >
                                 <span>T&C</span>&nbsp;
                             </Link>
                             &nbsp;and&nbsp;
-                            <Link
-                                to="/privacy-policy"
-                                target="_blank"
-                                className="text-red-50"
-                            >
-                                <span>Privacy Policy</span>&nbsp;
+                            <Link to="/privacy-policy" className="text-red-50">
+                                <span>privacy policy</span>&nbsp;
                             </Link>
                         </span>
                     </label>
@@ -132,7 +127,7 @@ const Signup = () => {
                     type="submit"
                     size="md"
                     theme="red"
-                    className="uppercase font-bold rounded-xl text-xl"
+                    className="rounded-xl text-xl font-bold uppercase"
                 />
             </div>
             <p className="text-center text-xs text-white">
