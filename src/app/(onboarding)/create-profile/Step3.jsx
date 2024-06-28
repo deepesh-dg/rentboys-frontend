@@ -16,7 +16,7 @@ const Step3 = () => {
     ];
 
     return (
-        <div className="container flex-grow">
+        <div className="px-4 flex-grow">
             <div className="grid grid-cols-1 gap-x-4 gap-y-6 md:grid-cols-2 lg:grid-cols-4">
                 <MuiDropdown
                     options={options}

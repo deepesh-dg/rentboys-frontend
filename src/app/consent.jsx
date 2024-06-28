@@ -31,11 +31,7 @@ const consent = () => {
                         cookies <span className="text-red">here</span>
                     </p>
                     <div className="flex justify-center">
-                        <Button
-                            label="I Agree - Enter RentBoys"
-                            className={"text-bold !bg-[#ff0000]"}
-                            onClick={() => console.log("onlcik")}
-                        />
+                        <Button>I Agree - Enter RentBoys</Button>
                     </div>
                     <p className="text-red text-xs">
                         I disagree - Exit this site

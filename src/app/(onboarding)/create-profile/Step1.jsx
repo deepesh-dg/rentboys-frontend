@@ -54,7 +54,7 @@ const Step1 = ({
     if (isLoading) return null;
 
     return (
-        <div className="container flex-grow">
+        <div className="flex-grow px-4">
             {!isLoading && (
                 <div className="flex flex-col items-start justify-start gap-x-10 gap-y-5 md:flex-row">
                     <div className="flex min-h-80 w-full items-center justify-center border border-gray-300 bg-black md:w-1/4">

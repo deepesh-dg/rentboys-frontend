@@ -10,10 +10,10 @@ const page = () => {
 
     return (
         <div className="w-full space-y-4 py-4">
-            <h2 className="border-b border-gray-50 pb-1 text-xl font-medium text-red-50">
+            <h2 className="border-b border-gray-50 pb-1 text-xl font-bold text-red-50">
                 Contact US
             </h2>
-            <p>
+            <p className="text-lg font-normal pb-2">
                 Having issues, questions or just feeling lost? Contact us and
                 we'll do our best to reach you back as soon as possible!
             </p>
@@ -32,7 +32,8 @@ const page = () => {
                 <div className="flex justify-end">
                     <Button
                         label="send"
-                        className="bg-red-100 px-20 py-4 text-xl font-bold uppercase hover:bg-red-50"
+                        size="md"
+                        className="w-36 uppercase"
                     />
                 </div>
             </div>

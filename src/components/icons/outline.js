@@ -17,6 +17,10 @@ import SearchIcon from "@/assets/icons/outline/search.svg";
 import CameraDpIcon from "@/assets/icons/outline/camera-dp.svg";
 import EyeClosedIcon from "@/assets/icons/outline/eyeclose.svg";
 import EyeOpenIcon from "@/assets/icons/outline/eyeOpen.svg";
+import ArrowRightIcon from "@/assets/icons/outline/arrowRight.svg";
+import CheckIcon from "@/assets/icons/outline/check.svg";
+
+
 
 export {
     MailIcon,
@@ -38,4 +42,6 @@ export {
     CameraDpIcon,
     EyeClosedIcon,
     EyeOpenIcon,
+    ArrowRightIcon,
+    CheckIcon
 };

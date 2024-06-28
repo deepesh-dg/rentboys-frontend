@@ -17,15 +17,15 @@ export default function MembershipPlan() {
                 />
                 <Form maxWidth="2xl" className="!gap-y-0 !px-4 !py-4">
                     <div className="flex w-full flex-col gap-4 md:flex-row md-down:items-center">
-                        <img src={MemberImg} alt="member_user" />
-                        <div className="flex flex-col justify-between gap-4">
-                            <div>
-                                <h2 className="text-2xl font-bold uppercase">Well Done</h2>
-                                <p className="text-base font-semibold">
-                                    Your Rentboys client is ready!
+                        <img src={MemberImg} alt="member_user" className="max-w-sm w-full" />
+                        <div className="flex flex-col justify-between gap-4 max-w-sm">
+                            <div className="space-y-2">
+                                <h2 className="text-2xl font-bold uppercase">You are almost done!</h2>
+                                <p className="text-sm font-medium">
+                                    To be the part of our community, be visible in searches and start receiving offers, you need to purchase membership plan and complete the other steps of your profile setup.
                                 </p>
-                                <p className="text-base font-normal">
-                                    you may sellect your membership type below.
+                                <p className="text-sm font-normal text-white/70">
+                                    To increase your traffic to your account in the selected location, you can view our advertise offers.
                                 </p>
                             </div>
                             <div className="flex flex-col md:flex-row items-center gap-4 md:justify-between">
