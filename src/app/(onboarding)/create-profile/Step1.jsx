@@ -13,7 +13,7 @@ import {
 } from "@/constants";
 import Avatar from "@/components/Avatar";
 import { useProfile } from "@/state/context";
-import { CameraDpIcon, CameraIcon } from "@/components/icons/outline";
+import { CameraDpIcon } from "@/components/icons/outline";
 
 const Step1 = ({
     addOnSkip,

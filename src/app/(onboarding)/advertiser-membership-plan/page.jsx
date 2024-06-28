@@ -1,6 +1,5 @@
 import React from "react";
 import Form from "@/components/auth-screens/Form";
-// import MemberImg from "@/assets/img/member-user.png";
 import MemberImg from "@/assets/img/advertiser.png";
 
 import Button from "@/components/Button";
