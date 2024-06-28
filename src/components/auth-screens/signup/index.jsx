@@ -25,7 +25,7 @@ export default function SignupScreens() {
 
     switch (screen) {
         case SignupScreenSteps.SIGNUP:
-            return <PhoneNumber />;
+            return <Signup />;
         case SignupScreenSteps.VERIFY_EMAIL:
             return <VerifyEmailOTP />;
         case SignupScreenSteps.CHOOSE_USER_TYPE:
