@@ -12,7 +12,6 @@ export default function AuthLayout() {
 
     useEffect(
         () => () => {
-            console.log("unmount");
             resetForm();
             signupResetForm();
         },

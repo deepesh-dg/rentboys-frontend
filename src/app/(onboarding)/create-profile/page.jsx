@@ -106,7 +106,6 @@ export default function Profile() {
                                     size="xs"
                                     onClick={handleSkipClick}
                                     className="border-none text-xl font-bold"
-
                                 />
                                 <div className="flex gap-x-10">
                                     {currentStep > 0 && (
@@ -121,7 +120,7 @@ export default function Profile() {
                                     <Button
                                         href={
                                             currentStep >= 2
-                                                ? "/membership-plan"
+                                                ? "/advertiser-membership-plan"
                                                 : undefined
                                         }
                                         children="Next"
