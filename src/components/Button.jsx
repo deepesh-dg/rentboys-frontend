@@ -15,17 +15,17 @@ const Button = ({
     const variants = {
         default: "bg-red-100 hover:bg-red-50",
         colored: "bg-red-50 hover:bg-red-100",
-        outlined: "border border-red-50 bg-transparent",
-        text: "bg-transparent",
+        outlined: "border border-white bg-transparent",
+        text: "border border-red-50 bg-transparent ",
     };
 
     const sizes = {
         xs: "px-0 py-2 text-lg font-bold",
-        sm: "px-4 py-2 text-sm font-medium w-full",
-        md: "px-6 py-4 text-xl",
+        sm: "px-4 py-2 text-md font-bold rounded-xl",
+        md: "px-6 py-4 text-base font-bold rounded-2xl",
     };
 
-    const buttonClass = `flex whitespace-nowrap justify-center rounded-lg text-white font-bold ${variants[variant]} ${sizes[size]} ${className}`;
+    const buttonClass = `flex whitespace-nowrap justify-center text-white font-bold ${variants[variant]} ${sizes[size]} ${className}`;
 
     const content = loading ? <div className="loader">Loading...</div> : label;
 

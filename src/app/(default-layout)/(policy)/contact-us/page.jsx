@@ -33,6 +33,7 @@ const page = () => {
                     <Button
                         label="send"
                         size="md"
+                        className="w-36 uppercase"
                     />
                 </div>
             </div>

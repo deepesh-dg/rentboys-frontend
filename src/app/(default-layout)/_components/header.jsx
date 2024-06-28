@@ -132,7 +132,7 @@ export default function Header() {
                                     <Button
                                         href="/login"
                                         label="Login"
-                                        variant="outlined"
+                                        variant="text"
                                         size="sm"
                                     />
                                     <Button
@@ -230,12 +230,15 @@ export default function Header() {
                                     label="Login"
                                     variant="colored"
                                     size="sm"
+                                    className="w-full"
                                 />
                                 <Button
                                     href="/signup"
                                     label="Sign up"
                                     variant="outlined"
                                     size="sm"
+                                    className="w-full"
+
                                 />
                             </div>)
                     }
