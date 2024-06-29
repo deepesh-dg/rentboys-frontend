@@ -1,93 +1,111 @@
-import { useForm } from "@/hooks";
-import api from "@/services";
+import React, { useId } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
-    createContext,
-    useCallback,
-    useContext,
-    useEffect,
-    useRef,
-} from "react";
+    initialState,
+    setFormData as _setFormData,
+    setFormErrors as _setFormErrors,
+    setLoader as _setLoader,
+    resetForm as _resetForm,
+    resetFormData as _resetFormData,
+    resetFormErrors as _resetFormErrors,
+    resetPasswordField as _resetPasswordField,
+} from "@/state/slices/form/signup.slice";
+import { useAuth } from "./auth";
+import api from "@/services";
 import { FileUploadTypes, UserType } from "@/constants";
-import { useAuth } from "../hooks";
-
-const initialData = {
-    email: "",
-    username: "",
-    password: "",
-    confirm_password: "",
-    /** @type { "0" | "1" } */
-    terms_conditions: "0",
-    /** @type {typeof UserType[keyof typeof UserType]} */
-    user_type: UserType.CLIENT,
-    otp: "",
-    longitude: 0,
-    latitude: 0,
-    location: "",
-    country: "",
-    state: "",
-    city: "",
-    postal_code: "",
-    landmark: "",
-    /** @type {File | null} */
-    id_proof: null,
-    id_proof_path: "",
-    id_proof_preview: "",
-    phone_code: "+91",
-    phone_number: "",
-};
-
-const SignupContext = createContext({
-    data: initialData,
-    /** @type {{ [K in keyof typeof initialData]: string } & { form: string } } */
-    errors: {},
-    /** @type {{ [K in keyof typeof initialData]: string } & { form: string } } */
-    formIds: {},
-    loader: false,
-    /** @type {(updater: (prev: boolean) => boolean) => void} */
-    setLoader: updater => {},
-    /** @type {(updater: (prevState: typeof initialData) => void) => void} */
-    setData: updater => {},
-    /** @type {(updater: (prevState: { [K in keyof typeof initialData]: string } & { form: string } ) => void) => void} */
-    setError: updater => {},
-    resetForm: () => {},
-    resetPasswordField: () => {},
-    signup: async e => {},
-    emailVerifyResendOtp: async () => {},
-    emailVerifyOtpMatch: async e => {},
-    selectUserType: async e => {},
-    selectLocation: async e => {},
-    uploadId: async e => {},
-    phoneVerify: async e => {},
-    phoneVerifyResendOtp: async () => {},
-    phoneVerifyOtpMatch: async e => {},
-});
 
 export function useSignup() {
-    const data = useContext(SignupContext);
-
-    return data;
-}
-
-export function SignupProvider({ children }) {
-    const {
-        formData,
-        formErrors,
-        formIds,
-        loader,
-        setFormData,
-        setFormErrors,
-        setLoader,
-        handleSubmit,
-    } = useForm(
-        JSON.parse(sessionStorage.getItem("signup-form-data") || "null") ||
-            initialData
+    /** @type {typeof initialState} */
+    const { formData, formErrors, loader } = useSelector(
+        state => state.signupForm
     );
 
-    const initialFormErrors = useRef(formErrors);
+    /** @type {{ [K in keyof typeof formData]: string }} */
+    const formIds = {
+        ...Object.keys(formData).reduce(
+            (acc, curr) => ({ ...acc, [curr]: useId() }),
+            {}
+        ),
+    };
 
-    useEffect(() => {
-        sessionStorage.setItem("signup-form-data", JSON.stringify(formData));
-    }, [formData]);
+    const dispatch = useDispatch();
+
+    const setFormData = React.useCallback(
+        /** @type {(newFormData: Partial<typeof formData>) => void} */
+        newFormData => {
+            dispatch(_setFormData(newFormData));
+        },
+        [dispatch]
+    );
+
+    const setFormErrors = React.useCallback(
+        /** @type {(newFormData: typeof formErrors) => void} */
+        newFormErrors => {
+            dispatch(_setFormErrors(newFormErrors));
+        },
+        [dispatch]
+    );
+
+    const setLoader = React.useCallback(
+        /** @type {status: boolean) => void} */
+        status => {
+            dispatch(_setLoader(status));
+        },
+        [dispatch]
+    );
+
+    const resetForm = React.useCallback(() => {
+        dispatch(_resetForm());
+    }, [dispatch]);
+
+    const resetFormData = React.useCallback(() => {
+        dispatch(_resetFormData());
+    }, [dispatch]);
+
+    const resetFormErrors = React.useCallback(() => {
+        dispatch(_resetFormErrors());
+    }, [dispatch]);
+
+    const resetPasswordField = React.useCallback(() => {
+        dispatch(_resetPasswordField());
+    }, [dispatch]);
+
+    /**
+     *
+     * @param {(d: typeof formData) => Promise<any>} submit
+     * @param {(d: typeof formData) => void} validate
+     */
+    const handleSubmit = (submit, validate) => {
+        return async e => {
+            e?.preventDefault();
+
+            try {
+                resetFormErrors();
+                if (validate) validate(formData);
+
+                setLoader(true);
+                const status = await submit(formData);
+
+                return status;
+            } catch (error) {
+                const errors = {};
+
+                if (error?.errors) {
+                    Object.keys(error.errors).forEach(key => {
+                        errors[key] = error.errors[key][0];
+                    });
+
+                    return;
+                }
+
+                errors.form = error?.message || "Something went wrong";
+
+                setFormErrors(errors);
+            } finally {
+                setLoader(false);
+            }
+        };
+    };
 
     const { login } = useAuth();
 
@@ -152,8 +170,8 @@ export function SignupProvider({ children }) {
                 throw response;
             }
 
-            setFormData(prev => {
-                prev.otp = initialData.otp;
+            setFormData({
+                otp: initialState.formData.otp,
             });
 
             return true;
@@ -310,42 +328,26 @@ export function SignupProvider({ children }) {
         }
     );
 
-    const resetForm = useCallback(() => {
-        setFormData(() => initialData);
-        setFormErrors(() => initialFormErrors.current);
-    }, []);
-
-    const resetPasswordField = useCallback(() => {
-        setFormData(prev => {
-            prev.password = initialData.password;
-            prev.confirm_password = initialData.confirm_password;
-        });
-    }, []);
-
-    return (
-        <SignupContext.Provider
-            value={{
-                formIds,
-                data: formData,
-                setData: setFormData,
-                errors: formErrors,
-                setError: setFormErrors,
-                loader,
-                setLoader,
-                signup,
-                emailVerifyResendOtp,
-                emailVerifyOtpMatch,
-                selectUserType,
-                selectLocation,
-                uploadId,
-                phoneVerify,
-                phoneVerifyResendOtp,
-                phoneVerifyOtpMatch,
-                resetForm,
-                resetPasswordField,
-            }}
-        >
-            {children}
-        </SignupContext.Provider>
-    );
+    return {
+        formIds,
+        data: formData,
+        setData: setFormData,
+        errors: formErrors,
+        setError: setFormErrors,
+        loader,
+        setLoader,
+        signup,
+        emailVerifyResendOtp,
+        emailVerifyOtpMatch,
+        selectUserType,
+        selectLocation,
+        uploadId,
+        phoneVerify,
+        phoneVerifyResendOtp,
+        phoneVerifyOtpMatch,
+        resetForm,
+        resetFormData,
+        resetFormErrors,
+        resetPasswordField,
+    };
 }

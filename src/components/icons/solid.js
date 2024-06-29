@@ -15,7 +15,6 @@ import LocationIcon from "@/assets/icons/solid/location.svg";
 import EyeIcon from "@/assets/icons/solid/eye.svg";
 import FilterSearchIcon from "@/assets/icons/solid/filter.svg";
 
-
 export {
     Men1Icon,
     Men2Icon,
@@ -32,5 +31,5 @@ export {
     UserUploadDpIcon,
     LocationIcon,
     EyeIcon,
-    FilterSearchIcon
+    FilterSearchIcon,
 };

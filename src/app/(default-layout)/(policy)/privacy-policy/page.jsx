@@ -1,13 +1,10 @@
 import React from "react";
 import { useGlobalLoader } from "@/hooks";
 import { useQuery } from "react-query";
-import {
-    ReactQueryKeys,
-} from "@/constants";
+import { ReactQueryKeys } from "@/constants";
 
 import api from "@/services";
 import parse from "html-react-parser";
-
 
 const page = () => {
     const {
@@ -21,7 +18,7 @@ const page = () => {
             staleTime: Infinity,
         }
     );
-    console.log(data);
+
     useGlobalLoader(isLoading);
 
     if (error || status === false) throw new Error(error?.message || "Error");
@@ -29,9 +26,7 @@ const page = () => {
     if (isLoading) return null;
     return (
         <div className="w-full">
-            <div className="text-white">
-                {parse(data?.body || "")}
-            </div>
+            <div className="text-white">{parse(data?.body || "")}</div>
         </div>
     );
 };

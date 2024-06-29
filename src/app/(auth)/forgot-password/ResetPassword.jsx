@@ -6,7 +6,7 @@ import {
     EyeClosedIcon,
     EyeOpenIcon,
 } from "@/components/icons/outline";
-import { useLogin } from "@/state/context";
+import { useLogin } from "@/state";
 import Form from "@/components/auth-screens/Form";
 import { useNavigate } from "react-router-dom";
 import Icons from "@/components/icons/Component";
@@ -39,8 +39,8 @@ const ResetPassword = () => {
                     error={errors.password}
                     value={data.password}
                     onChange={e =>
-                        setData(prev => {
-                            prev.password = e.target.value;
+                        setData({
+                            password: e.target.value,
                         })
                     }
                 />
@@ -85,7 +85,7 @@ const ResetPassword = () => {
                 type="submit"
                 size="md"
                 theme="red"
-                className="uppercase font-bold rounded-xl text-xl w-full"
+                className="w-full rounded-xl text-xl font-bold uppercase"
             />
         </Form>
     );

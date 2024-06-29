@@ -8,7 +8,7 @@ function NavHeading({ name, href }) {
     return (
         <Link to={href} key={href}>
             <li
-                className={`px-4 ${isActive ? "border-l-2 border-red-50 text-red-50 text-base font-normal" : ""}`}
+                className={`px-4 ${isActive ? "border-l-2 border-red-50 text-base font-normal text-red-50" : ""}`}
             >
                 {name}
             </li>
@@ -17,4 +17,4 @@ function NavHeading({ name, href }) {
 }
 
 export default NavHeading;
-1
+1;

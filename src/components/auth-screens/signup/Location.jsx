@@ -3,7 +3,7 @@ import Input from "@/components/common/Input/Input";
 import { LocationIcon } from "@/components/icons/outline";
 import Button from "@/components/Button";
 import { useSignupScreenSteps } from "@/state";
-import { useSignup } from "@/state/context";
+import { useSignup } from "@/state";
 import { SignupScreenSteps, UserType } from "@/constants";
 import Form from "../Form";
 import api from "@/services";
@@ -46,6 +46,7 @@ const Location = () => {
         <Form
             onSubmit={async e => {
                 const status = await selectLocation(e);
+
                 if (status) {
                     if (data.user_type === UserType.ADVERTISER)
                         setScreen(SignupScreenSteps.UPLOAD_ID);
@@ -54,6 +55,7 @@ const Location = () => {
             }}
             title="Location"
             maxWidth="xl"
+            error={errors.form || errors.location}
         >
             <div className="flex w-full flex-col gap-y-4">
                 <div className="relative">
@@ -63,8 +65,8 @@ const Location = () => {
                         placeholder="Enter your location/Current Location"
                         value={data.location}
                         onChange={e =>
-                            setData(prev => {
-                                prev.location = e.target.value;
+                            setData({
+                                location: e.target.value,
                             })
                         }
                         onFocus={() => {
@@ -88,12 +90,12 @@ const Location = () => {
                             >
                                 <button
                                     onClick={() => {
-                                        setData(prev => {
-                                            prev.location = item.display_name;
-                                            prev.longitude = item.lon;
-                                            prev.latitude = item.lat;
-                                            prev.state = item.address.state;
-                                            prev.country = item.address.country;
+                                        setData({
+                                            location: item.display_name,
+                                            longitude: item.lon,
+                                            latitude: item.lat,
+                                            state: item.address.state,
+                                            country: item.address.country,
                                         });
                                     }}
                                     className="w-full px-4 py-2 text-left hover:bg-white/10"
@@ -107,9 +109,8 @@ const Location = () => {
                 <Button
                     children="Next"
                     type="submit"
-                    className="uppercase font-bold rounded-xl text-xl"
+                    className="rounded-xl text-xl font-bold uppercase"
                 />
-
             </div>
         </Form>
     );

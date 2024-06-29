@@ -6,13 +6,9 @@ import { useQuery } from "react-query";
 import api from "@/services";
 import parse from "html-react-parser";
 import { useBlobUrl, useGlobalLoader } from "@/hooks";
-import {
-    FileUploadTypes,
-    ReactQueryKeys,
-    acceptedImageTypes,
-} from "@/constants";
+import { ReactQueryKeys, acceptedImageTypes } from "@/constants";
 import Avatar from "@/components/Avatar";
-import { useProfile } from "@/state/context";
+import { useProfile } from "@/state";
 import { CameraDpIcon } from "@/components/icons/outline";
 
 const Step1 = ({
@@ -72,8 +68,8 @@ const Step1 = ({
                                     onChange={e => {
                                         const file = e.target.files[0];
                                         if (file) {
-                                            setData(prev => {
-                                                prev.profile_file = file;
+                                            setData({
+                                                profile_file: file,
                                             });
                                         }
                                     }}

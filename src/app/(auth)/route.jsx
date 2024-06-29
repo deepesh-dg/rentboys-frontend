@@ -1,4 +1,3 @@
-import { LoginProvider, SignupProvider } from "@/state/context";
 import { lazy } from "react";
 
 const AuthLayout = lazy(() => import("./layout"));
@@ -12,13 +11,7 @@ const ForgotPassword = lazy(() => import("./forgot-password/page"));
 const authRoutes = [
     {
         path: "",
-        element: (
-            <LoginProvider>
-                <SignupProvider>
-                    <AuthLayout />
-                </SignupProvider>
-            </LoginProvider>
-        ),
+        element: <AuthLayout />,
         children: [
             {
                 path: "login",

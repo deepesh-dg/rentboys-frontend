@@ -1,6 +1,6 @@
 import React from "react";
 import OtpScreen from "@/components/auth-screens/OTP";
-import { useLogin } from "@/state/context";
+import { useLogin } from "@/state";
 
 export default function OTP({ setScreen }) {
     const { resendOtp, submitOtp, data, errors, setData } = useLogin();
@@ -16,8 +16,8 @@ export default function OTP({ setScreen }) {
             error={errors.otp}
             value={data.otp}
             onChange={v =>
-                setData(prev => {
-                    prev.otp = v;
+                setData({
+                    otp: v,
                 })
             }
         />

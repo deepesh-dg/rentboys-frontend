@@ -1,6 +1,6 @@
 import React from "react";
 import { useSignupScreenSteps } from "@/state";
-import { useSignup } from "@/state/context";
+import { useSignup } from "@/state";
 import { SignupScreenSteps } from "@/constants";
 import OTP from "../OTP";
 
@@ -20,8 +20,8 @@ const VerifyEmailOTP = () => {
             error={errors.otp}
             value={data.otp}
             onChange={v =>
-                setData(prev => {
-                    prev.otp = v;
+                setData({
+                    otp: v,
                 })
             }
         />

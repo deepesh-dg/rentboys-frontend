@@ -3,7 +3,6 @@ import { useSignupScreenSteps } from "@/state";
 import React, { useEffect } from "react";
 import Signup from "./Signup";
 import VerifyEmailOTP from "./VerifyEmailOTP";
-import { useSignup } from "@/state/context";
 import ChooseUserType from "./ChooseUserType";
 import Location from "./Location";
 import UploadId from "./UploadId";
@@ -12,7 +11,6 @@ import VerifyPhonelOTP from "./VerifyPhonelOTP";
 
 export default function SignupScreens() {
     const { screen, setScreen } = useSignupScreenSteps();
-    const { resetForm } = useSignup();
 
     useEffect(
         () => () => {
@@ -20,8 +18,6 @@ export default function SignupScreens() {
         },
         []
     );
-
-    useEffect(() => resetForm, []);
 
     switch (screen) {
         case SignupScreenSteps.SIGNUP:

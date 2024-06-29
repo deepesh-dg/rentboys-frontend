@@ -9,7 +9,7 @@ import {
     EyeOpenIcon,
 } from "../../icons/outline";
 import Input from "../../common/Input/Input";
-import { useSignup } from "@/state/context";
+import { useSignup } from "@/state";
 import { useSignupScreenSteps } from "@/state";
 import { SignupScreenSteps } from "@/constants";
 import Form from "../Form";
@@ -42,8 +42,8 @@ const Signup = () => {
                     error={errors.email}
                     value={data.email}
                     onChange={e =>
-                        setData(prev => {
-                            prev.email = e.target.value;
+                        setData({
+                            email: e.target.value,
                         })
                     }
                 />
@@ -55,8 +55,8 @@ const Signup = () => {
                     error={errors.username}
                     value={data.username}
                     onChange={e =>
-                        setData(prev => {
-                            prev.username = e.target.value;
+                        setData({
+                            username: e.target.value,
                         })
                     }
                 />
@@ -69,8 +69,8 @@ const Signup = () => {
                         error={errors.password}
                         value={data.password}
                         onChange={e =>
-                            setData(prev => {
-                                prev.password = e.target.value;
+                            setData({
+                                password: e.target.value,
                             })
                         }
                     />
@@ -95,10 +95,10 @@ const Signup = () => {
                             id={formIds.terms_conditions}
                             checked={data.terms_conditions === "1"}
                             onChange={e =>
-                                setData(prev => {
-                                    prev.terms_conditions = e.target.checked
+                                setData({
+                                    terms_conditions: e.target.checked
                                         ? "1"
-                                        : "0";
+                                        : "0",
                                 })
                             }
                         />

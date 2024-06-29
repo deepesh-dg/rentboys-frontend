@@ -2,12 +2,8 @@ import React from "react";
 import Input from "@/components/common/Input/Input";
 import Textarea from "@/components/TextArea";
 import Button from "@/components/Button";
-import { useLocation } from "react-router-dom";
 
 const page = () => {
-    const location = useLocation();
-    console.log(location.pathname.split("/")[1]);
-
     return (
         <div className="w-full space-y-4 py-4">
             <h2 className="border-b border-gray-50 pb-1 text-xl font-bold text-red-50">

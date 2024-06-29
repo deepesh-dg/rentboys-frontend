@@ -1,5 +1,4 @@
 import HTTP from "./HTTP";
-import store from "@/state";
 
 export default class HTTPWithAuth extends HTTP {
     constructor(baseURL) {
@@ -14,7 +13,9 @@ export default class HTTPWithAuth extends HTTP {
     }
 
     get token() {
-        const { token } = store.getState().auth;
+        const token = JSON.parse(
+            window.localStorage.getItem("persist:auth") || "{}"
+        )?.token;
 
         return token;
     }

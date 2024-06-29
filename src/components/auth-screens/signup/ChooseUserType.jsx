@@ -2,7 +2,7 @@ import React from "react";
 import AdvertiserImg from "@/assets/img/advertiser.png";
 import ClientImg from "@/assets/img/client.png";
 import Button from "@/components/Button";
-import { useSignup } from "@/state/context";
+import { useSignup } from "@/state";
 import { useSignupScreenSteps } from "@/state";
 import { SignupScreenSteps, UserType } from "@/constants";
 import Form from "../Form";
@@ -26,8 +26,8 @@ const ChooseUserType = () => {
                         type="button"
                         className="relative flex w-full justify-end rounded-2xl bg-red-50 text-left"
                         onClick={() => {
-                            setData(prev => {
-                                prev.user_type = UserType.ADVERTISER;
+                            setData({
+                                user_type: UserType.ADVERTISER,
                             });
                         }}
                     >
@@ -53,8 +53,8 @@ const ChooseUserType = () => {
                     <button
                         type="button"
                         onClick={() => {
-                            setData(prev => {
-                                prev.user_type = UserType.CLIENT;
+                            setData({
+                                user_type: UserType.CLIENT,
                             });
                         }}
                         className="relative flex w-full justify-end rounded-2xl bg-red-50 text-left"

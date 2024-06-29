@@ -8,7 +8,7 @@ import {
 
 export default function InputOTP({ ...props }) {
     return (
-        <OTPInput maxLength={4} {...props} >
+        <OTPInput maxLength={4} {...props}>
             <InputOTPGroup>
                 <InputOTPSlot index={0} />
             </InputOTPGroup>

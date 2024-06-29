@@ -2,6 +2,9 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import {
     authReducer,
     loaderReducer,
+    loginFormReducer,
+    signupFormReducer,
+    profileFormReducer,
     mastersReducer,
     signupScreenStepsReducer,
 } from "./slices";
@@ -36,11 +39,41 @@ const signupScreenStepsPersistedReducer = persistReducer(
     signupScreenStepsReducer
 );
 
+const loginFormPersistedReducer = persistReducer(
+    {
+        key: "login-form",
+        storage: session,
+        version: "0.0.1",
+    },
+    loginFormReducer
+);
+
+const signupFormPersistedReducer = persistReducer(
+    {
+        key: "signup-form",
+        storage: session,
+        version: "0.0.1",
+    },
+    signupFormReducer
+);
+
+const profileFormPersistedReducer = persistReducer(
+    {
+        key: "profile-form",
+        storage: session,
+        version: "0.0.1",
+    },
+    profileFormReducer
+);
+
 const reducers = combineReducers({
     auth: authPersistedReducer,
     masters: mastersReducer,
     signupScreenSteps: signupScreenStepsPersistedReducer,
     loader: loaderReducer,
+    loginForm: loginFormPersistedReducer,
+    signupForm: signupFormPersistedReducer,
+    profileForm: profileFormPersistedReducer,
 });
 
 const store = configureStore({

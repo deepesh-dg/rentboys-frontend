@@ -20,8 +20,6 @@ import EyeOpenIcon from "@/assets/icons/outline/eyeOpen.svg";
 import ArrowRightIcon from "@/assets/icons/outline/arrowRight.svg";
 import CheckIcon from "@/assets/icons/outline/check.svg";
 
-
-
 export {
     MailIcon,
     UserIcon,
@@ -43,5 +41,5 @@ export {
     EyeClosedIcon,
     EyeOpenIcon,
     ArrowRightIcon,
-    CheckIcon
+    CheckIcon,
 };

@@ -13,7 +13,7 @@ import { useQuery } from "react-query";
 import api from "@/services";
 import Image from "@/components/Image";
 import parse from "html-react-parser";
-import { useSignup } from "@/state/context";
+import { useSignup } from "@/state";
 import { useBlobUrl, useGlobalLoader } from "@/hooks";
 
 export default function UploadId() {
@@ -73,8 +73,9 @@ export default function UploadId() {
                                 onChange={e => {
                                     const file = e.target.files[0];
                                     if (file) {
-                                        setData(prev => {
-                                            prev.id_proof = file;
+                                        setData({
+                                            id_proof,
+                                            file,
                                         });
                                     }
                                 }}
@@ -107,12 +108,11 @@ export default function UploadId() {
                             formData.id_proof
                                 ? undefined
                                 : () => {
-                                    setScreen(SignupScreenSteps.PHONE_NUMBER);
-                                }
+                                      setScreen(SignupScreenSteps.PHONE_NUMBER);
+                                  }
                         }
-                        className="uppercase font-bold rounded-xl text-xl w-full"
+                        className="w-full rounded-xl text-xl font-bold uppercase"
                     />
-
                 </div>
             </div>
         </Form>

@@ -10,7 +10,7 @@ export default function Home() {
     return (
         <section className="main-section">
             <div className="featuredEscorts my-[20px]">
-                <div className="px-4 m-auto">
+                <div className="m-auto px-4">
                     <div className="flex-row gap-1 xl:flex">
                         <div className="md:basis-4/4 lg:basis-3/4">
                             <div className="featuredEscortsList">
@@ -293,7 +293,7 @@ export default function Home() {
                                 >
                                     <Image
                                         src={topAdimage}
-                                        className="w-full h-full"
+                                        className="h-full w-full"
                                     />
                                 </a>
                             </div>
@@ -302,7 +302,7 @@ export default function Home() {
                 </div>
             </div>
             <div className="recentPosts-section my-[20px]">
-                <div className="px-4 m-auto">
+                <div className="m-auto px-4">
                     <div className="inCardHead">
                         <h1 className="inCardTitle md:text-white-400 md:dark:text-white-400 relative text-2xl text-white md:p-0">
                             Recent Posts
@@ -484,7 +484,7 @@ export default function Home() {
                 </div>
             </div>
             <div className="recentPosts-section mt35">
-                <div className="px-4 m-auto">
+                <div className="m-auto px-4">
                     <div className="inCardHead">
                         <h1 className="inCardTitle md:text-white-400 md:dark:text-white-400 relative text-2xl text-white md:p-0">
                             Last Visited Profiles
@@ -708,7 +708,7 @@ export default function Home() {
                 </div>
             </div>
             <div className="recentPosts-section mt-[35px]">
-                <div className="px-4 m-auto">
+                <div className="m-auto px-4">
                     <div className="inCardHead">
                         <h1 className="inCardTitle md:text-white-400 md:dark:text-white-400 relative text-2xl text-white md:p-0">
                             RentBoys Special Ads
@@ -729,7 +729,7 @@ export default function Home() {
                         <div className="basis-4/12">
                             <a
                                 href="#"
-                                className="RecentAdsBanner block verflow-hidden"
+                                className="RecentAdsBanner verflow-hidden block"
                             >
                                 <Image
                                     src={specialAdd2}

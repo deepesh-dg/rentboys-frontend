@@ -2,7 +2,7 @@ import React from "react";
 import Button from "@/components/Button";
 import { MailIcon } from "@/components/icons/outline";
 import Input from "@/components/common/Input/Input";
-import { useLogin } from "@/state/context";
+import { useLogin } from "@/state";
 import Form from "@/components/auth-screens/Form";
 
 const ForgotPassword = ({ setScreen }) => {
@@ -25,8 +25,8 @@ const ForgotPassword = ({ setScreen }) => {
                 placeholder="exapmple@test.com"
                 value={data.email}
                 onChange={e =>
-                    setData(prev => {
-                        prev.email = e.target.value;
+                    setData({
+                        email: e.target.value,
                     })
                 }
                 error={errors.email}
@@ -37,7 +37,7 @@ const ForgotPassword = ({ setScreen }) => {
                 type="submit"
                 size="md"
                 theme="red"
-                className="uppercase font-bold rounded-xl text-xl w-full"
+                className="w-full rounded-xl text-xl font-bold uppercase"
             />
         </Form>
     );

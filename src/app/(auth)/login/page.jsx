@@ -8,7 +8,7 @@ import {
     EyeOpenIcon,
 } from "@/components/icons/outline";
 import Input from "@/components/common/Input/Input";
-import { useLogin } from "@/state/context";
+import { useLogin } from "@/state";
 import Form from "@/components/auth-screens/Form";
 import Icons from "@/components/icons/Component";
 
@@ -31,8 +31,8 @@ export default function Login() {
                     type="email"
                     placeholder="example@email.com"
                     onChange={e =>
-                        setData(prev => {
-                            prev.username = e.target.value;
+                        setData({
+                            username: e.target.value,
                         })
                     }
                 />
@@ -45,8 +45,8 @@ export default function Login() {
                         type={viewPwd ? "text" : "password"}
                         placeholder="Password"
                         onChange={e =>
-                            setData(prev => {
-                                prev.password = e.target.value;
+                            setData({
+                                password: e.target.value,
                             })
                         }
                     />
@@ -71,8 +71,8 @@ export default function Login() {
                             type="checkbox"
                             checked={data.rememberMe}
                             onChange={e =>
-                                setData(prev => {
-                                    prev.rememberMe = e.target.checked;
+                                setData({
+                                    rememberMe: e.target.checked,
                                 })
                             }
                         />
@@ -85,7 +85,7 @@ export default function Login() {
                     type="submit"
                     size="md"
                     theme="red"
-                    className="uppercase font-bold rounded-xl text-xl"
+                    className="rounded-xl text-xl font-bold uppercase"
                 />
             </div>
             <p className="text-center text-xs text-white">

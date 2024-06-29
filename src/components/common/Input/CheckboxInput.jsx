@@ -11,14 +11,21 @@ const CheckboxInput = ({ checked, onChange, className, label, ...props }) => {
                 class="peer hidden"
                 defaultChecked
             />
-            <label for="terms_conditions" class="flex items-center cursor-pointer">
-                <div class="w-4 h-4 border border-red-50 rounded-sm peer-checked:bg-red-50 flex items-center justify-center">
-                    <Icons src={CheckIcon} className="w-3 text-red-50 peer-checked:block hiddn relative z-50" />
+            <label
+                for="terms_conditions"
+                class="flex cursor-pointer items-center"
+            >
+                <div class="flex h-4 w-4 items-center justify-center rounded-sm border border-red-50 peer-checked:bg-red-50">
+                    <Icons
+                        src={CheckIcon}
+                        className="hiddn relative z-50 w-3 text-red-50 peer-checked:block"
+                    />
                 </div>
-                <span class="ml-2 peer-checked:block hidden">I agree to the terms and conditions</span>
+                <span class="ml-2 hidden peer-checked:block">
+                    I agree to the terms and conditions
+                </span>
             </label>
         </div>
-
     );
 };
 

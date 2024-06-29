@@ -2,7 +2,7 @@ import React from "react";
 import Form from "../Form";
 import Input from "@/components/common/Input/Input";
 import Button from "@/components/Button";
-import { useSignup } from "@/state/context";
+import { useSignup } from "@/state";
 import { useSignupScreenSteps } from "@/state";
 import { SignupScreenSteps } from "@/constants";
 import phoneCodes from "@/data/country_code.json";
@@ -31,10 +31,9 @@ export default function PhoneNumber() {
                                 id={formIds.phone_code}
                                 className="h-full bg-black"
                                 value={data.phone_code}
-                                transparent
                                 onChange={e => {
-                                    setData(prev => {
-                                        prev.phone_code = e.target.value;
+                                    setData({
+                                        phone_code: e.target.value,
                                     });
                                 }}
                             >
@@ -59,8 +58,8 @@ export default function PhoneNumber() {
                         id={formIds.phone_number}
                         value={data.phone_number}
                         onChange={e => {
-                            setData(prev => {
-                                prev.phone_number = e.target.value;
+                            setData({
+                                phone_number: e.target.value,
                             });
                         }}
                     />

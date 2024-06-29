@@ -47,15 +47,14 @@ export default function MembershipPlan() {
                                     children="Ill’ do it later"
                                     theme="white"
                                     variant="text"
-                                    className="w-full rounded-xl text-base font-bold text-white text-center"
+                                    className="w-full rounded-xl text-center text-base font-bold text-white"
                                     href="/dashboard"
-
                                 />
                                 <Button
                                     themes="red"
                                     variant="colored"
                                     children="Select Membership"
-                                    className="w-full whitespace-nowrap rounded-xl text-base font-bold text-center"
+                                    className="w-full whitespace-nowrap rounded-xl text-center text-base font-bold"
                                 />
                             </div>
                         </div>

@@ -7,7 +7,6 @@ import { useQuery } from "react-query";
 import api from "@/services";
 import { ReactQueryKeys } from "@/constants";
 import { useGlobalLoader } from "@/hooks";
-import { ProfileProvider } from "@/state/context";
 
 export default function Profile() {
     const [currentStep, setCurrentStep] = useState(0);
@@ -88,57 +87,55 @@ export default function Profile() {
     if (error || status === false) throw new Error(error?.message || "Error");
 
     return (
-        <ProfileProvider>
-            <div className="flex min-h-screen flex-col bg-gray-100 text-white">
-                {!isLoading && (
-                    <>
-                        <div className="relative mb-10 py-6">
-                            <h1 className="relative text-center text-3xl font-medium after:absolute after:-bottom-5 after:left-0 after:h-1 after:w-full after:bg-custom-gradient">
-                                {data?.title}
-                            </h1>
-                        </div>
-                        {renderStep()}
-                        <div className="bg-red-100 py-2">
-                            <div className="container flex justify-between">
-                                <Button
-                                    children="Skip"
-                                    variant="text"
-                                    size="xs"
-                                    onClick={handleSkipClick}
-                                    className="border-none text-xl font-bold"
-                                />
-                                <div className="flex gap-x-10">
-                                    {currentStep > 0 && (
-                                        <Button
-                                            children="Prev"
-                                            variant="text"
-                                            size="xs"
-                                            onClick={handlePrevClick}
-                                            className="border-none text-xl font-bold"
-                                        />
-                                    )}
+        <div className="flex min-h-screen flex-col bg-gray-100 text-white">
+            {!isLoading && (
+                <>
+                    <div className="relative mb-10 py-6">
+                        <h1 className="relative text-center text-3xl font-medium after:absolute after:-bottom-5 after:left-0 after:h-1 after:w-full after:bg-custom-gradient">
+                            {data?.title}
+                        </h1>
+                    </div>
+                    {renderStep()}
+                    <div className="bg-red-100 py-2">
+                        <div className="container flex justify-between">
+                            <Button
+                                children="Skip"
+                                variant="text"
+                                size="xs"
+                                onClick={handleSkipClick}
+                                className="border-none text-xl font-bold"
+                            />
+                            <div className="flex gap-x-10">
+                                {currentStep > 0 && (
                                     <Button
-                                        href={
-                                            currentStep >= 2
-                                                ? "/advertiser-membership-plan"
-                                                : undefined
-                                        }
-                                        children="Next"
+                                        children="Prev"
                                         variant="text"
                                         size="xs"
-                                        onClick={
-                                            currentStep >= 2
-                                                ? undefined
-                                                : handleNextClick
-                                        }
+                                        onClick={handlePrevClick}
                                         className="border-none text-xl font-bold"
                                     />
-                                </div>
+                                )}
+                                <Button
+                                    href={
+                                        currentStep >= 2
+                                            ? "/advertiser-membership-plan"
+                                            : undefined
+                                    }
+                                    children="Next"
+                                    variant="text"
+                                    size="xs"
+                                    onClick={
+                                        currentStep >= 2
+                                            ? undefined
+                                            : handleNextClick
+                                    }
+                                    className="border-none text-xl font-bold"
+                                />
                             </div>
                         </div>
-                    </>
-                )}
-            </div>
-        </ProfileProvider>
+                    </div>
+                </>
+            )}
+        </div>
     );
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { useSignup } from "@/state/context";
+import { useSignup } from "@/state";
 import OTP from "../OTP";
 import { useNavigate } from "react-router-dom";
 
@@ -21,8 +21,8 @@ const VerifyPhonelOTP = () => {
             error={errors.otp}
             value={data.otp}
             onChange={v =>
-                setData(prev => {
-                    prev.otp = v;
+                setData({
+                    otp: v,
                 })
             }
         />
