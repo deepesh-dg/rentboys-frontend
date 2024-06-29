@@ -20,7 +20,6 @@ const BuddyActivityCard = () => {
                     <p className='text-sm'>
                         Has Changed His Current Locat...
                     </p>
-
                     <div className="flex gap-x-2">
                         <Icons src={PentagonShapeIcon} className='w-4' />
                         <p className='text-sm'>
