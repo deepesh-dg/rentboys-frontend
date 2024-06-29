@@ -14,6 +14,9 @@ import UserUploadDpIcon from "@/assets/icons/solid/user-uploaddp.svg";
 import LocationIcon from "@/assets/icons/solid/location.svg";
 import EyeIcon from "@/assets/icons/solid/eye.svg";
 import FilterSearchIcon from "@/assets/icons/solid/filter.svg";
+import PentagonShapeIcon from "@/assets/icons/solid/pentagonShape.svg";
+import ThreedotIcon from "@/assets/icons/solid/threedot.svg";
+
 
 export {
     Men1Icon,
@@ -32,4 +35,6 @@ export {
     LocationIcon,
     EyeIcon,
     FilterSearchIcon,
+    PentagonShapeIcon,
+    ThreedotIcon
 };
