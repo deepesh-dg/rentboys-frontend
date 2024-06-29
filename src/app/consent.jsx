@@ -1,5 +1,5 @@
 import React from "react";
-import BackgroundImg from "@/assets/img/landing-bg.png";
+import BackgroundImg from "@/assets/img/landing-bg2.png";
 import { Men1Icon, Men2Icon, Men3Icon } from "@/components/icons/solid";
 import Button from "@/components/Button";
 import Icons from "@/components/icons/Component";
@@ -7,14 +7,14 @@ import { Link } from "react-router-dom";
 
 const consent = () => {
     return (
-        <div className="bg-black text-white min-h-screen px-20">
+        <div className="bg-black text-white min-h-screen md:px-20">
             <div
-                className="min-h-screen bg-cover bg-no-repeat bg-center py-10 relative overflow-hidden"
+                className="min-h-screen bg-cover bg-no-repeat bg-center relative overflow-hidden"
                 style={{
                     backgroundImage: `url(${BackgroundImg})`
                 }}
             >
-                <h2 className="absolute z-20 top-6 left-[50%] translate-x-[-50%] py-8 text-center text-6xl md:text-7xl xl:text-8xl font-normal uppercase">
+                <h2 className="absolute z-20 top-6 left-[50%] translate-x-[-50%] py-8 text-center text-6xl md:text-7xl xl:text-7xl font-normal uppercase">
                     Rent&nbsp;<span className="text-red-50">Boys</span>
                 </h2>
                 <div className="max-w-7xl mx-auto relative min-h-screen bg-cover bg-no-repeat bg-center"
