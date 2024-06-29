@@ -46,6 +46,7 @@ export default {
                 red: {
                     50: "#ff0000", // light red
                     100: "#9C0404", // dark red
+                    200: "#FF5959",
                 },
                 gray: {
                     50: "#353535", //border
@@ -62,8 +63,11 @@ export default {
             },
             backgroundImage: {
                 "custom-gradient":
-                    "linear-gradient(90deg, rgba(255, 0, 0, 1) 0%, rgba(25, 25, 25, 1) 98%, rgba(0, 212, 255, 0) 503%)",
+                    "linear-gradient(90deg, rgba(255, 0, 0, 1) 0%, rgba(25, 25, 25, 1) 98%, rgba(0, 212, 255, 0) 100%)",
+                background:
+                    "linear-gradient(180deg, rgba(25, 25, 25, 0) 0%, #191919 105.06%)"
             },
+
             aftrelay: {
                 content: "",
                 position: "absolute",

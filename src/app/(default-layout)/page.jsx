@@ -11,15 +11,15 @@ export default function Home() {
         <section className="main-section">
             <div className="featuredEscorts my-[20px]">
                 <div className="m-auto px-4">
+                    <div className="mb-[20px]">
+                        <h1 className="inCardTitle md:text-white-400 md:dark:text-white-400 relative text-2xl text-white md:p-0">
+                            Featured Male Escorts & Gay Massage Near
+                            me
+                        </h1>
+                    </div>
                     <div className="flex-row gap-1 xl:flex">
                         <div className="md:basis-4/4 lg:basis-3/4">
                             <div className="featuredEscortsList">
-                                <div className="mb-[20px]">
-                                    <h1 className="inCardTitle md:text-white-400 md:dark:text-white-400 relative text-2xl text-white md:p-0">
-                                        Featured Male Escorts & Gay Massage Near
-                                        me
-                                    </h1>
-                                </div>
                                 <div className="flex-row xl:flex">
                                     <div className="maleEscortsList grid grid-cols-2 gap-0 md:grid-cols-3 lg:basis-3/4 xl:grid-cols-4">
                                         <a
@@ -281,22 +281,15 @@ export default function Home() {
                             </div>
                         </div>
                         <div className="md:basis-4/4 lg:basis-1/4">
-                            <div className="adCard">
-                                <div className="mb-[20px]">
-                                    <h1 className="inCardTitle md:text-white-400 md:dark:text-white-400 relative text-2xl text-white md:p-0">
-                                        Ads
-                                    </h1>
-                                </div>
-                                <a
-                                    href="#!"
-                                    className="block h-full overflow-hidden"
-                                >
-                                    <Image
-                                        src={topAdimage}
-                                        className="h-full w-full"
-                                    />
-                                </a>
-                            </div>
+                            <a
+                                href="#!"
+                                className="block h-full overflow-hidden"
+                            >
+                                <Image
+                                    src={topAdimage}
+                                    className="h-full w-full"
+                                />
+                            </a>
                         </div>
                     </div>
                 </div>
