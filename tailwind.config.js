@@ -46,6 +46,7 @@ export default {
                 red: {
                     50: "#ff0000", // light red
                     100: "#9C0404", // dark red
+                    200: "#FF5959",
                 },
                 gray: {
                     50: "#353535", //border
