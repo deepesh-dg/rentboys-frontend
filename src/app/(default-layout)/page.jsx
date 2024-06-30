@@ -1,7 +1,8 @@
 import React from "react";
 import Image from "@/components/Image";
 import Modelimage from "@/assets/img/model1.png";
-import topAdimage from "@/assets/img/topAd-banner.png";
+// import topAdimage from "@/assets/img/topAd-banner.png";
+import topAdimage from "@/assets/img/topAd-banner2.png";
 import specialAdd1 from "@/assets/img/specialAds1.jpg";
 import specialAdd2 from "@/assets/img/specialAds2.png";
 import specialAdd3 from "@/assets/img/specialAds3.jpg";
@@ -312,7 +313,8 @@ export default function Home() {
                                 </div>
                             </div>
                         </div>
-                        <div className="md:basis-4/4 lg:basis-1/4">
+                        <div className="md:basis-4/4 lg:basis-1/4 xl:h-[732px] relative">
+                            <h2 className="hidden xl:block absolute bottom-10 left-[50%] translate-x-[-50%] text-4xl font-normal"><span className="text-white">Rent</span> <span className="text-red-50">Boys</span></h2>
                             <a
                                 href="#!"
                                 className="block h-full overflow-hidden"

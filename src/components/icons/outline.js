@@ -19,6 +19,10 @@ import EyeClosedIcon from "@/assets/icons/outline/eyeclose.svg";
 import EyeOpenIcon from "@/assets/icons/outline/eyeOpen.svg";
 import ArrowRightIcon from "@/assets/icons/outline/arrowRight.svg";
 import CheckIcon from "@/assets/icons/outline/check.svg";
+import TickCircleRoundedIcon from "@/assets/icons/outline/tick-circle.svg";
+import LineIcon from "@/assets/icons/outline/Line.svg";
+
+
 
 export {
     MailIcon,
@@ -42,4 +46,6 @@ export {
     EyeOpenIcon,
     ArrowRightIcon,
     CheckIcon,
+    TickCircleRoundedIcon,
+    LineIcon,
 };
