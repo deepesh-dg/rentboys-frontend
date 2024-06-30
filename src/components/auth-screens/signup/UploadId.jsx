@@ -20,9 +20,9 @@ export default function UploadId() {
     const { setScreen } = useSignupScreenSteps();
     const {
         data: formData,
+        idProof,
+        setIdProof,
         errors: formErrors,
-        formIds,
-        setData,
         uploadId,
     } = useSignup();
     const {
@@ -39,7 +39,7 @@ export default function UploadId() {
 
     useGlobalLoader(isLoading);
 
-    const blobUrl = useBlobUrl(formData.id_proof);
+    const blobUrl = useBlobUrl(idProof) || formData.id_proof_preview;
 
     if (error || status === false) throw new Error(error?.message || "Error");
 
@@ -62,21 +62,18 @@ export default function UploadId() {
                 <div className="w-full border border-gray-300 bg-black md:w-2/5">
                     <div className="flex h-full w-full items-center justify-center">
                         <label
-                            htmlFor={formIds.id_proof}
+                            htmlFor="formIds.id_proof"
                             className="flex cursor-pointer flex-col items-center justify-center gap-y-4 md-down:min-h-60"
                         >
                             <input
                                 type="file"
-                                id={formIds.id_proof}
+                                id="formIds.id_proof"
                                 className="hidden"
                                 accept={acceptedFileTypes.join(",")}
                                 onChange={e => {
                                     const file = e.target.files[0];
                                     if (file) {
-                                        setData({
-                                            id_proof,
-                                            file,
-                                        });
+                                        setIdProof(file);
                                     }
                                 }}
                             />

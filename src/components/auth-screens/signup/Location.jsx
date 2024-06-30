@@ -50,7 +50,7 @@ const Location = () => {
                 if (status) {
                     if (data.user_type === UserType.ADVERTISER)
                         setScreen(SignupScreenSteps.UPLOAD_ID);
-                    else navigate("/membership-plan");
+                    else navigate("/client/choose-plans");
                 }
             }}
             title="Location"

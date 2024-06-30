@@ -30,15 +30,23 @@ const Step1 = ({
         }
     );
 
-    const { data: formData, setData, uploadProfilePicture } = useProfile();
+    const {
+        setProfileFile,
+        uploadProfilePicture,
+        profileFile,
+        data: formData,
+    } = useProfile();
 
-    const blobUrl = useBlobUrl(formData.profile_file);
+    const blobUrl = useBlobUrl(profileFile) || formData.profile_preview;
 
     useGlobalLoader(isLoading);
 
     useEffect(() => {
         const i = addOnSkip(() => setCurrentStep(prev => prev + 1));
-        const j = addOnNext(uploadProfilePicture);
+        const j = addOnNext(async () => {
+            const status = await uploadProfilePicture();
+            return true;
+        });
 
         return () => {
             removeOnSkip(i);
@@ -68,9 +76,7 @@ const Step1 = ({
                                     onChange={e => {
                                         const file = e.target.files[0];
                                         if (file) {
-                                            setData({
-                                                profile_file: file,
-                                            });
+                                            setProfileFile(file);
                                         }
                                     }}
                                 />

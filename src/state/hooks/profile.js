@@ -1,4 +1,4 @@
-import React, { useId } from "react";
+import React, { useId, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
     initialState,
@@ -8,15 +8,17 @@ import {
     resetForm as _resetForm,
     resetFormData as _resetFormData,
     resetFormErrors as _resetFormErrors,
-    resetPasswordField as _resetPasswordField,
 } from "../slices/form/profile.slice";
 import api from "@/services";
+import { FileUploadTypes } from "@/constants";
 
 export function useProfile() {
     /** @type {typeof initialState} */
     const { formData, formErrors, loader } = useSelector(
-        state => state.loginForm
+        state => state.profileForm
     );
+
+    const [profileFile, setProfileFile] = useState(null);
 
     /** @type {{ [K in keyof typeof formData]: string }} */
     const formIds = {
@@ -64,10 +66,6 @@ export function useProfile() {
         dispatch(_resetFormErrors());
     }, [dispatch]);
 
-    const resetPasswordField = React.useCallback(() => {
-        dispatch(_resetPasswordField());
-    }, [dispatch]);
-
     /**
      *
      * @param {(d: typeof formData) => Promise<any>} submit
@@ -104,38 +102,45 @@ export function useProfile() {
     };
 
     const uploadProfilePicture = handleSubmit(async data => {
-        if (data.profile_file) {
+        if (profileFile) {
             const response = await api.common.uploadFile(
                 FileUploadTypes.USER_PROFILE,
-                data.profile_file
+                profileFile
             );
 
-            if (!response.status) throw response.message;
+            if (!response.status) throw response;
 
-            setFormData(prev => {
-                prev.profile = response.data.upload_path;
-                prev.profile_preview = response.data.preview_path;
+            setFormData({
+                profile: response.data.upload_path,
+                profile_preview: response.data.perview_path,
             });
+
+            return true;
         }
     });
 
-    const updateProfile = handleSubmit(async data => {
-        // const response = await api.common.profile.update
+    const profileSetup = handleSubmit(async data => {
+        const response = await api.profile.profileSetup(data);
+
+        if (!response.status) throw response;
+
+        return true;
     });
 
     return {
         formIds,
         data: formData,
+        profileFile,
+        setProfileFile,
         setData: setFormData,
         errors: formErrors,
         setError: setFormErrors,
         loader,
         setLoader,
         uploadProfilePicture,
-        updateProfile,
+        profileSetup,
         resetForm,
         resetFormData,
         resetFormErrors,
-        resetPasswordField,
     };
 }

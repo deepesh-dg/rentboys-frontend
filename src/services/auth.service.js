@@ -88,6 +88,10 @@ export default class AuthService extends HTTPWithAuth {
         return this.post("/phone-verify/otp-match", data);
     }
 
+    logout() {
+        return this.get("/logout");
+    }
+
     changePassword(old_password, new_password, confirm_password) {
         return this.post("/change-password", {
             old_password,

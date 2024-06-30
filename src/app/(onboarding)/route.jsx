@@ -1,33 +1,20 @@
-import { lazy } from "react";
-
-const MembershipPlan = lazy(() => import("./membership-plan/page"));
-const CreateProfile = lazy(() => import("./create-profile/page"));
-const ClientMembershipPlan = lazy(
-    () => import("./client-membership-plan/page")
-);
-const AdvertiserMembershipPlan = lazy(
-    () => import("./advertiser-membership-plan/page")
-);
+import { Outlet } from "react-router-dom";
+import clientRoutes from "./client/route";
+import advertiserRoutes from "./advertiser/route";
 
 /**
  * @type {import('react-router-dom').RouteObject[]}
  */
 const onboardingRoutes = [
     {
-        path: "client-membership-plan",
-        element: <ClientMembershipPlan />,
+        path: "client",
+        element: <Outlet />,
+        children: clientRoutes,
     },
     {
-        path: "advertiser-membership-plan",
-        element: <AdvertiserMembershipPlan />,
-    },
-    {
-        path: "membership-plan",
-        element: <MembershipPlan />,
-    },
-    {
-        path: "create-profile",
-        element: <CreateProfile />,
+        path: "advertiser",
+        element: <Outlet />,
+        children: advertiserRoutes,
     },
 ];
 

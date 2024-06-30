@@ -10,20 +10,31 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
  */
 
 /**
- * @type {{masters: {
- *   gender: MasterData[],
- *  hair: MasterData[],
- *  body_hair: MasterData[],
- *  foreskin: MasterData[],
- *  safe: MasterData[],
- *  position: MasterData[],
- *  eyes_color: MasterData[],
- *  piercings: MasterData[],
- *  race: MasterData[],
- *  style: MasterData[],
- *  zodiac: MasterData[],
- *  smooking: MasterData[],
- *  body: MasterData[],
+ * @type {{
+ * fetched: boolean,
+ * loading: boolean,
+ * masters: {
+ *    gender: MasterData[],
+ *    hair: MasterData[],
+ *    body_hair: MasterData[],
+ *    foreskin: MasterData[],
+ *    safe: MasterData[],
+ *    position: MasterData[],
+ *    eyes_color: MasterData[],
+ *    sexual_orientation: MasterData[],
+ *    piercings: MasterData[],
+ *    race: MasterData[],
+ *    body: MasterData[],
+ *    style: MasterData[],
+ *    zodiac: MasterData[],
+ *    smooking: MasterData[],
+ *    hair_color: MasterData[],
+ *    "contact.email": string,
+ *    "contact.phone": string,
+ *    "contact.address": string,
+ *    "reading.date_time_format": string,
+ *    "reading.date_format": string,
+ *    "reading.time_format": string"
  * }}}
  */
 export const initialState = {
@@ -37,12 +48,20 @@ export const initialState = {
         safe: [],
         position: [],
         eyes_color: [],
+        sexual_orientation: [],
         piercings: [],
         race: [],
+        body: [],
         style: [],
         zodiac: [],
         smooking: [],
-        body: [],
+        hair_color: [],
+        "contact.email": "",
+        "contact.phone": "",
+        "contact.address": "",
+        "reading.date_time_format": "",
+        "reading.date_format": "",
+        "reading.time_format": "",
     },
 };
 

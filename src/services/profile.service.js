@@ -11,4 +11,8 @@ export default class ProfileService extends HTTPWithAuth {
 
         return this.post("/profile-photo", file);
     }
+
+    profileSetup(data) {
+        return this.post("/advertiser/profile-setup", data);
+    }
 }

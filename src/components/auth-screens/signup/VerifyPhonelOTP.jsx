@@ -15,7 +15,7 @@ const VerifyPhonelOTP = () => {
             onClickResend={phoneVerifyResendOtp}
             onSubmit={async e => {
                 const status = await phoneVerifyOtpMatch(e);
-                if (status) navigate("/create-profile");
+                if (status) navigate("/advertiser/profile-setup");
             }}
             formError={errors.form}
             error={errors.otp}

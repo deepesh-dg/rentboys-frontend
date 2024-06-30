@@ -1,4 +1,4 @@
-import React, { useId } from "react";
+import React, { useId, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
     initialState,
@@ -19,6 +19,8 @@ export function useSignup() {
     const { formData, formErrors, loader } = useSelector(
         state => state.signupForm
     );
+
+    const [idProof, setIdProof] = useState(null);
 
     /** @type {{ [K in keyof typeof formData]: string }} */
     const formIds = {
@@ -239,7 +241,7 @@ export function useSignup() {
     const uploadId = handleSubmit(async data => {
         const response = await api.common.uploadFile(
             FileUploadTypes.USER_DOC,
-            data.id_proof
+            idProof
         );
 
         if (!response.status) {
@@ -331,6 +333,8 @@ export function useSignup() {
     return {
         formIds,
         data: formData,
+        idProof,
+        setIdProof,
         setData: setFormData,
         errors: formErrors,
         setError: setFormErrors,
