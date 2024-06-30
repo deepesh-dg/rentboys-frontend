@@ -19,8 +19,6 @@ const initialFormData = {
     city: "",
     postal_code: "",
     landmark: "",
-    /** @type {File | null} */
-    id_proof: null,
     id_proof_path: "",
     id_proof_preview: "",
     phone_code: "+91",

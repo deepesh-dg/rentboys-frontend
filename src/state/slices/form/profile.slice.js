@@ -1,46 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const initialFormData = {
-    /** @type {File | null} */
-    profile_file: null,
     profile: "",
     profile_preview: "",
     about: "",
-    /** @type {string | number | null} */
-    age: null,
-    /** @type {string | number | null} */
-    height: null,
-    /** @type {string | number | null} */
-    weight: null,
-    /** @type {string | number | null} */
-    cock_size: null,
-    /** @type {string | number | null} */
-    sexual_orientation: null,
-    /** @type {string | number | null} */
-    position: null,
-    /** @type {string | number | null} */
-    foreskin: null,
-    /** @type {string | number | null} */
-    safe: null,
-    /** @type {string | number | null} */
-    body_hair: null,
-    /** @type {string | number | null} */
-    hair_color: null,
-    /** @type {string | number | null} */
-    eye_color: null,
-    /** @type {string | number | null} */
-    style: null,
-    /** @type {string | number | null} */
-    body: null,
-    /** @type {string | number | null} */
-    race: null,
-    /** @type {string | number | null} */
-    tatoos: null,
-    /** @type {string | number | null} */
-    piercing: null,
-    /** @type {string | number | null} */
-    smoking: null,
-    /** @type {string | number | null} */
+    age: "18",
+    height: "",
+    weight: "",
+    cock_size: "",
+    sexual_orientation: "",
+    position: "",
+    foreskin: "",
+    safe: "",
+    body_hair: "",
+    hair_color: "",
+    eye_color: "",
+    style: "",
+    body: "",
+    race: "",
+    tatoos: "",
+    piercing: "",
+    smoking: "",
 };
 
 export const initialState = {
@@ -96,11 +76,6 @@ const profileSlice = createSlice({
         resetFormErrors: state => {
             state.formErrors = initialState.formErrors;
         },
-        resetPasswordField: state => {
-            state.formData.password = initialState.formData.password;
-            state.formData.confirm_password =
-                initialState.formData.confirm_password;
-        },
     },
 });
 
@@ -111,7 +86,6 @@ export const {
     resetForm,
     resetFormData,
     resetFormErrors,
-    resetPasswordField,
 } = profileSlice.actions;
 
 export default profileSlice.reducer;

@@ -44,3 +44,13 @@ export function getUniqueId() {
 
     return uniqueId;
 }
+
+/**
+ *
+ * @param {number} start
+ * @param {number} end
+ * @returns {number[]}
+ */
+export function range(start, end) {
+    return [...Array(end - start).keys()].map(i => i + start);
+}

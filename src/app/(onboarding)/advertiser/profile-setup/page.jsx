@@ -28,9 +28,10 @@ export default function Profile() {
 
     const handleNextClick = async () => {
         setLoader(() => true);
-        await Promise.all(onNextRefs.current.map(ref => ref()));
+        const results = await Promise.all(onNextRefs.current.map(ref => ref()));
         setLoader(() => false);
-        setCurrentStep(prevStep => prevStep + 1);
+        if (results.every(v => v === true))
+            setCurrentStep(prevStep => prevStep + 1);
     };
 
     const handlePrevClick = () => {
@@ -74,9 +75,25 @@ export default function Profile() {
                     />
                 );
             case 1:
-                return <Step2 />;
+                return (
+                    <Step2
+                        addOnSkip={addOnSkip}
+                        addOnNext={addOnNext}
+                        removeOnSkip={removeOnSkip}
+                        removeOnNext={removeOnNext}
+                        setCurrentStep={setCurrentStep}
+                    />
+                );
             case 2:
-                return <Step3 />;
+                return (
+                    <Step3
+                        addOnSkip={addOnSkip}
+                        addOnNext={addOnNext}
+                        removeOnSkip={removeOnSkip}
+                        removeOnNext={removeOnNext}
+                        setCurrentStep={setCurrentStep}
+                    />
+                );
             default:
                 return null;
         }
@@ -116,19 +133,10 @@ export default function Profile() {
                                     />
                                 )}
                                 <Button
-                                    href={
-                                        currentStep >= 2
-                                            ? "/advertiser-membership-plan"
-                                            : undefined
-                                    }
                                     children="Next"
                                     variant="text"
                                     size="xs"
-                                    onClick={
-                                        currentStep >= 2
-                                            ? undefined
-                                            : handleNextClick
-                                    }
+                                    onClick={handleNextClick}
                                     className="border-none text-xl font-bold"
                                 />
                             </div>
