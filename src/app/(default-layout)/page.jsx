@@ -6,14 +6,8 @@ import specialAdd1 from "@/assets/img/specialAds1.jpg";
 import specialAdd2 from "@/assets/img/specialAds2.png";
 import specialAdd3 from "@/assets/img/specialAds3.jpg";
 import HtopAdimage from "@/assets/img/mobspecialAds3.png";
-import HtopAdimage2 from "@/assets/img/mobspecialAds2.png";
 import HmobspecialAds2 from "@/assets/img/mobspecialAds2.png";
 import Add2 from "@/assets/img/add2.png";
-
-
-
-
-
 
 export default function Home() {
     return (
@@ -106,7 +100,7 @@ export default function Home() {
                                         </a>
                                         <a
                                             href="#"
-                                            className="relative h-[242px] overflow-hidden hidden xl:block"
+                                            className="relative h-[242px] overflow-hidden hidden md:block"
                                         >
                                             <Image
                                                 src={Modelimage}
@@ -124,7 +118,7 @@ export default function Home() {
                                         </a>
                                         <a
                                             href="#"
-                                            className="relative h-[242px] overflow-hidden hidden xl:block"
+                                            className="relative h-[242px] overflow-hidden hidden md:block"
                                         >
                                             <Image
                                                 src={Modelimage}
@@ -371,7 +365,7 @@ export default function Home() {
                                 </div>
                             </a>
                         </div>
-                        <div className="md:basis-7/12">
+                        <div className="basis-9/12">
                             <div className="recentAddedList">
                                 <div className="grid grid-cols-2 xl:grid-cols-3">
                                     <a
@@ -656,7 +650,7 @@ export default function Home() {
                                 </div>
                             </div>
                         </div>
-                        <div className="md:basis-2/12">
+                        <div className="md:basis-2/12 hidden xl:block">
                             <a
                                 href="#"
                                 className="RecentAdsBanner relative h-full overflow-hidden"
@@ -683,10 +677,10 @@ export default function Home() {
                         </h1>
                         <span className="md:hidden text-red-50 underline shrink-0 sm-down:pb-0 font-normal text-sm">See more</span>
                     </div>
-                    <div className="flex-row gap-1 md:flex">
-                        <div className="basis-9/12">
+                    <div className="flex-row gap-1 md:flex overflow-hidde xl:max-h-[410px]">
+                        <div className="basis-full xl:basis-10/12">
                             <div className="lastVisitedList">
-                                <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
+                                <div className="grid grid-cols-2 xl:grid-cols-5">
                                     <a
                                         href="#"
                                         className="blurImg relative h-[168px] overflow-hidden border border-[#5F5F5F]"
@@ -783,7 +777,7 @@ export default function Home() {
                                     <span className="md:hidden text-red-50 underline shrink-0 sm-down:pb-0 font-normal text-sm">See more</span>
                                 </div>
                                 <div className="liveViewList">
-                                    <div className="liveCam grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
+                                    <div className="liveCam grid grid-cols-2 xl:grid-cols-5">
                                         <a
                                             href="#"
                                             className="relative h-[168px] overflow-hidden border border-[#5F5F5F]"
@@ -938,11 +932,18 @@ export default function Home() {
                                 </div>
                             </div>
                         </div>
-                        <div className="hidden basis-3/12 md:block">
-                            <a href="#" className="RecentAdsBanner">
+                        <div className="hidden xl:basis-2/12 xl:block">
+                            <a
+                                href="#"
+                                className="RecentAdsBanner relative h-full overflow-hidden"
+                            >
                                 <Image
                                     src={Modelimage}
-                                    className="h-full w-10"
+                                    className="h-full w-10 hidden xl:block"
+                                />
+                                <Image
+                                    src={HtopAdimage}
+                                    className="w-10 h-full xl:hidden mt-4"
                                 />
                             </a>
                         </div>
