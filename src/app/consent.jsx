@@ -7,12 +7,16 @@ import { Link } from "react-router-dom";
 
 const consent = () => {
     return (
-        <div className="bg-black text-white min-h-screen md:px-20">
-            <div
-                className="min-h-screen bg-cover bg-no-repeat bg-center relative overflow-hidden"
+        <div className="bg-black text-white min-h-screen md:px-20 relative">
+            <div className="absolute inset-0 left-0 top-0 right-0 bottom-0 bg-cover bg-no-repeat"
                 style={{
                     backgroundImage: `url(${BackgroundImg})`
-                }}
+                }} />
+            <div
+                className="min-h-screen bg-cover bg-no-repeat bg-center relative overflow-hidden"
+            // style={{
+            //     backgroundImage: `url(${BackgroundImg})`
+            // }}
             >
                 <h2 className="absolute z-20 top-6 left-[50%] translate-x-[-50%] py-8 text-center text-6xl md:text-7xl xl:text-7xl font-normal uppercase">
                     Rent&nbsp;<span className="text-red-50">Boys</span>

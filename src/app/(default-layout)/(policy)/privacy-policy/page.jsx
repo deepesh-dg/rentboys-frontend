@@ -12,7 +12,7 @@ const page = () => {
         error,
         isLoading,
     } = useQuery(
-        ReactQueryKeys.CREATE_PROFILE_PAGE_CONTENT,
+        ReactQueryKeys.PRIVACY_POLICY_PAGE_CONTENT,
         () => api.common.getPrivacyPolicy(),
         {
             staleTime: Infinity,

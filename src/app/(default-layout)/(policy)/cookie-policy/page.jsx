@@ -12,7 +12,7 @@ const page = () => {
         error,
         isLoading,
     } = useQuery(
-        ReactQueryKeys.CREATE_PROFILE_PAGE_CONTENT,
+        ReactQueryKeys.COOKIE_POLICY_CONTENT,
         () => api.common.getCookiesPolicy(),
         {
             staleTime: Infinity,

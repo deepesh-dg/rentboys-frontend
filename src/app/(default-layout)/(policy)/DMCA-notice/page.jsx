@@ -12,7 +12,7 @@ const page = () => {
         error,
         isLoading,
     } = useQuery(
-        ReactQueryKeys.CREATE_PROFILE_PAGE_CONTENT,
+        ReactQueryKeys.DMCA_NOTICE_CONTENT,
         () => api.common.getDMCANotice(),
         {
             staleTime: Infinity,
