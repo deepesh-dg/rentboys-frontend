@@ -7,10 +7,11 @@ import {
     EyeClosedIcon,
     EyeOpenIcon,
 } from "@/components/icons/outline";
-import Input from "@/components/common/Input/Input";
+// import Input from "@/components/common/Input/Input";
 import { useLogin } from "@/state";
 import Form from "@/components/auth-screens/Form";
 import Icons from "@/components/icons/Component";
+import HeadlessInput from "@/components/common/Input/HeadlessInput";
 
 export default function Login() {
     const { data, errors, formIds, login, setData } = useLogin();
@@ -23,7 +24,7 @@ export default function Login() {
     return (
         <Form onSubmit={login} error={errors.form} maxWidth="xl" title="Login">
             <div className="flex w-full flex-col gap-y-4">
-                <Input
+                <HeadlessInput
                     id={formIds.username}
                     value={data.username}
                     error={errors.username}
@@ -37,7 +38,7 @@ export default function Login() {
                     }
                 />
                 <div className="relative">
-                    <Input
+                    <HeadlessInput
                         id={formIds.password}
                         value={data.password}
                         error={errors.password}

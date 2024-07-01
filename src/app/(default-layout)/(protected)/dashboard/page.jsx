@@ -5,6 +5,7 @@ import Icons from "@/components/icons/Component";
 import { LocationIcon, EyeIcon, HeartIcon, ThreedotIcon } from "@/components/icons/solid";
 import { ArrowRightIcon } from "@/components/icons/outline";
 import LastSeenUser from "@/components/cards/LastSeenUser";
+import InputSwitch from "@/components/Switch";
 
 export default function Dashboard() {
     return (
@@ -208,6 +209,7 @@ export default function Dashboard() {
                             <div className="flex items-center justify-between">
                                 <Icons src={EyeIcon} className="w-10" />
                                 {/* Toggler */}
+                                <InputSwitch />
                             </div>
                             <p className="text-base font-medium">Do not track me</p>
                             <p className="text-sm font-normal">
