@@ -29,18 +29,19 @@ const ResetPassword = () => {
             }}
             title="Reset Password"
             maxWidth="xl"
+            error={errors.form}
         >
             <div className="relative w-full">
                 <Input
                     icon={PasswordIcon}
                     type={viewPwd ? "text" : "password"}
                     placeholder="New Password"
-                    id={formIds.reset_password}
-                    error={errors.reset_password}
-                    value={data.reset_password}
+                    id={formIds.password}
+                    error={errors.password}
+                    value={data.password}
                     onChange={e =>
                         setData({
-                            reset_password: e.target.value,
+                            password: e.target.value,
                         })
                     }
                 />
