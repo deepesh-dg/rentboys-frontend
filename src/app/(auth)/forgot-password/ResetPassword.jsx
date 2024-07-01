@@ -11,7 +11,7 @@ import Form from "@/components/auth-screens/Form";
 import { useNavigate } from "react-router-dom";
 import Icons from "@/components/icons/Component";
 
-const ResetPassword = setScreen => {
+const ResetPassword = ({ setScreen }) => {
     const { data, errors, formIds, resetPassword, setData } = useLogin();
     const navigate = useNavigate();
     const [viewPwd, setViewPwd] = useState(false);
@@ -27,7 +27,7 @@ const ResetPassword = setScreen => {
                 const status = await resetPassword(e);
                 if (status) {
                     setScreen("forgot_password");
-                    navigate("/login");
+                    navigate("/login?reset=true");
                 }
             }}
             title="Reset Password"
