@@ -16,6 +16,10 @@ import EyeIcon from "@/assets/icons/solid/eye.svg";
 import FilterSearchIcon from "@/assets/icons/solid/filter.svg";
 import PentagonShapeIcon from "@/assets/icons/solid/pentagonShape.svg";
 import ThreedotIcon from "@/assets/icons/solid/threedot.svg";
+import YellowStarIcon from "@/assets/icons/solid/star.svg";
+import WhiteStarIcon from "@/assets/icons/solid/whiteStar.svg";
+import LockIcon from "@/assets/icons/solid/lock.svg";
+
 
 
 export {
@@ -36,5 +40,8 @@ export {
     EyeIcon,
     FilterSearchIcon,
     PentagonShapeIcon,
-    ThreedotIcon
+    ThreedotIcon,
+    YellowStarIcon,
+    WhiteStarIcon,
+    LockIcon,
 };
