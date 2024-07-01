@@ -91,11 +91,7 @@ export function useLogin() {
                     Object.keys(error.errors).forEach(key => {
                         errors[key] = error.errors[key][0];
                     });
-
-                    return;
-                }
-
-                errors.form = error?.message || "Something went wrong";
+                } else errors.form = error?.message || "Something went wrong";
 
                 setFormErrors(errors);
             } finally {
@@ -113,6 +109,8 @@ export function useLogin() {
             if (!response.status) {
                 throw response;
             }
+
+            resetForm();
 
             authLogin(response.data);
         },
@@ -175,8 +173,8 @@ export function useLogin() {
                 throw response;
             }
 
-            setFormData(prev => {
-                prev.token = response.data.validate_string;
+            setFormData({
+                token: response.data.validate_string,
             });
 
             return true;
@@ -208,6 +206,8 @@ export function useLogin() {
             if (!response.status) {
                 throw response;
             }
+
+            resetForm();
 
             return true;
         },

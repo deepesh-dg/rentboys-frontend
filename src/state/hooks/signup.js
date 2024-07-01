@@ -96,8 +96,6 @@ export function useSignup() {
                     Object.keys(error.errors).forEach(key => {
                         errors[key] = error.errors[key][0];
                     });
-
-                    return;
                 }
 
                 errors.form = error?.message || "Something went wrong";
@@ -248,9 +246,9 @@ export function useSignup() {
             throw response;
         }
 
-        setFormData(prev => {
-            prev.id_proof_path = response.data.upload_path;
-            prev.id_proof_preview = response.data.perview_path;
+        setFormData({
+            id_proof_path: response.data.upload_path,
+            id_proof_preview: response.data.perview_path,
         });
 
         return true;

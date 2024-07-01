@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "@/components/Button";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
     MailIcon,
     PasswordIcon,
@@ -17,9 +17,18 @@ export default function Login() {
     const { data, errors, formIds, login, setData } = useLogin();
     const [viewPwd, setViewPwd] = useState(false);
 
+    const location = useLocation();
+
     const togglePasswordVisibility = () => {
         setViewPwd(prev => !prev);
     };
+
+    useEffect(() => {
+        const searchParams = new URLSearchParams(location.search);
+        if (searchParams.get("reset") === "true") {
+            sessionStorage.setItem("forgot-password-screen", "forgot_password");
+        }
+    }, [location]);
 
     return (
         <Form onSubmit={login} error={errors.form} maxWidth="xl" title="Login">

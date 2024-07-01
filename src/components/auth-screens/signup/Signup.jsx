@@ -120,6 +120,7 @@ const Signup = () => {
                             <span className="">
                                 Accept&nbsp;
                                 <button
+                                    type="reset"
                                     onClick={() => open('terms')}
                                     className="text-red-50"
                                 >
@@ -127,6 +128,7 @@ const Signup = () => {
                                 </button>
                                 &nbsp;and&nbsp;
                                 <button className="text-red-50"
+                                    type="reset"
                                     onClick={() => open('privacy')}
                                 >
                                     <span>Privacy Policy</span>&nbsp;
