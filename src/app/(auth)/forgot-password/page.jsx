@@ -16,7 +16,7 @@ export default function Page() {
 
     switch (screen) {
         case "forgot_password":
-            return <ForgotPassword setScreen={setScreen} />;
+            return <OTP setScreen={setScreen} />;
         case "otp":
             return <OTP setScreen={setScreen} />;
         case "reset_password":
