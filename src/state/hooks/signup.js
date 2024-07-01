@@ -248,9 +248,9 @@ export function useSignup() {
             throw response;
         }
 
-        setFormData(prev => {
-            prev.id_proof_path = response.data.upload_path;
-            prev.id_proof_preview = response.data.perview_path;
+        setFormData({
+            id_proof_path: response.data.upload_path,
+            id_proof_preview: response.data.perview_path,
         });
 
         return true;

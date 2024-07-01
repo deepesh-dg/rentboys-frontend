@@ -64,8 +64,8 @@ const ResetPassword = () => {
                     error={errors.confirm_password}
                     value={data.confirm_password}
                     onChange={e =>
-                        setData(prev => {
-                            prev.confirm_password = e.target.value;
+                        setData({
+                            confirm_password: e.target.value,
                         })
                     }
                 />

@@ -175,8 +175,8 @@ export function useLogin() {
                 throw response;
             }
 
-            setFormData(prev => {
-                prev.token = response.data.validate_string;
+            setFormData({
+                token: response.data.validate_string,
             });
 
             return true;
