@@ -20,7 +20,7 @@ export default function Select({
     return (
         <select
             className={classNames(
-                "rb-select-input border border-solid border-white/30 bg-black pl-4 pr-8 outline-none",
+                "rb-select-input border border-solid border-gray-300 bg-black pl-4 pr-8 outline-none placeholder:opacity-80 focus:ring-1 focus:ring-red-50",
                 className
             )}
             {...props}
