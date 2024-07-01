@@ -108,7 +108,7 @@ const Signup = () => {
                                 to="/terms-of-service"
                                 className="text-red-50"
                             >
-                                <span>T&C</span>&nbsp;
+                                <span>T&C</span>
                             </Link>
                             &nbsp;and&nbsp;
                             <Link to="/privacy-policy" className="text-red-50">

@@ -20,7 +20,7 @@ export default function Page() {
         case "otp":
             return <OTP setScreen={setScreen} />;
         case "reset_password":
-            return <ResetPassword />;
+            return <ResetPassword setScreen={setScreen} />;
         default:
             return null;
     }

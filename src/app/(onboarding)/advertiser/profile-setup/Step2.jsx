@@ -5,14 +5,27 @@ import { useMasters, useProfile } from "@/state";
 import { useGlobalLoader } from "@/hooks";
 import Select from "@/components/common/Input/Select";
 import { range } from "@/utils";
+import { useNavigate } from "react-router-dom";
 
 const Step2 = () => {
     const { masters, load, loading } = useMasters();
     const { data, setData, formIds, loader } = useProfile();
 
+    const navigate = useNavigate();
+
     useGlobalLoader(loading || loader);
 
     useEffect(load, []);
+
+    useEffect(() => {
+        const i = addOnSkip(() => {
+            navigate("/advertiser/choose-plans");
+        });
+
+        return () => {
+            removeOnSkip(i);
+        };
+    }, []);
 
     return (
         <div className="flex-grow px-2 py-6 text-white">
