@@ -35,12 +35,12 @@ const ResetPassword = () => {
                     icon={PasswordIcon}
                     type={viewPwd ? "text" : "password"}
                     placeholder="New Password"
-                    id={formIds.password}
-                    error={errors.password}
-                    value={data.password}
+                    id={formIds.reset_password}
+                    error={errors.reset_password}
+                    value={data.reset_password}
                     onChange={e =>
                         setData({
-                            password: e.target.value,
+                            reset_password: e.target.value,
                         })
                     }
                 />

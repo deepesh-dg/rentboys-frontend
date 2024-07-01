@@ -6,6 +6,7 @@ const initialFormData = {
     otp: "",
     username: "",
     password: "",
+    reset_password: "",
     confirm_password: "",
     rememberMe: false,
 };
