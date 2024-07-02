@@ -26,15 +26,18 @@ export default function PhoneNumber() {
                 <div className="flex">
                     <Select
                         id={formIds.phone_code}
-                        value={data.phone_code}
+                        value={`${data.phone_code}-${data.country_code}`}
                         onChange={e => {
+                            const phone_code = e.target.value.split("-")[0];
+                            const country_code = e.target.value.split("-")[1];
                             setData({
-                                phone_code: e.target.value,
+                                phone_code,
+                                country_code,
                             });
                         }}
                         options={phoneCodes.map(code => ({
                             id: `${code.dial_code} - ${code.name}`,
-                            value: code.dial_code,
+                            value: `${code.dial_code}-${code.code}`,
                             label: `${code.dial_code} ${code.name}`,
                         }))}
                         className="max-w-40"

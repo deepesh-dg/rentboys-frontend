@@ -7,7 +7,14 @@ import { Link, useLocation } from "react-router-dom";
 import { useState } from "@/hooks";
 import { useAuth } from "@/state";
 
-const allowedPath = ["/terms-of-service", "/privacy-policy", "/cookie-policy"];
+const allowedPath = [
+    "/terms-of-service",
+    "/privacy-policy",
+    "/cookie-policy",
+    "/login",
+    "/signup",
+    "/forgot-password",
+];
 
 const Consent = () => {
     const { isAuthenticated } = useAuth();

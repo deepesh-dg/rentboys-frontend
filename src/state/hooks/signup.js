@@ -256,6 +256,7 @@ export function useSignup() {
         const response = await api.auth.phoneVerifyOtpSend({
             email: data.email,
             phone_code: data.phone_code,
+            country_code: data.country_code,
             phone_number: data.phone_number,
         });
 
@@ -298,6 +299,7 @@ export function useSignup() {
                 postal_code: data.postal_code,
                 landmark: data.landmark,
                 phone_code: data.phone_code,
+                country_code: data.country_code,
                 phone_number: data.phone_number,
                 otp: data.otp,
             });
