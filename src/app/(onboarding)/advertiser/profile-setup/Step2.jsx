@@ -7,7 +7,7 @@ import Select from "@/components/common/Input/Select";
 import { range } from "@/utils";
 import { useNavigate } from "react-router-dom";
 
-const Step2 = () => {
+const Step2 = ({ addOnSkip, removeOnSkip }) => {
     const { masters, load, loading } = useMasters();
     const { data, setData, formIds, loader } = useProfile();
 
