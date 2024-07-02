@@ -3,6 +3,7 @@ import Input from "@/components/common/Input/Input";
 import Textarea from "@/components/TextArea";
 import Button from "@/components/Button";
 import Select from "@/components/common/Input/Select";
+import SelectOption from "@/components/SelectOption";
 
 const page = () => {
     const [selectedOption, setSelectedOption] = useState("");
@@ -18,16 +19,8 @@ const page = () => {
     const handleChange = event => {
         const value = event.target.value;
         setSelectedOption(value);
-        if (value !== "other") {
-            setCustomOption("");
-        }
     };
 
-    const handleCustomInputChange = event => {
-        const customValue = event.target.value;
-        setCustomOption(customValue);
-        setSelectedOption(customValue);
-    };
     return (
         <div className="w-full space-y-4 py-4">
             <h2 className="border-b border-gray-50 pb-1 text-xl font-bold text-red-50">
@@ -42,9 +35,9 @@ const page = () => {
                     <Input type="text" placeholder="Your Name*" />
                     <Input type="email" placeholder="Email Address*" />
                 </div>
-                <Select
+                <SelectOption
                     options={options}
-                    value={selectedOption === "other" ? "" : selectedOption}
+                    value={selectedOption === "other" ? selectedOption : selectedOption}
                     onChange={handleChange}
                     className="w-full py-4"
                 />
@@ -53,8 +46,7 @@ const page = () => {
                         type="text"
                         placeholder="Others"
                         value={customOption}
-                        onChange={handleCustomInputChange}
-                        onClick={e => e.stopPropagation()}
+                        onChange={(e) => setCustomOption(e.target.value)}
                         className="mt-4 w-full rounded-md border border-gray-300 p-2"
                     />
                 )}

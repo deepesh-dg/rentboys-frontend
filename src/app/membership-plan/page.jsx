@@ -11,8 +11,10 @@ import {
     LineIcon,
     TickCircleRoundedIcon,
 } from "@/components/icons/outline";
+import { useNavigate } from 'react-router-dom';
 
 export default function Page() {
+    const navigate = useNavigate();
     return (
         <>
             <div className="relative flex min-h-screen w-full flex-col items-center justify-center py-20 backdrop-blur-sm">
@@ -28,7 +30,7 @@ export default function Page() {
                 >
                     <div className="flex w-full items-center justify-between">
                         <h2 className="text-xl font-bold">Membership Plan</h2>
-                        <Icons icon={ClosecircleIcon} className="w-5" />
+                        <Icons icon={ClosecircleIcon} className="w-5 cursor-pointer" onClick={() => navigate('/')} />
                     </div>
                     <div className="my-1 grid grid-cols-5 rounded-xl bg-gray-100 p-4">
                         <div className="col-span-2">

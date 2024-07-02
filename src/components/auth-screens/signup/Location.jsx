@@ -10,6 +10,7 @@ import api from "@/services";
 import { useState } from "@/hooks";
 import { useNavigate } from "react-router-dom";
 import { classNames } from "@/lib";
+// import SelectDropDown from "@/components/SelectDropdown";
 
 const Location = () => {
     const { setScreen } = useSignupScreenSteps();
@@ -59,6 +60,7 @@ const Location = () => {
         >
             <div className="flex w-full flex-col gap-y-4">
                 <div className="relative">
+                    {/* <SelectDropDown /> */}
                     <Input
                         icon={LocationIcon}
                         type="text"
@@ -112,7 +114,7 @@ const Location = () => {
                     className="rounded-xl text-xl font-bold uppercase"
                 />
             </div>
-        </Form>
+        </Form >
     );
 };
 
