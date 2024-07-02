@@ -15,6 +15,17 @@ export const UserType = Object.freeze({
     CLIENT: "client",
 });
 
+export const UserTypeId = Object.freeze({
+    ADVERTISER: 3,
+    CLIENT: 2,
+});
+
+export const AccountStatus = Object.freeze({
+    PENDING: 0,
+    APPROVED: 1,
+    REJECTED: 2,
+});
+
 export const FileUploadTypes = Object.freeze({
     USER_DOC: "user-doc",
     USER_PROFILE: "user-profile",

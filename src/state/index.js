@@ -20,6 +20,7 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import session from "redux-persist/lib/storage/session";
+// import inactivityMiddleware from "./middlewares/inactivity";
 
 const authPersistedReducer = persistReducer(
     {
@@ -92,6 +93,7 @@ const store = configureStore({
                 ],
             },
         }),
+    // .concat(inactivityMiddleware),
 });
 
 export const persistor = persistStore(store);
