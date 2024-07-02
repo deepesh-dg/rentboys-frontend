@@ -12,7 +12,7 @@ const page = () => {
         error,
         isLoading,
     } = useQuery(
-        ReactQueryKeys.CREATE_PROFILE_PAGE_CONTENT,
+        ReactQueryKeys.TERMS_OF_SERVICE_PAGE_CONTENT,
         () => api.common.getTermsAndConditions(),
         {
             staleTime: Infinity,
