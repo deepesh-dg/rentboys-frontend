@@ -11,7 +11,7 @@ import {
 import { useLogin } from "@/state";
 import Form from "@/components/auth-screens/Form";
 import Icons from "@/components/icons/Component";
-import HeadlessInput from "@/components/common/Input/HeadlessInput";
+import Input from "@/components/common/Input/HeadlessInput";
 
 export default function Login() {
     const { data, errors, formIds, login, setData } = useLogin();
@@ -33,7 +33,7 @@ export default function Login() {
     return (
         <Form onSubmit={login} error={errors.form} maxWidth="xl" title="Login">
             <div className="flex w-full flex-col gap-y-4">
-                <HeadlessInput
+                <Input
                     id={formIds.username}
                     value={data.username}
                     error={errors.username}
@@ -47,7 +47,7 @@ export default function Login() {
                     }
                 />
                 <div className="relative">
-                    <HeadlessInput
+                    <Input
                         id={formIds.password}
                         value={data.password}
                         error={errors.password}

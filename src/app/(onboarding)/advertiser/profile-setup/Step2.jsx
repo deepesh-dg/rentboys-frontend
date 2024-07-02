@@ -5,10 +5,8 @@ import { useGlobalLoader } from "@/hooks";
 import { range } from "@/utils";
 import { useNavigate } from "react-router-dom";
 import { CMIcon, KGIcon } from "@/components/icons/solid";
-import HeadlessInput from "@/components/common/Input/HeadlessInput";
-import SelectOption from "@/components/SelectOption";
-// import Input from "@/components/common/Input/Input";
-// import Select from "@/components/common/Input/Select";
+import Input from "@/components/common/Input/HeadlessInput";
+import Select from "@/components/SelectOption";
 
 const Step2 = ({ addOnSkip, removeOnSkip }) => {
     const { masters, load, loading } = useMasters();
@@ -41,7 +39,7 @@ const Step2 = ({ addOnSkip, removeOnSkip }) => {
                 onChange={v => setData({ about: v })}
             />
             <div className="mt-6 grid grid-cols-1 gap-x-4 gap-y-6 md:grid-cols-2 lg:grid-cols-4 [&>*]:min-h-[58px]">
-                <SelectOption
+                <Select
                     id={formIds.age}
                     value={data.age}
                     onChange={e => {
@@ -56,7 +54,7 @@ const Step2 = ({ addOnSkip, removeOnSkip }) => {
                     }))}
                     firstDisabledOption="Age"
                 />
-                <HeadlessInput
+                <Input
                     type="number"
                     placeholder="Height"
                     id={formIds.height}
@@ -65,7 +63,7 @@ const Step2 = ({ addOnSkip, removeOnSkip }) => {
                     position
                     icon={CMIcon}
                 />
-                <HeadlessInput
+                <Input
                     type="number"
                     placeholder="Weight"
                     id={formIds.weight}
@@ -74,7 +72,7 @@ const Step2 = ({ addOnSkip, removeOnSkip }) => {
                     position
                     icon={KGIcon}
                 />
-                <HeadlessInput
+                <Input
                     type="number"
                     placeholder="Cock Size"
                     id={formIds.cock_size}
@@ -83,7 +81,7 @@ const Step2 = ({ addOnSkip, removeOnSkip }) => {
                     position
                     icon={CMIcon}
                 />
-                <SelectOption
+                <Select
                     id={formIds.sexual_orientation}
                     value={data.sexual_orientation}
                     onChange={e =>
@@ -96,7 +94,7 @@ const Step2 = ({ addOnSkip, removeOnSkip }) => {
                     }))}
                     firstDisabledOption="Sexual Orientation"
                 />
-                <SelectOption
+                <Select
                     id={formIds.position}
                     value={data.position}
                     onChange={e => setData({ position: e.target.value })}
@@ -107,7 +105,7 @@ const Step2 = ({ addOnSkip, removeOnSkip }) => {
                     }))}
                     firstDisabledOption="Position"
                 />
-                <SelectOption
+                <Select
                     id={formIds.foreskin}
                     value={data.foreskin}
                     onChange={e => setData({ foreskin: e.target.value })}
@@ -118,7 +116,7 @@ const Step2 = ({ addOnSkip, removeOnSkip }) => {
                     }))}
                     firstDisabledOption="Foreskin"
                 />
-                <SelectOption
+                <Select
                     id={formIds.safe}
                     value={data.safe}
                     onChange={e => setData({ safe: e.target.value })}
@@ -129,7 +127,7 @@ const Step2 = ({ addOnSkip, removeOnSkip }) => {
                     }))}
                     firstDisabledOption="Safe/BB"
                 />
-                <SelectOption
+                <Select
                     id={formIds.body_hair}
                     value={data.body_hair}
                     onChange={e => setData({ body_hair: e.target.value })}
@@ -140,7 +138,7 @@ const Step2 = ({ addOnSkip, removeOnSkip }) => {
                     }))}
                     firstDisabledOption="Body Hair"
                 />
-                <SelectOption
+                <Select
                     id={formIds.hair_color}
                     value={data.hair_color}
                     onChange={e => setData({ hair_color: e.target.value })}
@@ -151,7 +149,7 @@ const Step2 = ({ addOnSkip, removeOnSkip }) => {
                     }))}
                     firstDisabledOption="Hair Color"
                 />
-                <SelectOption
+                <Select
                     id={formIds.eye_color}
                     value={data.eye_color}
                     onChange={e => setData({ eye_color: e.target.value })}
@@ -162,7 +160,7 @@ const Step2 = ({ addOnSkip, removeOnSkip }) => {
                     }))}
                     firstDisabledOption="Eye Color"
                 />
-                <SelectOption
+                <Select
                     id={formIds.style}
                     value={data.style}
                     onChange={e => setData({ style: e.target.value })}

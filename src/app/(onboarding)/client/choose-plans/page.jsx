@@ -1,7 +1,6 @@
 import React from "react";
 import Form from "@/components/auth-screens/Form";
 import MemberImg from "@/assets/img/advertiser.png";
-
 import Button from "@/components/Button";
 import BG_IMG from "@/assets/img/login-bg.png";
 import Image from "@/components/Image";
@@ -47,7 +46,7 @@ export default function MembershipPlan() {
                                 />
                                 <Button
                                     themes="red"
-                                    href="/membership-plan"
+                                    href="/client/membership-plans"
                                     variant="colored"
                                     children="Select Membership"
                                     className="w-full whitespace-nowrap rounded-xl text-center text-base font-bold"

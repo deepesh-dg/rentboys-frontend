@@ -36,9 +36,9 @@ const Consent = () => {
             />
             <div
                 className="relative min-h-screen overflow-hidden bg-cover bg-center bg-no-repeat"
-                // style={{
-                //     backgroundImage: `url(${BackgroundImg})`
-                // }}
+            // style={{
+            //     backgroundImage: `url(${BackgroundImg})`
+            // }}
             >
                 <h2 className="absolute left-[50%] top-6 z-20 translate-x-[-50%] py-8 text-center text-6xl font-normal uppercase md:text-7xl xl:text-7xl">
                     Rent&nbsp;<span className="text-red-50">Boys</span>

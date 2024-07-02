@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "@/components/Image";
 import Modelimage from "@/assets/img/model1.png";
-// import topAdimage from "@/assets/img/topAd-banner.png";
 import topAdimage from "@/assets/img/topAd-banner2.png";
 import specialAdd1 from "@/assets/img/specialAds1.jpg";
 import specialAdd2 from "@/assets/img/specialAds2.png";

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Button from "@/components/Button";
-import Input from "@/components/common/Input/Input";
+import Input from "@/components/common/Input/HeadlessInput";
 import {
     PasswordIcon,
     EyeClosedIcon,

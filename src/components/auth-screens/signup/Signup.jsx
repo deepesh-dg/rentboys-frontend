@@ -15,7 +15,7 @@ import Form from "../Form";
 import Icons from "@/components/icons/Component";
 import PrivacyPolicyModel from "@/components/cards/PrivacyPolicyModel";
 import TermsOfServiceModel from "@/components/cards/TermsOfServiceModal";
-import HeadlessInput from "@/components/common/Input/HeadlessInput";
+import Input from "@/components/common/Input/HeadlessInput";
 
 const Signup = () => {
     let [isOpen, setIsOpen] = useState(null);
@@ -48,7 +48,7 @@ const Signup = () => {
                 title="Sign Up"
             >
                 <div className="flex w-full flex-col gap-y-4">
-                    <HeadlessInput
+                    <Input
                         icon={MailIcon}
                         type="email"
                         placeholder="example@email.com"
@@ -61,7 +61,7 @@ const Signup = () => {
                             })
                         }
                     />
-                    <HeadlessInput
+                    <Input
                         icon={UserIcon}
                         type="text"
                         id={formIds.username}
@@ -75,7 +75,7 @@ const Signup = () => {
                         }
                     />
                     <div className="relative">
-                        <HeadlessInput
+                        <Input
                             icon={PasswordIcon}
                             type={viewPwd ? "text" : "password"}
                             placeholder="Password"

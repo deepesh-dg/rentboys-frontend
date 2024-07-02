@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import Input from "@/components/common/Input/Input";
-import Select from "@/components/common/Input/Select";
 import { useMasters, useProfile } from "@/state";
 import { useGlobalLoader } from "@/hooks";
 import { useNavigate } from "react-router-dom";
+import Input from "@/components/common/Input/HeadlessInput";
+import Select from "@/components/SelectOption";
 
 const Step3 = ({ addOnSkip, addOnNext, removeOnSkip, removeOnNext }) => {
     const { data, setData, formIds, loader, profileSetup } = useProfile();

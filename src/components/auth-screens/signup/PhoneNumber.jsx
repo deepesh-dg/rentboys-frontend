@@ -1,12 +1,12 @@
 import React from "react";
 import Form from "../Form";
-import Input from "@/components/common/Input/Input";
+import Input from "@/components/common/Input/HeadlessInput";
+import Select from "@/components/SelectOption";
 import Button from "@/components/Button";
 import { useSignup } from "@/state";
 import { useSignupScreenSteps } from "@/state";
 import { SignupScreenSteps } from "@/constants";
 import phoneCodes from "@/data/country_code.json";
-import Select from "@/components/common/Input/Select";
 
 export default function PhoneNumber() {
     const { data, errors, formIds, phoneVerify, setData } = useSignup();
