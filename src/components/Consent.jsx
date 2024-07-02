@@ -5,15 +5,17 @@ import Button from "@/components/Button";
 import Icons from "@/components/icons/Component";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "@/hooks";
+import { useAuth } from "@/state";
 
 const allowedPath = ["/terms-of-service", "/privacy-policy", "/cookie-policy"];
 
 const Consent = () => {
+    const { isAuthenticated } = useAuth();
     const [isAgree, setIsAgree] = useState(false);
 
     const location = useLocation();
 
-    if (isAgree || allowedPath.includes(location.pathname)) {
+    if (isAuthenticated || isAgree || allowedPath.includes(location.pathname)) {
         return null;
     }
 
