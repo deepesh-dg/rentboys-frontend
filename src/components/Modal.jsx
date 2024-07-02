@@ -16,7 +16,7 @@ export default function Modal({ isOpen, close, data }) {
                     <div className="flex min-h-screen items-center justify-center p-4">
                         <DialogPanel
                             transition
-                            className="data-[closed]:transform-[scale(95%)] z-50 mx-auto flex w-full max-w-5xl flex-col items-center gap-y-6 rounded-2xl border border-gray-300 bg-black/70 px-2 py-8 text-white shadow-sm duration-300 ease-out data-[closed]:opacity-0 md:px-6"
+                            className="data-[closed]:transform-[scale(95%)] z-50 mx-auto flex w-full max-w-5xl flex-col items-center gap-y-6 rounded-2xl border border-gray-300 bg-black/90 px-2 py-8 text-white shadow-sm duration-300 ease-out data-[closed]:opacity-0 md:px-6"
                         >
                             <DialogTitle
                                 as="h3"

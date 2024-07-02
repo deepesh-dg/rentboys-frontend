@@ -14,8 +14,9 @@ export default class HTTPWithAuth extends HTTP {
 
     get token() {
         const token = JSON.parse(
-            window.localStorage.getItem("persist:auth") || "{}"
-        )?.token;
+            JSON.parse(window.localStorage.getItem("persist:auth") || "{}")
+                ?.token || {}
+        );
 
         return token;
     }
