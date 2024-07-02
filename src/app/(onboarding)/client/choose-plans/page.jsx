@@ -1,9 +1,8 @@
 import React from "react";
 import Form from "@/components/auth-screens/Form";
-import MemberImg from "@/assets/img/advertiser.png";
+import MemberImg from "@/assets/img/client.png";
 import Button from "@/components/Button";
 import BG_IMG from "@/assets/img/login-bg.png";
-import Image from "@/components/Image";
 
 export default function MembershipPlan() {
     return (
@@ -15,13 +14,12 @@ export default function MembershipPlan() {
                         backgroundImage: `url(${BG_IMG})`,
                     }}
                 />
-                <Form maxWidth="2xl" className="!gap-y-0 !px-4 !py-4">
+                <Form maxWidth="2xl" className="!gap-y-0 !px-4 !py-4 overflow-hidden">
                     <div className="flex w-full flex-col gap-x-6 gap-y-4 md:flex-row md-down:items-center">
-                        <div className="max-w-sm rounded-2xl bg-red-50">
-                            <Image
+                        <div className="rounded-2xl bg-red-50 max-w-[220px] w-full flex justify-center" >
+                            <img
                                 src={MemberImg}
                                 alt="member_user"
-                                className="max-w-sm w-full"
                             />
                         </div>
                         <div className="flex max-w-sm flex-col justify-between gap-4">
