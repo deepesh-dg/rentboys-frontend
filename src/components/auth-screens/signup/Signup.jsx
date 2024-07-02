@@ -90,7 +90,7 @@ const Signup = () => {
                             }
                         />
                         <button
-                            type="reset"
+                            type="button"
                             className="absolute right-4 top-7 translate-y-[-50%]"
                             onClick={togglePasswordVisibility}
                         >
@@ -120,7 +120,7 @@ const Signup = () => {
                             <span className="">
                                 Accept&nbsp;
                                 <button
-                                    type="reset"
+                                    type="button"
                                     onClick={() => open('terms')}
                                     className="text-red-50"
                                 >
@@ -128,7 +128,7 @@ const Signup = () => {
                                 </button>
                                 &nbsp;and&nbsp;
                                 <button className="text-red-50"
-                                    type="reset"
+                                    type="button"
                                     onClick={() => open('privacy')}
                                 >
                                     <span>Privacy Policy</span>&nbsp;

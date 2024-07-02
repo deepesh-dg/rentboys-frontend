@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useGlobalLoader } from "@/hooks";
 import { useQuery } from "react-query";
 import { ReactQueryKeys } from "@/constants";
@@ -12,7 +12,7 @@ const TermsOfServiceModel = ({ isOpen, setIsOpen, close }) => {
         error,
         isLoading,
     } = useQuery(
-        ReactQueryKeys.CREATE_PROFILE_PAGE_CONTENT,
+        ReactQueryKeys.TERMS_OF_SERVICE_PAGE_CONTENT,
         () => api.common.getTermsAndConditions(),
         {
             staleTime: Infinity,
@@ -26,9 +26,7 @@ const TermsOfServiceModel = ({ isOpen, setIsOpen, close }) => {
     if (isLoading) return null;
 
     return (
-        <div className="w-full">
-            <Modal isOpen={isOpen} setIsOpen={setIsOpen} close={close} data={data} />
-        </div>
+        <Modal isOpen={isOpen} setIsOpen={setIsOpen} close={close} data={data} />
     );
 };
 

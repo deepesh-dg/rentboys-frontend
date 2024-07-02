@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useGlobalLoader } from "@/hooks";
 import { useQuery } from "react-query";
 import { ReactQueryKeys } from "@/constants";
@@ -26,10 +26,7 @@ const PrivacyPolicyModel = ({ isOpen, setIsOpen, close }) => {
     if (isLoading) return null;
 
     return (
-        <div className="w-full">
-            <Modal isOpen={isOpen} setIsOpen={setIsOpen} close={close} data={data} />
-
-        </div>
+        <Modal isOpen={isOpen} setIsOpen={setIsOpen} close={close} data={data} />
     );
 };
 

@@ -61,7 +61,7 @@ export default function Login() {
                         }
                     />
                     <button
-                        type="reset"
+                        type="button"
                         className="absolute right-4 top-7 translate-y-[-50%]"
                         onClick={togglePasswordVisibility}
                     >
