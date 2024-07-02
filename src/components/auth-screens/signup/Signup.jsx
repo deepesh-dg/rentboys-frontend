@@ -8,7 +8,6 @@ import {
     EyeClosedIcon,
     EyeOpenIcon,
 } from "../../icons/outline";
-// import Input from "../../common/Input/Input";
 import { useSignup } from "@/state";
 import { useSignupScreenSteps } from "@/state";
 import { SignupScreenSteps } from "@/constants";

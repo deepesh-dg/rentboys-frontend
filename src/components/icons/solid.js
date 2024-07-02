@@ -19,6 +19,9 @@ import ThreedotIcon from "@/assets/icons/solid/threedot.svg";
 import YellowStarIcon from "@/assets/icons/solid/star.svg";
 import WhiteStarIcon from "@/assets/icons/solid/whiteStar.svg";
 import LockIcon from "@/assets/icons/solid/lock.svg";
+import CMIcon from "@/assets/icons/solid/cm.svg";
+import KGIcon from "@/assets/icons/solid/kg.svg";
+
 
 export {
     Men1Icon,
@@ -42,4 +45,6 @@ export {
     YellowStarIcon,
     WhiteStarIcon,
     LockIcon,
+    CMIcon,
+    KGIcon
 };
