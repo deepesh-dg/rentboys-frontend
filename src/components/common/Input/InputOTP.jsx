@@ -29,9 +29,9 @@ export default function InputOTP({
         splittedValue.length > maxLength
             ? splittedValue.slice(0, maxLength)
             : [
-                ...splittedValue,
-                ...range(splittedValue.length, maxLength).map(() => ""),
-            ]
+                  ...splittedValue,
+                  ...range(splittedValue.length, maxLength).map(() => ""),
+              ]
     );
     const id = useId();
 
@@ -46,7 +46,12 @@ export default function InputOTP({
     };
 
     return (
-        <div className={classNames("flex justify-between gap-4 w-full", className)}>
+        <div
+            className={classNames(
+                "flex w-full justify-between gap-4",
+                className
+            )}
+        >
             {range(0, maxLength).map((index, i, array) => (
                 <OTP
                     id={id + "-" + index}

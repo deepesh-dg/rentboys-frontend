@@ -2,7 +2,12 @@ import React from "react";
 import BuddyActivityCard from "@/components/cards/BuddyActivityCard";
 import Button from "@/components/Button";
 import Icons from "@/components/icons/Component";
-import { LocationIcon, EyeIcon, HeartIcon, ThreedotIcon } from "@/components/icons/solid";
+import {
+    LocationIcon,
+    EyeIcon,
+    HeartIcon,
+    ThreedotIcon,
+} from "@/components/icons/solid";
 import { ArrowRightIcon } from "@/components/icons/outline";
 import LastSeenUser from "@/components/cards/LastSeenUser";
 import InputSwitch from "@/components/Switch";
@@ -12,7 +17,7 @@ export default function Dashboard() {
         <div className="text-white md:pl-4">
             <div className="col-span-6 grid grid-cols-6 items-start gap-4">
                 <div className="col-span-6 grid grid-cols-4 gap-4 space-y-2 md:space-y-0 xl:col-span-4">
-                    <div className="col-span-4 rounded-xl bg-gray-100 p-4 md:col-span-2 flex items-center">
+                    <div className="col-span-4 flex items-center rounded-xl bg-gray-100 p-4 md:col-span-2">
                         <div className="flex items-start gap-x-1">
                             <Icons icon={LocationIcon} className="mt-1 w-8" />
                             <div className="font-medium">
@@ -25,8 +30,8 @@ export default function Dashboard() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-span-4 rounded-xl bg-gray-100 p-4 md:col-span-2 flex w-full">
-                        <div className="flex items-center justify-between w-full">
+                    <div className="col-span-4 flex w-full rounded-xl bg-gray-100 p-4 md:col-span-2">
+                        <div className="flex w-full items-center justify-between">
                             <div className="flex items-center gap-x-3">
                                 <Icons icon={HeartIcon} className="mt-1 w-8" />
                                 <div className="font-medium">
@@ -35,8 +40,10 @@ export default function Dashboard() {
                                     </p>
                                 </div>
                             </div>
-                            <div className="bg-gray-50 w-7 h-7 rounded-full flex justify-center items-center">
-                                <span className="text-white font-bold text-lg">5</span>
+                            <div className="flex h-7 w-7 items-center justify-center rounded-full bg-gray-50">
+                                <span className="text-lg font-bold text-white">
+                                    5
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -56,7 +63,7 @@ export default function Dashboard() {
                                             theme="white"
                                             variant="default"
                                             size="sm"
-                                            className="rounded-md font-medium text-base px-4 !py-0.5"
+                                            className="rounded-md !py-0.5 px-4 text-base font-medium"
                                         />
                                         <span>Free</span>
                                     </div>
@@ -66,9 +73,11 @@ export default function Dashboard() {
                                         children="Get Premium"
                                         variant="default"
                                         size="sm"
-                                        className="rounded-xl font-medium text-base px-6"
+                                        className="rounded-xl px-6 text-base font-medium"
                                     />
-                                    <p className="font-medium text-base">Only US $19.95/month</p>
+                                    <p className="text-base font-medium">
+                                        Only US $19.95/month
+                                    </p>
                                 </div>
                             </div>
                             <div className="mt-4 flex items-start justify-between border-t border-[#444444] p-4">
@@ -78,14 +87,17 @@ export default function Dashboard() {
                                     </p>
                                     <p>No Expiration</p>
                                 </div>
-                                <span className="inline-block border h-10 mt-2 border-[#444444]" />
-                                <div className="relative w-1/2 pl-4 flex justify-between items-center">
+                                <span className="mt-2 inline-block h-10 border border-[#444444]" />
+                                <div className="relative flex w-1/2 items-center justify-between pl-4">
                                     <p className="text-lg font-bold text-gray-200">
                                         Next Billing Date
                                     </p>
-                                    <div className='absoluteright-3 bottom-3'>
-                                        <div className='w-7 h-7 rounded-full bg-black text-white flex justify-center items-center'>
-                                            <Icons src={ThreedotIcon} className='w-5' />
+                                    <div className="absoluteright-3 bottom-3">
+                                        <div className="flex h-7 w-7 items-center justify-center rounded-full bg-black text-white">
+                                            <Icons
+                                                src={ThreedotIcon}
+                                                className="w-5"
+                                            />
                                         </div>
                                     </div>
                                 </div>
@@ -96,28 +108,27 @@ export default function Dashboard() {
                         Buddy Activity
                     </h2>
                     <div className="col-span-4 grid grid-cols-4 gap-x-4 gap-y-6">
-                        <div className="col-span-4 md:col-span-2 rounded-xl bg-gray-100">
+                        <div className="col-span-4 rounded-xl bg-gray-100 md:col-span-2">
                             <BuddyActivityCard />
                         </div>
-                        <div className="col-span-4 md:col-span-2 rounded-xl bg-gray-100">
+                        <div className="col-span-4 rounded-xl bg-gray-100 md:col-span-2">
                             <BuddyActivityCard />
-
                         </div>
                     </div>
                     <h2 className="mb- relative w-full whitespace-nowrap font-medium after:absolute after:-bottom-2 after:left-0 after:h-0.5 after:w-full after:bg-custom-gradient">
                         Who did I see
                     </h2>
                     <div className="col-span-4 grid grid-cols-4 gap-y-6">
-                        <div className="grid sm-down:col-span-4 col-span-2 md:col-span-1 rounded-xl">
+                        <div className="col-span-2 grid rounded-xl md:col-span-1 sm-down:col-span-4">
                             <LastSeenUser />
                         </div>
-                        <div className="grid sm-down:col-span-4 col-span-2 md:col-span-1 rounded-xl">
+                        <div className="col-span-2 grid rounded-xl md:col-span-1 sm-down:col-span-4">
                             <LastSeenUser />
                         </div>
-                        <div className="grid sm-down:col-span-4 col-span-2 md:col-span-1 rounded-xl">
+                        <div className="col-span-2 grid rounded-xl md:col-span-1 sm-down:col-span-4">
                             <LastSeenUser />
                         </div>
-                        <div className="grid sm-down:col-span-4 col-span-2 md:col-span-1 rounded-xl">
+                        <div className="col-span-2 grid rounded-xl md:col-span-1 sm-down:col-span-4">
                             <LastSeenUser />
                         </div>
                     </div>
@@ -211,7 +222,9 @@ export default function Dashboard() {
                                 {/* Toggler */}
                                 <InputSwitch />
                             </div>
-                            <p className="text-base font-medium">Do not track me</p>
+                            <p className="text-base font-medium">
+                                Do not track me
+                            </p>
                             <p className="text-sm font-normal">
                                 Don't allow users to see if you've visited their
                                 profile and keep the history of the profiles you
@@ -221,6 +234,6 @@ export default function Dashboard() {
                     </div>
                 </div>
             </div>
-        </div >
+        </div>
     );
 }

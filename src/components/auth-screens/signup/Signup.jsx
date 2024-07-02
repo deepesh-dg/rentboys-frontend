@@ -121,15 +121,16 @@ const Signup = () => {
                                 Accept&nbsp;
                                 <button
                                     type="button"
-                                    onClick={() => open('terms')}
+                                    onClick={() => open("terms")}
                                     className="text-red-50"
                                 >
                                     <span>T&C</span>
                                 </button>
                                 &nbsp;and&nbsp;
-                                <button className="text-red-50"
+                                <button
+                                    className="text-red-50"
                                     type="button"
-                                    onClick={() => open('privacy')}
+                                    onClick={() => open("privacy")}
                                 >
                                     <span>Privacy Policy</span>&nbsp;
                                 </button>
@@ -165,4 +166,3 @@ const Signup = () => {
 };
 
 export default Signup;
-

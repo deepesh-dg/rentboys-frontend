@@ -10,19 +10,24 @@ import HtopAdimage from "@/assets/img/mobspecialAds3.png";
 import HmobspecialAds2 from "@/assets/img/mobspecialAds2.png";
 import Add2 from "@/assets/img/add2.png";
 import Icons from "@/components/icons/Component";
-import { LockIcon, WhiteStarIcon, YellowStarIcon } from "@/components/icons/solid";
+import {
+    LockIcon,
+    WhiteStarIcon,
+    YellowStarIcon,
+} from "@/components/icons/solid";
 
 export default function Home() {
     return (
         <section className="main-section">
             <div className="featuredEscorts">
                 <div className="m-auto px-4">
-                    <div className="mb-[20px] md-down:flex md-down:justify-between md-down:items-end">
-                        <h1 className="inCardTitle md:text-white-400 md:dark:text-white-400 relative text-lg font-semibold md:font-normal md:text-2xl text-white md:p-0">
-                            Featured Male Escorts & Gay Massage Near
-                            me
+                    <div className="mb-[20px] md-down:flex md-down:items-end md-down:justify-between">
+                        <h1 className="inCardTitle md:text-white-400 md:dark:text-white-400 relative text-lg font-semibold text-white md:p-0 md:text-2xl md:font-normal">
+                            Featured Male Escorts & Gay Massage Near me
                         </h1>
-                        <span className="md:hidden text-red-50 underline shrink-0 sm-down:pb-0 font-normal text-sm">See more</span>
+                        <span className="shrink-0 text-sm font-normal text-red-50 underline md:hidden sm-down:pb-0">
+                            See more
+                        </span>
                     </div>
                     <div className="flex-row gap-1 xl:flex">
                         <div className="md:basis-4/4 lg:basis-3/4">
@@ -33,17 +38,20 @@ export default function Home() {
                                             href="#"
                                             className="relative h-[242px] overflow-hidden"
                                         >
-                                            <Icons icon={YellowStarIcon} className="w-5 absolute top-3 right-3 z-2" />
+                                            <Icons
+                                                icon={YellowStarIcon}
+                                                className="absolute right-3 top-3 z-2 w-5"
+                                            />
                                             <Image
                                                 src={Modelimage}
                                                 className="h-full w-10 transition hover:scale-[1.1]"
                                             />
                                             <div className="afterOverlay absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                                <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                                <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                                     TeddyGBT{" "}
                                                     <span className="ms-1 inline-block h-[11px] w-[11px] rounded-full bg-[#07B40E]"></span>
                                                 </h3>
-                                                <p className="text-base md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                                <p className="md:text-white-400 md:dark:text-white-400 block text-base text-white md:p-0">
                                                     Luanda, Angola
                                                 </p>
                                             </div>
@@ -52,18 +60,21 @@ export default function Home() {
                                             href="#"
                                             className="relative h-[242px] overflow-hidden"
                                         >
-                                            <Icons icon={WhiteStarIcon} className="w-5 absolute top-3 right-3 z-2" />
+                                            <Icons
+                                                icon={WhiteStarIcon}
+                                                className="absolute right-3 top-3 z-2 w-5"
+                                            />
 
                                             <Image
                                                 src={Modelimage}
                                                 className="h-full w-10 hover:scale-[1.1]"
                                             />
                                             <div className="afterOverlay absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                                <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                                <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                                     TeddyGBT{" "}
                                                     <span className="ms-1 inline-block h-[11px] w-[11px] rounded-full bg-[#07B40E]"></span>
                                                 </h3>
-                                                <p className="text-base md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                                <p className="md:text-white-400 md:dark:text-white-400 block text-base text-white md:p-0">
                                                     Luanda, Angola
                                                 </p>
                                             </div>
@@ -72,18 +83,21 @@ export default function Home() {
                                             href="#"
                                             className="relative h-[242px] overflow-hidden"
                                         >
-                                            <Icons icon={YellowStarIcon} className="w-5 absolute top-3 right-3 z-2" />
+                                            <Icons
+                                                icon={YellowStarIcon}
+                                                className="absolute right-3 top-3 z-2 w-5"
+                                            />
 
                                             <Image
                                                 src={Modelimage}
                                                 className="h-full w-10 hover:scale-[1.1]"
                                             />
                                             <div className="absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                                <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                                <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                                     TeddyGBT{" "}
                                                     <span className="statusPoint"></span>
                                                 </h3>
-                                                <p className="text-base md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                                <p className="md:text-white-400 md:dark:text-white-400 block text-base text-white md:p-0">
                                                     Luanda, Angola
                                                 </p>
                                             </div>
@@ -92,161 +106,164 @@ export default function Home() {
                                             href="#"
                                             className="relative h-[242px] overflow-hidden"
                                         >
-                                            <Icons icon={LockIcon} className="w-5 z-50 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]" />
+                                            <Icons
+                                                icon={LockIcon}
+                                                className="absolute left-[50%] top-[50%] z-50 w-5 translate-x-[-50%] translate-y-[-50%]"
+                                            />
                                             <Image
                                                 src={Modelimage}
                                                 className="h-full w-10 blur-sm hover:scale-[1.1]"
                                             />
                                             <div className="afterOverlay absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                                <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                                <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                                     TeddyGBT{" "}
                                                     <span className="ms-1 inline-block h-[11px] w-[11px] rounded-full bg-[#07B40E]"></span>
                                                 </h3>
-                                                <p className="text-base md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                                <p className="md:text-white-400 md:dark:text-white-400 block text-base text-white md:p-0">
                                                     Luanda, Angola
                                                 </p>
                                             </div>
                                         </a>
                                         <a
                                             href="#"
-                                            className="relative h-[242px] overflow-hidden hidden md:block"
+                                            className="relative hidden h-[242px] overflow-hidden md:block"
                                         >
                                             <Image
                                                 src={Modelimage}
                                                 className="h-full w-10 hover:scale-[1.1]"
                                             />
                                             <div className="afterOverlay absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                                <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                                <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                                     TeddyGBT{" "}
                                                     <span className="statusPoint"></span>
                                                 </h3>
-                                                <p className="text-base md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                                <p className="md:text-white-400 md:dark:text-white-400 block text-base text-white md:p-0">
                                                     Luanda, Angola
                                                 </p>
                                             </div>
                                         </a>
                                         <a
                                             href="#"
-                                            className="relative h-[242px] overflow-hidden hidden md:block"
+                                            className="relative hidden h-[242px] overflow-hidden md:block"
                                         >
                                             <Image
                                                 src={Modelimage}
                                                 className="h-full w-10 hover:scale-[1.1]"
                                             />
                                             <div className="afterOverlay absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                                <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                                <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                                     TeddyGBT{" "}
                                                     <span className="statusPoint"></span>
                                                 </h3>
-                                                <p className="text-base md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                                <p className="md:text-white-400 md:dark:text-white-400 block text-base text-white md:p-0">
                                                     Luanda, Angola
                                                 </p>
                                             </div>
                                         </a>
                                         <a
                                             href="#"
-                                            className="relative h-[242px] overflow-hidden hidden xl:block"
+                                            className="relative hidden h-[242px] overflow-hidden xl:block"
                                         >
                                             <Image
                                                 src={Modelimage}
                                                 className="h-full w-10 hover:scale-[1.1]"
                                             />
                                             <div className="afterOverlay absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                                <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                                <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                                     TeddyGBT{" "}
                                                     <span className="statusPoint"></span>
                                                 </h3>
-                                                <p className="text-base md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                                <p className="md:text-white-400 md:dark:text-white-400 block text-base text-white md:p-0">
                                                     Luanda, Angola
                                                 </p>
                                             </div>
                                         </a>
                                         <a
                                             href="#"
-                                            className="relative h-[242px] overflow-hidden hidden xl:block"
+                                            className="relative hidden h-[242px] overflow-hidden xl:block"
                                         >
                                             <Image
                                                 src={Modelimage}
                                                 className="h-full w-10 hover:scale-[1.1]"
                                             />
                                             <div className="afterOverlay absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                                <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                                <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                                     TeddyGBT{" "}
                                                     <span className="statusPoint"></span>
                                                 </h3>
-                                                <p className="text-base md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                                <p className="md:text-white-400 md:dark:text-white-400 block text-base text-white md:p-0">
                                                     Luanda, Angola
                                                 </p>
                                             </div>
                                         </a>
                                         <a
                                             href="#"
-                                            className="relative h-[242px] overflow-hidden hidden xl:block"
+                                            className="relative hidden h-[242px] overflow-hidden xl:block"
                                         >
                                             <Image
                                                 src={Modelimage}
                                                 className="h-full w-10 hover:scale-[1.1]"
                                             />
                                             <div className="afterOverlay absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                                <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                                <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                                     TeddyGBT{" "}
                                                     <span className="statusPoint"></span>
                                                 </h3>
-                                                <p className="text-base md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                                <p className="md:text-white-400 md:dark:text-white-400 block text-base text-white md:p-0">
                                                     Luanda, Angola
                                                 </p>
                                             </div>
                                         </a>
                                         <a
                                             href="#"
-                                            className="relative h-[242px] overflow-hidden hidden xl:block"
+                                            className="relative hidden h-[242px] overflow-hidden xl:block"
                                         >
                                             <Image
                                                 src={Modelimage}
                                                 className="h-full w-10 hover:scale-[1.1]"
                                             />
                                             <div className="afterOverlay absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                                <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                                <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                                     TeddyGBT{" "}
                                                     <span className="statusPoint"></span>
                                                 </h3>
-                                                <p className="text-base md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                                <p className="md:text-white-400 md:dark:text-white-400 block text-base text-white md:p-0">
                                                     Luanda, Angola
                                                 </p>
                                             </div>
                                         </a>
                                         <a
                                             href="#"
-                                            className="relative h-[242px] overflow-hidden hidden xl:block"
+                                            className="relative hidden h-[242px] overflow-hidden xl:block"
                                         >
                                             <Image
                                                 src={Modelimage}
                                                 className="h-full w-10 hover:scale-[1.1]"
                                             />
                                             <div className="afterOverlay absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                                <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                                <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                                     TeddyGBT{" "}
                                                     <span className="statusPoint"></span>
                                                 </h3>
-                                                <p className="text-base md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                                <p className="md:text-white-400 md:dark:text-white-400 block text-base text-white md:p-0">
                                                     Luanda, Angola
                                                 </p>
                                             </div>
                                         </a>
                                         <a
                                             href="#"
-                                            className="relative h-[242px] overflow-hidden hidden xl:block"
+                                            className="relative hidden h-[242px] overflow-hidden xl:block"
                                         >
                                             <Image
                                                 src={Modelimage}
                                                 className="h-full w-10 hover:scale-[1.1]"
                                             />
                                             <div className="afterOverlay absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                                <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                                <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                                     TeddyGBT{" "}
                                                     <span className="statusPoint"></span>
                                                 </h3>
-                                                <p className="text-base md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                                <p className="md:text-white-400 md:dark:text-white-400 block text-base text-white md:p-0">
                                                     Luanda, Angola
                                                 </p>
                                             </div>
@@ -262,11 +279,11 @@ export default function Home() {
                                                 className="h-full w-10 hover:scale-[1.1]"
                                             />
                                             <div className="afterOverlay absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                                <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                                <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                                     TeddyGBT{" "}
                                                     <span className="statusPoint"></span>
                                                 </h3>
-                                                <p className="text-base md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                                <p className="md:text-white-400 md:dark:text-white-400 block text-base text-white md:p-0">
                                                     Luanda, Angola
                                                 </p>
                                             </div>
@@ -281,11 +298,11 @@ export default function Home() {
                                                     className="h-full w-10 hover:scale-[1.1]"
                                                 />
                                                 <div className="afterOverlay absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                                    <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                                    <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                                         TeddyGBT{" "}
                                                         <span className="ms-1 inline-block h-[11px] w-[11px] rounded-full bg-[#07B40E]"></span>
                                                     </h3>
-                                                    <p className="text-base md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                                    <p className="md:text-white-400 md:dark:text-white-400 block text-base text-white md:p-0">
                                                         Luanda, Angola
                                                     </p>
                                                 </div>
@@ -299,11 +316,11 @@ export default function Home() {
                                                     className="h-full w-10 hover:scale-[1.1]"
                                                 />
                                                 <div className="afterOverlay absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                                    <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                                    <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                                         TeddyGBT{" "}
                                                         <span className="ms-1 inline-block h-[11px] w-[11px] rounded-full bg-[#07B40E]"></span>
                                                     </h3>
-                                                    <p className="text-base md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                                    <p className="md:text-white-400 md:dark:text-white-400 block text-base text-white md:p-0">
                                                         Luanda, Angola
                                                     </p>
                                                 </div>
@@ -313,19 +330,22 @@ export default function Home() {
                                 </div>
                             </div>
                         </div>
-                        <div className="md:basis-4/4 lg:basis-1/4 xl:h-[732px] relative">
-                            <h2 className="hidden xl:block absolute bottom-10 left-[50%] translate-x-[-50%] text-4xl font-normal"><span className="text-white">Rent</span> <span className="text-red-50">Boys</span></h2>
+                        <div className="md:basis-4/4 relative lg:basis-1/4 xl:h-[732px]">
+                            <h2 className="absolute bottom-10 left-[50%] hidden translate-x-[-50%] text-4xl font-normal xl:block">
+                                <span className="text-white">Rent</span>{" "}
+                                <span className="text-red-50">Boys</span>
+                            </h2>
                             <a
                                 href="#!"
                                 className="block h-full overflow-hidden"
                             >
                                 <Image
                                     src={topAdimage}
-                                    className="h-full w-full hidden xl:block"
+                                    className="hidden h-full w-full xl:block"
                                 />
                                 <Image
                                     src={HtopAdimage}
-                                    className="h-full w-full mt-4 xl:hidden"
+                                    className="mt-4 h-full w-full xl:hidden"
                                 />
                             </a>
                         </div>
@@ -335,11 +355,13 @@ export default function Home() {
             {/* Recent Posts */}
             <div className="recentPosts-section my-[20px]">
                 <div className="m-auto px-4">
-                    <div className="mb-[20px] md-down:flex md-down:justify-between md-down:items-end">
-                        <h1 className="inCardTitle md:text-white-400 md:dark:text-white-400 relative text-lg font-semibold md:font-normal md:text-2xl text-white md:p-0">
+                    <div className="mb-[20px] md-down:flex md-down:items-end md-down:justify-between">
+                        <h1 className="inCardTitle md:text-white-400 md:dark:text-white-400 relative text-lg font-semibold text-white md:p-0 md:text-2xl md:font-normal">
                             Recent Posts
                         </h1>
-                        <span className="md:hidden text-red-50 underline shrink-0 sm-down:pb-0 font-normal text-sm">See more</span>
+                        <span className="shrink-0 text-sm font-normal text-red-50 underline md:hidden sm-down:pb-0">
+                            See more
+                        </span>
                     </div>
                     <div className="flex-row gap-1 md:flex">
                         <div className="md:basis-3/12">
@@ -347,17 +369,20 @@ export default function Home() {
                                 href="#"
                                 className="blurImg videoBtn relative block h-full overflow-hidden border border-[#5F5F5F]"
                             >
-                                <Icons icon={WhiteStarIcon} className="w-5 absolute top-3 right-3 z-20" />
+                                <Icons
+                                    icon={WhiteStarIcon}
+                                    className="absolute right-3 top-3 z-20 w-5"
+                                />
                                 <Image
                                     src={Modelimage}
-                                    className="h-full w-10 hover:scale-[1.1"
+                                    className="hover:scale-[1.1 h-full w-10"
                                 />
                                 <div className="afterOverlay absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                    <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                    <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                         Servingyouhot{" "}
                                         <span className="statusPoint"></span>
                                     </h3>
-                                    <p className="text-base md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                    <p className="md:text-white-400 md:dark:text-white-400 block text-base text-white md:p-0">
                                         Russia, Russia
                                     </p>
                                 </div>
@@ -393,10 +418,10 @@ export default function Home() {
                                             className="h-full w-10 blur-sm"
                                         />
                                         <div className="afterOverlay absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                            <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                            <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                                 UniGaryD
                                             </h3>
-                                            <p className="text-sm md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                            <p className="md:text-white-400 md:dark:text-white-400 block text-sm text-white md:p-0">
                                                 Singapore, Singapore22
                                             </p>
                                         </div>
@@ -428,10 +453,10 @@ export default function Home() {
                                             className="h-full w-10 blur-sm"
                                         />
                                         <div className="afterOverlay absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                            <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                            <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                                 UniGaryD
                                             </h3>
-                                            <p className="text-sm md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                            <p className="md:text-white-400 md:dark:text-white-400 block text-sm text-white md:p-0">
                                                 Singapore, Singapore22
                                             </p>
                                         </div>
@@ -463,10 +488,10 @@ export default function Home() {
                                             className="h-full w-10 blur-sm"
                                         />
                                         <div className="afterOverlay absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                            <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                            <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                                 UniGaryD
                                             </h3>
-                                            <p className="text-sm md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                            <p className="md:text-white-400 md:dark:text-white-400 block text-sm text-white md:p-0">
                                                 Singapore, Singapore22
                                             </p>
                                         </div>
@@ -480,17 +505,17 @@ export default function Home() {
                                             className="h-full w-10 blur-sm hover:scale-[1.1]"
                                         />
                                         <div className="afterOverlay absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                            <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                            <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                                 UniGaryD
                                             </h3>
-                                            <p className="text-sm md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                            <p className="md:text-white-400 md:dark:text-white-400 block text-sm text-white md:p-0">
                                                 Singapore, Singapore
                                             </p>
                                         </div>
                                     </a>
                                     <a
                                         href="#"
-                                        className="relative h-[172px] overflow-hidden border border-[#5F5F5F] hidden xl:block"
+                                        className="relative hidden h-[172px] overflow-hidden border border-[#5F5F5F] xl:block"
                                     >
                                         <svg
                                             className="absolute bottom-0 left-0 right-0 top-0 z-10 m-auto"
@@ -515,34 +540,34 @@ export default function Home() {
                                             className="h-full w-10 blur-sm"
                                         />
                                         <div className="afterOverlay absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                            <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                            <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                                 UniGaryD
                                             </h3>
-                                            <p className="text-sm md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                            <p className="md:text-white-400 md:dark:text-white-400 block text-sm text-white md:p-0">
                                                 Singapore, Singapore22
                                             </p>
                                         </div>
                                     </a>
                                     <a
                                         href="#"
-                                        className="blurImg videoBtn relative h-[172px] overflow-hidden border border-[#5F5F5F] hidden md:block"
+                                        className="blurImg videoBtn relative hidden h-[172px] overflow-hidden border border-[#5F5F5F] md:block"
                                     >
                                         <Image
                                             src={Modelimage}
                                             className="h-full w-10 blur-sm"
                                         />
                                         <div className="afterOverlay absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                            <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                            <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                                 UniGaryD
                                             </h3>
-                                            <p className="text-sm md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                            <p className="md:text-white-400 md:dark:text-white-400 block text-sm text-white md:p-0">
                                                 Singapore, Singapore
                                             </p>
                                         </div>
                                     </a>
                                     <a
                                         href="#"
-                                        className="relative h-[172px] overflow-hidden border border-[#5F5F5F] hidden md:block"
+                                        className="relative hidden h-[172px] overflow-hidden border border-[#5F5F5F] md:block"
                                     >
                                         <svg
                                             className="absolute bottom-0 left-0 right-0 top-0 z-10 m-auto"
@@ -567,17 +592,17 @@ export default function Home() {
                                             className="h-full w-10 blur-sm"
                                         />
                                         <div className="afterOverlay absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                            <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                            <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                                 UniGaryD
                                             </h3>
-                                            <p className="text-sm md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                            <p className="md:text-white-400 md:dark:text-white-400 block text-sm text-white md:p-0">
                                                 Singapore, Singapore22
                                             </p>
                                         </div>
                                     </a>
                                     <a
                                         href="#"
-                                        className="relative h-[172px] overflow-hidden border border-[#5F5F5F] hidden md:block"
+                                        className="relative hidden h-[172px] overflow-hidden border border-[#5F5F5F] md:block"
                                     >
                                         <svg
                                             className="absolute bottom-0 left-0 right-0 top-0 z-10 m-auto"
@@ -602,17 +627,17 @@ export default function Home() {
                                             className="h-full w-10 blur-sm"
                                         />
                                         <div className="afterOverlay absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                            <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                            <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                                 UniGaryD
                                             </h3>
-                                            <p className="text-sm md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                            <p className="md:text-white-400 md:dark:text-white-400 block text-sm text-white md:p-0">
                                                 Singapore, Singapore22
                                             </p>
                                         </div>
                                     </a>
                                     <a
                                         href="#"
-                                        className="relative h-[172px] overflow-hidden border border-[#5F5F5F] hidden md:block"
+                                        className="relative hidden h-[172px] overflow-hidden border border-[#5F5F5F] md:block"
                                     >
                                         <svg
                                             className="absolute bottom-0 left-0 right-0 top-0 z-10 m-auto"
@@ -637,10 +662,10 @@ export default function Home() {
                                             className="h-full w-10 blur-sm"
                                         />
                                         <div className="afterOverlay absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                            <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                            <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                                 UniGaryD
                                             </h3>
-                                            <p className="text-sm md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                            <p className="md:text-white-400 md:dark:text-white-400 block text-sm text-white md:p-0">
                                                 Singapore, Singapore22
                                             </p>
                                         </div>
@@ -648,18 +673,18 @@ export default function Home() {
                                 </div>
                             </div>
                         </div>
-                        <div className="md:basis-2/12 md:hidden xl:block">
+                        <div className="md:hidden md:basis-2/12 xl:block">
                             <a
                                 href="#"
                                 className="RecentAdsBanner relative h-full overflow-hidden"
                             >
                                 <Image
                                     src={Add2}
-                                    className="h-full w-10 hidden xl:block"
+                                    className="hidden h-full w-10 xl:block"
                                 />
                                 <Image
                                     src={HmobspecialAds2}
-                                    className="w-10 h-full xl:hidden mt-4"
+                                    className="mt-4 h-full w-10 xl:hidden"
                                 />
                             </a>
                         </div>
@@ -669,13 +694,15 @@ export default function Home() {
             {/*  Last Visited Profiles */}
             <div className="recentPosts-section my-[20px]">
                 <div className="m-auto px-4">
-                    <div className="mb-[20px] md-down:flex md-down:justify-between md-down:items-end">
-                        <h1 className="inCardTitle md:text-white-400 md:dark:text-white-400 relative text-lg font-semibold md:font-normal md:text-2xl text-white md:p-0">
+                    <div className="mb-[20px] md-down:flex md-down:items-end md-down:justify-between">
+                        <h1 className="inCardTitle md:text-white-400 md:dark:text-white-400 relative text-lg font-semibold text-white md:p-0 md:text-2xl md:font-normal">
                             Last Visited Profiles
                         </h1>
-                        <span className="md:hidden text-red-50 underline shrink-0 sm-down:pb-0 font-normal text-sm">See more</span>
+                        <span className="shrink-0 text-sm font-normal text-red-50 underline md:hidden sm-down:pb-0">
+                            See more
+                        </span>
                     </div>
-                    <div className="flex-row gap-1 md:flex overflow-hidde xl:max-h-[410px]">
+                    <div className="overflow-hidde flex-row gap-1 md:flex xl:max-h-[410px]">
                         <div className="basis-full xl:basis-10/12">
                             <div className="lastVisitedList">
                                 <div className="grid grid-cols-2 xl:grid-cols-5">
@@ -683,18 +710,20 @@ export default function Home() {
                                         href="#"
                                         className="blurImg relative h-[168px] overflow-hidden border border-[#5F5F5F]"
                                     >
-
-                                        <Icons icon={WhiteStarIcon} className="w-5 absolute top-3 right-3 z-1" />
+                                        <Icons
+                                            icon={WhiteStarIcon}
+                                            className="absolute right-3 top-3 z-1 w-5"
+                                        />
 
                                         <Image
                                             src={Modelimage}
                                             className="h-full w-10 blur-sm"
                                         />
                                         <div className="afterOverlay absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                            <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                            <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                                 UniGaryD
                                             </h3>
-                                            <p className="text-sm md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                            <p className="md:text-white-400 md:dark:text-white-400 block text-sm text-white md:p-0">
                                                 Singapore, Singapore
                                             </p>
                                         </div>
@@ -708,10 +737,10 @@ export default function Home() {
                                             className="h-full w-10 blur-sm"
                                         />
                                         <div className="afterOverlay absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                            <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                            <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                                 UniGaryD
                                             </h3>
-                                            <p className="text-sm md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                            <p className="md:text-white-400 md:dark:text-white-400 block text-sm text-white md:p-0">
                                                 Singapore, Singapore
                                             </p>
                                         </div>
@@ -725,10 +754,10 @@ export default function Home() {
                                             className="h-full w-10 blur-sm"
                                         />
                                         <div className="afterOverlay absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                            <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                            <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                                 UniGaryD
                                             </h3>
-                                            <p className="text-sm md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                            <p className="md:text-white-400 md:dark:text-white-400 block text-sm text-white md:p-0">
                                                 Singapore, Singapore
                                             </p>
                                         </div>
@@ -737,34 +766,37 @@ export default function Home() {
                                         href="#"
                                         className="blurImg relative h-[168px] overflow-hidden border border-[#5F5F5F]"
                                     >
-                                        <Icons icon={WhiteStarIcon} className="w-5 absolute top-3 right-3 z-1" />
+                                        <Icons
+                                            icon={WhiteStarIcon}
+                                            className="absolute right-3 top-3 z-1 w-5"
+                                        />
 
                                         <Image
                                             src={Modelimage}
                                             className="h-full w-10 blur-sm"
                                         />
                                         <div className="afterOverlay absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                            <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                            <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                                 UniGaryD
                                             </h3>
-                                            <p className="text-sm md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                            <p className="md:text-white-400 md:dark:text-white-400 block text-sm text-white md:p-0">
                                                 Singapore, Singapore
                                             </p>
                                         </div>
                                     </a>
                                     <a
                                         href="#"
-                                        className="blurImg relative h-[168px] overflow-hidden border border-[#5F5F5F] hidden xl:block"
+                                        className="blurImg relative hidden h-[168px] overflow-hidden border border-[#5F5F5F] xl:block"
                                     >
                                         <Image
                                             src={Modelimage}
                                             className="h-full w-10"
                                         />
                                         <div className="afterOverlay absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                            <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                            <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                                 UniGaryD
                                             </h3>
-                                            <p className="text-base md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                            <p className="md:text-white-400 md:dark:text-white-400 block text-base text-white md:p-0">
                                                 Singapore, Singapore
                                             </p>
                                         </div>
@@ -773,11 +805,13 @@ export default function Home() {
                             </div>
                             {/* LIVE Cam */}
                             <div className="liveCamList my-[20px]">
-                                <div className="mb-[20px] md-down:flex md-down:justify-between md-down:items-end">
-                                    <h1 className="inCardTitle md:text-white-400 md:dark:text-white-400 relative text-lg font-semibold md:font-normal md:text-2xl text-white md:p-0">
+                                <div className="mb-[20px] md-down:flex md-down:items-end md-down:justify-between">
+                                    <h1 className="inCardTitle md:text-white-400 md:dark:text-white-400 relative text-lg font-semibold text-white md:p-0 md:text-2xl md:font-normal">
                                         LIVE Cam
                                     </h1>
-                                    <span className="md:hidden text-red-50 underline shrink-0 sm-down:pb-0 font-normal text-sm">See more</span>
+                                    <span className="shrink-0 text-sm font-normal text-red-50 underline md:hidden sm-down:pb-0">
+                                        See more
+                                    </span>
                                 </div>
                                 <div className="liveViewList">
                                     <div className="liveCam grid grid-cols-2 xl:grid-cols-5">
@@ -785,7 +819,10 @@ export default function Home() {
                                             href="#"
                                             className="relative h-[168px] overflow-hidden border border-[#5F5F5F]"
                                         >
-                                            <Icons icon={WhiteStarIcon} className="w-5 absolute top-3 right-3 z-1" />
+                                            <Icons
+                                                icon={WhiteStarIcon}
+                                                className="absolute right-3 top-3 z-1 w-5"
+                                            />
 
                                             {/* <svg
                                                 className="pointer-events-none absolute right-[13px] top-[10px]"
@@ -805,10 +842,10 @@ export default function Home() {
                                                 className="h-full w-10"
                                             />
                                             <div className="afterOverlay absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                                <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                                <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                                     UniGaryD
                                                 </h3>
-                                                <p className="text-sm md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                                <p className="md:text-white-400 md:dark:text-white-400 block text-sm text-white md:p-0">
                                                     Singapore, Singapore
                                                 </p>
                                             </div>
@@ -824,10 +861,10 @@ export default function Home() {
                                                 className="h-full w-10"
                                             />
                                             <div className="afterOverlay absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                                <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                                <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                                     UniGaryD
                                                 </h3>
-                                                <p className="text-sm md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                                <p className="md:text-white-400 md:dark:text-white-400 block text-sm text-white md:p-0">
                                                     Singapore, Singapore
                                                 </p>
                                             </div>
@@ -854,10 +891,10 @@ export default function Home() {
                                                 className="h-full w-10"
                                             />
                                             <div className="afterOverlay absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                                <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                                <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                                     UniGaryD
                                                 </h3>
-                                                <p className="text-sm md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                                <p className="md:text-white-400 md:dark:text-white-400 block text-sm text-white md:p-0">
                                                     Singapore, Singapore
                                                 </p>
                                             </div>
@@ -866,23 +903,22 @@ export default function Home() {
                                             href="#"
                                             className="relative h-[168px] overflow-hidden border border-[#5F5F5F]"
                                         >
-
                                             <Image
                                                 src={Modelimage}
                                                 className="h-full w-10"
                                             />
                                             <div className="afterOverlay absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                                <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                                <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                                     UniGaryD
                                                 </h3>
-                                                <p className="text-sm md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                                <p className="md:text-white-400 md:dark:text-white-400 block text-sm text-white md:p-0">
                                                     Singapore, Singapore
                                                 </p>
                                             </div>
                                         </a>
                                         <a
                                             href="#"
-                                            className="relative h-[168px] overflow-hidden border border-[#5F5F5F] hidden xl:block"
+                                            className="relative hidden h-[168px] overflow-hidden border border-[#5F5F5F] xl:block"
                                         >
                                             <svg
                                                 className="pointer-events-none absolute right-[13px] top-[10px]"
@@ -902,10 +938,10 @@ export default function Home() {
                                                 className="h-full w-10"
                                             />
                                             <div className="afterOverlay absolute bottom-0 left-0 px-[13px] pb-[8px]">
-                                                <h3 className="text-base md:text-white-800 md:dark:text-white-800 block font-bold text-white md:p-0">
+                                                <h3 className="md:text-white-800 md:dark:text-white-800 block text-base font-bold text-white md:p-0">
                                                     UniGaryD
                                                 </h3>
-                                                <p className="text-base md:text-white-400 md:dark:text-white-400 block text-white md:p-0">
+                                                <p className="md:text-white-400 md:dark:text-white-400 block text-base text-white md:p-0">
                                                     Singapore, Singapore
                                                 </p>
                                             </div>
@@ -914,18 +950,18 @@ export default function Home() {
                                 </div>
                             </div>
                         </div>
-                        <div className="hidden xl:basis-2/12 xl:block">
+                        <div className="hidden xl:block xl:basis-2/12">
                             <a
                                 href="#"
                                 className="RecentAdsBanner relative h-full overflow-hidden"
                             >
                                 <Image
                                     src={Modelimage}
-                                    className="h-full w-10 hidden xl:block"
+                                    className="hidden h-full w-10 xl:block"
                                 />
                                 <Image
                                     src={HtopAdimage}
-                                    className="w-10 h-full xl:hidden mt-4"
+                                    className="mt-4 h-full w-10 xl:hidden"
                                 />
                             </a>
                         </div>
@@ -935,11 +971,13 @@ export default function Home() {
             {/*     RentBoys Special Ads */}
             <div className="recentPosts-section my-[20px]">
                 <div className="m-auto px-4">
-                    <div className="mb-[20px] md-down:flex md-down:justify-between md-down:items-end">
-                        <h1 className="inCardTitle md:text-white-400 md:dark:text-white-400 relative text-lg font-semibold md:font-normal md:text-2xl text-white md:p-0">
+                    <div className="mb-[20px] md-down:flex md-down:items-end md-down:justify-between">
+                        <h1 className="inCardTitle md:text-white-400 md:dark:text-white-400 relative text-lg font-semibold text-white md:p-0 md:text-2xl md:font-normal">
                             RentBoys Special Ads
                         </h1>
-                        <span className="md:hidden text-red-50 underline shrink-0 sm-down:pb-0 font-normal text-sm">See more</span>
+                        <span className="shrink-0 text-sm font-normal text-red-50 underline md:hidden sm-down:pb-0">
+                            See more
+                        </span>
                     </div>
                     <div className="flex flex-col gap-4 md:flex-row">
                         <div className="basis-4/12">
