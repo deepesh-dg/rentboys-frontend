@@ -3,13 +3,17 @@ import BackgroundImg from "@/assets/img/landing-bg2.png";
 import { Men1Icon, Men2Icon, Men3Icon } from "@/components/icons/solid";
 import Button from "@/components/Button";
 import Icons from "@/components/icons/Component";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "@/hooks";
+
+const allowedPath = ["/terms-of-service", "/privacy-policy", "/cookie-policy"];
 
 const Consent = () => {
     const [isAgree, setIsAgree] = useState(false);
 
-    if (isAgree) {
+    const location = useLocation();
+
+    if (isAgree || allowedPath.includes(location.pathname)) {
         return null;
     }
 
@@ -63,13 +67,13 @@ const Consent = () => {
                         <Link to="/cookie-policy">
                             {" "}
                             <span className="font-bold text-red-200 underline">
-                                Cookies
+                                Cookies{" "}
                             </span>
                         </Link>
-                        or customize cookies{" "}
+                        {/* or customize cookies{" "}
                         <span className="font-bold text-red-200 underline">
                             here
-                        </span>
+                        </span> */}
                     </p>
                     <div className="mb-4 mt-6 flex justify-center">
                         <Button
