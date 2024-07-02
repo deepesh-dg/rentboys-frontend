@@ -96,9 +96,7 @@ export function useSignup() {
                     Object.keys(error.errors).forEach(key => {
                         errors[key] = error.errors[key][0];
                     });
-                }
-
-                errors.form = error?.message || "Something went wrong";
+                } else errors.form = error?.message || "Something went wrong";
 
                 setFormErrors(errors);
             } finally {
