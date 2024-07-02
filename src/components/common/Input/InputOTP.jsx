@@ -2,18 +2,21 @@ import React, { useId, useRef } from "react";
 import { range } from "@/utils";
 import { classNames } from "@/lib";
 
-function OTP({ id, value, onChange }) {
+/**
+ * @param {React.InputHTMLAttributes<HTMLInputElement>} props
+ * @returns
+ */
+function OTP({ onChange, ...props }) {
     return (
         <input
-            id={id}
             type="number"
-            value={value}
             className="inline-block h-16 w-16 border border-white/40 bg-transparent text-center text-2xl outline-none focus:border-red-50"
             onChange={e => {
                 const length = e.target.value.length;
 
                 if (onChange) onChange(e.target.value[length - 1] || "");
             }}
+            {...props}
         />
     );
 }
@@ -47,31 +50,32 @@ export default function InputOTP({
 
     return (
         <div className={classNames("flex justify-between gap-4", className)}>
-            {range(0, maxLength).map((index, i, array) => (
-                <OTP
-                    id={id + "-" + index}
-                    key={index}
-                    value={values[index] || ""}
-                    className="h-16 w-16 border border-white/40 bg-transparent text-center text-2xl outline-none focus:border-red-50"
-                    onChange={value => {
-                        handleChange(index, value);
-                        const prevInput = document.getElementById(
-                            id + "-" + (index - 1)
-                        );
-                        const nextInput = document.getElementById(
-                            id + "-" + (index + 1)
-                        );
-                        if (nextInput && value) nextInput.focus();
-                        if (
-                            prevInput &&
-                            !value &&
-                            (values.slice(index + 1).every(v => v === "") ||
-                                index === array.length - 1)
-                        )
-                            prevInput.focus();
-                    }}
-                />
-            ))}
+            {range(0, maxLength).map((index, i, array) => {
+                const prevInput = document.getElementById(
+                    id + "-" + (index - 1)
+                );
+                const nextInput = document.getElementById(
+                    id + "-" + (index + 1)
+                );
+                return (
+                    <OTP
+                        id={id + "-" + index}
+                        key={index}
+                        value={values[index] || ""}
+                        className="h-16 w-16 border border-white/40 bg-transparent text-center text-2xl outline-none focus:border-red-50"
+                        onChange={value => {
+                            handleChange(index, value);
+                            if (value) nextInput?.focus();
+                            if (
+                                !value &&
+                                (values.slice(index + 1).every(v => v === "") ||
+                                    index === array.length - 1)
+                            )
+                                prevInput?.focus();
+                        }}
+                    />
+                );
+            })}
         </div>
     );
 }
