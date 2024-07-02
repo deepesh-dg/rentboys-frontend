@@ -7,6 +7,7 @@ import { AuthRoutes, ProtectedRoutes } from "@/hoc";
 import { Provider } from "react-redux";
 import store from "@/state";
 import { Navigate } from "react-router-dom";
+import MembershipPlan from "./membership-plan/page"
 
 /**
  * @type {import('react-router-dom').RouteObject[]}
@@ -42,6 +43,10 @@ const RootRoute = [
     {
         path: "*",
         element: <Navigate to="/" />,
+    },
+    {
+        path: "membership-plan",
+        element: <MembershipPlan />,
     },
 ];
 

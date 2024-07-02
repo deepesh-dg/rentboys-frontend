@@ -52,6 +52,7 @@ export default function MembershipPlan() {
                                 />
                                 <Button
                                     themes="red"
+                                    href="/membership-plan"
                                     variant="colored"
                                     children="Select Membership"
                                     className="w-full whitespace-nowrap rounded-xl text-center text-base font-bold"
