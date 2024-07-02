@@ -4,6 +4,7 @@ import MemberImg from "@/assets/img/advertiser.png";
 
 import Button from "@/components/Button";
 import BG_IMG from "@/assets/img/login-bg.png";
+import Image from "@/components/Image";
 
 export default function MembershipPlan() {
     return (
@@ -16,12 +17,12 @@ export default function MembershipPlan() {
                     }}
                 />
                 <Form maxWidth="2xl" className="!gap-y-0 !px-4 !py-4">
-                    <div className="flex w-full flex-col gap-4 md:flex-row md-down:items-center">
-                        <div className="w-full max-w-sm rounded-2xl bg-red-50">
-                            <img
+                    <div className="flex w-full flex-col gap-x-6 gap-y-4 md:flex-row md-down:items-center">
+                        <div className="max-w-sm rounded-2xl bg-red-50">
+                            <Image
                                 src={MemberImg}
                                 alt="member_user"
-                                className="h-full w-full max-w-sm"
+                                className="max-w-sm w-full"
                             />
                         </div>
                         <div className="flex max-w-sm flex-col justify-between gap-4">
@@ -54,8 +55,8 @@ export default function MembershipPlan() {
                             </div>
                         </div>
                     </div>
-                </Form>
-            </div>
+                </Form >
+            </div >
         </>
     );
 }
