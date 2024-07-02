@@ -22,8 +22,6 @@ import CheckIcon from "@/assets/icons/outline/check.svg";
 import TickCircleRoundedIcon from "@/assets/icons/outline/tick-circle.svg";
 import LineIcon from "@/assets/icons/outline/Line.svg";
 
-
-
 export {
     MailIcon,
     UserIcon,

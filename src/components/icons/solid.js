@@ -20,8 +20,6 @@ import YellowStarIcon from "@/assets/icons/solid/star.svg";
 import WhiteStarIcon from "@/assets/icons/solid/whiteStar.svg";
 import LockIcon from "@/assets/icons/solid/lock.svg";
 
-
-
 export {
     Men1Icon,
     Men2Icon,

@@ -6,7 +6,6 @@ import api from "@/services";
 import Modal from "@/components/Modal";
 
 const PrivacyPolicyModel = ({ isOpen, setIsOpen, close }) => {
-
     const {
         data: { status, data } = {},
         error,
@@ -26,10 +25,13 @@ const PrivacyPolicyModel = ({ isOpen, setIsOpen, close }) => {
     if (isLoading) return null;
 
     return (
-        <Modal isOpen={isOpen} setIsOpen={setIsOpen} close={close} data={data} />
+        <Modal
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
+            close={close}
+            data={data}
+        />
     );
 };
 
-
-
-export default PrivacyPolicyModel
+export default PrivacyPolicyModel;

@@ -15,7 +15,7 @@ const page = () => {
         { id: "other", value: "other", label: "Other" },
     ];
 
-    const handleChange = (event) => {
+    const handleChange = event => {
         const value = event.target.value;
         setSelectedOption(value);
         if (value !== "other") {
@@ -23,7 +23,7 @@ const page = () => {
         }
     };
 
-    const handleCustomInputChange = (event) => {
+    const handleCustomInputChange = event => {
         const customValue = event.target.value;
         setCustomOption(customValue);
         setSelectedOption(customValue);
@@ -54,8 +54,8 @@ const page = () => {
                         placeholder="Others"
                         value={customOption}
                         onChange={handleCustomInputChange}
-                        onClick={(e) => e.stopPropagation()}
-                        className="mt-4 p-2 border border-gray-300 rounded-md w-full"
+                        onClick={e => e.stopPropagation()}
+                        className="mt-4 w-full rounded-md border border-gray-300 p-2"
                     />
                 )}
                 <Textarea
