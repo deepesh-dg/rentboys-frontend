@@ -38,9 +38,6 @@ export const ReactQueryKeys = Object.freeze({
     PRIVACY_POLICY_PAGE_CONTENT: "privacy-policy-page-content",
     COOKIE_POLICY_CONTENT: "cookie-policy-page-content",
     DMCA_NOTICE_CONTENT: "dmca-notice-page-content",
-
-
-
     UPLOAD_ID_PAGE_CONTENT: "upload-id-page-content",
     MASTERS: "masters-data",
 });

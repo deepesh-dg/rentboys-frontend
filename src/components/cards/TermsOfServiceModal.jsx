@@ -6,7 +6,6 @@ import api from "@/services";
 import Modal from "@/components/Modal";
 
 const TermsOfServiceModel = ({ isOpen, setIsOpen, close }) => {
-
     const {
         data: { status, data } = {},
         error,
@@ -26,10 +25,15 @@ const TermsOfServiceModel = ({ isOpen, setIsOpen, close }) => {
     if (isLoading) return null;
 
     return (
-        <Modal isOpen={isOpen} setIsOpen={setIsOpen} close={close} data={data} />
+        <div className="w-full">
+            <Modal
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+                close={close}
+                data={data}
+            />
+        </div>
     );
 };
 
-
-
-export default TermsOfServiceModel
+export default TermsOfServiceModel;
