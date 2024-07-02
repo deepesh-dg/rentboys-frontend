@@ -6,7 +6,7 @@ export default function Logout() {
     const { logout } = useAuth();
 
     useEffect(() => {
-        api.auth.logout().then(logout());
+        api.auth.logout().then(logout);
     }, [logout]);
     return null;
 }
