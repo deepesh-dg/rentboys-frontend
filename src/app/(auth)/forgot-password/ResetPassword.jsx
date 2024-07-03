@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Button from "@/components/Button";
-import Input from "@/components/common/Input/Input";
+import Input from "@/components/common/Input/HeadlessInput";
 import {
     PasswordIcon,
     EyeClosedIcon,
@@ -49,7 +49,7 @@ const ResetPassword = ({ setScreen }) => {
                     }
                 />
                 <button
-                    type="reset"
+                    type="button"
                     className="absolute right-4 top-7 translate-y-[-50%]"
                     onClick={handleShowPassword}
                 >
@@ -74,7 +74,7 @@ const ResetPassword = ({ setScreen }) => {
                     }
                 />
                 <button
-                    type="reset"
+                    type="button"
                     className="absolute right-4 top-7 translate-y-[-50%]"
                     onClick={() => setViewConfirmPwd(!viewConfirmPwd)}
                 >

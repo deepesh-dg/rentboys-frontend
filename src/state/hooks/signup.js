@@ -96,9 +96,7 @@ export function useSignup() {
                     Object.keys(error.errors).forEach(key => {
                         errors[key] = error.errors[key][0];
                     });
-                }
-
-                errors.form = error?.message || "Something went wrong";
+                } else errors.form = error?.message || "Something went wrong";
 
                 setFormErrors(errors);
             } finally {
@@ -230,6 +228,7 @@ export function useSignup() {
         }
 
         if (data.user_type === UserType.CLIENT) {
+            // fASLE
             login(response.data);
         }
 
@@ -258,6 +257,7 @@ export function useSignup() {
         const response = await api.auth.phoneVerifyOtpSend({
             email: data.email,
             phone_code: data.phone_code,
+            country_code: data.country_code,
             phone_number: data.phone_number,
         });
 
@@ -300,6 +300,7 @@ export function useSignup() {
                 postal_code: data.postal_code,
                 landmark: data.landmark,
                 phone_code: data.phone_code,
+                country_code: data.country_code,
                 phone_number: data.phone_number,
                 otp: data.otp,
             });
@@ -307,7 +308,7 @@ export function useSignup() {
             if (!response.status) {
                 throw response;
             }
-
+            //FALSE
             login(response.data);
 
             return true;

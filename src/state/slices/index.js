@@ -5,6 +5,7 @@ import loaderReducer from "./loader.slice";
 import loginFormReducer from "./form/login.slice";
 import signupFormReducer from "./form/signup.slice";
 import profileFormReducer from "./form/profile.slice";
+import metadataReducer from "./metadata.slice";
 
 export {
     authReducer,
@@ -14,4 +15,5 @@ export {
     loginFormReducer,
     signupFormReducer,
     profileFormReducer,
+    metadataReducer,
 };

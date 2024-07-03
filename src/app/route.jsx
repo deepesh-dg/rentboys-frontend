@@ -2,7 +2,6 @@ import authRoutes from "./(auth)/route";
 import DefaultRoutes from "./(default-layout)/route";
 import RootLayout from "./layout";
 import ErrorPage from "./error";
-import Consent from "./consent";
 import onboardingRoutes from "./(onboarding)/route";
 import { AuthRoutes, ProtectedRoutes } from "@/hoc";
 import { Provider } from "react-redux";
@@ -39,10 +38,6 @@ const RootRoute = [
                 children: onboardingRoutes,
             },
         ],
-    },
-    {
-        path: "/consent",
-        element: <Consent />,
     },
     {
         path: "*",

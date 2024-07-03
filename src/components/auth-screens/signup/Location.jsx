@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Input from "@/components/common/Input/Input";
+import Input from "@/components/common/Input/HeadlessInput";
 import { LocationIcon } from "@/components/icons/outline";
 import Button from "@/components/Button";
 import { useSignupScreenSteps } from "@/state";

@@ -2,11 +2,10 @@ import React from "react";
 import { useGlobalLoader } from "@/hooks";
 import { useQuery } from "react-query";
 import { ReactQueryKeys } from "@/constants";
-
 import api from "@/services";
-import parse from "html-react-parser";
+import Modal from "@/components/Modal";
 
-const page = () => {
+const TermsOfServiceModel = ({ isOpen, setIsOpen, close }) => {
     const {
         data: { status, data } = {},
         error,
@@ -24,11 +23,17 @@ const page = () => {
     if (error || status === false) throw new Error(error?.message || "Error");
 
     if (isLoading) return null;
+
     return (
         <div className="w-full">
-            <div className="reset text-white">{parse(data?.body || "")}</div>
+            <Modal
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+                close={close}
+                data={data}
+            />
         </div>
     );
 };
 
-export default page;
+export default TermsOfServiceModel;

@@ -1,25 +1,33 @@
-import { useState } from "react";
+import { Select } from "@headlessui/react";
+import { classNames } from "@/lib";
 
-const SelectOption = ({ options }) => {
-    const [selectedOption, setSelectedOption] = useState(null);
-
-    const handleOptionClick = option => {
-        setSelectedOption(option);
-    };
-
+const SelectOption = ({
+    options,
+    className,
+    firstDisabledOption,
+    ...props
+}) => {
     return (
-        <div>
-            {options.map((option, index) => (
-                <div
-                    key={index}
-                    className={`option ${selectedOption === option ? "selected" : ""}`}
-                    onClick={() => handleOptionClick(option)}
-                >
-                    {option}
-                </div>
+        <Select
+            name="status"
+            aria-label="Project status"
+            className={classNames(
+                "rb-select-input border border-solid border-gray-300 bg-black pl-4 pr-8 outline-none placeholder:opacity-80 focus:ring-1 focus:ring-red-50",
+                className
+            )}
+            {...props}
+        >
+            {firstDisabledOption && (
+                <option value="" disabled>
+                    {firstDisabledOption}
+                </option>
+            )}
+            {options?.map(option => (
+                <option key={option.id} value={option.value}>
+                    {option.label}
+                </option>
             ))}
-        </div>
+        </Select>
     );
 };
-
 export default SelectOption;

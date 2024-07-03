@@ -15,6 +15,17 @@ export const UserType = Object.freeze({
     CLIENT: "client",
 });
 
+export const UserTypeId = Object.freeze({
+    ADVERTISER: 3,
+    CLIENT: 2,
+});
+
+export const AccountStatus = Object.freeze({
+    PENDING: 0,
+    APPROVED: 1,
+    REJECTED: 2,
+});
+
 export const FileUploadTypes = Object.freeze({
     USER_DOC: "user-doc",
     USER_PROFILE: "user-profile",
@@ -38,9 +49,6 @@ export const ReactQueryKeys = Object.freeze({
     PRIVACY_POLICY_PAGE_CONTENT: "privacy-policy-page-content",
     COOKIE_POLICY_CONTENT: "cookie-policy-page-content",
     DMCA_NOTICE_CONTENT: "dmca-notice-page-content",
-
-
-
     UPLOAD_ID_PAGE_CONTENT: "upload-id-page-content",
     MASTERS: "masters-data",
 });

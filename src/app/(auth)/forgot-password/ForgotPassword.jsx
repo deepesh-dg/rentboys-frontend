@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "@/components/Button";
 import { MailIcon } from "@/components/icons/outline";
-import Input from "@/components/common/Input/Input";
+import Input from "@/components/common/Input/HeadlessInput";
 import { useLogin } from "@/state";
 import Form from "@/components/auth-screens/Form";
 

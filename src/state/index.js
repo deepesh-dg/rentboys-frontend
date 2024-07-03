@@ -7,6 +7,7 @@ import {
     profileFormReducer,
     mastersReducer,
     signupScreenStepsReducer,
+    metadataReducer,
 } from "./slices";
 import {
     persistReducer,
@@ -20,6 +21,7 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import session from "redux-persist/lib/storage/session";
+// import inactivityMiddleware from "./middlewares/inactivity";
 
 const authPersistedReducer = persistReducer(
     {
@@ -65,6 +67,14 @@ const profileFormPersistedReducer = persistReducer(
     },
     profileFormReducer
 );
+const metadataReducerPersistedReducer = persistReducer(
+    {
+        key: "metadata",
+        storage,
+        version: "0.0.1",
+    },
+    metadataReducer
+);
 
 const reducers = combineReducers({
     auth: authPersistedReducer,
@@ -74,6 +84,7 @@ const reducers = combineReducers({
     loginForm: loginFormPersistedReducer,
     signupForm: signupFormPersistedReducer,
     profileForm: profileFormPersistedReducer,
+    metadata: metadataReducerPersistedReducer,
 });
 
 const store = configureStore({
@@ -92,6 +103,7 @@ const store = configureStore({
                 ],
             },
         }),
+    // .concat(inactivityMiddleware),
 });
 
 export const persistor = persistStore(store);

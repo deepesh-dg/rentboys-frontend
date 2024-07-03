@@ -16,7 +16,7 @@ export default function DashboardLayout() {
     };
     return (
         <div className="px-4">
-            <div className="grid grid-cols-6 gap-y-6 items-start">
+            <div className="grid grid-cols-6 items-start gap-y-6">
                 <div className="col-span-6 rounded-xl bg-gray-100 md:col-span-1">
                     <div className="flex flex-col py-6 text-white">
                         {navLinks.map((link, index) => (

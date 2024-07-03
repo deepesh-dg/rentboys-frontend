@@ -7,10 +7,11 @@ import {
     EyeClosedIcon,
     EyeOpenIcon,
 } from "@/components/icons/outline";
-import Input from "@/components/common/Input/Input";
+// import Input from "@/components/common/Input/Input";
 import { useLogin } from "@/state";
 import Form from "@/components/auth-screens/Form";
 import Icons from "@/components/icons/Component";
+import Input from "@/components/common/Input/HeadlessInput";
 
 export default function Login() {
     const { data, errors, formIds, login, setData } = useLogin();
@@ -60,7 +61,7 @@ export default function Login() {
                         }
                     />
                     <button
-                        type="reset"
+                        type="button"
                         className="absolute right-4 top-7 translate-y-[-50%]"
                         onClick={togglePasswordVisibility}
                     >

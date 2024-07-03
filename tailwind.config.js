@@ -65,7 +65,7 @@ export default {
                 "custom-gradient":
                     "linear-gradient(90deg, rgba(255, 0, 0, 1) 0%, rgba(25, 25, 25, 1) 98%, rgba(0, 212, 255, 0) 100%)",
                 background:
-                    "linear-gradient(180deg, rgba(25, 25, 25, 0) 0%, #191919 105.06%)"
+                    "linear-gradient(180deg, rgba(25, 25, 25, 0) 0%, #191919 105.06%)",
             },
 
             aftrelay: {

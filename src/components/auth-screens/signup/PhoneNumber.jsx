@@ -1,12 +1,13 @@
 import React from "react";
 import Form from "../Form";
-import Input from "@/components/common/Input/Input";
+import Input from "@/components/common/Input/HeadlessInput";
+import Select from "@/components/SelectOption";
 import Button from "@/components/Button";
 import { useSignup } from "@/state";
 import { useSignupScreenSteps } from "@/state";
 import { SignupScreenSteps } from "@/constants";
 import phoneCodes from "@/data/country_code.json";
-import Select from "@/components/common/Input/Select";
+import SelectDropDown from "@/components/SelectDropdown";
 
 export default function PhoneNumber() {
     const { data, errors, formIds, phoneVerify, setData } = useSignup();
@@ -24,17 +25,20 @@ export default function PhoneNumber() {
         >
             <div>
                 <div className="flex">
-                    <Select
+                    <SelectDropDown
                         id={formIds.phone_code}
-                        value={data.phone_code}
+                        value={`${data.phone_code}-${data.country_code}`}
                         onChange={e => {
+                            const phone_code = e.target.value.split("-")[0];
+                            const country_code = e.target.value.split("-")[1];
                             setData({
-                                phone_code: e.target.value,
+                                phone_code,
+                                country_code,
                             });
                         }}
                         options={phoneCodes.map(code => ({
                             id: `${code.dial_code} - ${code.name}`,
-                            value: code.dial_code,
+                            value: `${code.dial_code}-${code.code}`,
                             label: `${code.dial_code} ${code.name}`,
                         }))}
                         className="max-w-40"

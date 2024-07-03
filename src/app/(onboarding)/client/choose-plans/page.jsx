@@ -1,10 +1,8 @@
 import React from "react";
 import Form from "@/components/auth-screens/Form";
-import MemberImg from "@/assets/img/member-user.png";
+import MemberImg from "@/assets/img/client.png";
 import Button from "@/components/Button";
 import BG_IMG from "@/assets/img/login-bg.png";
-import Icons from "@/components/icons/Component";
-import { ArrowDownIcon, CheckIcon, ClosecircleIcon, LineIcon, TickCircleRoundedIcon } from "@/components/icons/outline";
 
 export default function MembershipPlan() {
     return (
@@ -16,155 +14,44 @@ export default function MembershipPlan() {
                         backgroundImage: `url(${BG_IMG})`,
                     }}
                 />
-                <Form maxWidth="2xl" className="!gap-y-0 !px-4 !py-4 overflow-x-auto">
-                    <div className="flex justify-between items-center w-full">
-                        <h2 className="text-xl font-bold">Membership Plan</h2>
-                        <Icons icon={ClosecircleIcon} className="w-5" />
-                    </div>
-                    <div className="grid grid-cols-5 bg-gray-100 rounded-xl p-4 my-1">
-                        <div className="col-span-2">
-                            <h2 className="font-medium text-xl">Features</h2>
-                            <p className="text-gray-200">
-                                Select the plan the best suits your need
-                            </p>
+                <Form
+                    maxWidth="2xl"
+                    className="!gap-y-0 overflow-hidden !px-4 !py-4"
+                >
+                    <div className="flex w-full flex-col gap-x-6 gap-y-4 md:flex-row md-down:items-center">
+                        <div className="flex w-full max-w-[220px] justify-center rounded-2xl bg-red-50">
+                            <img src={MemberImg} alt="member_user" />
                         </div>
-                        <div className="col-span-1">
-                            <h2 className="text-xl font-bold text-red-50">Basic</h2>
-                            <p className="text-sm font-normal text-gray-200">Free All Time</p>
-                            <Button
-                                children="Current Plan"
-                                theme="white"
-                                variant="outlined"
-                                size="xs"
-                                className="text-xs rounded-md px-2 mt-1" />
-                        </div>
-                        <div className="col-span-1">
-                            <h2 className="text-xl font-bold text-[#DEBA57]">Gold</h2>
-                            <p className="text-sm font-normal text-gray-200">$699USD</p>
-                            <Button
-                                children="Upgrade"
-                                variants=""
-                                theme="white"
-                                size="xs"
-                                className="text-xs rounded-md px-2 mt-1 bg-[#DEBA57]" />
-                        </div>
-                        <div className="col-span-1">
-                            <h2 className="text-xl font-bold text-red-50">Platinum</h2>
-                            <p className="text-sm font-normal text-gray-200">$999USD</p>
-                            <Button
-                                children="Upgrade"
-                                variants=""
-                                theme="white"
-                                size="xs"
-                                className="text-xs rounded-md px-2 mt-1" />
-                        </div>
-                    </div>
-                    <div className="grid grid-cols-5 w-full rounded-xl my-1 gap-2">
-                        <div className="col-span-2 bg-gray-100 rounded-md flex items-center justify-between py-4 px-2 w-full">
-                            <p className="font-medium">Search and Contact Performers</p>
-                            <Icons icon={ArrowDownIcon} className="w-5" />
-                        </div>
-                        <div className="bg-gray-100 rounded-md col-span-3 flex w-full py-4 px-2">
-                            <div className="col-span-1 w-full flex justify-center items-center">
-                                <Icons icon={TickCircleRoundedIcon} className="w-5" />
+                        <div className="flex max-w-sm flex-col justify-between gap-4">
+                            <div className="space-y-2">
+                                <h2 className="text-2xl font-bold uppercase">
+                                    You are almost done!
+                                </h2>
+                                <p className="text-sm font-medium">
+                                    Your Rentboys client is ready!
+                                </p>
+                                <p className="text-sm font-normal text-white/70">
+                                    you may sellect your membership type below.
+                                </p>
                             </div>
-                            <div className="col-span-1 w-full flex justify-center items-center">
-                                <Icons icon={TickCircleRoundedIcon} className="w-5" />
-                            </div>
-                            <div className="col-span-1 w-full flex justify-center items-center">
-                                <Icons icon={TickCircleRoundedIcon} className="w-5" />
+                            <div className="flex flex-col items-center gap-4 md:flex-row md:justify-between">
+                                <Button
+                                    children="Ill’ do it later"
+                                    theme="white"
+                                    variant="text"
+                                    className="w-full rounded-xl text-center text-base font-bold text-white"
+                                    href="/dashboard"
+                                />
+                                <Button
+                                    themes="red"
+                                    href="/client/membership-plans"
+                                    variant="colored"
+                                    children="Select Membership"
+                                    className="w-full whitespace-nowrap rounded-xl text-center text-base font-bold"
+                                />
                             </div>
                         </div>
                     </div>
-                    <div className="grid grid-cols-5 w-full rounded-xl my-1 gap-2">
-                        <div className="col-span-2 bg-gray-100 rounded-md flex items-center justify-between py-4 px-2 w-full">
-                            <p className="font-medium">Personal Page</p>
-                            <Icons icon={ArrowDownIcon} className="w-5" />
-                        </div>
-                        <div className="bg-gray-100 rounded-md col-span-3 flex w-full py-4 px-2">
-                            <div className="col-span-1 w-full flex justify-center items-center">
-                                <Icons icon={TickCircleRoundedIcon} className="w-5" />
-                            </div>
-                            <div className="col-span-1 w-full flex justify-center items-center">
-                                <Icons icon={TickCircleRoundedIcon} className="w-5" />
-                            </div>
-                            <div className="col-span-1 w-full flex justify-center items-center">
-                                <Icons icon={TickCircleRoundedIcon} className="w-5" />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="grid grid-cols-5 w-full rounded-xl my-1 gap-2">
-                        <div className="col-span-2 bg-gray-100 rounded-md flex items-center justify-between py-4 px-2 w-full">
-                            <p className="font-medium">Messenger</p>
-                            <Icons icon={ArrowDownIcon} className="w-5" />
-                        </div>
-                        <div className="bg-gray-100 rounded-md col-span-3 flex w-full py-4 px-2">
-                            <div className="col-span-1 w-full flex justify-center items-center">
-                                <Icons icon={LineIcon} className="w-5" />
-                            </div>
-                            <div className="col-span-1 w-full flex justify-center items-center">
-                                <Icons icon={TickCircleRoundedIcon} className="w-5" />
-                            </div>
-                            <div className="col-span-1 w-full flex justify-center items-center">
-                                <Icons icon={TickCircleRoundedIcon} className="w-5" />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="grid grid-cols-5 w-full rounded-xl my-1 gap-2">
-                        <div className="col-span-2 bg-gray-100 rounded-md flex items-center justify-between py-4 px-2 w-full">
-                            <p className="font-medium">Unlimited Video Access</p>
-                            <Icons icon={ArrowDownIcon} className="w-5" />
-                        </div>
-                        <div className="bg-gray-100 rounded-md col-span-3 flex w-full py-4 px-2">
-                            <div className="col-span-1 w-full flex justify-center items-center">
-                                <Icons icon={LineIcon} className="w-5" />
-                            </div>
-                            <div className="col-span-1 w-full flex justify-center items-center">
-                                <Icons icon={TickCircleRoundedIcon} className="w-5" />
-                            </div>
-                            <div className="col-span-1 w-full flex justify-center items-center">
-                                <Icons icon={TickCircleRoundedIcon} className="w-5" />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="grid grid-cols-5 w-full rounded-xl my-1 gap-2">
-                        <div className="col-span-2 bg-gray-100 rounded-md flex items-center justify-between py-4 px-2 w-full">
-                            <p className="font-medium">View Premium Photos</p>
-                            <Icons icon={ArrowDownIcon} className="w-5" />
-                        </div>
-                        <div className="bg-gray-100 rounded-md col-span-3 flex w-full py-4 px-2">
-                            <div className="col-span-1 w-full flex justify-center items-center">
-                                <Icons icon={LineIcon} className="w-5" />
-                            </div>
-                            <div className="col-span-1 w-full flex justify-center items-center">
-                                <Icons icon={LineIcon} className="w-5" />
-                            </div>
-                            <div className="col-span-1 w-full flex justify-center items-center">
-                                <Icons icon={TickCircleRoundedIcon} className="w-5" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="grid grid-cols-5 w-full rounded-xl my-1 gap-2">
-                        <div className="col-span-2 bg-gray-100 rounded-md flex items-center justify-between py-4 px-2 w-full">
-                            <p className="font-medium">Review Submission</p>
-                            <Icons icon={ArrowDownIcon} className="w-5" />
-                        </div>
-                        <div className="bg-gray-100 rounded-md col-span-3 flex w-full py-4 px-2">
-                            <div className="col-span-1 w-full flex justify-center items-center">
-                                <Icons icon={LineIcon} className="w-5" />
-                            </div>
-                            <div className="col-span-1 w-full flex justify-center items-center">
-                                <Icons icon={LineIcon} className="w-5" />
-                            </div>
-                            <div className="col-span-1 w-full flex justify-center items-center">
-                                <Icons icon={TickCircleRoundedIcon} className="w-5" />
-                            </div>
-                        </div>
-                    </div>
-
-
-
                 </Form>
             </div>
         </>

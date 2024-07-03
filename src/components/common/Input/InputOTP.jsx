@@ -49,7 +49,12 @@ export default function InputOTP({
     };
 
     return (
-        <div className={classNames("flex justify-between gap-4", className)}>
+        <div
+            className={classNames(
+                "flex w-full justify-between gap-4",
+                className
+            )}
+        >
             {range(0, maxLength).map((index, i, array) => {
                 const prevInput = document.getElementById(
                     id + "-" + (index - 1)

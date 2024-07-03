@@ -1,21 +1,21 @@
-import React from "react";
+import { Input } from "@headlessui/react";
 import Icons from "@/components/icons/Component";
 
-const Input = ({
+const HeadlessInput = ({
     icon,
     type,
     placeholder,
     value,
     onChange,
     className,
-    error,
     position = false,
+    error,
     ...props
 }) => {
     return (
         <div className="w-full">
             <div className="relative">
-                <input
+                <Input
                     type={type}
                     placeholder={placeholder}
                     value={value}
@@ -39,4 +39,4 @@ const Input = ({
     );
 };
 
-export default Input;
+export default HeadlessInput;
