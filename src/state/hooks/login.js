@@ -12,6 +12,7 @@ import {
 } from "@/state/slices/form/login.slice";
 import { useAuth } from "./auth";
 import api from "@/services";
+import { useMetadata } from "./metadata";
 
 export function useLogin() {
     /** @type {typeof initialState} */
@@ -101,6 +102,7 @@ export function useLogin() {
     };
 
     const { login: authLogin } = useAuth();
+    const { resetUploadIdModel } = useMetadata();
 
     const login = handleSubmit(
         async data => {
@@ -111,7 +113,7 @@ export function useLogin() {
             }
 
             resetForm();
-            //uploadid false
+            resetUploadIdModel();
             authLogin(response.data);
         },
         data => {

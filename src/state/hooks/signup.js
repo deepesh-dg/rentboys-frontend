@@ -13,6 +13,7 @@ import {
 import { useAuth } from "./auth";
 import api from "@/services";
 import { FileUploadTypes, UserType } from "@/constants";
+import { useMetadata } from "./metadata";
 
 export function useSignup() {
     /** @type {typeof initialState} */
@@ -106,6 +107,7 @@ export function useSignup() {
     };
 
     const { login } = useAuth();
+    const { resetUploadIdModel } = useMetadata();
 
     const signup = handleSubmit(
         async data => {
@@ -228,7 +230,7 @@ export function useSignup() {
         }
 
         if (data.user_type === UserType.CLIENT) {
-            // fASLE
+            resetUploadIdModel();
             login(response.data);
         }
 
@@ -308,7 +310,7 @@ export function useSignup() {
             if (!response.status) {
                 throw response;
             }
-            //FALSE
+            resetUploadIdModel();
             login(response.data);
 
             return true;
