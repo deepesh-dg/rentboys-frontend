@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import BackgroundImg from "@/assets/img/landing-bg2.png";
 import { Men1Icon, Men2Icon, Men3Icon } from "@/components/icons/solid";
 import Button from "@/components/Button";
@@ -18,9 +18,16 @@ const allowedPath = [
 
 const Consent = () => {
     const { isAuthenticated } = useAuth();
-    const [isAgree, setIsAgree] = useState(false);
+    const [isAgree, setIsAgree] = useState(
+        JSON.parse(sessionStorage.getItem("isAgree") || "null")?.isAgree ||
+            false
+    );
 
     const location = useLocation();
+
+    useEffect(() => {
+        sessionStorage.setItem("isAgree", JSON.stringify({ isAgree }));
+    }, [isAgree]);
 
     if (isAuthenticated || isAgree || allowedPath.includes(location.pathname)) {
         return null;
