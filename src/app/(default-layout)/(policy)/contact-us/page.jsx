@@ -36,7 +36,11 @@ const page = () => {
                 </div>
                 <SelectDropDown
                     options={options}
-                    value={selectedOption === "other" ? selectedOption : selectedOption}
+                    value={
+                        selectedOption === "other"
+                            ? selectedOption
+                            : selectedOption
+                    }
                     onChange={handleChange}
                     className="w-full py-4"
                 />
@@ -45,7 +49,7 @@ const page = () => {
                         type="text"
                         placeholder="Others"
                         value={customOption}
-                        onChange={(e) => setCustomOption(e.target.value)}
+                        onChange={e => setCustomOption(e.target.value)}
                         className="mt-4 w-full rounded-md border border-gray-300 p-2"
                     />
                 )}
@@ -58,7 +62,7 @@ const page = () => {
                     <Button
                         children="send"
                         size="md"
-                        className="w-36 uppercase rounded-xl"
+                        className="w-36 rounded-xl uppercase"
                     />
                 </div>
             </div>

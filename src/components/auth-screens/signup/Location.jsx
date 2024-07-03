@@ -112,7 +112,7 @@ const Location = () => {
                     className="rounded-xl text-xl font-bold uppercase"
                 />
             </div>
-        </Form >
+        </Form>
     );
 };
 

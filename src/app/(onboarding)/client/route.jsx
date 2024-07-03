@@ -1,7 +1,7 @@
 import { lazy } from "react";
 
 const ChoosePlans = lazy(() => import("./choose-plans/page"));
-const MembershipPlan = lazy(() => import("./membership-plan/page"))
+const MembershipPlan = lazy(() => import("./membership-plan/page"));
 
 /**
  * @type {import('react-router-dom').RouteObject[]}

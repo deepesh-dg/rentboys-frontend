@@ -158,8 +158,18 @@ const Signup = () => {
                     </Link>
                 </p>
             </Form>
-            {isOpen === 'privacy' && <PrivacyPolicyModel isOpen={isOpen === 'privacy'} close={close} />}
-            {isOpen === 'terms' && <TermsOfServiceModel isOpen={isOpen === 'terms'} close={close} />}
+            {isOpen === "privacy" && (
+                <PrivacyPolicyModel
+                    isOpen={isOpen === "privacy"}
+                    close={close}
+                />
+            )}
+            {isOpen === "terms" && (
+                <TermsOfServiceModel
+                    isOpen={isOpen === "terms"}
+                    close={close}
+                />
+            )}
         </>
     );
 };

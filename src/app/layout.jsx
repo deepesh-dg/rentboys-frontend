@@ -18,7 +18,7 @@ export default function RootLayout() {
                     persistor={persistor}
                 >
                     <Consent />
-                    {/* <UploadIdReminder /> */}
+                    <UploadIdReminder />
                     <div className="bg-dark">
                         <Outlet />
                     </div>

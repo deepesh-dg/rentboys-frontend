@@ -14,13 +14,13 @@ export default function MembershipPlan() {
                         backgroundImage: `url(${BG_IMG})`,
                     }}
                 />
-                <Form maxWidth="2xl" className="!gap-y-0 !px-4 !py-4 overflow-hidden">
+                <Form
+                    maxWidth="2xl"
+                    className="!gap-y-0 overflow-hidden !px-4 !py-4"
+                >
                     <div className="flex w-full flex-col gap-x-6 gap-y-4 md:flex-row md-down:items-center">
-                        <div className="rounded-2xl bg-red-50 max-w-[220px] w-full flex justify-center" >
-                            <img
-                                src={MemberImg}
-                                alt="member_user"
-                            />
+                        <div className="flex w-full max-w-[220px] justify-center rounded-2xl bg-red-50">
+                            <img src={MemberImg} alt="member_user" />
                         </div>
                         <div className="flex max-w-sm flex-col justify-between gap-4">
                             <div className="space-y-2">
@@ -52,8 +52,8 @@ export default function MembershipPlan() {
                             </div>
                         </div>
                     </div>
-                </Form >
-            </div >
+                </Form>
+            </div>
         </>
     );
 }

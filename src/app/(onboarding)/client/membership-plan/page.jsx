@@ -9,7 +9,7 @@ import {
     LineIcon,
     TickCircleRoundedIcon,
 } from "@/components/icons/outline";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 export default function Page() {
     const navigate = useNavigate();
@@ -28,16 +28,20 @@ export default function Page() {
                 >
                     <div className="flex w-full items-center justify-between">
                         <h2 className="text-xl font-bold">Membership Plan</h2>
-                        <Icons icon={ClosecircleIcon} className="w-5 cursor-pointer" onClick={() => navigate('/')} />
+                        <Icons
+                            icon={ClosecircleIcon}
+                            className="w-5 cursor-pointer"
+                            onClick={() => navigate("/")}
+                        />
                     </div>
-                    <div className="mt-4 mb-1 grid grid-cols-5 rounded-xl w-full bg-gray-100 p-4 overflow-x-auto">
+                    <div className="mb-1 mt-4 grid w-full grid-cols-5 overflow-x-auto rounded-xl bg-gray-100 p-4">
                         <div className="col-span-2">
                             <h2 className="text-xl font-medium">Features</h2>
                             <p className="text-gray-200">
                                 Select the plan the best suits your need
                             </p>
                         </div>
-                        <div className="col-span-1 flex flex-col justify-center items-center">
+                        <div className="col-span-1 flex flex-col items-center justify-center">
                             <h2 className="text-xl font-bold text-red-50">
                                 Basic
                             </h2>
@@ -52,7 +56,7 @@ export default function Page() {
                                 className="mt-1 rounded-md px-2 text-xs"
                             />
                         </div>
-                        <div className="col-span-1 flex flex-col justify-center items-center">
+                        <div className="col-span-1 flex flex-col items-center justify-center">
                             <h2 className="text-xl font-bold text-[#DEBA57]">
                                 Gold
                             </h2>
@@ -67,7 +71,7 @@ export default function Page() {
                                 className="mt-1 rounded-md bg-[#DEBA57] px-2 text-xs"
                             />
                         </div>
-                        <div className="col-span-1 flex flex-col justify-center items-center">
+                        <div className="col-span-1 flex flex-col items-center justify-center">
                             <h2 className="text-xl font-bold text-red-50">
                                 Platinum
                             </h2>

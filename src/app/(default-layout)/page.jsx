@@ -14,12 +14,10 @@ import {
     WhiteStarIcon,
     YellowStarIcon,
 } from "@/components/icons/solid";
-import UploadIdReminder from "@/components/UploadIdReminder";
 
 export default function Home() {
     return (
         <>
-            <UploadIdReminder />
             <section className="main-section">
                 <div className="featuredEscorts">
                     <div className="m-auto px-4">

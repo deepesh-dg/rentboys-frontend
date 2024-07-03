@@ -5,4 +5,4 @@ export * from "./loader";
 export * from "./login";
 export * from "./signup";
 export * from "./profile";
-export * from "./uploadId";
+export * from "./metadata";

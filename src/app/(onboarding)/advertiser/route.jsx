@@ -2,7 +2,7 @@ import { lazy } from "react";
 
 const ProfileSetup = lazy(() => import("./profile-setup/page"));
 const ChoosePlans = lazy(() => import("./choose-plans/page"));
-const MembershipPlan = lazy(() => import("./membership-plan/page"))
+const MembershipPlan = lazy(() => import("./membership-plan/page"));
 /**
  * @type {import('react-router-dom').RouteObject[]}
  */

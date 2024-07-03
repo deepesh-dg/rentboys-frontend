@@ -22,7 +22,6 @@ import LockIcon from "@/assets/icons/solid/lock.svg";
 import CMIcon from "@/assets/icons/solid/cm.svg";
 import KGIcon from "@/assets/icons/solid/kg.svg";
 
-
 export {
     Men1Icon,
     Men2Icon,
@@ -46,5 +45,5 @@ export {
     WhiteStarIcon,
     LockIcon,
     CMIcon,
-    KGIcon
+    KGIcon,
 };
