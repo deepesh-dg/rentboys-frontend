@@ -1,7 +1,30 @@
+import { UserTypeId, AccountStatus } from "@/constants";
 import { createSlice } from "@reduxjs/toolkit";
 
 /**
- * @type {{isAuthenticated: boolean, token?: string | null, user: *}}
+ * @typedef User
+ * @property {number} id
+ * @property {string} username
+ * @property {typeof UserTypeId[keyof typeof UserTypeId]} user_role_id
+ * @property {string} email
+ * @property {string | null} phone_number
+ * @property {string | null} phone_code
+ * @property {string | null} country_code
+ * @property {string | null} profile
+ * @property {string | null} location
+ * @property {number | null} latitude
+ * @property {number | null} longitude
+ * @property {number} step_one
+ * @property {number} step_two
+ * @property {number} step_three
+ * @property {number} step_four
+ * @property {number} is_active
+ * @property {typeof AccountStatus[keyof typeof AccountStatus]} is_approved
+ * @property {string} created_at
+ */
+
+/**
+ * @type {{isAuthenticated: boolean, token?: string | null, user: User | null}}
  */
 export const initialState = {
     isAuthenticated: false,

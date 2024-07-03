@@ -11,8 +11,16 @@ import {
 import { ArrowRightIcon } from "@/components/icons/outline";
 import LastSeenUser from "@/components/cards/LastSeenUser";
 import InputSwitch from "@/components/Switch";
+import { useAuth } from "@/state";
+import { AccountStatus } from "@/constants";
+import { useState } from "@/hooks";
+import ChangePassword from "./ChangePassword";
 
 export default function Dashboard() {
+    const [openChangePassword, setOpenChangePassword] = useState(false);
+
+    const { user } = useAuth();
+
     return (
         <div className="text-white md:pl-4">
             <div className="col-span-6 grid grid-cols-6 items-start gap-4">
@@ -25,7 +33,7 @@ export default function Dashboard() {
                                     My Location
                                 </p>
                                 <p className="text-lg text-white">
-                                    Ab-sarojni nagar, Delhi, India
+                                    {user.location}
                                 </p>
                             </div>
                         </div>
@@ -145,7 +153,7 @@ export default function Dashboard() {
                                         User Name
                                     </td>
                                     <td className="whitespace-nowrap py-2 pl-8">
-                                        Qwertyzxcasd
+                                        {user.username}
                                     </td>
                                 </tr>
                                 <tr>
@@ -153,7 +161,7 @@ export default function Dashboard() {
                                         My Location
                                     </td>
                                     <td className="whitespace-nowrap py-2 pl-8">
-                                        Delhi, India
+                                        {user.location}
                                     </td>
                                 </tr>
                                 <tr>
@@ -169,7 +177,7 @@ export default function Dashboard() {
                                         Contact Email
                                     </td>
                                     <td className="whitespace-nowrap py-2 pl-8">
-                                        ra************42@g...
+                                        {user.email}
                                     </td>
                                 </tr>
                             </tbody>
@@ -197,20 +205,47 @@ export default function Dashboard() {
                                     <td className="whitespace-nowrap text-gray-200">
                                         Profile Status
                                     </td>
-                                    <td className="whitespace-nowrap py-2 pl-8 text-green-500">
-                                        Approved
+                                    <td className="whitespace-nowrap py-2 pl-8">
+                                        {user.is_approved ===
+                                        AccountStatus.APPROVED ? (
+                                            <span className="text-green-500">
+                                                Approved
+                                            </span>
+                                        ) : (
+                                            ""
+                                        )}
+                                        {user.is_approved ===
+                                        AccountStatus.PENDING ? (
+                                            <span className="text-yellow-500">
+                                                Pending
+                                            </span>
+                                        ) : (
+                                            ""
+                                        )}
+                                        {user.is_approved ===
+                                        AccountStatus.REJECTED ? (
+                                            <span className="text-red-500">
+                                                Rejected
+                                            </span>
+                                        ) : (
+                                            ""
+                                        )}
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div className="col-span-1 my-4 rounded-xl bg-gray-100 p-2">
-                        <div className="col-span-1 flex items-center justify-between rounded-xl bg-gray-100 p-2">
-                            <p>Change Password</p>{" "}
+                        <button
+                            onClick={() => setOpenChangePassword(true)}
+                            type="button"
+                            className="col-span-1 flex w-full items-center justify-between rounded-xl bg-gray-100 p-2"
+                        >
+                            <p>Change Password</p>
                             <span>
                                 <Icons src={ArrowRightIcon} className="w-5" />
                             </span>
-                        </div>
+                        </button>
                     </div>
                     <h2 className="mb- relative font-medium after:absolute after:-bottom-2 after:left-0 after:h-0.5 after:w-1/2 after:bg-custom-gradient">
                         Privacy Settings
@@ -234,6 +269,13 @@ export default function Dashboard() {
                     </div>
                 </div>
             </div>
+            {openChangePassword && (
+                <div className="fixed inset-0 flex items-center justify-center bg-black/50">
+                    <ChangePassword
+                        close={() => setOpenChangePassword(false)}
+                    />
+                </div>
+            )}
         </div>
     );
 }
