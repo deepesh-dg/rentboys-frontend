@@ -22,7 +22,7 @@ const initialFormData = {
     id_proof_path: "",
     id_proof_preview: "",
     phone_code: "+91",
-    country_code: "",
+    country_code: "IN",
     phone_number: "",
 };
 
