@@ -11,6 +11,7 @@ const allowedRoutes = [
     "/advertiser/profile-setup",
     "/advertiser/choose-plans",
     "/advertiser/membership-plans",
+    "/advertiser/upload-id",
     "/client/choose-plans",
     "/client/membership-plans",
     "/login",
@@ -52,7 +53,9 @@ const UploadIdReminder = () => {
                         fields will help you show up in search results and get
                         the most out of our website.
                     </p>
-                    <Button href="/">Click here to Complete</Button>
+                    <Button href="/advertiser/upload-id">
+                        Click here to Complete
+                    </Button>
                 </Form>
             </div>
         </div>

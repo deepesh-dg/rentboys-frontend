@@ -15,4 +15,12 @@ export default class ProfileService extends HTTPWithAuth {
     profileSetup(data) {
         return this.post("/advertiser/profile-setup", data);
     }
+
+    /**
+     *
+     * @param {string} id_proof_path
+     */
+    updateIdProof(id_proof_path) {
+        return this.post("/update/id-proof", { id_proof_path });
+    }
 }

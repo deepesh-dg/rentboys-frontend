@@ -17,11 +17,11 @@ export default function RootLayout() {
                     loading={<GlobalLoader force />}
                     persistor={persistor}
                 >
-                    <Consent />
-                    <UploadIdReminder />
                     <div className="bg-dark">
                         <Outlet />
                     </div>
+                    <Consent />
+                    <UploadIdReminder />
                     <GlobalLoader />
                 </PersistGate>
             </QueryClientProvider>

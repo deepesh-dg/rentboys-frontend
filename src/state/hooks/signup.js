@@ -74,8 +74,8 @@ export function useSignup() {
     }, [dispatch]);
 
     /**
-     *
-     * @param {(d: typeof formData) => Promise<any>} submit
+     * @template T
+     * @param {(d: typeof formData) => Promise<T>} submit
      * @param {(d: typeof formData) => void} validate
      */
     const handleSubmit = (submit, validate) => {
