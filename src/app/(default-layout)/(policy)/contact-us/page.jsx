@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import Input from "@/components/common/Input/Input";
 import Textarea from "@/components/TextArea";
 import Button from "@/components/Button";
-import Select from "@/components/common/Input/Select";
-import SelectOption from "@/components/SelectOption";
+import SelectDropDown from "@/components/SelectDropdown";
 
 const page = () => {
     const [selectedOption, setSelectedOption] = useState("");
@@ -35,7 +34,7 @@ const page = () => {
                     <Input type="text" placeholder="Your Name*" />
                     <Input type="email" placeholder="Email Address*" />
                 </div>
-                <SelectOption
+                <SelectDropDown
                     options={options}
                     value={selectedOption === "other" ? selectedOption : selectedOption}
                     onChange={handleChange}
@@ -59,7 +58,7 @@ const page = () => {
                     <Button
                         children="send"
                         size="md"
-                        className="w-36 uppercase"
+                        className="w-36 uppercase rounded-xl"
                     />
                 </div>
             </div>

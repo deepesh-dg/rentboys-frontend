@@ -7,6 +7,7 @@ import {
     profileFormReducer,
     mastersReducer,
     signupScreenStepsReducer,
+    uploadIdReducer
 } from "./slices";
 import {
     persistReducer,
@@ -66,6 +67,14 @@ const profileFormPersistedReducer = persistReducer(
     },
     profileFormReducer
 );
+const uploadIdPersistedReducer = persistReducer(
+    {
+        key: "uploadId",
+        storage,
+        version: "0.0.1",
+    },
+    uploadIdReducer
+);
 
 const reducers = combineReducers({
     auth: authPersistedReducer,
@@ -75,6 +84,7 @@ const reducers = combineReducers({
     loginForm: loginFormPersistedReducer,
     signupForm: signupFormPersistedReducer,
     profileForm: profileFormPersistedReducer,
+    uploadId: uploadIdPersistedReducer
 });
 
 const store = configureStore({

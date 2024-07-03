@@ -3,7 +3,7 @@ import { useMasters, useProfile } from "@/state";
 import { useGlobalLoader } from "@/hooks";
 import { useNavigate } from "react-router-dom";
 import Input from "@/components/common/Input/HeadlessInput";
-import Select from "@/components/SelectOption";
+import SelectDropDown from "@/components/SelectDropdown";
 
 const Step3 = ({ addOnSkip, addOnNext, removeOnSkip, removeOnNext }) => {
     const { data, setData, formIds, loader, profileSetup } = useProfile();
@@ -34,7 +34,7 @@ const Step3 = ({ addOnSkip, addOnNext, removeOnSkip, removeOnNext }) => {
     return (
         <div className="flex-grow px-4">
             <div className="grid grid-cols-1 gap-x-4 gap-y-6 md:grid-cols-2 lg:grid-cols-4 [&>*]:min-h-[58px]">
-                <Select
+                <SelectDropDown
                     id={formIds.body}
                     value={data.body}
                     onChange={e => setData({ body: e.target.value })}
@@ -45,7 +45,7 @@ const Step3 = ({ addOnSkip, addOnNext, removeOnSkip, removeOnNext }) => {
                     }))}
                     firstDisabledOption="Body"
                 />
-                <Select
+                <SelectDropDown
                     id={formIds.race}
                     value={data.race}
                     onChange={e => setData({ race: e.target.value })}
@@ -56,7 +56,7 @@ const Step3 = ({ addOnSkip, addOnNext, removeOnSkip, removeOnNext }) => {
                     }))}
                     firstDisabledOption="Race"
                 />
-                <Select
+                <SelectDropDown
                     id={formIds.tatoos}
                     value={data.tatoos}
                     onChange={e => setData({ tatoos: e.target.value })}
@@ -67,7 +67,7 @@ const Step3 = ({ addOnSkip, addOnNext, removeOnSkip, removeOnNext }) => {
                     }))}
                     firstDisabledOption="Tattoos"
                 />
-                <Select
+                <SelectDropDown
                     id={formIds.piercing}
                     value={data.piercing}
                     onChange={e => setData({ piercing: e.target.value })}
@@ -78,7 +78,7 @@ const Step3 = ({ addOnSkip, addOnNext, removeOnSkip, removeOnNext }) => {
                     }))}
                     firstDisabledOption="Piercing"
                 />
-                <Select
+                <SelectDropDown
                     id={formIds.smoking}
                     value={data.smoking}
                     onChange={e => setData({ smoking: e.target.value })}
@@ -96,15 +96,15 @@ const Step3 = ({ addOnSkip, addOnNext, removeOnSkip, removeOnNext }) => {
             <div className="grid gap-4 pb-6 md:grid-cols-3">
                 <div className="space-y-2">
                     <p>On Call</p>
-                    <Input placeholder="price" />
+                    <Input placeholder="price" type="number" />
                 </div>
                 <div className="space-y-2">
                     <p>Off Call</p>
-                    <Input placeholder="price" />
+                    <Input placeholder="price" type="number" />
                 </div>
                 <div className="space-y-2">
                     <p>Overnight</p>
-                    <Input placeholder="price" />
+                    <Input placeholder="price" type="number" />
                 </div>
             </div>
         </div>

@@ -7,6 +7,7 @@ import { useSignup } from "@/state";
 import { useSignupScreenSteps } from "@/state";
 import { SignupScreenSteps } from "@/constants";
 import phoneCodes from "@/data/country_code.json";
+import SelectDropDown from "@/components/SelectDropdown";
 
 export default function PhoneNumber() {
     const { data, errors, formIds, phoneVerify, setData } = useSignup();
@@ -24,7 +25,7 @@ export default function PhoneNumber() {
         >
             <div>
                 <div className="flex">
-                    <Select
+                    <SelectDropDown
                         id={formIds.phone_code}
                         value={`${data.phone_code}-${data.country_code}`}
                         onChange={e => {

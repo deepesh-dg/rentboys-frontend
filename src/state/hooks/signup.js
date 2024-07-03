@@ -228,6 +228,7 @@ export function useSignup() {
         }
 
         if (data.user_type === UserType.CLIENT) {
+            // fASLE
             login(response.data);
         }
 
@@ -307,7 +308,7 @@ export function useSignup() {
             if (!response.status) {
                 throw response;
             }
-
+            //FALSE
             login(response.data);
 
             return true;
